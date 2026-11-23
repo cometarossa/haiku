@@ -141,6 +141,11 @@ action requires explicit text and injects guest keyboard events.
 Example: python3 guest-hmp.py --run-id 123456789 screenshot.
 A GUI Terminal must have input focus before entering shell commands.
 The helper cannot reboot or write virtual disks directly.
+The terminal command injects the Haiku Desktop shortcut for opening a
+new Terminal window. Only issue the type command after visually checking
+the new Terminal has gained keyboard focus, to avoid typing shell text
+into Tracker or another application.
+
 
 
 ## First verified CI-built Haiku boot (2026-11-24)

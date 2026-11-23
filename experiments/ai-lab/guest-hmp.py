@@ -58,7 +58,8 @@ def main():
     target = parser.add_mutually_exclusive_group(required=True)
     target.add_argument("--baseline", action="store_true")
     target.add_argument("--run-id", help="CI run ID of experimental Haiku VM")
-    parser.add_argument("command", choices=("info", "screenshot", "type"))
+    parser.add_argument("command", choices=("info", "screenshot", "type",
+                                            "terminal"))
     parser.add_argument("text", nargs="*")
     args = parser.parse_args()
     base = Path.home() / "Developer" / "Haiku"
@@ -93,6 +94,12 @@ def main():
             if not out.exists() or out.stat().st_size == 0:
                 raise RuntimeError("No screenshot created")
             print("SCREENSHOT=" + str(out))
+        elif args.command == "terminal":
+            # Haiku's known Ctrl/Meta-Alt-T shortcut worked on the
+            # CI-built minimal GUI; do not assume the shell has focus
+            # until its new window has visibly appeared.
+            exchange(sock, "sendkey meta_l-alt-t")
+            print("Requested Haiku Terminal via guest keyboard shortcut")
         else:
             for key in keys:
                 exchange(sock, "sendkey " + key)
