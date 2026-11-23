@@ -44,3 +44,23 @@ Exact CI checkout commit:
 The full local 42 KiB serial log and original disk image are retained
 with the Mac's isolated VM; only the selected warnings and image/
 screenshot checksum manifests are published here.
+
+## Native guest identity and interactive shell
+
+Once the fork-built GUI booted, the QEMU keyboard shortcut opened the
+Haiku Terminal. The uname -a command was executed **inside the guest**.
+Its visible output contains:
+
+    Haiku shredder R1~beta6+development hrev60465+ai_2a23e157
+
+This revision matches the CI checkout SHA prefix in the build log
+and confirms the VM is not the separately installed official beta6.
+
+The native open /boot/home command launched Tracker's home folder,
+confirming functioning GUI application launch and windowing. In a
+second focused Terminal, sysinfo completed and reported the guest
+CPU's virtualized feature set, userland resources, and ~4 GiB of RAM.
+Both terminal results are preserved as unmodified QEMU screen captures:
+haiku-fork-minimum-uname.png and haiku-fork-minimum-sysinfo.png.
+
+These smoke tests still do not exercise MediaPlayer or video playback.
