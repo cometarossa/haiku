@@ -114,3 +114,28 @@ are staged on the Mac in its guest-files/regular-gui directory, not
 embedded into the Git repository. Exact SHA256 hashes are recorded
 in GUI-FIXTURE-SHA256SUMS. The independent full desktop Haiku
 guest must ingest and test these fixtures to complete GUI acceptance.
+
+### Full desktop guest acceptance sequence
+
+After a successfully built **regular nightly-raw image** is running
+under QEMU in a separate overlay, serve only the staged regular-gui
+directory on the Mac's localhost TCP port 8899 (QEMU's user-network
+gateway is visible as 10.0.2.2 from inside the guest).
+
+Within a GUI Terminal in that full Haiku guest, download this
+repository's acceptance-guest-haiku.sh script and execute it.
+It retrieves the three fixtures and SHA256SUMS over the QEMU-only
+gateway, verifies their integrity inside Haiku, checks the MediaPlayer
+executable exists, and prints the guest's kernel revision.
+
+Then issue the actual shell commands one by one in the guest:
+
+    open application/x-vnd.Haiku-MediaPlayer /boot/home/cover_h264.mp4
+    open application/x-vnd.Haiku-MediaPlayer /boot/home/cover_mpeg4.mp4
+    open application/x-vnd.Haiku-MediaPlayer /boot/home/test_video_h264.mp4
+
+Capture and inspect the QEMU screen after each command. Verify both
+covers are genuinely decoded and visibly distinct, then check the
+150-frame video plays. The base profile's isolated C++ tests are NOT
+a substitute for these end-to-end GUI checks. A failed GUI check must
+be recorded as failure even when the fork's CI compilation succeeds.

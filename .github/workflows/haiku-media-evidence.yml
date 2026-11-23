@@ -52,6 +52,9 @@ jobs:
           sh -n experiments/ai-lab/run-limited-builder.sh
           sh -n experiments/ai-lab/boot-minimum-macos.sh
           sh -n experiments/ai-lab/boot-regular-macos.sh
+          sh -n experiments/ai-lab/media/prepare-gui-fixtures.sh
+          sh -n experiments/ai-lab/media/acceptance-guest-haiku.sh
+          grep -q 'MediaPlayer' build/jam/images/definitions/regular
           sh -n experiments/ai-lab/probe-minimum-macos.sh
           sh -n experiments/ai-lab/probe-regular-macos.sh
           python3 -m py_compile experiments/ai-lab/guest-hmp.py
