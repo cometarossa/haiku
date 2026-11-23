@@ -131,3 +131,13 @@ Use \`probe-regular-macos.sh <regular-run-id>\` to collect QEMU monitor
 status, screenshot and any serial logs. Validate that the regular
 desktop actually includes our fork-patched MediaPlayer and run the
 cover-art tests before calling MediaPlayer GUI integration complete.
+
+### Host-side QEMU terminal/screenshot test helper
+
+The independent-fork guest-hmp.py script operates only on known
+local Haiku lab VM UNIX monitor sockets. Use --baseline or --run-id to
+choose a target, followed by info, screenshot, or type. The type
+action requires explicit text and injects guest keyboard events.
+Example: python3 guest-hmp.py --run-id 123456789 screenshot.
+A GUI Terminal must have input focus before entering shell commands.
+The helper cannot reboot or write virtual disks directly.
