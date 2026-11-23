@@ -10,9 +10,28 @@ import socket
 import time
 
 
+def receive_prompt(sock):
+    # QEMU sends a banner and prompt in separate UNIX socket writes.
+    # Read *all* of each reply, not just the first partial chunk.
+    output = bytearray()
+    for _ in range(150):
+        chunk = sock.recv(8192)
+        if not chunk:
+            raise RuntimeError("QEMU monitor closed unexpectedly")
+        output.extend(chunk)
+        if output.endswith(b"(qemu) "):
+            return output.decode("utf-8", errors="replace")
+    raise RuntimeError("QEMU monitor prompt not received")
+
+
 def exchange(sock, line):
     sock.sendall((line + "\n").encode("ascii"))
-    reply = sock.recv(8192).decode("utf-8", errors="replace")
+    reply = receive_prompt(sock)
+    # HMP echoes individual typed command characters with ANSI cursor
+    # controls. The useful command response begins after the CRLF.
+    if "\r\n" in reply:
+        reply = reply.split("\r\n", 1)[1]
+    reply = reply.rsplit("(qemu) ", 1)[0].strip()
     if "Error:" in reply or "unknown command" in reply:
         raise RuntimeError("QEMU rejected command: " + reply[-250:])
     return reply
@@ -65,7 +84,7 @@ def main():
     with socket.socket(socket.AF_UNIX) as sock:
         sock.settimeout(8)
         sock.connect(str(monitor))
-        sock.recv(8192)
+        receive_prompt(sock)
         if args.command == "info":
             print(exchange(sock, "info status"))
             print(exchange(sock, "info block")[-1000:])
