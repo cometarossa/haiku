@@ -8,6 +8,8 @@ on:
       - ai-experimental
     paths:
       - 'experiments/ai-lab/**'
+      - 'src/apps/mediaplayer/supplier/MediaTrackVideoSupplier.cpp'
+      - 'src/apps/mediaplayer/supplier/MediaTrackVideoSupplier.h'
       - '.github/workflows/haiku-media-evidence.yml'
 
 permissions:
