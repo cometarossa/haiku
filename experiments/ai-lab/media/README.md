@@ -26,3 +26,22 @@ succeeded; 100 and 1000 lifecycle tests passed without errors.
 Original CSVs, stderr, screenshot and SHA256 evidence are under
 ../evidence/haiku-beta6-2026-11-23/. A new experimental kernel/image
 is not built yet, so no comparison with fork modifications is possible.
+
+## Multi-threaded open/close test
+
+The standalone media_file_concurrency.cpp probe runs independent
+BMediaFile lifecycles from up to 16 POSIX threads at the same time.
+It records every outcome in CSV, including per-thread InitCheck(),
+track count, and first-track status. It does not render frames.
+
+Haiku-native build/run:
+
+    g++ -std=c++11 -O2 -Wall -Wextra -pthread -o media_parallel \
+      media_file_concurrency.cpp -lmedia -lbe
+    ./media_parallel /boot/home/testsrc2-720p30-150frames-h264.mp4 4 100 \
+      > media_concurrency.csv 2> media_concurrency.stderr
+
+This is a correctness and reproducibility probe; timings inside QEMU
+are not valid evidence of bare-metal speed. A real race needs to be
+reproduced on unmodified Haiku and the experimental fork before any
+fix is proposed.
