@@ -35,7 +35,7 @@ jobs:
           # In container jobs, checkout files can have a different UID
           # than root: trust only these explicitly selected repositories.
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git config --global --add safe.directory "$GITHUB_WORKSPACE/../buildtools"
+          git config --global --add safe.directory "$(realpath ../buildtools)"
           git -C ../buildtools rev-parse HEAD
           git rev-parse HEAD
       - name: Build Jam and configure x86-64 Haiku cross-compiler
