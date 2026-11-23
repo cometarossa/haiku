@@ -31,7 +31,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-          fetch-depth: 1
+          # Haiku's determine_haiku_revision requires a reachable hrev tag.
+          # A depth-one clone prevents git describe from finding any tags.
+          fetch-depth: 0
+      - name: Verify reachable upstream revision tag
+        shell: bash
+        run: |
+          set -euo pipefail
+          git describe --tags --match='hrev*' --abbrev=1
       - name: Fetch official Haiku buildtools
         shell: bash
         run: |
