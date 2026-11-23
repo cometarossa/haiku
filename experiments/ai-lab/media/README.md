@@ -61,3 +61,18 @@ video playback performance benchmark.
     g++ -std=c++11 -O2 -Wall -Wextra -o media_decode \
       media_video_decode.cpp -lmedia -lbe
     ./media_decode /boot/home/testsrc2-720p30-150frames-h264.mp4
+
+## MediaPlayer single-frame supplier isolation regression
+
+MediaPlayer's MediaTrackVideoSupplier historically cached one-frame
+cover art with a function-local static flag, shared between every
+supplier instance. The fork-only media_player_single_frame_regression.cpp
+uses two independently opened one-frame MP4 tracks to test that both
+suppliers decode their *first* frame before returning wasCached=true
+on any later request.
+
+Build the test with the actual MediaPlayer supplier implementation,
+VideoTrackSupplier base class and ColorSpaceToString helper, linked
+against native Haiku Media Kit; use an independently generated
+single-frame MP4 fixture. The test should fail against the unmodified
+supplier if the suspected bug exists, and pass with the isolated fix.
