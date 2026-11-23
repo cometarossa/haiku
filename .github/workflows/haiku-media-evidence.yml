@@ -32,6 +32,8 @@ jobs:
           set -euo pipefail
           cd experiments/ai-lab/evidence/haiku-beta6-2026-11-23
           sha256sum -c SHA256SUMS
+          cd ../media-player-single-frame-2026-11-23
+          sha256sum -c SHA256SUMS
       - name: Validate shell helpers and fork provenance
         run: |
           set -euo pipefail

@@ -34,6 +34,10 @@ submitted to the upstream official Haiku project.
 - [ ] Implement minimal fix exclusively in this fork, with regression tests.
 - [ ] Publish machine-readable evidence and AI provenance.
 
+- [x] Reproduce a real MediaPlayer single-frame cover-art cache bug
+      on unmodified beta6 and verify fork-only per-instance state fix
+      with native C++ before/after evidence. See the new evidence bundle.
+
 ## M2 — Desktop and SMP correctness
 
 - [ ] Test app_server input/events and window lifecycle under stress.
