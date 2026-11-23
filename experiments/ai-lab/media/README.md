@@ -96,3 +96,21 @@ returned wasCached=true without changing the caller-provided buffer.
 The two distinct covers produced distinct pixel digests. A separate
 test ensures the cache state is only marked valid after successful
 decoding, not before an attempted read.
+
+
+### Prepared GUI files for the first complete-fork acceptance test
+
+On 24 November 2026 MacPorts FFmpeg was unusable because the
+system-installed libdav1d.6.dylib was missing. Rather than alter that
+global software installation, the fixtures were generated with the
+already-installed FFmpeg 7.1.4-Jellyfin binary on the ZimaBlade, from
+the original 150-frame H264 testsrc2 video. Both transfers ran over
+temporary LAN-only HTTP listeners, which were stopped afterwards.
+
+Verified result: cover_h264.mp4 and cover_mpeg4.mp4 contain **one**
+1280x720 video frame each (H.264 and MPEG-4 respectively). The
+regular test_video_h264.mp4 contains **150** frames. The three files
+are staged on the Mac in its guest-files/regular-gui directory, not
+embedded into the Git repository. Exact SHA256 hashes are recorded
+in GUI-FIXTURE-SHA256SUMS. The independent full desktop Haiku
+guest must ingest and test these fixtures to complete GUI acceptance.
