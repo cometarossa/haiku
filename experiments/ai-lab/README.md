@@ -70,3 +70,15 @@ Haiku host-only configure also passed in the isolated builder. It
 reported missing setfattr (Linux extended-attribute helper). These tests
 validate prerequisites only: cross-GCC, a bootable OS image, and Media
 Kit regression tests have not yet been built.
+
+## Cross-toolchain build on ZimaBlade
+
+On ZimaBlade the laboratory checkout lives in
+/DATA/Documents/haiku-ai-lab; build artifacts are stored there.
+The container image is haiku-ai-builder:ubuntu24.
+
+Use run-limited-builder.sh --check for a bounded dependency test,
+or --configure for a 10-minute incremental toolchain build segment.
+Timeout runs INSIDE the container, not around the Docker client,
+so no orphan build container is left behind. The full toolchain is
+not yet complete. See TOOLCHAIN-STATUS-2026-11-23.md.
