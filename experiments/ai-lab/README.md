@@ -98,3 +98,9 @@ The script is guarded against unfinished CI runs, corrupted artifacts,
 missing host tools and VNC port conflicts. It must not be invoked
 with unknown or untrusted CI run IDs. Actual image boot is unverified
 until the minimum image workflow succeeds.
+
+After booting an experimental CI image, run the guarded
+probe-minimum-macos.sh with the run ID to capture its actual QEMU screen,
+inspect info status, and read the guest serial log without writing
+inside the guest. Only a visible Haiku desktop or a verified boot
+console provides evidence that the OS successfully booted.
