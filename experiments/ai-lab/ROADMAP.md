@@ -23,20 +23,32 @@ submitted to the upstream official Haiku project.
 
 - [x] Establish Haiku beta6 guest baseline: native BMediaFile/track
       lifecycle probe, 100/100 and 1000/1000 valid runs (CSV, stderr,
-      screenshot, SHA256 manifest); **no bug identified yet**.
+      screenshot, SHA256 manifest); no file/track lifecycle failure.
 - [x] Concurrent Media Kit baseline: 4 threads x 100 and 8 threads x 100,
       all 1200 cycles valid; guest CSV, stderr and screenshot recorded.
 - [x] Native Haiku Media Kit H.264 decode: two complete runs of 150
       1280x720 B_RGB32 frames, identical pixel FNV-1a 64 digest.
-- [ ] Identify a reproducible media_server or Media Kit defect.
-- [ ] Add a controlled failing test (node lifecycle, malformed input or leaks).
-- [ ] Confirm behavior on reference and experimental builds.
-- [ ] Implement minimal fix exclusively in this fork, with regression tests.
-- [ ] Publish machine-readable evidence and AI provenance.
+### MediaPlayer single-frame decoding
 
-- [x] Reproduce a real MediaPlayer single-frame cover-art cache bug
-      on unmodified beta6 and verify fork-only per-instance state fix
-      with native C++ before/after evidence. See the new evidence bundle.
+- [x] Reproduce on unchanged beta6: second independent one-frame video
+      returned was_cached=1 without decoding pixels.
+- [x] Implement minimal fork-only state fix and recompile actual supplier
+      source against the native Haiku Media Kit; verify exit 1 before,
+      exit 0 after.
+- [x] Test distinct H.264 and MPEG-4 one-frame covers; ensure each
+      produces different pixels and subsequent per-instance cache hits.
+- [x] Mark each cover-art cache valid only after successful decoding.
+- [x] Preserve native logs, screenshots, SHA256 manifests and regression
+      tests with AI provenance; 9/9 checks passing locally and on CI.
+- [ ] Build complete patched MediaPlayer executable, integrate in a
+      disposable Haiku OS image and test GUI playback/cover switching.
+
+### Media Kit and media_server remaining work
+
+- [ ] Identify a separate reproducible media_server or Media Kit defect,
+      such as a failed node lifecycle, malformed input or resource leak.
+- [ ] Verify unchanged reference, add controlled test and implement an
+      isolated fix on our own fork with regression evidence.
 
 ## M2 — Desktop and SMP correctness
 
