@@ -1,0 +1,62 @@
+# AI-assisted independent experimental fork. NEVER submit upstream.
+name: Haiku fork x86-64 cross-toolchain
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-cross-tools:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    container:
+      image: ubuntu:24.04
+    steps:
+      - name: Install isolated Linux build dependencies
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            build-essential ca-certificates git curl wget python3 gawk \
+            bison flex nasm libgmp-dev libmpfr-dev libmpc-dev \
+            zlib1g-dev libzstd-dev texinfo autoconf automake libtool \
+            libncurses-dev pkg-config xz-utils unzip cmake
+      - name: Checkout experimental Haiku fork
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Fetch upstream buildtools
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --filter=blob:none \
+            https://github.com/haiku/buildtools.git ../buildtools
+          git -C ../buildtools rev-parse HEAD
+          git rev-parse HEAD
+      - name: Build Jam and configure x86-64 Haiku cross-compiler
+        shell: bash
+        run: |
+          set -euo pipefail
+          make -C ../buildtools/jam -j2
+          mkdir -p generated
+          cd generated
+          if ! ../configure --build-cross-tools x86_64 \
+              --cross-tools-source ../../buildtools -j4 \
+              > cross-build-ci.log 2>&1; then
+            echo 'Cross-build failed. Final 100 log lines:'
+            tail -n 100 cross-build-ci.log
+            exit 1
+          fi
+          test -x cross-tools-x86_64/bin/x86_64-unknown-haiku-gcc
+          cross-tools-x86_64/bin/x86_64-unknown-haiku-gcc --version
+          cross-tools-x86_64/bin/x86_64-unknown-haiku-ld --version | head -2
+          echo 'CROSS_TOOLCHAIN_COMPLETE'
+      - name: Preserve build log (no large compiler binaries)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: haiku-cross-toolchain-build-log
+          path: generated/cross-build-ci.log
+          if-no-files-found: ignore
+          retention-days: 1

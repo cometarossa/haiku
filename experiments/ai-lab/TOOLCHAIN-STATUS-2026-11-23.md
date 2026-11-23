@@ -29,3 +29,12 @@ built from this fork yet.**
 - Run the complete cross-toolchain build to successful exit, then
   produce an isolated Haiku QEMU boot image. Only then try a fork patch.
 - Do **not** submit code, reports or AI-assisted materials upstream.
+
+## Independent manual CI
+
+The fork includes .github/workflows/haiku-cross-toolchain.yml,
+a **workflow_dispatch-only** job for a standard Ubuntu 24.04 runner
+in the public fork. It runs entirely without production home-machine
+resources and uploads only short-retention logs, not large binaries.
+The Actions job is independent of the local incremental build.
+CI results must be inspected before claiming the toolchain works.
