@@ -104,3 +104,16 @@ probe-minimum-macos.sh with the run ID to capture its actual QEMU screen,
 inspect info status, and read the guest serial log without writing
 inside the guest. Only a visible Haiku desktop or a verified boot
 console provides evidence that the OS successfully booted.
+
+
+## Full desktop image with patched MediaPlayer
+
+The \`haiku-build-regular.yml\` workflow is a **manual-only** alternative
+to the minimum boot image. It builds Haiku \`@nightly-raw\`, whose regular
+desktop content includes MediaPlayer from this fork, compresses the
+disk and uploads only the artifact and short-term logs. It has not
+been executed yet: first validate the minimum image in QEMU.
+
+The full desktop image is still an independent AI-assisted fork and
+is never submitted upstream. Do not treat a successful compile as
+proof the GUI works without a separate QEMU boot and smoke test.

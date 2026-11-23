@@ -42,6 +42,8 @@ submitted to the upstream official Haiku project.
       tests with AI provenance; 9/9 checks passing locally and on CI.
 - [ ] Build complete patched MediaPlayer executable, integrate in a
       disposable Haiku OS image and test GUI playback/cover switching.
+      The minimum-raw image does not ship MediaPlayer; the independent
+      manual nightly-raw workflow builds the regular desktop with it.
 
 ### Media Kit and media_server remaining work
 

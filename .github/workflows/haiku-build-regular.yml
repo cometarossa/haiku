@@ -1,0 +1,111 @@
+# AI-assisted independent research fork. Do NOT submit upstream Haiku.
+name: Haiku fork x86-64 regular desktop image
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regular-raw-image:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    steps:
+      - name: Verify host capacity
+        run: |
+          set -euo pipefail
+          df -h .
+          free -h
+          nproc
+      - name: Install official Haiku build prerequisites
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            build-essential ca-certificates git curl wget \
+            python3 gawk bison flex nasm \
+            libgmp-dev libmpfr-dev libmpc-dev libexpat1-dev \
+            zlib1g-dev libzstd-dev texinfo autoconf automake libtool \
+            libncurses-dev pkg-config xz-utils unzip cmake \
+            xorriso mtools zstd
+      - name: Checkout AI-assisted Haiku fork
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Fetch official Haiku buildtools
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --quiet --depth 1 --filter=blob:none \
+            https://github.com/haiku/buildtools.git ../buildtools
+          git -C ../buildtools rev-parse HEAD
+          git rev-parse HEAD
+      - name: Build Jam and cross-toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          make -C ../buildtools/jam -j4 > /tmp/haiku-jam.log 2>&1 \
+            || { tail -n 100 /tmp/haiku-jam.log; exit 1; }
+          test -x ../buildtools/jam/bin.linuxx86/jam
+          mkdir -p generated
+          cd generated
+          ../configure --build-cross-tools x86_64 \
+            --cross-tools-source ../../buildtools -j4 \
+            > cross-build-ci.log 2>&1 \
+            || { tail -n 110 cross-build-ci.log; exit 1; }
+          test -x cross-tools-x86_64/bin/x86_64-unknown-haiku-gcc
+          cross-tools-x86_64/bin/x86_64-unknown-haiku-gcc --version
+          echo CROSS_TOOLCHAIN_COMPLETE
+      - name: Build full Haiku desktop raw disk image
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd generated
+          # The fork's upstream base a479fc073a8db11f08df0ad5dbffe429f2e68092
+          # is exactly Gerrit's hrev60465 tag (verified 2026-11-23).
+          # HaikuPorts packages require >= hrev59866_5. A purely named
+          # ai-experimental revision sorts as older, so package resolution
+          # fails even after a successful OS package build.
+          # Preserve the REAL upstream base revision in the version and
+          # distinguish the AI-assisted fork with a unique suffix.
+          revision="hrev60465+ai_$(git rev-parse --short HEAD)"
+          echo "Building independently-derived Haiku revision: $revision"
+          ../../buildtools/jam/bin.linuxx86/jam -q -j4 \
+            "-sHAIKU_REVISION=$revision" @nightly-raw \
+            > image-build-ci.log 2>&1 \
+            || { tail -n 140 image-build-ci.log; exit 1; }
+          image=$(find . -type f -name 'haiku-nightly.image' -print -quit)
+          test -n "$image"
+          test -s "$image"
+          mkdir -p artifact
+          cp "$image" artifact/haiku-regular-x86_64.raw
+          sha256sum artifact/haiku-regular-x86_64.raw \
+            > artifact/haiku-regular-x86_64.raw.sha256
+          zstd -T2 -3 artifact/haiku-regular-x86_64.raw \
+            -o artifact/haiku-regular-x86_64.raw.zst
+          sha256sum artifact/haiku-regular-x86_64.raw.zst \
+            > artifact/haiku-regular-x86_64.raw.zst.sha256
+          ls -lh artifact/
+          rm artifact/haiku-regular-x86_64.raw
+          echo REGULAR_DESKTOP_IMAGE_COMPLETE
+      - name: Upload disk image and hashes
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: haiku-ai-regular-x86_64
+          path: generated/artifact/*
+          if-no-files-found: error
+          retention-days: 3
+          compression-level: 0
+      - name: Upload diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: haiku-ai-regular-build-logs
+          path: |
+            generated/cross-build-ci.log
+            generated/image-build-ci.log
+            /tmp/haiku-jam.log
+          if-no-files-found: ignore
+          retention-days: 3
+          compression-level: 6
