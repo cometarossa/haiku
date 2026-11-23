@@ -13,8 +13,9 @@ submitted to the upstream official Haiku project.
 - [x] Isolated Ubuntu 24.04 builder on local ZimaBlade: GCC 13, Python 3.12,
       NASM and native Linux Jam verified, with CPU/memory constrained.
 - [x] Haiku Linux host-only configuration succeeds inside isolated builder.
-- [ ] Complete x86_64 cross toolchain (Mac Clang currently blocked by missing
-      libsupc++.a; prefer isolated Linux builder).
+- [x] Complete and verify cross toolchain on GitHub Actions
+      run 45274740500: GCC 13.3.0 and GNU binutils 2.46.1 for
+      x86_64-unknown-haiku. The separate Zima local GCC build is partial.
 - [ ] Build baseline x86_64 image, separately from beta6.
 - [ ] Boot disposable QEMU image; collect serial/GUI logs and functional tests.
 

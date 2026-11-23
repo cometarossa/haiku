@@ -80,8 +80,9 @@ The container image is haiku-ai-builder:ubuntu24.
 Use run-limited-builder.sh --check for a bounded dependency test,
 or --configure for a 10-minute incremental toolchain build segment.
 Timeout runs INSIDE the container, not around the Docker client,
-so no orphan build container is left behind. The full toolchain is
-not yet complete. See TOOLCHAIN-STATUS-2026-11-23.md.
+so no orphan build container is left behind. The Zima-local incremental toolchain is not yet complete; an
+independent GitHub Actions toolchain build has succeeded.
+See TOOLCHAIN-STATUS-2026-11-23.md.
 
 ## Boot the first CI-built Haiku image on macOS
 

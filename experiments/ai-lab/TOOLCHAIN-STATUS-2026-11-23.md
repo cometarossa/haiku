@@ -38,3 +38,15 @@ in the public fork. It runs entirely without production home-machine
 resources and uploads only short-retention logs, not large binaries.
 The Actions job is independent of the local incremental build.
 CI results must be inspected before claiming the toolchain works.
+
+## Successful independent GitHub Actions toolchain build
+
+CI run https://github.com/cometarossa/haiku/actions/runs/45274740500
+finished successfully. GCC 13.3.0 and GNU binutils 2.46.1 for
+x86_64-unknown-haiku were built and verified on Ubuntu 24.04.
+
+This does NOT mean the slower, partially built ZimaBlade installation
+has completed. Its retained objects remain useful but optional.
+The separate disposable minimum disk image CI run
+https://github.com/cometarossa/haiku/actions/runs/45276188905
+was launched but has not yet passed image construction and QEMU boot.
