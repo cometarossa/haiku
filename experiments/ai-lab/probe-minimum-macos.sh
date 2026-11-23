@@ -1,54 +1,29 @@
 #!/bin/sh
-# AI-assisted independent research-fork diagnostic, read-only against guest.
-# Captures a QEMU screendump from a started disposable minimum Haiku VM.
+# AI-assisted independent fork QEMU screenshot/serial collector.
+# Read-only, limited to the single selected and already running VM.
 set -eu
 if [ "$#" -ne 1 ]; then
-    echo "Usage: sh $0 <successful booted image run ID>" >&2
+    echo "Usage: sh $0 <booted GitHub Actions run ID>" >&2
     exit 2
 fi
 case "$1" in
     ''|*[!0-9]*) echo "Run ID must be decimal digits" >&2; exit 2 ;;
 esac
+
+LAB="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)"
 ROOT="$HOME/Developer/Haiku/ai-images/run-$1"
-MONITOR="$ROOT/haiku-ai-minimum-monitor.sock"
 PIDFILE="$ROOT/haiku-ai-minimum-qemu.pid"
-PPM="$ROOT/haiku-ai-minimum-screen.ppm"
 PNG="$ROOT/haiku-ai-minimum-screen.png"
+PPM="$ROOT/haiku-ai-current-screen.ppm"
 
-if [ ! -S "$MONITOR" ] || [ ! -s "$PIDFILE" ]; then
-    echo "Experimental VM monitor not running for this run ID." >&2
+if [ ! -s "$PIDFILE" ] || ! kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+    echo "The experimental QEMU VM is not running for run $1" >&2
     exit 3
 fi
-if ! kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
-    echo "Experimental QEMU VM PID is not running." >&2
-    exit 3
-fi
-python3 - "$MONITOR" "$PPM" <<'PY'
-from pathlib import Path
-import socket
-import sys
 
-monitor = sys.argv[1]
-screenshot = Path(sys.argv[2])
-with socket.socket(socket.AF_UNIX) as sock:
-    sock.settimeout(6)
-    sock.connect(monitor)
-    sock.recv(8192)
-    for cmd in ("info status", "info block"):
-        sock.sendall((cmd + "\n").encode())
-        result = sock.recv(8192).decode("utf-8", errors="replace")
-        if "Error:" in result or "unknown command" in result:
-            raise RuntimeError(result)
-        print(cmd + ": " + result[-850:].strip())
-    sock.sendall(("screendump " + str(screenshot) + "\n").encode())
-    result = sock.recv(8192).decode("utf-8", errors="replace")
-    if "Error:" in result or "unknown command" in result:
-        raise RuntimeError(result)
-if not screenshot.exists() or screenshot.stat().st_size == 0:
-    raise RuntimeError("No QEMU screen capture was written")
-print("Screenshot PPM:", screenshot)
-PY
-
+python3 "$LAB/guest-hmp.py" --run-id "$1" info
+python3 "$LAB/guest-hmp.py" --run-id "$1" screenshot
+test -s "$PPM"
 sips -s format png "$PPM" --out "$PNG" >/dev/null
 test -s "$PNG"
 shasum -a 256 "$PNG"
@@ -57,5 +32,4 @@ if [ -s "$ROOT/haiku-ai-minimum-serial.log" ]; then
     echo "GUEST_SERIAL_LAST_LINES:"
     tail -n 22 "$ROOT/haiku-ai-minimum-serial.log"
 fi
-echo "This proves QEMU is running and captured a screen,"
-echo "not that Haiku has reached the GUI; inspect the PNG separately."
+echo "Inspect the screenshot to establish that Haiku reached the desktop."
