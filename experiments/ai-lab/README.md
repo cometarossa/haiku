@@ -66,5 +66,7 @@ ZimaBlade hosts an isolated Ubuntu 24.04 container image
 haiku-ai-builder:ubuntu24. With no network, two CPU cores maximum,
 3 GiB memory limit, no added Linux capabilities and no new privileges,
 the host compiled Jam and executed its version check successfully.
-This validates prerequisites only: cross-GCC, a bootable OS image,
-and Media Kit regression tests have not yet been built.
+Haiku host-only configure also passed in the isolated builder. It
+reported missing setfattr (Linux extended-attribute helper). These tests
+validate prerequisites only: cross-GCC, a bootable OS image, and Media
+Kit regression tests have not yet been built.
