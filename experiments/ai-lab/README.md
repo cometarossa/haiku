@@ -50,3 +50,12 @@ supported by isolated regression tests.
    in this fork only. Never submit these materials upstream.
 
 Run `sh experiments/ai-lab/doctor.sh` for a read-only workspace check.
+
+## Isolated Linux build option
+
+The Dockerfile.builder defines a Linux host for Haiku cross-builds.
+Mount source and buildtools as /work/haiku-ai and /work/buildtools.
+The read-only preflight mode is build-in-linux.sh --check.
+The explicit --configure mode begins the GCC toolchain bootstrap and
+must only be run with CPU/memory limits and plenty of free disk space.
+See ROADMAP.md for status. Neither mode touches persistent beta6 disks.
