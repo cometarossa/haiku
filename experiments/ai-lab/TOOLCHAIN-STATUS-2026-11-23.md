@@ -50,3 +50,16 @@ has completed. Its retained objects remain useful but optional.
 The separate disposable minimum disk image CI run
 https://github.com/cometarossa/haiku/actions/runs/45276188905
 was launched but has not yet passed image construction and QEMU boot.
+
+
+## Full minimum image CI attempt and version compatibility
+
+Run 45279056832 successfully compiled x86_64 cross tools and 10,438
+Jam targets, then failed to create the minimum image. Package dependency
+resolver required haiku >= r1~beta6_hrev59866_5-1, but our earlier
+fork-only version r1~beta6_ai_experimental_<sha>-1 compared as older.
+The unmodified upstream base commit a479fc073a8db11f08df0ad5dbffe429f2e68092
+is **exactly** hrev60465 according to the official Gerrit tag.
+The corrected build revision uses hrev60465+ai_<forksha>, retaining the
+true source base and identifying an independent fork.
+This must be verified by a successful disk image CI build.

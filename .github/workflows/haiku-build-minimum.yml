@@ -61,10 +61,15 @@ jobs:
         run: |
           set -euo pipefail
           cd generated
-          # GitHub's Haiku mirrors do not expose upstream hrev tags.
-          # Use an honest, unique, fork-specific build revision, rather
-          # than inventing an official hrev number.
-          revision="ai-experimental-$(git rev-parse --short HEAD)"
+          # The fork's upstream base a479fc073a8db11f08df0ad5dbffe429f2e68092
+          # is exactly Gerrit's hrev60465 tag (verified 2026-11-23).
+          # HaikuPorts packages require >= hrev59866_5. A purely named
+          # ai-experimental revision sorts as older, so package resolution
+          # fails even after a successful OS package build.
+          # Preserve the REAL upstream base revision in the version and
+          # distinguish the AI-assisted fork with a unique suffix.
+          revision="hrev60465+ai_$(git rev-parse --short HEAD)"
+          echo "Building independently-derived Haiku revision: $revision"
           ../../buildtools/jam/bin.linuxx86/jam -q -j4 \
             "-sHAIKU_REVISION=$revision" @minimum-raw \
             > image-build-ci.log 2>&1 \
