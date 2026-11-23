@@ -1,3 +1,19 @@
+# Independent AI-assisted Haiku research fork
+
+> **This repository branch is NOT the official Haiku OS project.**
+> It is an independent, AI-assisted research fork maintained under
+> cometarossa/haiku, branch ai-experimental. The upstream project
+> haiku/haiku explicitly does **not** accept code or documentation
+> generated or modified with AI assistance. **Nothing developed here
+> with AI will be submitted upstream.**
+
+The original Haiku source and documentation follow below. Our experiments,
+build instructions, test evidence and development roadmap live in
+[experiments/ai-lab](experiments/ai-lab/README.md).
+For fork-wide safety and provenance requirements see [AGENTS.md](AGENTS.md).
+
+---
+
 Haiku
 =======================
 **[Homepage](https://www.haiku-os.org/)
