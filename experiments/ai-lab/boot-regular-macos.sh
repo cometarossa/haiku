@@ -148,8 +148,7 @@ with sock:
         raise SystemExit("Could not set QEMU VNC password")
 PY
 
-printf '%s
-' "$VNC_PORT" > "$VNC_PORTFILE"
+printf '%s\n' "$VNC_PORT" > "$VNC_PORTFILE"
 echo "Booted experimental Haiku image via disposable QCOW2 overlay."
 echo "VNC: vnc://127.0.0.1:$VNC_PORT"
 echo "QEMU PID: $(cat "$PIDFILE")"
