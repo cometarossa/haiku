@@ -60,5 +60,24 @@ class MediaConcurrencyEvidence(unittest.TestCase):
         self._check("media_parallel_8x100.csv", 8)
 
 
+class MediaDecodedFrameEvidence(unittest.TestCase):
+    def test_h264_150_frames_repeated_consistently(self):
+        with (EVIDENCE / "media_decode_1.csv").open(newline="") as f:
+            first = list(csv.DictReader(f))
+        with (EVIDENCE / "media_decode_2.csv").open(newline="") as f:
+            second = list(csv.DictReader(f))
+        self.assertEqual(first, second)
+        self.assertEqual(len(first), 1)
+        self.assertEqual(int(first[0]["frames"]), 150)
+        self.assertEqual(int(first[0]["width"]), 1280)
+        self.assertEqual(int(first[0]["height"]), 720)
+        self.assertEqual(first[0]["format"], "B_RGB32")
+        self.assertEqual(first[0]["hash_fnv1a64"], "8c82dcfcda88175a")
+        for index in (1, 2):
+            error_log = (EVIDENCE / ("media_decode_%d.stderr" % index)).read_text()
+            self.assertIn("Decoded frames=150, expected=150", error_log)
+            self.assertIn("hash=8c82dcfcda88175a", error_log)
+
+
 if __name__ == "__main__":
     unittest.main()

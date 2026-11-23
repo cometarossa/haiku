@@ -63,3 +63,25 @@ haiku-beta6-media-kit-concurrent.png.
 This checks simultaneous resource lifecycles, **not** video decoding,
 thread scheduling fairness, leak freedom, presented FPS or native
 hardware performance. No Media Kit defect has been reproduced.
+
+## Native Media Kit H.264 decoded-frame baseline
+
+The fork-only media_video_decode.cpp was built and executed with
+native g++ / libmedia on the same unmodified Haiku R1/beta6 QEMU guest:
+
+    g++ -std=c++11 -O2 -Wall -Wextra -o media_decode decode.cpp -lmedia -lbe
+
+Two complete independent runs of the exact same H.264 MP4 fixture:
+- Run 1: 150 video frames, 1280x720, B_RGB32, FNV-1a 64 digest
+  8c82dcfcda88175a.
+- Run 2: 150 video frames, 1280x720, B_RGB32, same digest
+  8c82dcfcda88175a.
+- Both runs exited successfully with native decoder outputs.
+
+Artifacts: media_decode_1.csv, media_decode_2.csv and original stderr,
+haiku-beta6-media-kit-video-decode.png and SHA256SUMS.
+
+The digest covers all active RGB32 pixel bytes decoded via the Media Kit.
+It is NOT the same as the FFmpeg rawvideo MD5 used in earlier trials.
+It proves deterministic output on this fixture and current decoder,
+not universal codec correctness, full multimedia playback or FPS.

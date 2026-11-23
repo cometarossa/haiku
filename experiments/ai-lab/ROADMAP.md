@@ -25,6 +25,8 @@ submitted to the upstream official Haiku project.
       screenshot, SHA256 manifest); **no bug identified yet**.
 - [x] Concurrent Media Kit baseline: 4 threads x 100 and 8 threads x 100,
       all 1200 cycles valid; guest CSV, stderr and screenshot recorded.
+- [x] Native Haiku Media Kit H.264 decode: two complete runs of 150
+      1280x720 B_RGB32 frames, identical pixel FNV-1a 64 digest.
 - [ ] Identify a reproducible media_server or Media Kit defect.
 - [ ] Add a controlled failing test (node lifecycle, malformed input or leaks).
 - [ ] Confirm behavior on reference and experimental builds.
