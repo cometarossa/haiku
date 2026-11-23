@@ -45,3 +45,19 @@ This is a correctness and reproducibility probe; timings inside QEMU
 are not valid evidence of bare-metal speed. A real race needs to be
 reproduced on unmodified Haiku and the experimental fork before any
 fix is proposed.
+
+## Decoded-video correctness probe
+
+The Haiku-only program media_video_decode.cpp requests 32-bit RGB
+output from BMediaTrack and decodes the complete finite video fixture.
+It computes FNV-1a 64-bit over active pixel bytes, excluding stride
+padding, and records the number of frames. Run the same fixture twice:
+the frame count, geometry and hash should be identical. Different
+pixel outputs or decoder versions may legitimately yield different
+hashes; this does not claim bitwise equivalence to FFmpeg output.
+The test does not present frames to the desktop, so it is NOT a
+video playback performance benchmark.
+
+    g++ -std=c++11 -O2 -Wall -Wextra -o media_decode \
+      media_video_decode.cpp -lmedia -lbe
+    ./media_decode /boot/home/testsrc2-720p30-150frames-h264.mp4
