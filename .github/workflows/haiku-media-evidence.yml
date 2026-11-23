@@ -29,12 +29,18 @@ jobs:
           set -euo pipefail
           python3 -m unittest discover \
             -s experiments/ai-lab/media -p 'test_*.py' -v
+      - name: Validate app_server native GUI lifecycle evidence
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover             -s experiments/ai-lab/desktop -p 'test_*.py' -v
       - name: Verify exported guest files and screenshot checksums
         run: |
           set -euo pipefail
           cd experiments/ai-lab/evidence/haiku-beta6-2026-11-23
           sha256sum -c SHA256SUMS
           cd ../media-player-single-frame-2026-11-23
+          sha256sum -c SHA256SUMS
+          cd ../haiku-beta6-window-2026-11-23
           sha256sum -c SHA256SUMS
       - name: Validate shell helpers and fork provenance
         run: |

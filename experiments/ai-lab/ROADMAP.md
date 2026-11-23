@@ -52,7 +52,11 @@ submitted to the upstream official Haiku project.
 
 ## M2 — Desktop and SMP correctness
 
-- [ ] Test app_server input/events and window lifecycle under stress.
+- [x] Establish native beta6 app_server lifecycle baseline: 40 and 200
+      GUI BWindow loops created and closed, 0 errors; exported CSV,
+      stderr and screenshot. Fork-built image comparison still pending.
+- [ ] Extend app_server event/input correctness tests and reproduce any
+      real bugs under controlled conditions.
 - [ ] Test virtual-SMP correctness without claiming native speed.
 - [ ] Keep driver/GPU performance tests on physical hardware.
 
