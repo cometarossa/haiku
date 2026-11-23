@@ -1,0 +1,43 @@
+# AI-assisted independent research fork, no upstream Haiku submission.
+name: Haiku fork Media Kit evidence validation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - ai-experimental
+    paths:
+      - 'experiments/ai-lab/**'
+      - '.github/workflows/haiku-media-evidence.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-media-evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Checkout Haiku research fork
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate guest Media Kit baseline CSV contents
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover \
+            -s experiments/ai-lab/media -p 'test_*.py' -v
+      - name: Verify exported guest files and screenshot checksums
+        run: |
+          set -euo pipefail
+          cd experiments/ai-lab/evidence/haiku-beta6-2026-11-23
+          sha256sum -c SHA256SUMS
+      - name: Validate shell helpers and fork provenance
+        run: |
+          set -euo pipefail
+          sh -n experiments/ai-lab/doctor.sh
+          sh -n experiments/ai-lab/build-in-linux.sh
+          sh -n experiments/ai-lab/run-limited-builder.sh
+          sh -n experiments/ai-lab/boot-minimum-macos.sh
+          grep -q 'AI-assisted' AGENTS.md
+          grep -q 'NOT the official Haiku OS project' ReadMe.md
