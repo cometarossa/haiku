@@ -32,6 +32,7 @@ MediaTrackVideoSupplier::MediaTrackVideoSupplier(BMediaTrack* track,
 	fPerformanceTime(0),
 	fDuration(0),
 	fCurrentFrame(0),
+	fSingleFrameAlreadyRead(false),
 
 	fTrackIndex(trackIndex)
 {
@@ -97,12 +98,11 @@ MediaTrackVideoSupplier::ReadFrame(void* buffer, bigtime_t* performanceTime,
 	// pretend to be a 25fps stream and keep rendering the same frame over
 	// and over again.
 	if (fVideoTrack->CountFrames() < 2) {
-		static int already = false;
-		if (already) {
+		if (fSingleFrameAlreadyRead) {
 			wasCached = true;
 			return B_OK;
 		}
-		already = true;
+		fSingleFrameAlreadyRead = true;
 	}
 
 	status_t ret = B_OK;

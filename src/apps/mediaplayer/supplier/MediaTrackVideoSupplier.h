@@ -59,6 +59,7 @@ class MediaTrackVideoSupplier : public VideoTrackSupplier {
 			bigtime_t			fPerformanceTime;
 			bigtime_t			fDuration;
 			int64				fCurrentFrame;
+			bool				fSingleFrameAlreadyRead;
 
 			int32				fTrackIndex;
 };
