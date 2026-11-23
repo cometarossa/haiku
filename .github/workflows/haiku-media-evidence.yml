@@ -42,6 +42,8 @@ jobs:
           sha256sum -c SHA256SUMS
           cd ../haiku-beta6-window-2026-11-23
           sha256sum -c SHA256SUMS
+          cd ../fork-minimum-boot-2026-11-24
+          sha256sum -c SHA256SUMS
       - name: Validate shell helpers and fork provenance
         run: |
           set -euo pipefail
@@ -49,5 +51,9 @@ jobs:
           sh -n experiments/ai-lab/build-in-linux.sh
           sh -n experiments/ai-lab/run-limited-builder.sh
           sh -n experiments/ai-lab/boot-minimum-macos.sh
+          sh -n experiments/ai-lab/boot-regular-macos.sh
+          sh -n experiments/ai-lab/probe-minimum-macos.sh
+          sh -n experiments/ai-lab/probe-regular-macos.sh
+          python3 -m py_compile experiments/ai-lab/guest-hmp.py
           grep -q 'AI-assisted' AGENTS.md
           grep -q 'NOT the official Haiku OS project' ReadMe.md
