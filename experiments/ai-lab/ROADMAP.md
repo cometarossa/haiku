@@ -16,8 +16,13 @@ submitted to the upstream official Haiku project.
 - [x] Complete and verify cross toolchain on GitHub Actions
       run 45274740500: GCC 13.3.0 and GNU binutils 2.46.1 for
       x86_64-unknown-haiku. The separate Zima local GCC build is partial.
-- [ ] Build baseline x86_64 image, separately from beta6.
-- [ ] Boot disposable QEMU image; collect serial/GUI logs and functional tests.
+- [x] Build minimum x86_64 raw image in CI run 45282976284,
+      with successful cross-toolchain, image and artifact SHA256 checks.
+- [x] Boot fork-built minimum Haiku in QEMU/HVF and visually verify
+      desktop, Tracker and Deskbar. Evidence in
+      evidence/fork-minimum-boot-2026-11-24; only minimal OS profile.
+- [ ] Boot the complete desktop (@nightly-raw) with patched MediaPlayer,
+      then repeat native tests and validate missing optional libraries.
 
 ## M1 — Media Kit correctness
 

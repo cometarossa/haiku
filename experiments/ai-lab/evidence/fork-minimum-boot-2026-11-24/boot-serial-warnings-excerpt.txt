@@ -1,0 +1,7 @@
+load addon /boot/system/add-ons/input_server/filters/screen_saver failed
+load addon /boot/system/add-ons/input_server/filters/shortcut_catcher failed
+runtime_loader: Cannot open file libgame.so (needed by /boot/system/add-ons/input_server/filters/shortcut_catcher): No such file or directory
+runtime_loader: Cannot open file libharfbuzz.so.0 (needed by /boot/system/lib/libfreetype.so.6.20.6): No such file or directory
+runtime_loader: Cannot open file libmedia.so (needed by /boot/system/bin/desklink): No such file or directory
+runtime_loader: Cannot open file libscreensaver.so (needed by /boot/system/add-ons/input_server/filters/screen_saver): No such file or directory
+vesa: vesa_init() completed successfully!

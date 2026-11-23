@@ -63,3 +63,12 @@ is **exactly** hrev60465 according to the official Gerrit tag.
 The corrected build revision uses hrev60465+ai_<forksha>, retaining the
 true source base and identifying an independent fork.
 This must be verified by a successful disk image CI build.
+
+
+## Successful Haiku minimum raw disk build and QEMU boot
+
+Run 45282976284 (source 2a23e157) completed with success.
+Mac verified zstd/raw SHA256, booted the 300 MiB raw image via a
+throwaway QCOW2 overlay and captured a visible Haiku GUI.
+The minimum profile omits media libraries; it is not a full
+MediaPlayer acceptance test. See evidence/fork-minimum-boot-2026-11-24.

@@ -141,3 +141,15 @@ action requires explicit text and injects guest keyboard events.
 Example: python3 guest-hmp.py --run-id 123456789 screenshot.
 A GUI Terminal must have input focus before entering shell commands.
 The helper cannot reboot or write virtual disks directly.
+
+
+## First verified CI-built Haiku boot (2026-11-24)
+
+GitHub Actions run 45282976284 successfully produced a 300 MiB
+minimum raw disk image. Both SHA256 checks passed on macOS.
+QEMU/HVF booted it and reached the visible Haiku desktop. The
+original beta6 disk remains unchanged. See
+evidence/fork-minimum-boot-2026-11-24/ for source revision,
+screenshot, artifact checksums, and limitations.
+
+This is a minimal OS smoke test, not a complete MediaPlayer runtime.
