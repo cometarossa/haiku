@@ -117,3 +117,17 @@ been executed yet: first validate the minimum image in QEMU.
 The full desktop image is still an independent AI-assisted fork and
 is never submitted upstream. Do not treat a successful compile as
 proof the GUI works without a separate QEMU boot and smoke test.
+
+
+### Full desktop image QEMU test harness
+
+After the regular desktop workflow completes successfully, use
+\`boot-regular-macos.sh <regular-run-id>\` to independently verify SHA256
+checksums and launch the full Haiku desktop under QEMU/HVF with a
+throwaway overlay and localhost VNC on port 5913. The baseline beta6
+(port 5911) and experimental minimum image (port 5912) are not modified.
+
+Use \`probe-regular-macos.sh <regular-run-id>\` to collect QEMU monitor
+status, screenshot and any serial logs. Validate that the regular
+desktop actually includes our fork-patched MediaPlayer and run the
+cover-art tests before calling MediaPlayer GUI integration complete.
