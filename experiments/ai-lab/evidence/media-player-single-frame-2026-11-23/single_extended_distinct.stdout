@@ -1,0 +1,12 @@
+track_frames=1,1
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+first,status=0,was_cached=0,wrote_pixels=1,hash=f43d8c576d0735e6
+first_again,status=0,was_cached=1,wrote_pixels=0
+second,status=0,was_cached=0,wrote_pixels=1,hash=a75e0669c0941266
+second_again,status=0,was_cached=1,wrote_pixels=0
+SINGLE_FRAME_INDEPENDENT_SUPPLIERS_PASS

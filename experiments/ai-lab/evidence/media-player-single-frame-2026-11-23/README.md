@@ -60,3 +60,29 @@ unmodified; this was **not yet a full fork OS build or package install**.
 
 An AI-assisted fork patch must never be submitted to the official Haiku
 project due to the upstream project's contribution policy.
+
+## Extended verification: two different covers and cache reuse
+
+A stronger regression program was compiled and executed natively in the
+same unmodified beta6 guest with the revised research-fork supplier.
+The first one-frame video is H.264 and the second is a one-frame
+MPEG-4 clip generated from another timestamp of the same controlled
+test source using the guest FFmpeg encoder.
+
+Two passes for each independent supplier were tested:
+- Same file, two independent suppliers: both first reads returned
+  status=0, was_cached=0, wrote_pixels=1, same decoded digest.
+- Different files, two independent suppliers: both first reads returned
+  status=0, was_cached=0, wrote_pixels=1; hashes differed.
+- On each supplier, the second read returned was_cached=1 and
+  wrote_pixels=0, confirming correct per-instance cache reuse.
+- Both test variants returned SINGLE_FRAME_INDEPENDENT_SUPPLIERS_PASS.
+
+The corrected supplier now sets its cache flag only after a successful
+decoder read; this avoids making a failed first read permanent cache
+state. Error-retry semantics on decoder failure were inspected in
+source but not simulated by this functional test.
+
+Artifacts: single_extended_same.stdout/.stderr,
+single_extended_distinct.stdout/.stderr and
+ai-fork-extended-cover-art-passes.png.

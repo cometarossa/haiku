@@ -26,8 +26,37 @@ class SingleFrameIsolationRegression(unittest.TestCase):
         header = SUPPLIER_H.read_text()
         self.assertNotIn("static int already", source)
         self.assertIn("fSingleFrameAlreadyRead(false)", source)
-        self.assertIn("if (fSingleFrameAlreadyRead)", source)
+        self.assertIn("if (singleFrame && fSingleFrameAlreadyRead)", source)
         self.assertIn("bool\t\t\t\tfSingleFrameAlreadyRead;", header)
+
+    def test_extended_independent_covers_and_cache_reuse(self):
+        import re
+        for kind in ("same", "distinct"):
+            output = (EVIDENCE / ("single_extended_%s.stdout" % kind)).read_text()
+            self.assertIn("track_frames=1,1", output)
+            self.assertIn("SINGLE_FRAME_INDEPENDENT_SUPPLIERS_PASS", output)
+            for label in ("first", "second"):
+                match = re.search(
+                    r"^%s,status=0,was_cached=0,wrote_pixels=1,hash=([a-f0-9]{16})$"
+                    % label, output, re.M)
+                self.assertIsNotNone(match, label + " first decode")
+                self.assertIn(
+                    "%s_again,status=0,was_cached=1,wrote_pixels=0" % label,
+                    output)
+            digests = re.findall(
+                r"^(?:first|second),status=0,was_cached=0,wrote_pixels=1,"
+                r"hash=([a-f0-9]{16})$", output, re.M)
+            self.assertEqual(len(digests), 2)
+            if kind == "distinct":
+                self.assertNotEqual(digests[0], digests[1])
+            else:
+                self.assertEqual(digests[0], digests[1])
+
+    def test_cache_activation_after_decode(self):
+        source = SUPPLIER_CPP.read_text()
+        self.assertLess(
+            source.index("ret = fVideoTrack->ReadFrames("),
+            source.index("fSingleFrameAlreadyRead = true;"))
 
 
 if __name__ == "__main__":
