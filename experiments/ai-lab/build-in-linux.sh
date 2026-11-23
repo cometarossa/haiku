@@ -18,7 +18,8 @@ echo "Mode: $mode"
 df -h "$ROOT" | tail -1
 
 make -C "$TOOLS/jam" -j2
-jam="$TOOLS/jam/bin.linuxx86_64/jam"
+jam="$TOOLS/jam/bin.linuxx86/jam"
+if [ ! -x "$jam" ]; then jam="$TOOLS/jam/bin.linuxx86_64/jam"; fi
 test -x "$jam" || { echo "Jam executable not found at $jam" >&2; exit 1; }
 "$jam" -v
 
