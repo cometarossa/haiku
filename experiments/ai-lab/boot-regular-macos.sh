@@ -22,6 +22,15 @@ test "$(uname -s)" = Darwin || {
     echo "This boot helper targets macOS; aborting." >&2; exit 2;
 }
 
+# Reject unrelated successful workflows before touching any local image.
+RUN_KIND=$(gh run view "$RUN_ID" --repo cometarossa/haiku \
+    --json workflowName,headBranch \
+    --jq '(.workflowName == "Haiku fork x86-64 regular desktop image") and (.headBranch == "ai-experimental")')
+if [ "$RUN_KIND" != true ]; then
+    echo "Run $RUN_ID is not a regular desktop build of ai-experimental." >&2
+    exit 3
+fi
+
 RUN_RESULT=$(gh run view "$RUN_ID" --repo cometarossa/haiku \
     --json conclusion --jq '.conclusion')
 if [ "$RUN_RESULT" != success ]; then
@@ -81,7 +90,7 @@ if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
     exit 0
 fi
 if lsof -nP -iTCP:5913 -sTCP:LISTEN >/dev/null 2>&1; then
-    echo "VNC port 5912 is already in use; refusing to collide." >&2
+    echo "VNC port 5913 is already in use; refusing to collide." >&2
     exit 5
 fi
 

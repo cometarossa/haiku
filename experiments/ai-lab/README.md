@@ -111,8 +111,8 @@ console provides evidence that the OS successfully booted.
 The \`haiku-build-regular.yml\` workflow is a **manual-only** alternative
 to the minimum boot image. It builds Haiku \`@nightly-raw\`, whose regular
 desktop content includes MediaPlayer from this fork, compresses the
-disk and uploads only the artifact and short-term logs. It has not
-been executed yet: first validate the minimum image in QEMU.
+disk and uploads only the artifact and short-term logs. The first regular desktop build is run 45285916285; as of
+2026-11-24 the cross-toolchain step is in progress.
 
 The full desktop image is still an independent AI-assisted fork and
 is never submitted upstream. Do not treat a successful compile as
