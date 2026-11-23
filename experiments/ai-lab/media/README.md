@@ -20,7 +20,9 @@ No frame decoding, rendering or GPU acceleration is tested. The elapsed
 microseconds include file opens and media plugin setup, but they are
 **not valid for comparing OS speed in virtual machines**.
 
-**Validation status (2026-11-23):** Source prepared, not yet built or
-executed in the guest. When the disposable boot image is available,
-compile, run and inspect generated CSV on both the reference build and
-the experimental build. Save original logs and the input file SHA256.
+**Validation status (2026-11-23):** Built inside the unmodified Haiku
+R1/beta6 guest booted from a throwaway QCOW2 overlay. Native g++ build
+succeeded; 100 and 1000 lifecycle tests passed without errors.
+Original CSVs, stderr, screenshot and SHA256 evidence are under
+../evidence/haiku-beta6-2026-11-23/. A new experimental kernel/image
+is not built yet, so no comparison with fork modifications is possible.

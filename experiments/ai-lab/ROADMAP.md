@@ -20,6 +20,9 @@ submitted to the upstream official Haiku project.
 
 ## M1 — Media Kit correctness
 
+- [x] Establish Haiku beta6 guest baseline: native BMediaFile/track
+      lifecycle probe, 100/100 and 1000/1000 valid runs (CSV, stderr,
+      screenshot, SHA256 manifest); **no bug identified yet**.
 - [ ] Identify a reproducible media_server or Media Kit defect.
 - [ ] Add a controlled failing test (node lifecycle, malformed input or leaks).
 - [ ] Confirm behavior on reference and experimental builds.
