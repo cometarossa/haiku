@@ -25,7 +25,15 @@ if ! test -f /boot/system/apps/MediaPlayer; then
     echo "MediaPlayer is not installed; this may be a minimal OS image" >&2
     exit 2
 fi
+GUEST_VERSION=$(uname -a)
+if ! printf '%s
+' "$GUEST_VERSION" | grep -q 'hrev60465+ai_'; then
+    echo "Guest revision does not identify our AI-assisted Haiku fork" >&2
+    echo "$GUEST_VERSION" >&2
+    exit 2
+fi
 echo "FORK_MEDIA_GUI_FIXTURES_READY"
-uname -a
+printf '%s
+' "$GUEST_VERSION"
 echo "Now open each one-frame video in the GUI, capture separate"
 echo "QEMU screenshots, and play the 150-frame control."
