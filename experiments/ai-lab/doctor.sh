@@ -34,6 +34,8 @@ for p in './data/catalogs/apps/screenshot/Screenshot/be.catkeys' \
   fi
 done
 echo 'Case-colliding upstream paths: present'
+rm -rf "$probe_dir"
+trap - EXIT HUP INT TERM
 
 if [ -d "$root/../buildtools/.git" ]; then
   printf 'Buildtools revision: %s\n' "$(git -C "$root/../buildtools" rev-parse --short=12 HEAD)"

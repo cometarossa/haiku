@@ -31,8 +31,10 @@ supported by isolated regression tests.
   build images and test disks. Do not modify any production disks.
 - The host has limited free physical disk space, so check it before
   building a full image. The image's virtual size is not preallocated.
-- The first cross-compile and QEMU boot from source are **not yet
-  verified**. This document must not be treated as proof of a build.
+- The Jam host build succeeded. On the Mac, a Clang cross-build configure
+  currently reaches a missing `libsupc++.a` dependency, so a full
+  toolchain build and QEMU boot from new sources are **not yet verified**.
+  This document must not be treated as proof of a full build.
 
 ## Development gates
 
