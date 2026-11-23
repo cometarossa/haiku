@@ -59,3 +59,12 @@ The read-only preflight mode is build-in-linux.sh --check.
 The explicit --configure mode begins the GCC toolchain bootstrap and
 must only be run with CPU/memory limits and plenty of free disk space.
 See ROADMAP.md for status. Neither mode touches persistent beta6 disks.
+
+## Verified Linux builder smoke test (2026-11-23)
+
+ZimaBlade hosts an isolated Ubuntu 24.04 container image
+haiku-ai-builder:ubuntu24. With no network, two CPU cores maximum,
+3 GiB memory limit, no added Linux capabilities and no new privileges,
+the host compiled Jam and executed its version check successfully.
+This validates prerequisites only: cross-GCC, a bootable OS image,
+and Media Kit regression tests have not yet been built.

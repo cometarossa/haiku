@@ -10,6 +10,8 @@ submitted to the upstream official Haiku project.
 - [x] Case-sensitive Mac checkout and independent buildtools clone.
 - [x] Compile Haiku Jam on Mac; preserve persistent beta6 VM disk.
 - [x] Local GNU awk and Python 3.12 available; fix Apple Clang version parsing.
+- [x] Isolated Ubuntu 24.04 builder on local ZimaBlade: GCC 13, Python 3.12,
+      NASM and native Linux Jam verified, with CPU/memory constrained.
 - [ ] Complete x86_64 cross toolchain (Mac Clang currently blocked by missing
       libsupc++.a; prefer isolated Linux builder).
 - [ ] Build baseline x86_64 image, separately from beta6.
