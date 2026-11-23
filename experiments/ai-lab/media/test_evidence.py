@@ -35,5 +35,30 @@ class MediaLifecycleEvidence(unittest.TestCase):
             (EVIDENCE / "media_lifecycle_1000.stderr").read_text())
 
 
+class MediaConcurrencyEvidence(unittest.TestCase):
+    def _check(self, name: str, threads: int, cycles: int = 100) -> None:
+        with (EVIDENCE / name).open(newline="", encoding="utf-8") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), threads * cycles)
+        for t in range(threads):
+            for i in range(cycles):
+                row = rows[t * cycles + i]
+                with self.subTest(thread=t, iteration=i + 1):
+                    self.assertEqual(int(row["thread"]), t)
+                    self.assertEqual(int(row["iteration"]), i + 1)
+                    self.assertEqual(int(row["init_status"]), 0)
+                    self.assertEqual(int(row["tracks"]), 1)
+                    self.assertEqual(int(row["first_track_status"]), 0)
+        error_log = (EVIDENCE / name.replace(".csv", ".stderr")).read_text()
+        self.assertIn("threads=%d" % threads, error_log)
+        self.assertIn("cycles=%d failures=0" % (threads * cycles), error_log)
+
+    def test_parallel_four_threads(self):
+        self._check("media_parallel_4x100.csv", 4)
+
+    def test_parallel_eight_threads(self):
+        self._check("media_parallel_8x100.csv", 8)
+
+
 if __name__ == "__main__":
     unittest.main()

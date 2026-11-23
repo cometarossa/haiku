@@ -40,3 +40,26 @@ future fork changes. Times in CSV are virtualized guest timings, not
 comparative performance evidence.
 
 See SHA256SUMS for evidence artifact hashes.
+
+## Additional multi-threaded baseline
+
+The fork-only native C++ Media Kit probe media_file_concurrency.cpp
+was built inside the same unmodified Haiku R1/beta6 guest:
+
+    g++ -std=c++11 -O2 -Wall -Wextra -pthread \
+      -o media_parallel p.cpp -lmedia -lbe
+
+Runs with the same H.264 input file:
+- 4 pthreads x 100 iterations = 400/400 valid outcomes, 0 failures.
+- 8 pthreads x 100 iterations = 800/800 valid outcomes, 0 failures.
+- For all 1200 iterations: InitCheck status 0, one track, first-track
+  status 0. Results were transferred directly from guest and verified
+  against their original stderr summaries.
+
+Evidence: media_parallel_4x100.csv, media_parallel_4x100.stderr,
+media_parallel_8x100.csv, media_parallel_8x100.stderr, and
+haiku-beta6-media-kit-concurrent.png.
+
+This checks simultaneous resource lifecycles, **not** video decoding,
+thread scheduling fairness, leak freedom, presented FPS or native
+hardware performance. No Media Kit defect has been reproduced.
