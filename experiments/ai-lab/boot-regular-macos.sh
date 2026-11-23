@@ -13,6 +13,15 @@ case "$RUN_ID" in
     ''|*[!0-9]*) echo "Run ID must be decimal digits" >&2; exit 2 ;;
 esac
 
+# Leave the older full Haiku on VNC 5913 while testing the patched
+# fork on a distinct port 5914. Only bounded localhost ports allowed.
+VNC_DISPLAY=$(printenv HAIKU_REGULAR_VNC_DISPLAY 2>/dev/null || echo 13)
+case "$VNC_DISPLAY" in
+    13|14|15|16|17|18|19) ;;
+    *) echo "HAIKU_REGULAR_VNC_DISPLAY must be 13..19" >&2; exit 2 ;;
+esac
+VNC_PORT=$((5900 + VNC_DISPLAY))
+
 for command in gh qemu-img qemu-system-x86_64 zstd shasum python3; do
     command -v "$command" >/dev/null 2>&1 || {
         echo "Missing host command: $command" >&2; exit 2;
@@ -50,6 +59,7 @@ RAW="$TARGET/haiku-regular-x86_64.raw"
 OVERLAY="$TARGET/haiku-ai-regular-overlay.qcow2"
 MONITOR="$TARGET/haiku-ai-regular-monitor.sock"
 PIDFILE="$TARGET/haiku-ai-regular-qemu.pid"
+VNC_PORTFILE="$TARGET/haiku-ai-regular-vnc-port"
 PASSFILE="$HOME/Developer/Haiku/vm/vnc-password"
 
 check_sha()
@@ -86,11 +96,16 @@ test -s "$PASSFILE" || {
 
 if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
     echo "Experimental Haiku VM already running with PID $(cat "$PIDFILE")"
-    echo "Connect from the Mac: vnc://127.0.0.1:5913"
+    if [ -s "$VNC_PORTFILE" ]; then
+        VNC_PORT=$(cat "$VNC_PORTFILE")
+    else
+        VNC_PORT=5913
+    fi
+    echo "Connect from the Mac: vnc://127.0.0.1:$VNC_PORT"
     exit 0
 fi
-if lsof -nP -iTCP:5913 -sTCP:LISTEN >/dev/null 2>&1; then
-    echo "VNC port 5913 is already in use; refusing to collide." >&2
+if lsof -nP -iTCP:"$VNC_PORT" -sTCP:LISTEN >/dev/null 2>&1; then
+    echo "VNC port $VNC_PORT is already in use; refusing to collide." >&2
     exit 5
 fi
 
@@ -100,7 +115,7 @@ qemu-system-x86_64 \
     -smp 4 -m 8192 \
     -drive "file=$OVERLAY,format=qcow2,if=ide,index=0,media=disk" \
     -vga std -nic user,model=rtl8139 \
-    -vnc "127.0.0.1:13,password=on" \
+    -vnc "127.0.0.1:$VNC_DISPLAY,password=on" \
     -monitor "unix:$MONITOR,server,nowait" \
     -serial "file:$TARGET/haiku-ai-regular-serial.log" \
     -pidfile "$PIDFILE" -daemonize -boot order=c
@@ -133,8 +148,10 @@ with sock:
         raise SystemExit("Could not set QEMU VNC password")
 PY
 
+printf '%s
+' "$VNC_PORT" > "$VNC_PORTFILE"
 echo "Booted experimental Haiku image via disposable QCOW2 overlay."
-echo "VNC: vnc://127.0.0.1:5913"
+echo "VNC: vnc://127.0.0.1:$VNC_PORT"
 echo "QEMU PID: $(cat "$PIDFILE")"
 echo "Raw CI artifact: $RAW"
 echo "Original beta6 disk: UNCHANGED"

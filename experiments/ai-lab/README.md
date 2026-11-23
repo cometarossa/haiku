@@ -158,3 +158,16 @@ evidence/fork-minimum-boot-2026-11-24/ for source revision,
 screenshot, artifact checksums, and limitations.
 
 This is a minimal OS smoke test, not a complete MediaPlayer runtime.
+
+
+### Parallel patched-versus-original MediaPlayer GUI comparison
+
+For a separate full-desktop CI image with the Controller short-media
+fix, leave the previously booted full desktop (VNC localhost:5913)
+running, then launch the new build from its successful GitHub Actions
+run ID with HAIKU_REGULAR_VNC_DISPLAY=14 set. This uses a distinct
+QCOW2 overlay and QEMU HMP socket for each run, with the new VM on
+localhost VNC port 5914. The helper refuses collisions and allows only
+local display numbers 13..19; no external network VNC exposure.
+Only claim that the crash is fixed after actually playing the one-frame
+fixture in the patched full MediaPlayer GUI and examining the serial log.
