@@ -1,0 +1,10 @@
+debug_server: Thread 484 entered the debugger: Divide error
+stack trace, current PC 0x6eb191bbdf  </boot/system/apps/MediaPlayer> _ZNK10Controller13_TimePositionEv + 0x3f:
+  (0x7f2c9f6e0310)  0x6eb18f9060  </boot/system/apps/MediaPlayer> _ZN15PlaybackManager4InitEfbibfii + 0x360
+  (0x7f2c9f6e0370)  0x6eb18f7837  </boot/system/apps/MediaPlayer> _ZN11NodeManager4InitE5BRectf11color_spacefjibfjb + 0x47
+  (0x7f2c9f6e03d0)  0x6eb191cfbd  </boot/system/apps/MediaPlayer> _ZN10Controller5SetToERK10BReferenceI12PlaylistItemE + 0x2dd
+  (0x7f2c9f6e04b0)  0x6eb191da0b  </boot/system/apps/MediaPlayer> _ZN10Controller15MessageReceivedEP8BMessage + 0x5b
+  (0x7f2c9f6e04e0)  0x13e1f992684  </boot/system/lib/libbe.so> _ZN7BLooper11task_looperEv + 0x294
+  (0x7f2c9f6e0530)  0x13e1f991c11  </boot/system/lib/libbe.so> _ZN7BLooper7_task0_EPv + 0x21
+  (0x7f2c9f6e0550)  0x1856a888fb9  </boot/system/lib/libroot.so> thread_entry + 0x19
+debug_server: Killing team 468 (/boot/system/apps/MediaPlayer)

@@ -21,8 +21,10 @@ submitted to the upstream official Haiku project.
 - [x] Boot fork-built minimum Haiku in QEMU/HVF and visually verify
       desktop, Tracker and Deskbar. Evidence in
       evidence/fork-minimum-boot-2026-11-24; only minimal OS profile.
-- [ ] Boot the complete desktop (@nightly-raw) with patched MediaPlayer,
-      then repeat native tests and validate missing optional libraries.
+- [x] Boot the complete desktop (@nightly-raw), CI run 45285916285,
+      revision d1e0b80c; verified desktop and guest fixture hashes.
+- [ ] Rebuild and retest MediaPlayer: the first GUI single-frame probe
+      exposed a divide error in Controller::_TimePosition().
 
 ## M1 — Media Kit correctness
 

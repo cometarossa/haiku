@@ -8,6 +8,7 @@ on:
       - ai-experimental
     paths:
       - 'experiments/ai-lab/**'
+      - 'src/apps/mediaplayer/Controller.cpp'
       - 'src/apps/mediaplayer/supplier/MediaTrackVideoSupplier.cpp'
       - 'src/apps/mediaplayer/supplier/MediaTrackVideoSupplier.h'
       - '.github/workflows/haiku-media-evidence.yml'
@@ -43,6 +44,10 @@ jobs:
           cd ../haiku-beta6-window-2026-11-23
           sha256sum -c SHA256SUMS
           cd ../fork-minimum-boot-2026-11-24
+          sha256sum -c SHA256SUMS
+          cd ../fork-regular-boot-2026-11-24
+          sha256sum -c SHA256SUMS
+          cd ../haiku-beta6-concurrent-decode-2026-11-24
           sha256sum -c SHA256SUMS
       - name: Validate shell helpers and fork provenance
         run: |

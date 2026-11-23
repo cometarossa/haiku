@@ -1117,12 +1117,14 @@ Controller::_TimePosition() const
 int64
 Controller::_FrameDuration() const
 {
-	// This should really be total frames (video frames at that)
-	// TODO: It is not so nice that the MediaPlayer still measures
-	// in video frames if only playing audio. Here for example, it will
-	// return a duration of 0 if the audio clip happens to be shorter than
-	// one video frame at 25 fps.
-	return (int64)((double)fDuration * fVideoFrameRate / 1000000.0);
+	// A nonempty clip can be shorter than one playback frame, for
+	// example a single-frame cover image at the synthetic frame rate.
+	// Keep the frame count positive so time conversion and playback
+	// range calculations never divide by zero for such a clip.
+	if (fDuration <= 0)
+		return 0;
+	int64 frames = (int64)((double)fDuration * fVideoFrameRate / 1000000.0);
+	return frames > 0 ? frames : 1;
 }
 
 
