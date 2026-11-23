@@ -31,14 +31,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-          # Haiku's determine_haiku_revision requires a reachable hrev tag.
-          # A depth-one clone prevents git describe from finding any tags.
-          fetch-depth: 0
-      - name: Verify reachable upstream revision tag
-        shell: bash
-        run: |
-          set -euo pipefail
-          git describe --tags --match='hrev*' --abbrev=1
+          fetch-depth: 1
       - name: Fetch official Haiku buildtools
         shell: bash
         run: |
@@ -68,7 +61,12 @@ jobs:
         run: |
           set -euo pipefail
           cd generated
-          ../../buildtools/jam/bin.linuxx86/jam -q -j4 @minimum-raw \
+          # GitHub's Haiku mirrors do not expose upstream hrev tags.
+          # Use an honest, unique, fork-specific build revision, rather
+          # than inventing an official hrev number.
+          revision="ai-experimental-$(git rev-parse --short HEAD)"
+          ../../buildtools/jam/bin.linuxx86/jam -q -j4 \
+            "-sHAIKU_REVISION=$revision" @minimum-raw \
             > image-build-ci.log 2>&1 \
             || { tail -n 140 image-build-ci.log; exit 1; }
           image=$(find . -type f -name 'haiku-minimum.image' -print -quit)
