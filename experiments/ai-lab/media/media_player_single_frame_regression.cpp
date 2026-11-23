@@ -11,6 +11,7 @@
 #include <MediaTrack.h>
 
 #include <stdio.h>
+#include <stdint.h>
 #include <string.h>
 #include <vector>
 
@@ -24,9 +25,20 @@ didWrite(const std::vector<unsigned char>& buffer)
     return false;
 }
 
+static uint64_t
+digestPixels(const std::vector<unsigned char>& buffer)
+{
+    uint64_t digest = UINT64_C(14695981039346656037);
+    for (size_t i = 0; i < buffer.size(); ++i) {
+        digest ^= buffer[i];
+        digest *= UINT64_C(1099511628211);
+    }
+    return digest;
+}
+
 static int
 testSupplier(MediaTrackVideoSupplier& supplier, const char* name,
-    bool* wasCached)
+    bool* wasCached, uint64_t* resultDigest)
 {
     const media_raw_video_format& format = supplier.Format().u.raw_video;
     uint32 width = format.display.line_width;
@@ -44,9 +56,21 @@ testSupplier(MediaTrackVideoSupplier& supplier, const char* name,
     status_t status = supplier.ReadFrame(buffer.data(), &time, format,
         *wasCached);
     const bool changed = didWrite(buffer);
-    printf("%s,status=%ld,was_cached=%d,wrote_pixels=%d\n", name,
-        (long)status, *wasCached ? 1 : 0, changed ? 1 : 0);
+    *resultDigest = digestPixels(buffer);
+    printf("%s,status=%ld,was_cached=%d,wrote_pixels=%d,hash=%016llx\n", name,
+        (long)status, *wasCached ? 1 : 0, changed ? 1 : 0,
+        (unsigned long long)*resultDigest);
     if (status != B_OK || *wasCached || !changed)
+        return 1;
+
+    // Re-reading cover art through the same supplier should use its cache.
+    std::vector<unsigned char> secondBuffer(buffer.size(), 0xa5);
+    bool cachedAgain = false;
+    status = supplier.ReadFrame(secondBuffer.data(), &time, format, cachedAgain);
+    bool wroteAgain = didWrite(secondBuffer);
+    printf("%s_again,status=%ld,was_cached=%d,wrote_pixels=%d\n", name,
+        (long)status, cachedAgain ? 1 : 0, wroteAgain ? 1 : 0);
+    if (status != B_OK || !cachedAgain || wroteAgain)
         return 1;
     return 0;
 }
@@ -54,16 +78,18 @@ testSupplier(MediaTrackVideoSupplier& supplier, const char* name,
 int
 main(int argc, char** argv)
 {
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <one-frame-mp4-file>\n", argv[0]);
+    if (argc != 2 && argc != 3) {
+        fprintf(stderr, "Usage: %s <one-frame-mp4-file> [different-one-frame-mp4]\n",
+            argv[0]);
         return 2;
     }
-    entry_ref ref;
-    if (get_ref_for_path(argv[1], &ref) != B_OK)
+    entry_ref firstRef, secondRef;
+    if (get_ref_for_path(argv[1], &firstRef) != B_OK
+        || get_ref_for_path(argc == 3 ? argv[2] : argv[1], &secondRef) != B_OK)
         return 2;
 
-    BMediaFile firstFile(&ref);
-    BMediaFile secondFile(&ref);
+    BMediaFile firstFile(&firstRef);
+    BMediaFile secondFile(&secondRef);
     if (firstFile.InitCheck() != B_OK || secondFile.InitCheck() != B_OK
         || firstFile.CountTracks() < 1 || secondFile.CountTracks() < 1)
         return 2;
@@ -93,8 +119,14 @@ main(int argc, char** argv)
 
     bool firstCached = false;
     bool secondCached = false;
-    int firstResult = testSupplier(first, "first", &firstCached);
-    int secondResult = testSupplier(second, "second", &secondCached);
+    uint64_t firstDigest = 0;
+    uint64_t secondDigest = 0;
+    int firstResult = testSupplier(first, "first", &firstCached, &firstDigest);
+    int secondResult = testSupplier(second, "second", &secondCached, &secondDigest);
+    if (argc == 3 && firstDigest == secondDigest) {
+        fprintf(stderr, "Two distinct cover images produced identical pixels\n");
+        secondResult = 1;
+    }
 
     if (firstResult == 0 && secondResult == 0) {
         puts("SINGLE_FRAME_INDEPENDENT_SUPPLIERS_PASS");

@@ -76,3 +76,23 @@ VideoTrackSupplier base class and ColorSpaceToString helper, linked
 against native Haiku Media Kit; use an independently generated
 single-frame MP4 fixture. The test should fail against the unmodified
 supplier if the suspected bug exists, and pass with the isolated fix.
+
+## Extended cover-art test (native guest)
+
+The single-frame regression now supports an optional second file,
+tests both the first decode and a subsequent same-instance cache hit,
+and records a decoded pixel hash. When the second file is supplied,
+the decoded hashes must differ.
+
+On 23 November 2026 the AI-fork fix was tested with two cases:
+- Two independent suppliers for the same one-frame H264 cover.
+- Two independent suppliers for different one-frame covers:
+  the first is H264 and the second is MPEG-4 from another timestamp
+  of the same controlled source fixture.
+
+In both cases, the first read of each supplier decoded pixels and
+returned wasCached=false, and the second read of each supplier
+returned wasCached=true without changing the caller-provided buffer.
+The two distinct covers produced distinct pixel digests. A separate
+test ensures the cache state is only marked valid after successful
+decoding, not before an attempted read.

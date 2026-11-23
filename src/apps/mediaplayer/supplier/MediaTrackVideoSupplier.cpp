@@ -97,12 +97,10 @@ MediaTrackVideoSupplier::ReadFrame(void* buffer, bigtime_t* performanceTime,
 	// video track and will not seek in the middle of a video frame. So we
 	// pretend to be a 25fps stream and keep rendering the same frame over
 	// and over again.
-	if (fVideoTrack->CountFrames() < 2) {
-		if (fSingleFrameAlreadyRead) {
-			wasCached = true;
-			return B_OK;
-		}
-		fSingleFrameAlreadyRead = true;
+	const bool singleFrame = fVideoTrack->CountFrames() < 2;
+	if (singleFrame && fSingleFrameAlreadyRead) {
+		wasCached = true;
+		return B_OK;
 	}
 
 	status_t ret = B_OK;
@@ -124,6 +122,12 @@ MediaTrackVideoSupplier::ReadFrame(void* buffer, bigtime_t* performanceTime,
 	// TODO: how does this work for interlaced video (field count > 1)?
 	media_header mediaHeader;
 	ret = fVideoTrack->ReadFrames(buffer, &frameCount, &mediaHeader);
+	// Mark cover art as cached only after at least one frame was decoded.
+	// A failed format switch or decoder read must remain retryable.
+	if (singleFrame && frameCount > 0
+		&& (ret == B_OK || ret == B_LAST_BUFFER_ERROR)) {
+		fSingleFrameAlreadyRead = true;
+	}
 
 	if (ret < B_OK && ret != B_LAST_BUFFER_ERROR) {
 		fprintf(stderr, "MediaTrackVideoSupplier::ReadFrame() - "
