@@ -82,3 +82,18 @@ or --configure for a 10-minute incremental toolchain build segment.
 Timeout runs INSIDE the container, not around the Docker client,
 so no orphan build container is left behind. The full toolchain is
 not yet complete. See TOOLCHAIN-STATUS-2026-11-23.md.
+
+## Boot the first CI-built Haiku image on macOS
+
+Once a Haiku x86-64 minimum image CI run has completed successfully,
+use the guarded script boot-minimum-macos.sh with the run ID. The script
+downloads the compressed image through the GitHub CLI, verifies both
+SHA-256 manifests, decompresses the raw image, creates a copy-on-write
+QCOW2 backing overlay, and launches a new QEMU/HVF VM on localhost VNC
+port 5912 using the existing private Haiku VNC password. Original beta6
+virtual disks are never modified.
+
+The script is guarded against unfinished CI runs, corrupted artifacts,
+missing host tools and VNC port conflicts. It must not be invoked
+with unknown or untrusted CI run IDs. Actual image boot is unverified
+until the minimum image workflow succeeds.
