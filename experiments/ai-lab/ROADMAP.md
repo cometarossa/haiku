@@ -137,3 +137,5 @@ ports and new application development (including Medo).
 
 Bare-metal benchmarking requires a dedicated native installation, identical
 hardware, repeatable stimuli, real hardware frame/latency/power measurements.
+
+- [x] Phase-separated first-read/write baseline on beta6 and V5: 72 runs, 288 worker rows; first access isolated from create/delete and clone operations.
