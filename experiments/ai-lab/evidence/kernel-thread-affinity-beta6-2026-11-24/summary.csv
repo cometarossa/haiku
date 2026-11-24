@@ -1,0 +1,5 @@
+mode,placement,samples,median_us,p95_us,p99_us,max_us
+sem,same,1500,91.0,141,203,284
+sem,split,1500,302.0,392,475,634
+port,same,1500,92.0,139,200,346
+port,split,1500,311.0,444,550,2676
