@@ -182,11 +182,13 @@ rebalance_irqs(bool idle)
 scheduler_mode_operations gSchedulerLowLatencyMode = {
 	"low latency",
 
-	1000,
+	// AI-assisted independent fork experiment: half the base quantum
+	// and target latency; keep minimum quantum and multipliers unchanged.
+	500,
 	100,
 	{ 2, 5 },
 
-	5000,
+	2500,
 
 	switch_to_mode,
 	set_cpu_enabled,

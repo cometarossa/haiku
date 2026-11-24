@@ -99,6 +99,9 @@ ports and new application development (including Medo).
       same-vCPU CPU load, 2880 samples on beta6/V3.
 - [x] Compare low-latency/power-saving scheduler modes on V3, 2880
       samples, original mode restored.
+- [ ] Build and evaluate V4 low-latency scheduler candidate (500us base,
+      100us minimum, 2500us target; unchanged multipliers and power mode).
+      Keep V3 as reference until latency, throughput and correctness pass.
 - [ ] Isolate lock contention, wait/wakeup and allocator costs; repeat
       under controlled VM load and test cross-team IPC/scheduler fairness.
 - [ ] Test virtual-SMP correctness without claiming native speed.
