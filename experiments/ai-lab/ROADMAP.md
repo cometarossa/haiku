@@ -91,6 +91,8 @@ ports and new application development (including Medo).
       batch 1/64, three repeats: 147,456 messages verified.
 - [x] Compare native semaphore and zero-payload port round-trip
       handoffs: 6,000 samples retained, median/P95/P99 computed.
+- [x] Compare verified vCPU affinity handoffs on beta6 and V3,
+      12,000 total samples, identical binary.
 - [ ] Isolate lock contention, wait/wakeup and allocator costs; repeat
       under controlled VM load and test cross-team IPC/scheduler fairness.
 - [ ] Test virtual-SMP correctness without claiming native speed.
