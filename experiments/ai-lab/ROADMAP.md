@@ -99,6 +99,8 @@ ports and new application development (including Medo).
       same-vCPU CPU load, 2880 samples on beta6/V3.
 - [x] Compare low-latency/power-saving scheduler modes on V3, 2880
       samples, original mode restored.
+- [x] CPU throughput/fairness baseline: four equal-priority workers on
+      1/4 vCPUs, 12 runs on beta6/V3, 48 digests verified.
 - [ ] Build and evaluate V4 low-latency scheduler candidate (500us base,
       100us minimum, 2500us target; unchanged multipliers and power mode).
       Keep V3 as reference until latency, throughput and correctness pass.
