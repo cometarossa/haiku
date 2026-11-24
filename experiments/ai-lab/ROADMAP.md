@@ -118,7 +118,9 @@ ports and new application development (including Medo).
 - [ ] Repeat V4/V5 timing under matched host conditions; extend VM tests.
 - [x] Anonymous area lifecycle baseline beta6/V5, 42 bounded runs;
       zero-fill, clone coherence and survival after source deletion.
-- [ ] Isolate concurrent page-touch/alias cost across teams and vCPUs.
+- [x] Same/split-vCPU first-touch vs warm-access comparison, beta6/V5;
+      36 runs, 144 worker rows, strong placement-dependent slowdown.
+- [ ] Isolate cross-team address spaces and inspect x86 TLB synchronization.
 - [ ] Complete controlled V4 evaluation (500us base,
       100us minimum, 2500us target; unchanged multipliers and power mode).
       Keep V3 as reference until latency, throughput and correctness pass.
