@@ -93,6 +93,8 @@ ports and new application development (including Medo).
       handoffs: 6,000 samples retained, median/P95/P99 computed.
 - [x] Compare verified vCPU affinity handoffs on beta6 and V3,
       12,000 total samples, identical binary.
+- [x] Competing-reader port deadline regression: 24 trials on beta6/V3;
+      relative and absolute 150ms deadlines preserved in tested syscalls.
 - [ ] Isolate lock contention, wait/wakeup and allocator costs; repeat
       under controlled VM load and test cross-team IPC/scheduler fairness.
 - [ ] Test virtual-SMP correctness without claiming native speed.
