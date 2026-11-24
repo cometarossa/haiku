@@ -25,6 +25,12 @@ struct mutex_waiter {
 	Thread*			thread;
 	mutex_waiter*	next;		// next in queue
 	mutex_waiter*	last;		// last in queue (valid for the first in queue)
+#ifdef __x86_64__
+	// AI-assisted research fork: only untimed translation-map waiters
+	// participate; timed waiters keep the sentinel values.
+	bigtime_t		labQueuedAt = -1;
+	int64			labHandoffAt = -1;
+#endif
 };
 
 struct rw_lock_waiter {
@@ -35,6 +41,73 @@ struct rw_lock_waiter {
 };
 
 #define MUTEX_FLAG_RELEASED		0x2
+
+
+#ifdef __x86_64__
+// Opt-in cumulative diagnostics. No change to queue order or ownership.
+// Match the stable "translation map" name while holding the mutex spinlock.
+namespace {
+int32 sLabMutexEnabled = 0;
+int64 sLabMutexSamples = 0;
+int64 sLabMutexQueueUs = 0;
+int64 sLabMutexResumeUs = 0;
+int64 sLabMutexQueueSlow = 0;
+int64 sLabMutexResumeSlow = 0;
+int64 sLabMutexQueueLong = 0;
+int64 sLabMutexResumeLong = 0;
+int64 sLabMutexInvalid = 0;
+
+int
+lab_mutexstats(int argc, char** argv)
+{
+	if (argc == 2 && strcmp(argv[1], "on") == 0)
+		atomic_set(&sLabMutexEnabled, 1);
+	else if (argc == 2 && strcmp(argv[1], "off") == 0)
+		atomic_set(&sLabMutexEnabled, 0);
+	else if (argc != 1) {
+		kprintf("usage: lab_mutexstats [on|off]\n");
+		return 0;
+	}
+	kprintf("LAB_MUTEX enabled=%" B_PRId32 " samples=%" B_PRId64
+		" invalid=%" B_PRId64 "\n", atomic_get(&sLabMutexEnabled),
+		atomic_get64(&sLabMutexSamples), atomic_get64(&sLabMutexInvalid));
+	kprintf("LAB_MUTEX_QUEUE us=%" B_PRId64 " ge50us=%" B_PRId64
+		" ge1ms=%" B_PRId64 "\n", atomic_get64(&sLabMutexQueueUs),
+		atomic_get64(&sLabMutexQueueSlow), atomic_get64(&sLabMutexQueueLong));
+	kprintf("LAB_MUTEX_RESUME us=%" B_PRId64 " ge50us=%" B_PRId64
+		" ge1ms=%" B_PRId64 "\n", atomic_get64(&sLabMutexResumeUs),
+		atomic_get64(&sLabMutexResumeSlow), atomic_get64(&sLabMutexResumeLong));
+	return 0;
+}
+
+void
+lab_mutex_complete(mutex_waiter& waiter)
+{
+	if (waiter.labQueuedAt < 0 || atomic_get(&sLabMutexEnabled) == 0)
+		return;
+
+	const bigtime_t resume = system_time();
+	const bigtime_t handoff = atomic_get64(&waiter.labHandoffAt);
+	if (handoff < waiter.labQueuedAt || resume < handoff) {
+		atomic_add64(&sLabMutexInvalid, 1);
+		return;
+	}
+	const bigtime_t queue = handoff - waiter.labQueuedAt;
+	const bigtime_t wake = resume - handoff;
+	atomic_add64(&sLabMutexQueueUs, queue);
+	atomic_add64(&sLabMutexResumeUs, wake);
+	if (queue >= 50)
+		atomic_add64(&sLabMutexQueueSlow, 1);
+	if (queue >= 1000)
+		atomic_add64(&sLabMutexQueueLong, 1);
+	if (wake >= 50)
+		atomic_add64(&sLabMutexResumeSlow, 1);
+	if (wake >= 1000)
+		atomic_add64(&sLabMutexResumeLong, 1);
+	atomic_add64(&sLabMutexSamples, 1);
+}
+} // namespace
+#endif
 
 
 #if KDEBUG
@@ -1045,6 +1118,13 @@ _mutex_lock(mutex* lock, void* _locker)
 	mutex_waiter waiter;
 	waiter.thread = thread_get_current_thread();
 	waiter.next = NULL;
+#ifdef __x86_64__
+	if (atomic_get(&sLabMutexEnabled) != 0 && lock->name != NULL
+		&& strcmp(lock->name, "translation map") == 0) {
+		waiter.labQueuedAt = system_time();
+	}
+#endif
+
 
 	if (lock->waiters != NULL) {
 		lock->waiters->last->next = &waiter;
@@ -1058,6 +1138,10 @@ _mutex_lock(mutex* lock, void* _locker)
 	locker->Unlock();
 
 	status_t error = thread_block();
+#ifdef __x86_64__
+	if (error == B_OK)
+		lab_mutex_complete(waiter);
+#endif
 #if KDEBUG
 	if (error == B_OK) {
 		ASSERT(lock->holder == waiter.thread->id);
@@ -1100,6 +1184,10 @@ _mutex_unlock(mutex* lock)
 #endif
 
 		// unblock thread
+#ifdef __x86_64__
+		if (waiter->labQueuedAt >= 0)
+			atomic_set64(&waiter->labHandoffAt, system_time());
+#endif
 		thread_unblock(waiter->thread, B_OK);
 	} else {
 		// There are no waiters, so mark the lock as released.
@@ -1311,6 +1399,10 @@ dump_mutex_info(int argc, char** argv)
 void
 lock_debug_init()
 {
+#ifdef __x86_64__
+	add_debugger_command("lab_mutexstats", &lab_mutexstats,
+		"Show or enable/disable experimental translation-map mutex handoff counters");
+#endif
 	add_debugger_command_etc("mutex", &dump_mutex_info,
 		"Dump info about a mutex",
 		"<mutex>\n"

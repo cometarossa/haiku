@@ -147,3 +147,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 
 - [x] V7a boot and 12 HVF paired diagnostic windows at 1024 pages; 9 benchmark runs, 36 workers, 73,728 alias checks; lock acquisition dominates observed hold/flush time in shared-team spread-vCPU cases.
 - [ ] Complete remaining V7a acceptance: on/off, 256-page cases, TCG, regression; isolate mutex handoff before tuning.
+
+- [ ] V7b x86_64 opt-in translation-map mutex queue and handoff-to-return diagnostics; compile/boot and compare paired windows before changing lock policy.
