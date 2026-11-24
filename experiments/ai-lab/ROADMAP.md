@@ -88,6 +88,8 @@ ports and new application development (including Medo).
       24,000 messages verified, no errors.
 - [x] Single-thread nonblocking IPC baseline, 0/64/4096-byte payloads,
       batch 1/64, three repeats: 147,456 messages verified.
+- [x] Compare native semaphore and zero-payload port round-trip
+      handoffs: 6,000 samples retained, median/P95/P99 computed.
 - [ ] Isolate lock contention, wait/wakeup and allocator costs; repeat
       under controlled VM load and test cross-team IPC/scheduler fairness.
 - [ ] Test virtual-SMP correctness without claiming native speed.
