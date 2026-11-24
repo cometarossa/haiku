@@ -161,3 +161,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V8 boot and initial paired HVF off/on test: 48 runs, 192 worker rows; bounded trylock benefit measured; full regression and native gates remain pending.
 
 - [ ] V8 regression interrupted: three suites passed; fourth (policy off) failed independent IPC topology; preserve evidence and isolate/reproduce before acceptance or purging reference images.
+
+- [x] Isolated IPC topology reproduction V5/V7b/V8 off: 60 runs, 120,000 messages, no failures. Original suite failure remains open; replay preceding stages with detailed return codes.

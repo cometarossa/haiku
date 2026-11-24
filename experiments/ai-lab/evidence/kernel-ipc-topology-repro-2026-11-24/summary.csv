@@ -1,0 +1,7 @@
+version,mode,runs,verified,median_elapsed_us,errors
+v5,shared,10,20000,490940.5,0
+v5,independent,10,20000,113448.0,0
+v7b,shared,10,20000,536752.5,0
+v7b,independent,10,20000,104792.0,0
+v8,shared,10,20000,498702.0,0
+v8,independent,10,20000,94687.0,0
