@@ -78,8 +78,13 @@ ports and new application development (including Medo).
       timeouts: 1/4/8 producers, 13,000/13,000 messages verified.
 - [x] Repeat identical kernel probe on V2: binary SHA256 verified,
       13,000/13,000 messages and shared values, zero errors.
-- [ ] Extend to cross-team IPC, queue capacity sweeps and scheduler
-      fairness under controlled load.
+- [x] Shared-port capacity sweep (16/64/256), 4/8 producers on both
+      beta6 and V2: 72,000 messages and shared values verified.
+- [x] Reproduce kernel IPC false-success on unreadable user buffer in
+      both guests; fix shadowed copy status in port.cpp.
+- [ ] Rebuild and boot corrected kernel, repeat native copy-error test.
+- [ ] Compare independent ports, cross-team IPC and scheduler fairness
+      under controlled load.
 - [ ] Test virtual-SMP correctness without claiming native speed.
 - [ ] Keep driver/GPU performance tests on physical hardware.
 

@@ -42,10 +42,12 @@ static status_t Worker(void* arg)
 
 int main(int argc, char** argv)
 {
-    int n = argc == 2 ? atoi(argv[1]) : 4;
-    if (n < 1 || n > kMaxThreads)
+    int n = argc >= 2 ? atoi(argv[1]) : 4;
+    int capacity = argc >= 3 ? atoi(argv[2]) : 16;
+    if (argc > 3 || n < 1 || n > kMaxThreads
+        || capacity < 1 || capacity > 256)
         return 2;
-    port_id port = create_port(16, "lab bounded queue");
+    port_id port = create_port(capacity, "lab bounded queue");
     if (port < 0) return 3;
     void* address = NULL;
     size_t bytes = ((n * kIterations * sizeof(uint64) + B_PAGE_SIZE - 1)

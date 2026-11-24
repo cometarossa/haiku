@@ -1648,7 +1648,7 @@ writev_port_etc(port_id id, int32 msgCode, const iovec* msgVecs,
 				bytes = bufferSize;
 
 			if (userCopy) {
-				status_t status = user_memcpy(message->buffer + offset,
+				status = user_memcpy(message->buffer + offset,
 					msgVecs[i].iov_base, bytes);
 				if (status != B_OK) {
 					put_port_message(message);
