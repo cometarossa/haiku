@@ -83,8 +83,11 @@ ports and new application development (including Medo).
 - [x] Reproduce kernel IPC false-success on unreadable user buffer in
       both guests; fix shadowed copy status in port.cpp.
 - [ ] Rebuild and boot corrected kernel, repeat native copy-error test.
-- [ ] Compare independent ports, cross-team IPC and scheduler fairness
-      under controlled load.
+- [x] Compare shared and independent ports, equal aggregate capacity,
+      four producer/consumer pairs, three runs per mode per guest;
+      24,000 messages verified, no errors.
+- [ ] Isolate lock contention, wait/wakeup and allocator costs; repeat
+      under controlled VM load and test cross-team IPC/scheduler fairness.
 - [ ] Test virtual-SMP correctness without claiming native speed.
 - [ ] Keep driver/GPU performance tests on physical hardware.
 
