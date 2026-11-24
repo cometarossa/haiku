@@ -82,7 +82,8 @@ ports and new application development (including Medo).
       beta6 and V2: 72,000 messages and shared values verified.
 - [x] Reproduce kernel IPC false-success on unreadable user buffer in
       both guests; fix shadowed copy status in port.cpp.
-- [ ] Rebuild and boot corrected kernel, repeat native copy-error test.
+- [x] Rebuild and boot corrected V3 kernel, native copy-error test
+      passes: B_BAD_ADDRESS, queue empty, valid write/read recovers.
 - [x] Compare shared and independent ports, equal aggregate capacity,
       four producer/consumer pairs, three runs per mode per guest;
       24,000 messages verified, no errors.
