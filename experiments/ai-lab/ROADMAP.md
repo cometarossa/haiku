@@ -163,3 +163,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [ ] V8 regression interrupted: three suites passed; fourth (policy off) failed independent IPC topology; preserve evidence and isolate/reproduce before acceptance or purging reference images.
 
 - [x] Isolated IPC topology reproduction V5/V7b/V8 off: 60 runs, 120,000 messages, no failures. Original suite failure remains open; replay preceding stages with detailed return codes.
+
+- [x] IPC prefix replay on V5/V7b/V8 off: nine sequences, 54 stages, 153,000 verified messages; immediate uploads perturb timing; original intermittent failure remains open. Diagnostic per-worker source drafted; native build and validation pending.
