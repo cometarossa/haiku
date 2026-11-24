@@ -31,10 +31,27 @@ if [ "$RUN_RESULT" != success ]; then
 fi
 
 BASE="$HOME/Developer/Haiku/ai-images"
+# AI-assisted: never recreate a dangling image-storage symlink locally.
+if [ -L "$BASE" ] && [ ! -d "$BASE" ]; then
+    echo "Image storage unavailable: $BASE" >&2
+    exit 4
+fi
 TARGET="$BASE/run-$RUN_ID"
 mkdir -p "$TARGET"
-gh run download "$RUN_ID" --repo cometarossa/haiku \
-    --name haiku-ai-minimum-x86_64 --dir "$TARGET"
+# Reuse a complete cached artifact; checksum validation below is mandatory.
+if [ -f "$TARGET/haiku-minimum-x86_64.raw.zst" ] &&
+   [ -f "$TARGET/haiku-minimum-x86_64.raw.zst.sha256" ] &&
+   [ -f "$TARGET/haiku-minimum-x86_64.raw.sha256" ]; then
+    echo "Reusing cached CI artifact for run $RUN_ID"
+elif [ -e "$TARGET/haiku-minimum-x86_64.raw.zst" ] ||
+     [ -e "$TARGET/haiku-minimum-x86_64.raw.zst.sha256" ] ||
+     [ -e "$TARGET/haiku-minimum-x86_64.raw.sha256" ]; then
+    echo "Incomplete cached artifact; refusing to overwrite: $TARGET" >&2
+    exit 4
+else
+    gh run download "$RUN_ID" --repo cometarossa/haiku \
+        --name haiku-ai-minimum-x86_64 --dir "$TARGET"
+fi
 
 ZST="$TARGET/haiku-minimum-x86_64.raw.zst"
 RAW="$TARGET/haiku-minimum-x86_64.raw"

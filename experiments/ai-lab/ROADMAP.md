@@ -111,8 +111,9 @@ ports and new application development (including Medo).
       (320 calls returning 100us); investigate and test a candidate fix.
 - [x] V4 baseline for Media Kit-like empty-port deadline simulation,
       including sleeping real-time-priority observers: 1280 samples.
-- [ ] V5 candidate: correct inverted priority ratio in latency estimator;
-      validate native API, Media Kit timing and previous kernel regressions.
+- [x] V5 compiled, restarted on migrated storage and native estimator
+      test passed (160 calls, idle 500/1000us, loaded 1500us).
+- [ ] Validate V5 Media Kit-like timing and previous IPC/scheduler regressions.
 - [ ] Complete controlled V4 evaluation (500us base,
       100us minimum, 2500us target; unchanged multipliers and power mode).
       Keep V3 as reference until latency, throughput and correctness pass.
