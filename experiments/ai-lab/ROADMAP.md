@@ -120,7 +120,10 @@ ports and new application development (including Medo).
       zero-fill, clone coherence and survival after source deletion.
 - [x] Same/split-vCPU first-touch vs warm-access comparison, beta6/V5;
       36 runs, 144 worker rows, strong placement-dependent slowdown.
-- [ ] Isolate cross-team address spaces and inspect x86 TLB synchronization.
+- [x] Shared vs independent teams first-touch experiment, 72 runs;
+      slowdown concentrated in shared address space across vCPUs.
+- [ ] Trace first-touch mapping and synchronous TLB invalidation paths;
+      isolate measured event counts before modifying kernel semantics.
 - [ ] Complete controlled V4 evaluation (500us base,
       100us minimum, 2500us target; unchanged multipliers and power mode).
       Keep V3 as reference until latency, throughput and correctness pass.
