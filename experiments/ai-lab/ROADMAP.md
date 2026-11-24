@@ -113,7 +113,9 @@ ports and new application development (including Medo).
       including sleeping real-time-priority observers: 1280 samples.
 - [x] V5 compiled, restarted on migrated storage and native estimator
       test passed (160 calls, idle 500/1000us, loaded 1500us).
-- [x] V5 initial Media Kit-like deadline simulation, 1280 samples;\n      signed error comparison archived (uncontrolled host).\n- [ ] Repeat controlled timing tests and previous IPC/scheduler regressions.
+- [x] V5 initial Media Kit-like deadline simulation, 1280 samples;\n      signed error comparison archived (uncontrolled host).\n- [x] V5 native IPC/scheduler regression smoke suite: 90,728 messages,
+      480 wakeup samples, eight verified CPU worker digests, no errors.
+- [ ] Repeat V4/V5 timing under matched host conditions; extend VM tests.
 - [ ] Complete controlled V4 evaluation (500us base,
       100us minimum, 2500us target; unchanged multipliers and power mode).
       Keep V3 as reference until latency, throughput and correctness pass.

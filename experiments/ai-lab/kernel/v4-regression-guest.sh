@@ -5,7 +5,7 @@ set -eu
 test "$#" = 2
 revision=$1
 url=$2
-case "$revision" in 7d5672a7|35eca30c) ;; *) exit 2;; esac
+case "$revision" in 7d5672a7|35eca30c|8f8e7d06) ;; *) exit 2;; esac
 case "$url" in http://10.0.2.2:8899) ;; *) exit 2;; esac
 uname -a | grep "ai_$revision"
 mkdir -p /boot/home/v4-acceptance

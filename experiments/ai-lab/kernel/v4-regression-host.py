@@ -19,7 +19,8 @@ SOURCES = {
     "fair": "scheduler-throughput-20261124",
     "smode": "scheduler-mode-20261124",
 }
-REVISIONS = {"45302538749": "7d5672a7", "45348558239": "35eca30c"}
+REVISIONS = {"45302538749": "7d5672a7", "45348558239": "35eca30c",
+             "45362378911": "8f8e7d06"}
 OUTPUTS = {"revision.txt", "copyerr.csv", "sweep-1.csv", "sweep-4.csv",
            "sweep-8.csv", "topology.csv", "cost.csv", "wake.csv",
            "fair.csv", "result.txt"}
