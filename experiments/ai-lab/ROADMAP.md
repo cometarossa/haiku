@@ -105,7 +105,11 @@ ports and new application development (including Medo).
       regression suite implemented and smoke-tested on V3.
 - [x] Boot V4 and pass unified regression suite, 90728 messages,
       480 wakeups, eight CPU worker digests.
-- [ ] Build and evaluate V4 low-latency scheduler candidate (500us base,
+- [x] Alternate V3/V4 six complete suites; loaded median P99 roughly
+      halved, CPU throughput median loss within 5%; uncontrolled host.
+- [x] Reproduce degenerate scheduling-latency estimate on beta6/V4
+      (320 calls returning 100us); investigate and test a candidate fix.
+- [ ] Complete controlled V4 evaluation (500us base,
       100us minimum, 2500us target; unchanged multipliers and power mode).
       Keep V3 as reference until latency, throughput and correctness pass.
 - [ ] Isolate lock contention, wait/wakeup and allocator costs; repeat

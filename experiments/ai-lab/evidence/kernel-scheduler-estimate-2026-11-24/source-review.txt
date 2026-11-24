@@ -1,0 +1,15 @@
+AI-assisted source review; no kernel modification or runtime claim.
+For positive effective priorities <= THREAD_MAX_SET_PRIORITY (120),
+the subtraction makes a nonnegative thread count nonpositive.
+The subsequent clamp therefore returns minimal_quantum.
+The estimator is called by BMediaEventLooper and other media clients.
+Need verify runtime behavior, intended semantics and history before patch.
+Illustration only: thread count=4, min=100us, base=500us, maximum=2500us.
+priority=1: adjusted count=-476, estimate=100us
+priority=5: adjusted count=-92, estimate=100us
+priority=10: adjusted count=-44, estimate=100us
+priority=15: adjusted count=-28, estimate=100us
+priority=20: adjusted count=-20, estimate=100us
+priority=100: adjusted count=0, estimate=100us
+priority=110: adjusted count=0, estimate=100us
+priority=120: adjusted count=0, estimate=100us

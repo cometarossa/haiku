@@ -1,0 +1,3 @@
+mode,pairs,ports,verified,joined,errors,elapsed_us
+shared,4,1,2000,8,0,477492
+independent,4,4,2000,8,0,153068
