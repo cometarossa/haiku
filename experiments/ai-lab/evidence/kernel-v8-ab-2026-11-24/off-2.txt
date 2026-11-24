@@ -1,0 +1,2 @@
+LAB_VMSPIN enabled=0 contended=27237 acquired=13638 fallback=13599 spin_us=72539
+LAB_VMSPIN enabled=0 contended=27237 acquired=13638 fallback=13599 spin_us=72539

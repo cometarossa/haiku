@@ -157,3 +157,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V7b six additional 256-page paired HVF windows; combined three shared-team spread-vCPU and three independent-team windows, two same-vCPU controls. 12,288 additional alias checks, no invalid timestamps. Queue and resume costs both elevated; investigate dispatch/queue before tuning.
 
 - [ ] V8 opt-in bounded x86_64 user translation-map trylock candidate; compare same-image off/on and V7b reference, verify correctness/fairness and CPU cost before any default enablement.
+
+- [x] V8 boot and initial paired HVF off/on test: 48 runs, 192 worker rows; bounded trylock benefit measured; full regression and native gates remain pending.

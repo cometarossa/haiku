@@ -1,0 +1,8 @@
+LAB_VM enabled=0 locks=0 lock_wait_us=0 empty_flushes=0
+LAB_VM flushes=0 flush_us=0 invalid_pages=0 remote_candidates=0
+LAB_VM_WAIT outer=0 wait_us=0 ge50us=0 ge1ms=0
+LAB_VM_HOLD samples=0 hold_us=0 ge50us=0 ge1ms=0
+LAB_MUTEX enabled=0 samples=0 invalid=0
+LAB_MUTEX_QUEUE us=0 ge50us=0 ge1ms=0
+LAB_MUTEX_RESUME us=0 ge50us=0 ge1ms=0
+LAB_VMSPIN enabled=0 contended=0 acquired=0 fallback=0 spin_us=0

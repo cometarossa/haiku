@@ -1,0 +1,7 @@
+repeat,policy,contended,acquired,fallback,spin_us
+1,off,0,0,0,0
+1,on,13167,8064,5103,29624
+2,off,0,0,0,0
+2,on,14070,5574,8496,42915
+3,off,0,0,0,0
+3,on,15055,4868,10187,48407
