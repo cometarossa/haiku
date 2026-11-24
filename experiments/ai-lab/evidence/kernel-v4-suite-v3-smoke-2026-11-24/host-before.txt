@@ -1,0 +1,31 @@
+Mar 24 Nov 2026 09:06:51 CET
+ 9:06  up 8 days, 15:50, 4 users, load averages: 7,32 5,87 5,20
+Mach Virtual Memory Statistics: (page size of 4096 bytes)
+Pages free:                             1269388.
+Pages active:                          14392463.
+Pages inactive:                        14441857.
+Pages speculative:                        47595.
+Pages throttled:                              0.
+Pages wired down:                       2328649.
+Pages purgeable:                         242753.
+"Translation faults":               24188747789.
+Pages copy-on-write:                  588912278.
+Pages zero filled:                   9896311087.
+Pages reactivated:                     43283824.
+Pages purged:                          11587022.
+File-backed pages:                      5669387.
+Anonymous pages:                       23212528.
+Pages stored in compressor:            12455888.
+Pages occupied by compressor:           1073081.
+Decompressions:                        19643718.
+Compressions:                          35274964.
+Pageins:                              168712138.
+Pageouts:                                919140.
+Swapins:                                2014710.
+Swapouts:                               7007424.
+ 9789 8429716   5,8 qemu-system-x86_64
+38016 8415316   5,0 qemu-system-x86_64
+45837 8416408   5,1 qemu-system-x86_64
+47615 12210440  28,8 /usr/local/bin/qemu-system-x86_64
+80951 4219996   5,3 qemu-system-x86_64
+93658 8419820  25,6 qemu-system-x86_64

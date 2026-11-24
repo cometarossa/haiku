@@ -101,6 +101,8 @@ ports and new application development (including Medo).
       samples, original mode restored.
 - [x] CPU throughput/fairness baseline: four equal-priority workers on
       1/4 vCPUs, 12 runs on beta6/V3, 48 digests verified.
+- [x] V4 regular desktop CI build 45348558239 succeeded; unified native
+      regression suite implemented and smoke-tested on V3.
 - [ ] Build and evaluate V4 low-latency scheduler candidate (500us base,
       100us minimum, 2500us target; unchanged multipliers and power mode).
       Keep V3 as reference until latency, throughput and correctness pass.
