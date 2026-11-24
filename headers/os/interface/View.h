@@ -781,6 +781,9 @@ private:
 			void				_UpdateStateForRemove();
 			void				_UpdatePattern(::pattern pattern);
 
+			void				_QueueDrawBitmap(const BBitmap* bitmap,
+									BRect bitmapRect, BRect viewRect,
+									uint32 options);
 			void				_FlushIfNotInTransaction();
 
 			bool				_CreateSelf();

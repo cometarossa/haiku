@@ -167,3 +167,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] IPC prefix replay on V5/V7b/V8 off: nine sequences, 54 stages, 153,000 verified messages; immediate uploads perturb timing; original intermittent failure remains open. Diagnostic per-worker source drafted; native build and validation pending.
 
 - [x] Native offscreen app_server draw/sync baseline Beta6/V5/V8 off: 27 runs, 1,769,472 final RGB pixel checks. Diagnostic IPC variant compiled and passed 6 runs/12,000 messages; original intermittent failure open.
+
+- [ ] V9 Interface Kit candidate: queue synchronous bitmap draw and AS_SYNC together where possible; retain reply and async behavior. Compile/boot, verify pixels and lifetime, measure packet counts and desktop regressions.

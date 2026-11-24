@@ -3062,6 +3062,17 @@ BView::DrawBitmapAsync(const BBitmap* bitmap, BRect bitmapRect, BRect viewRect,
 		|| !bitmapRect.IsValid() || !viewRect.IsValid())
 		return;
 
+	_QueueDrawBitmap(bitmap, bitmapRect, viewRect, options);
+	_FlushIfNotInTransaction();
+}
+
+
+// AI-assisted independent research fork: allow synchronous bitmap draws
+// to queue AS_SYNC with AS_VIEW_DRAW_BITMAP instead of flushing twice.
+void
+BView::_QueueDrawBitmap(const BBitmap* bitmap, BRect bitmapRect,
+	BRect viewRect, uint32 options)
+{
 	_CheckLockAndSwitchCurrent();
 
 	ViewDrawBitmapInfo info;
@@ -3072,8 +3083,6 @@ BView::DrawBitmapAsync(const BBitmap* bitmap, BRect bitmapRect, BRect viewRect,
 
 	fOwner->fLink->StartMessage(AS_VIEW_DRAW_BITMAP);
 	fOwner->fLink->Attach<ViewDrawBitmapInfo>(info);
-
-	_FlushIfNotInTransaction();
 }
 
 
@@ -3100,17 +3109,8 @@ BView::DrawBitmapAsync(const BBitmap* bitmap, BPoint where)
 	if (bitmap == NULL || fOwner == NULL)
 		return;
 
-	_CheckLockAndSwitchCurrent();
-
-	ViewDrawBitmapInfo info;
-	info.bitmapToken = bitmap->_ServerToken();
-	info.options = 0;
-	info.bitmapRect = bitmap->Bounds().OffsetToCopy(B_ORIGIN);
-	info.viewRect = info.bitmapRect.OffsetToCopy(where);
-
-	fOwner->fLink->StartMessage(AS_VIEW_DRAW_BITMAP);
-	fOwner->fLink->Attach<ViewDrawBitmapInfo>(info);
-
+	BRect bitmapRect = bitmap->Bounds().OffsetToCopy(B_ORIGIN);
+	_QueueDrawBitmap(bitmap, bitmapRect, bitmapRect.OffsetToCopy(where), 0);
 	_FlushIfNotInTransaction();
 }
 
@@ -3127,7 +3127,8 @@ BView::DrawBitmap(const BBitmap* bitmap, BRect bitmapRect, BRect viewRect,
 	uint32 options)
 {
 	if (fOwner) {
-		DrawBitmapAsync(bitmap, bitmapRect, viewRect, options);
+		if (bitmap != NULL && bitmapRect.IsValid() && viewRect.IsValid())
+			_QueueDrawBitmap(bitmap, bitmapRect, viewRect, options);
 		Sync();
 	}
 }
@@ -3136,10 +3137,7 @@ BView::DrawBitmap(const BBitmap* bitmap, BRect bitmapRect, BRect viewRect,
 void
 BView::DrawBitmap(const BBitmap* bitmap, BRect bitmapRect, BRect viewRect)
 {
-	if (fOwner) {
-		DrawBitmapAsync(bitmap, bitmapRect, viewRect, 0);
-		Sync();
-	}
+	DrawBitmap(bitmap, bitmapRect, viewRect, 0);
 }
 
 
@@ -3157,7 +3155,11 @@ void
 BView::DrawBitmap(const BBitmap* bitmap, BPoint where)
 {
 	if (fOwner) {
-		DrawBitmapAsync(bitmap, where);
+		if (bitmap != NULL) {
+			BRect bitmapRect = bitmap->Bounds().OffsetToCopy(B_ORIGIN);
+			_QueueDrawBitmap(bitmap, bitmapRect,
+				bitmapRect.OffsetToCopy(where), 0);
+		}
 		Sync();
 	}
 }
@@ -3177,17 +3179,8 @@ BView::DrawTiledBitmapAsync(const BBitmap* bitmap, BRect viewRect,
 	if (bitmap == NULL || fOwner == NULL || !viewRect.IsValid())
 		return;
 
-	_CheckLockAndSwitchCurrent();
-
-	ViewDrawBitmapInfo info;
-	info.bitmapToken = bitmap->_ServerToken();
-	info.options = B_TILE_BITMAP;
-	info.viewRect = viewRect;
-	info.bitmapRect = bitmap->Bounds().OffsetToCopy(phase);
-
-	fOwner->fLink->StartMessage(AS_VIEW_DRAW_BITMAP);
-	fOwner->fLink->Attach<ViewDrawBitmapInfo>(info);
-
+	_QueueDrawBitmap(bitmap, bitmap->Bounds().OffsetToCopy(phase),
+		viewRect, B_TILE_BITMAP);
 	_FlushIfNotInTransaction();
 }
 
@@ -3196,7 +3189,9 @@ void
 BView::DrawTiledBitmap(const BBitmap* bitmap, BRect viewRect, BPoint phase)
 {
 	if (fOwner) {
-		DrawTiledBitmapAsync(bitmap, viewRect, phase);
+		if (bitmap != NULL && viewRect.IsValid())
+			_QueueDrawBitmap(bitmap, bitmap->Bounds().OffsetToCopy(phase),
+				viewRect, B_TILE_BITMAP);
 		Sync();
 	}
 }
