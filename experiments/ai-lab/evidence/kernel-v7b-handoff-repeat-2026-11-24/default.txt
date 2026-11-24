@@ -1,0 +1,7 @@
+LAB_VM enabled=0 locks=123398 lock_wait_us=988749 empty_flushes=122044
+LAB_VM flushes=6318 flush_us=2185 invalid_pages=33909 remote_candidates=13
+LAB_VM_WAIT outer=123398 wait_us=988749 ge50us=2509 ge1ms=11
+LAB_VM_HOLD samples=123398 hold_us=19613 ge50us=21 ge1ms=0
+LAB_MUTEX enabled=0 samples=2508 invalid=0
+LAB_MUTEX_QUEUE us=630770 ge50us=2501 ge1ms=7
+LAB_MUTEX_RESUME us=353159 ge50us=2490 ge1ms=4

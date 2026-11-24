@@ -1,0 +1,14 @@
+LAB_VM enabled=1 locks=207042 lock_wait_us=1000651 empty_flushes=204874
+LAB_VM flushes=8194 flush_us=2776 invalid_pages=50784 remote_candidates=15
+LAB_VM_WAIT outer=207042 wait_us=1000651 ge50us=2532 ge1ms=12
+LAB_VM_HOLD samples=207042 hold_us=32800 ge50us=38 ge1ms=0
+LAB_MUTEX enabled=1 samples=2530 invalid=0
+LAB_MUTEX_QUEUE us=635063 ge50us=2520 ge1ms=7
+LAB_MUTEX_RESUME us=358365 ge50us=2511 ge1ms=4
+LAB_VM enabled=0 locks=243972 lock_wait_us=1944210 empty_flushes=241462
+LAB_VM flushes=9054 flush_us=3291 invalid_pages=58646 remote_candidates=16
+LAB_VM_WAIT outer=243972 wait_us=1944210 ge50us=4999 ge1ms=14
+LAB_VM_HOLD samples=243972 hold_us=39310 ge50us=45 ge1ms=0
+LAB_MUTEX enabled=0 samples=4999 invalid=0
+LAB_MUTEX_QUEUE us=1234890 ge50us=4973 ge1ms=8
+LAB_MUTEX_RESUME us=700814 ge50us=4965 ge1ms=5
