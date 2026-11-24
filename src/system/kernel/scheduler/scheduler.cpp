@@ -850,9 +850,12 @@ _user_estimate_max_scheduling_latency(thread_id id)
 	if (core->CPUCount() > 0)
 		threadCount /= core->CPUCount();
 
-	if (threadData->GetEffectivePriority() > 0) {
-		threadCount -= threadCount * THREAD_MAX_SET_PRIORITY
-				/ threadData->GetEffectivePriority();
+	const int32 priority = threadData->GetEffectivePriority();
+	if (priority > 0) {
+		// Discount the estimated competing threads in proportion to priority.
+		// The inverse ratio collapsed the estimate to the minimum.
+		threadCount -= int64(threadCount) * priority
+				/ THREAD_MAX_SET_PRIORITY;
 	}
 
 	return std::min(std::max(threadCount * gCurrentMode->base_quantum,

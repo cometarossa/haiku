@@ -109,6 +109,8 @@ ports and new application development (including Medo).
       halved, CPU throughput median loss within 5%; uncontrolled host.
 - [x] Reproduce degenerate scheduling-latency estimate on beta6/V4
       (320 calls returning 100us); investigate and test a candidate fix.
+- [ ] V5 candidate: correct inverted priority ratio in latency estimator;
+      validate native API, Media Kit timing and previous kernel regressions.
 - [ ] Complete controlled V4 evaluation (500us base,
       100us minimum, 2500us target; unchanged multipliers and power mode).
       Keep V3 as reference until latency, throughput and correctness pass.
