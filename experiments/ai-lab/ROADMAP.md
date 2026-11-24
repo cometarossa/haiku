@@ -109,6 +109,8 @@ ports and new application development (including Medo).
       halved, CPU throughput median loss within 5%; uncontrolled host.
 - [x] Reproduce degenerate scheduling-latency estimate on beta6/V4
       (320 calls returning 100us); investigate and test a candidate fix.
+- [x] V4 baseline for Media Kit-like empty-port deadline simulation,
+      including sleeping real-time-priority observers: 1280 samples.
 - [ ] V5 candidate: correct inverted priority ratio in latency estimator;
       validate native API, Media Kit timing and previous kernel regressions.
 - [ ] Complete controlled V4 evaluation (500us base,
