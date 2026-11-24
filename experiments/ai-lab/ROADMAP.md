@@ -151,3 +151,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [ ] V7b x86_64 opt-in translation-map mutex queue and handoff-to-return diagnostics; compile/boot and compare paired windows before changing lock policy.
 
 - [x] V7a smaller 256-page off-state HVF reference: 12 runs, 48 workers, 24,576 checks; no diagnostic sampling required to reproduce contention.
+
+- [x] V7b regular CI 45444127880, image checksums and isolated boot; initial three paired HVF windows, 4096 page checks, no invalid mutex timestamp samples. Repeat before tuning.
