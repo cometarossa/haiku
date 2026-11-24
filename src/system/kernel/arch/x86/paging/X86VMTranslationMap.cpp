@@ -38,6 +38,14 @@ int64 sLabFlushes = 0;
 int64 sLabFlushUs = 0;
 int64 sLabInvalidPages = 0;
 int64 sLabRemoteCandidates = 0;
+int64 sLabOuterLocks = 0;
+int64 sLabOuterWaitUs = 0;
+int64 sLabSlowWaits = 0;
+int64 sLabLongWaits = 0;
+int64 sLabHolds = 0;
+int64 sLabHoldUs = 0;
+int64 sLabSlowHolds = 0;
+int64 sLabLongHolds = 0;
 
 int
 lab_vmstats(int argc, char** argv)
@@ -59,6 +67,14 @@ lab_vmstats(int argc, char** argv)
 		atomic_get64(&sLabFlushes), atomic_get64(&sLabFlushUs),
 		atomic_get64(&sLabInvalidPages),
 		atomic_get64(&sLabRemoteCandidates));
+	kprintf("LAB_VM_WAIT outer=%" B_PRId64 " wait_us=%" B_PRId64
+		" ge50us=%" B_PRId64 " ge1ms=%" B_PRId64 "\n",
+		atomic_get64(&sLabOuterLocks), atomic_get64(&sLabOuterWaitUs),
+		atomic_get64(&sLabSlowWaits), atomic_get64(&sLabLongWaits));
+	kprintf("LAB_VM_HOLD samples=%" B_PRId64 " hold_us=%" B_PRId64
+		" ge50us=%" B_PRId64 " ge1ms=%" B_PRId64 "\n",
+		atomic_get64(&sLabHolds), atomic_get64(&sLabHoldUs),
+		atomic_get64(&sLabSlowHolds), atomic_get64(&sLabLongHolds));
 	return 0;
 }
 } // namespace
@@ -75,7 +91,8 @@ x86_vm_lab_stats_init()
 X86VMTranslationMap::X86VMTranslationMap()
 	:
 	fPageMapper(NULL),
-	fInvalidPagesCount(0)
+	fInvalidPagesCount(0),
+	fLabHoldStart(-1)
 {
 }
 
@@ -104,11 +121,24 @@ X86VMTranslationMap::Lock()
 	const bool measure = atomic_get(&sLabEnabled) != 0 && !fIsKernelMap;
 	const bigtime_t start = measure ? system_time() : 0;
 	recursive_lock_lock(&fLock);
+	const bigtime_t acquired = measure ? system_time() : 0;
+	const bool outer = recursive_lock_get_recursion(&fLock) == 1;
+	if (outer)
+		fLabHoldStart = measure ? acquired : -1;
 	if (measure) {
-		atomic_add64(&sLabLockWaitUs, system_time() - start);
+		const bigtime_t wait = acquired - start;
+		atomic_add64(&sLabLockWaitUs, wait);
 		atomic_add64(&sLabLocks, 1);
+		if (outer) {
+			atomic_add64(&sLabOuterLocks, 1);
+			atomic_add64(&sLabOuterWaitUs, wait);
+			if (wait >= 50)
+				atomic_add64(&sLabSlowWaits, 1);
+			if (wait >= 1000)
+				atomic_add64(&sLabLongWaits, 1);
+		}
 	}
-	if (recursive_lock_get_recursion(&fLock) == 1) {
+	if (outer) {
 		// we were the first one to grab the lock
 		TRACE("clearing invalidated page count\n");
 		fInvalidPagesCount = 0;
@@ -130,6 +160,20 @@ X86VMTranslationMap::Unlock()
 	if (recursive_lock_get_recursion(&fLock) == 1) {
 		// we're about to release it for the last time
 		Flush();
+		// Only the owning thread accesses the per-map timestamp. Sample
+		// through the flush, but before the underlying mutex handoff.
+		if (fLabHoldStart >= 0) {
+			const bigtime_t hold = system_time() - fLabHoldStart;
+			fLabHoldStart = -1;
+			if (atomic_get(&sLabEnabled) != 0) {
+				atomic_add64(&sLabHolds, 1);
+				atomic_add64(&sLabHoldUs, hold);
+				if (hold >= 50)
+					atomic_add64(&sLabSlowHolds, 1);
+				if (hold >= 1000)
+					atomic_add64(&sLabLongHolds, 1);
+			}
+		}
 	}
 
 	recursive_lock_unlock(&fLock);

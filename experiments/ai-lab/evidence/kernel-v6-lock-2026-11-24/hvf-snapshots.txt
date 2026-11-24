@@ -1,0 +1,47 @@
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats
+LAB_VM enabled=0 locks=0 lock_wait_us=0 empty_flushes=0
+LAB_VM flushes=0 flush_us=0 invalid_pages=0 remote_candidates=0
+kdebug> lab_vmstats on
+LAB_VM enabled=1 locks=0 lock_wait_us=0 empty_flushes=0
+LAB_VM flushes=0 flush_us=0 invalid_pages=0 remote_candidates=0
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats
+LAB_VM enabled=1 locks=51456 lock_wait_us=8517644 empty_flushes=50818
+LAB_VM flushes=2827 flush_us=1538 invalid_pages=20796 remote_candidates=11
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats off
+LAB_VM enabled=0 locks=87549 lock_wait_us=8519213 empty_flushes=86525
+LAB_VM flushes=3700 flush_us=2106 invalid_pages=35151 remote_candidates=13
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats on
+LAB_VM enabled=1 locks=87549 lock_wait_us=8519213 empty_flushes=86525
+LAB_VM flushes=3700 flush_us=2106 invalid_pages=35151 remote_candidates=13
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats off
+LAB_VM enabled=0 locks=124616 lock_wait_us=8528062 empty_flushes=123116
+LAB_VM flushes=4585 flush_us=3356 invalid_pages=46853 remote_candidates=23
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats on
+LAB_VM enabled=1 locks=124616 lock_wait_us=8528062 empty_flushes=123116
+LAB_VM flushes=4585 flush_us=3356 invalid_pages=46853 remote_candidates=23
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats off
+LAB_VM enabled=0 locks=154104 lock_wait_us=17466665 empty_flushes=152421
+LAB_VM flushes=5192 flush_us=6840 invalid_pages=57286 remote_candidates=28
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats on
+LAB_VM enabled=1 locks=154104 lock_wait_us=17466665 empty_flushes=152421
+LAB_VM flushes=5192 flush_us=6840 invalid_pages=57286 remote_candidates=28
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats off
+LAB_VM enabled=0 locks=183498 lock_wait_us=26292809 empty_flushes=181634
+LAB_VM flushes=5801 flush_us=6924 invalid_pages=67721 remote_candidates=28
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats on
+LAB_VM enabled=1 locks=183498 lock_wait_us=26292809 empty_flushes=181634
+LAB_VM flushes=5801 flush_us=6924 invalid_pages=67721 remote_candidates=28
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats off
+LAB_VM enabled=0 locks=219685 lock_wait_us=26294210 empty_flushes=217507
+LAB_VM flushes=6523 flush_us=7309 invalid_pages=79257 remote_candidates=31

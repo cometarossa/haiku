@@ -38,6 +38,7 @@ protected:
 			int					fInvalidPagesCount;
 			addr_t				fInvalidPages[PAGE_INVALIDATE_CACHE_SIZE];
 			bool				fIsKernelMap;
+			bigtime_t				fLabHoldStart;
 };
 
 

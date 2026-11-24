@@ -1,0 +1,12 @@
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats on
+LAB_VM enabled=1 locks=0 lock_wait_us=0 empty_flushes=0
+LAB_VM flushes=0 flush_us=0 invalid_pages=0 remote_candidates=0
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats
+LAB_VM enabled=1 locks=44834 lock_wait_us=14998 empty_flushes=44112
+LAB_VM flushes=2736 flush_us=5942 invalid_pages=16206 remote_candidates=125
+revision: hrev60465+ai_2e4aa9f5
+kdebug> lab_vmstats off
+LAB_VM enabled=0 locks=77385 lock_wait_us=2738607 empty_flushes=76407
+LAB_VM flushes=4128 flush_us=7562 invalid_pages=30080 remote_candidates=144

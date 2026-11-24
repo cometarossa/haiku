@@ -141,3 +141,6 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] Phase-separated first-read/write baseline on beta6 and V5: 72 runs, 288 worker rows; first access isolated from create/delete and clone operations.
 
 - [x] Demand-paged vs fully wired anonymous areas, beta6/V5, 72 runs; compare creation plus first access, retain bounded wiring as diagnostic control, not a default policy.
+
+- [x] V6 boot and initial HVF/TCG lock/flush snapshots captured; preliminary evidence retained.
+- [ ] V7a: distinguish outer map acquisition and hold durations; build, boot and validate paired windows before tuning.
