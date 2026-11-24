@@ -116,6 +116,9 @@ ports and new application development (including Medo).
 - [x] V5 initial Media Kit-like deadline simulation, 1280 samples;\n      signed error comparison archived (uncontrolled host).\n- [x] V5 native IPC/scheduler regression smoke suite: 90,728 messages,
       480 wakeup samples, eight verified CPU worker digests, no errors.
 - [ ] Repeat V4/V5 timing under matched host conditions; extend VM tests.
+- [x] Anonymous area lifecycle baseline beta6/V5, 42 bounded runs;
+      zero-fill, clone coherence and survival after source deletion.
+- [ ] Isolate concurrent page-touch/alias cost across teams and vCPUs.
 - [ ] Complete controlled V4 evaluation (500us base,
       100us minimum, 2500us target; unchanged multipliers and power mode).
       Keep V3 as reference until latency, throughput and correctness pass.
