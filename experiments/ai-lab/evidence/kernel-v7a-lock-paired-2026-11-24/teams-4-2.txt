@@ -1,0 +1,8 @@
+LAB_VM enabled=1 locks=200571 lock_wait_us=9595214 empty_flushes=198515
+LAB_VM flushes=15847 flush_us=5749 invalid_pages=64110 remote_candidates=51
+LAB_VM_WAIT outer=200571 wait_us=9595214 ge50us=18387 ge1ms=195
+LAB_VM_HOLD samples=200571 hold_us=41778 ge50us=73 ge1ms=0
+LAB_VM enabled=0 locks=254320 lock_wait_us=9616739 empty_flushes=251781
+LAB_VM flushes=16881 flush_us=5976 invalid_pages=79290 remote_candidates=51
+LAB_VM_WAIT outer=254320 wait_us=9616739 ge50us=18427 ge1ms=195
+LAB_VM_HOLD samples=254320 hold_us=53143 ge50us=86 ge1ms=1

@@ -144,3 +144,6 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 
 - [x] V6 boot and initial HVF/TCG lock/flush snapshots captured; preliminary evidence retained.
 - [ ] V7a: distinguish outer map acquisition and hold durations; build, boot and validate paired windows before tuning.
+
+- [x] V7a boot and 12 HVF paired diagnostic windows at 1024 pages; 9 benchmark runs, 36 workers, 73,728 alias checks; lock acquisition dominates observed hold/flush time in shared-team spread-vCPU cases.
+- [ ] Complete remaining V7a acceptance: on/off, 256-page cases, TCG, regression; isolate mutex handoff before tuning.
