@@ -1,0 +1,32 @@
+join worker=0 tid=1593 wait=0 result=0
+join worker=1 tid=1594 wait=0 result=0
+join worker=2 tid=1595 wait=0 result=0
+join worker=3 tid=1596 wait=0 result=0
+join worker=4 tid=1597 wait=0 result=0
+join worker=5 tid=1598 wait=0 result=0
+join worker=6 tid=1599 wait=0 result=0
+join worker=7 tid=1600 wait=0 result=0
+worker=0 role=read port=1709 completed=500 last_status=8 code=42
+worker=1 role=read port=1709 completed=500 last_status=8 code=42
+worker=2 role=read port=1709 completed=500 last_status=8 code=42
+worker=3 role=read port=1709 completed=500 last_status=8 code=42
+worker=4 role=write port=1709 completed=500 last_status=0 code=0
+worker=5 role=write port=1709 completed=500 last_status=0 code=0
+worker=6 role=write port=1709 completed=500 last_status=0 code=0
+worker=7 role=write port=1709 completed=500 last_status=0 code=0
+join worker=0 tid=1603 wait=0 result=0
+join worker=1 tid=1604 wait=0 result=0
+join worker=2 tid=1605 wait=0 result=0
+join worker=3 tid=1606 wait=0 result=0
+join worker=4 tid=1607 wait=0 result=0
+join worker=5 tid=1608 wait=0 result=0
+join worker=6 tid=1609 wait=0 result=0
+join worker=7 tid=1610 wait=0 result=0
+worker=0 role=read port=1713 completed=500 last_status=8 code=42
+worker=1 role=read port=1714 completed=500 last_status=8 code=42
+worker=2 role=read port=1715 completed=500 last_status=8 code=42
+worker=3 role=read port=1716 completed=500 last_status=8 code=42
+worker=4 role=write port=1713 completed=500 last_status=0 code=0
+worker=5 role=write port=1714 completed=500 last_status=0 code=0
+worker=6 role=write port=1715 completed=500 last_status=0 code=0
+worker=7 role=write port=1716 completed=500 last_status=0 code=0
