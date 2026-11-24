@@ -13,6 +13,7 @@
 #include <KernelExport.h>
 #include <string.h>
 
+#include <cpu.h>
 #include <thread.h>
 #include <smp.h>
 
@@ -46,6 +47,63 @@ int64 sLabHolds = 0;
 int64 sLabHoldUs = 0;
 int64 sLabSlowHolds = 0;
 int64 sLabLongHolds = 0;
+
+
+#ifdef __x86_64__
+// AI-assisted independent research fork. Opt-in, restricted to user maps.
+// Use existing trylock semantics; do not bypass an already queued owner.
+int32 sLabSpinEnabled = 0;
+int64 sLabSpinContended = 0;
+int64 sLabSpinAcquired = 0;
+int64 sLabSpinFallback = 0;
+int64 sLabSpinUs = 0;
+const int kLabSpinAttempts = 64;
+const bigtime_t kLabSpinBudgetUs = 8;
+
+int
+lab_vmspin(int argc, char** argv)
+{
+	if (argc == 2 && strcmp(argv[1], "on") == 0)
+		atomic_set(&sLabSpinEnabled, 1);
+	else if (argc == 2 && strcmp(argv[1], "off") == 0)
+		atomic_set(&sLabSpinEnabled, 0);
+	else if (argc != 1) {
+		kprintf("usage: lab_vmspin [on|off]\n");
+		return 0;
+	}
+	kprintf("LAB_VMSPIN enabled=%" B_PRId32 " contended=%" B_PRId64
+		" acquired=%" B_PRId64 " fallback=%" B_PRId64
+		" spin_us=%" B_PRId64 "\n", atomic_get(&sLabSpinEnabled),
+		atomic_get64(&sLabSpinContended), atomic_get64(&sLabSpinAcquired),
+		atomic_get64(&sLabSpinFallback), atomic_get64(&sLabSpinUs));
+	return 0;
+}
+
+bool
+lab_try_map_lock(recursive_lock* lock)
+{
+	status_t result = recursive_lock_trylock(lock);
+	if (result == B_OK)
+		return true;
+	if (result != B_WOULD_BLOCK)
+		return false;
+
+	const bigtime_t start = system_time();
+	for (int i = 0; i < kLabSpinAttempts; i++) {
+		cpu_pause();
+		if (system_time() - start >= kLabSpinBudgetUs)
+			break;
+		result = recursive_lock_trylock(lock);
+		if (result != B_WOULD_BLOCK)
+			break;
+	}
+
+	atomic_add64(&sLabSpinContended, 1);
+	atomic_add64(&sLabSpinUs, system_time() - start);
+	atomic_add64(result == B_OK ? &sLabSpinAcquired : &sLabSpinFallback, 1);
+	return result == B_OK;
+}
+#endif
 
 int
 lab_vmstats(int argc, char** argv)
@@ -85,6 +143,10 @@ x86_vm_lab_stats_init()
 {
 	add_debugger_command("lab_vmstats", &lab_vmstats,
 		"Show or enable/disable experimental user translation-map counters");
+#ifdef __x86_64__
+	add_debugger_command("lab_vmspin", &lab_vmspin,
+		"Show or enable/disable bounded experimental user-map trylock");
+#endif
 }
 
 
@@ -120,7 +182,11 @@ X86VMTranslationMap::Lock()
 
 	const bool measure = atomic_get(&sLabEnabled) != 0 && !fIsKernelMap;
 	const bigtime_t start = measure ? system_time() : 0;
-	recursive_lock_lock(&fLock);
+#ifdef __x86_64__
+	if (atomic_get(&sLabSpinEnabled) == 0 || fIsKernelMap
+		|| smp_get_num_cpus() <= 1 || !lab_try_map_lock(&fLock))
+#endif
+		recursive_lock_lock(&fLock);
 	const bigtime_t acquired = measure ? system_time() : 0;
 	const bool outer = recursive_lock_get_recursion(&fLock) == 1;
 	if (outer)

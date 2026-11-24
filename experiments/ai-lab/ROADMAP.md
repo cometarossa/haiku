@@ -155,3 +155,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V7b regular CI 45444127880, image checksums and isolated boot; initial three paired HVF windows, 4096 page checks, no invalid mutex timestamp samples. Repeat before tuning.
 
 - [x] V7b six additional 256-page paired HVF windows; combined three shared-team spread-vCPU and three independent-team windows, two same-vCPU controls. 12,288 additional alias checks, no invalid timestamps. Queue and resume costs both elevated; investigate dispatch/queue before tuning.
+
+- [ ] V8 opt-in bounded x86_64 user translation-map trylock candidate; compare same-image off/on and V7b reference, verify correctness/fairness and CPU cost before any default enablement.
