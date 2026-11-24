@@ -4,6 +4,13 @@ All scripts and documents here are AI-assisted, belong to the
 cometarossa/haiku ai-experimental branch, and must not be
 submitted to the upstream official Haiku project.
 
+## Scope
+
+Prioritize OS internals: kernel/SMP, memory, IPC, app_server, Media Kit,
+media_server, drivers and architecture portability. Existing bundled
+applications are regression probes only. Defer third-party application
+ports and new application development (including Medo).
+
 ## M0 — Reproducible baseline
 
 - [x] Fork, separate AI-assisted branch, explicit non-submission policy.
@@ -23,8 +30,9 @@ submitted to the upstream official Haiku project.
       evidence/fork-minimum-boot-2026-11-24; only minimal OS profile.
 - [x] Boot the complete desktop (@nightly-raw), CI run 45285916285,
       revision d1e0b80c; verified desktop and guest fixture hashes.
-- [ ] Rebuild and retest MediaPlayer: the first GUI single-frame probe
-      exposed a divide error in Controller::_TimePosition().
+- [x] Rebuild and boot V2, CI run 45290072750, revision d800dd54.
+- [ ] Finish GUI acceptance: previous H.264 single-frame divide error
+      not observed on V2, but video area remains black.
 
 ## M1 — Media Kit correctness
 
