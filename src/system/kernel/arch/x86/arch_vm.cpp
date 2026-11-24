@@ -56,6 +56,9 @@
 #endif
 
 
+// AI-assisted research-fork diagnostics, implemented in X86VMTranslationMap.cpp.
+void x86_vm_lab_stats_init();
+
 void *gDmaAddress;
 
 
@@ -730,6 +733,8 @@ arch_vm_init_post_area(kernel_args *args)
 		panic("arch_vm_init_post_area: unable to map dma region\n");
 		return B_NO_MEMORY;
 	}
+
+	x86_vm_lab_stats_init();
 
 	add_debugger_command_etc("memory_type_ranges", &dump_memory_type_ranges,
 		"List all configured memory type ranges",

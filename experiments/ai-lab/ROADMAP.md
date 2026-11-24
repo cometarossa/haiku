@@ -122,8 +122,9 @@ ports and new application development (including Medo).
       36 runs, 144 worker rows, strong placement-dependent slowdown.
 - [x] Shared vs independent teams first-touch experiment, 72 runs;
       slowdown concentrated in shared address space across vCPUs.
-- [ ] Trace first-touch mapping and synchronous TLB invalidation paths;
-      isolate measured event counts before modifying kernel semantics.
+- [x] Inspect x86-64 Map: absent entries are installed without direct TLB invalidation.
+- [ ] V6 diagnostic candidate: opt-in user map lock/flush counters via KDL;
+      compile, boot, compare snapshot deltas and measure instrumentation overhead.
 - [ ] Complete controlled V4 evaluation (500us base,
       100us minimum, 2500us target; unchanged multipliers and power mode).
       Keep V3 as reference until latency, throughput and correctness pass.

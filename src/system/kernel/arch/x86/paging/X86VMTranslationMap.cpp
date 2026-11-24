@@ -10,6 +10,9 @@
 
 #include "paging/X86VMTranslationMap.h"
 
+#include <KernelExport.h>
+#include <string.h>
+
 #include <thread.h>
 #include <smp.h>
 
@@ -22,6 +25,51 @@
 #else
 #	define TRACE(x...) ;
 #endif
+
+
+// AI-assisted independent research fork: opt-in cumulative diagnostics.
+// Keep invalidation semantics unchanged. No logging on the hot path.
+namespace {
+int32 sLabEnabled = 0;
+int64 sLabLocks = 0;
+int64 sLabLockWaitUs = 0;
+int64 sLabEmptyFlushes = 0;
+int64 sLabFlushes = 0;
+int64 sLabFlushUs = 0;
+int64 sLabInvalidPages = 0;
+int64 sLabRemoteCandidates = 0;
+
+int
+lab_vmstats(int argc, char** argv)
+{
+	if (argc == 2 && strcmp(argv[1], "on") == 0)
+		atomic_set(&sLabEnabled, 1);
+	else if (argc == 2 && strcmp(argv[1], "off") == 0)
+		atomic_set(&sLabEnabled, 0);
+	else if (argc != 1) {
+		kprintf("usage: lab_vmstats [on|off]\n");
+		return 0;
+	}
+	kprintf("LAB_VM enabled=%" B_PRId32 " locks=%" B_PRId64
+		" lock_wait_us=%" B_PRId64 " empty_flushes=%" B_PRId64 "\n",
+		atomic_get(&sLabEnabled), atomic_get64(&sLabLocks),
+		atomic_get64(&sLabLockWaitUs), atomic_get64(&sLabEmptyFlushes));
+	kprintf("LAB_VM flushes=%" B_PRId64 " flush_us=%" B_PRId64
+		" invalid_pages=%" B_PRId64 " remote_candidates=%" B_PRId64 "\n",
+		atomic_get64(&sLabFlushes), atomic_get64(&sLabFlushUs),
+		atomic_get64(&sLabInvalidPages),
+		atomic_get64(&sLabRemoteCandidates));
+	return 0;
+}
+} // namespace
+
+
+void
+x86_vm_lab_stats_init()
+{
+	add_debugger_command("lab_vmstats", &lab_vmstats,
+		"Show or enable/disable experimental user translation-map counters");
+}
 
 
 X86VMTranslationMap::X86VMTranslationMap()
@@ -53,7 +101,13 @@ X86VMTranslationMap::Lock()
 {
 	TRACE("%p->X86VMTranslationMap::Lock()\n", this);
 
+	const bool measure = atomic_get(&sLabEnabled) != 0 && !fIsKernelMap;
+	const bigtime_t start = measure ? system_time() : 0;
 	recursive_lock_lock(&fLock);
+	if (measure) {
+		atomic_add64(&sLabLockWaitUs, system_time() - start);
+		atomic_add64(&sLabLocks, 1);
+	}
 	if (recursive_lock_get_recursion(&fLock) == 1) {
 		// we were the first one to grab the lock
 		TRACE("clearing invalidated page count\n");
@@ -92,11 +146,25 @@ X86VMTranslationMap::MappedSize() const
 void
 X86VMTranslationMap::Flush()
 {
-	if (fInvalidPagesCount <= 0)
+	const bool measure = atomic_get(&sLabEnabled) != 0 && !fIsKernelMap;
+	if (fInvalidPagesCount <= 0) {
+		if (measure)
+			atomic_add64(&sLabEmptyFlushes, 1);
 		return;
+	}
 
 	Thread* thread = thread_get_current_thread();
 	thread_pin_to_current_cpu(thread);
+
+	const bigtime_t start = measure ? system_time() : 0;
+	const int invalidPages = fInvalidPagesCount;
+	if (measure) {
+		// Snapshot only; the actual invalidation path reads its own mask.
+		CPUSet cpus = PagingStructures()->active_on_cpus;
+		cpus.ClearBit(smp_get_current_cpu());
+		if (!cpus.IsEmpty())
+			atomic_add64(&sLabRemoteCandidates, 1);
+	}
 
 	if (fInvalidPagesCount > PAGE_INVALIDATE_CACHE_SIZE) {
 		// invalidate all pages
@@ -124,5 +192,10 @@ X86VMTranslationMap::Flush()
 	}
 	fInvalidPagesCount = 0;
 
+	if (measure) {
+		atomic_add64(&sLabFlushUs, system_time() - start);
+		atomic_add64(&sLabInvalidPages, invalidPages);
+		atomic_add64(&sLabFlushes, 1);
+	}
 	thread_unpin_from_current_cpu(thread);
 }
