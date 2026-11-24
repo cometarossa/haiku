@@ -1,0 +1,5 @@
+mode,cpus,median_create_us,median_touch_us,median_warm_us,median_clone_us,median_verify_us,median_delete_us
+threads,1,2.5,315.0,1.0,2.0,266.0,57.5
+threads,4,259.5,234179.0,4.0,1331.5,177198.0,366.5
+teams,1,3.0,314.0,1.0,2.5,272.5,57.0
+teams,4,4.0,399.5,1.0,3.0,314.0,117.5

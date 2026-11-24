@@ -149,3 +149,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [ ] Complete remaining V7a acceptance: on/off, 256-page cases, TCG, regression; isolate mutex handoff before tuning.
 
 - [ ] V7b x86_64 opt-in translation-map mutex queue and handoff-to-return diagnostics; compile/boot and compare paired windows before changing lock policy.
+
+- [x] V7a smaller 256-page off-state HVF reference: 12 runs, 48 workers, 24,576 checks; no diagnostic sampling required to reproduce contention.
