@@ -74,6 +74,10 @@ ports and new application development (including Medo).
       stderr and screenshot. Fork-built image comparison still pending.
 - [ ] Extend app_server event/input correctness tests and reproduce any
       real bugs under controlled conditions.
+- [x] Baseline native kernel ports, shared-area clones, thread joins and
+      timeouts: 1/4/8 producers, 13,000/13,000 messages verified.
+- [ ] Repeat identical kernel probe on V2; extend to cross-team IPC
+      and scheduler fairness under controlled load.
 - [ ] Test virtual-SMP correctness without claiming native speed.
 - [ ] Keep driver/GPU performance tests on physical hardware.
 
