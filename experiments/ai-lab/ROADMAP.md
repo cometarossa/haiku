@@ -97,6 +97,8 @@ ports and new application development (including Medo).
       relative and absolute 150ms deadlines preserved in tested syscalls.
 - [x] Periodic wakeup baseline at normal/display priority, idle and
       same-vCPU CPU load, 2880 samples on beta6/V3.
+- [x] Compare low-latency/power-saving scheduler modes on V3, 2880
+      samples, original mode restored.
 - [ ] Isolate lock contention, wait/wakeup and allocator costs; repeat
       under controlled VM load and test cross-team IPC/scheduler fairness.
 - [ ] Test virtual-SMP correctness without claiming native speed.
