@@ -1,0 +1,30 @@
+revision: hrev60465+ai_752a2700
+Thread 976 "kernel_debugger" running on CPU 2
+kdebug> lab_vmspin on
+LAB_VMSPIN enabled=1 contended=42296 acquired=18510 fallback=23786 spin_us=120947
+kdebug> continue
+read access attempted on read-protected area 0xa542 at 0x000000bf06883000
+vm_page_fault: vm_soft_fault returned error 'Permission denied' on fault at 0xbf06883000, ip 0xffffffff8018c940, write 0, kernel, exec 0, thread 1002
+USER: User command requested kernel debugger.
+Welcome to Kernel Debugging Land...
+revision: hrev60465+ai_752a2700
+Thread 1067 "kernel_debugger" running on CPU 1
+kdebug> lab_vmspin off
+LAB_VMSPIN enabled=0 contended=42307 acquired=18521 fallback=23786 spin_us=120951
+kdebug> continue
+USER: User command requested kernel debugger.
+Welcome to Kernel Debugging Land...
+revision: hrev60465+ai_752a2700
+Thread 1069 "kernel_debugger" running on CPU 2
+kdebug> lab_vmspin off
+LAB_VMSPIN enabled=0 contended=42307 acquired=18521 fallback=23786 spin_us=120951
+kdebug> continue
+read access attempted on read-protected area 0xb728 at 0x00000053bc8f2000
+vm_page_fault: vm_soft_fault returned error 'Permission denied' on fault at 0x53bc8f2000, ip 0xffffffff8018c940, write 0, kernel, exec 0, thread 1095
+USER: User command requested kernel debugger.
+Welcome to Kernel Debugging Land...
+revision: hrev60465+ai_752a2700
+Thread 1137 "kernel_debugger" running on CPU 0
+kdebug> lab_vmspin off
+LAB_VMSPIN enabled=0 contended=42307 acquired=18521 fallback=23786 spin_us=120951
+kdebug> continue

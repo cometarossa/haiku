@@ -20,7 +20,7 @@ SOURCES = {
     "smode": "scheduler-mode-20261124",
 }
 REVISIONS = {"45302538749": "7d5672a7", "45348558239": "35eca30c",
-             "45362378911": "8f8e7d06"}
+             "45362378911": "8f8e7d06", "45444127880": "34258af0", "45486033282": "752a2700"}
 OUTPUTS = {"revision.txt", "copyerr.csv", "sweep-1.csv", "sweep-4.csv",
            "sweep-8.csv", "topology.csv", "cost.csv", "wake.csv",
            "fair.csv", "result.txt"}

@@ -159,3 +159,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [ ] V8 opt-in bounded x86_64 user translation-map trylock candidate; compare same-image off/on and V7b reference, verify correctness/fairness and CPU cost before any default enablement.
 
 - [x] V8 boot and initial paired HVF off/on test: 48 runs, 192 worker rows; bounded trylock benefit measured; full regression and native gates remain pending.
+
+- [ ] V8 regression interrupted: three suites passed; fourth (policy off) failed independent IPC topology; preserve evidence and isolate/reproduce before acceptance or purging reference images.
