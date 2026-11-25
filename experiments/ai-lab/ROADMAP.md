@@ -213,3 +213,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V13 native screeninfo confirms Generic VESA, zero overlay color spaces. V14 opt-in MediaPlayer capability preflight candidate implemented; native build/test pending.
 
 - [x] V13 two native MediaPlayer windows: scripted distinct geometry, concurrent IsPlaying and advancing independent positions; actual presentation count still pending.
+
+- [x] V13 four dynamic native video windows: 16/16 active samples, four advancing visible frame counters. V14 image 63cc5489 imported with both hashes verified.

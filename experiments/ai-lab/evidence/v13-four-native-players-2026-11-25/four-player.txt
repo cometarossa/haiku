@@ -1,0 +1,128 @@
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+SAMPLE 1
+WINDOW 7
+lab-dynamic-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 33333 (0x8235)
+
+WINDOW 9
+lab-dynamic-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 33333 (0x8235)
+
+WINDOW 11
+lab-dynamic-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 200000 (0x30d40)
+
+WINDOW 13
+lab-dynamic-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 433333 (0x69cb5)
+
+SAMPLE 2
+WINDOW 7
+lab-dynamic-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 1666666 (0x196e6a)
+
+WINDOW 9
+lab-dynamic-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 1766666 (0x1af50a)
+
+WINDOW 11
+lab-dynamic-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 1766666 (0x1af50a)
+
+WINDOW 13
+lab-dynamic-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 1833333 (0x1bf975)
+
+SAMPLE 3
+WINDOW 7
+lab-dynamic-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 3066666 (0x2ecb2a)
+
+WINDOW 9
+lab-dynamic-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 3133333 (0x2fcf95)
+
+WINDOW 11
+lab-dynamic-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 3166666 (0x3051ca)
+
+WINDOW 13
+lab-dynamic-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 3233333 (0x315635)
+
+SAMPLE 4
+WINDOW 7
+lab-dynamic-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 4400000 (0x432380)
+
+WINDOW 9
+lab-dynamic-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 4500000 (0x44aa20)
+
+WINDOW 11
+lab-dynamic-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 4566666 (0x45ae8a)
+
+WINDOW 13
+lab-dynamic-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 4633333 (0x46b2f5)
+
