@@ -46,8 +46,8 @@ fi
 # fork on a distinct port 5914. Only bounded localhost ports allowed.
 VNC_DISPLAY=$(printenv HAIKU_REGULAR_VNC_DISPLAY 2>/dev/null || echo 13)
 case "$VNC_DISPLAY" in
-    13|14|15|16|17|18|19|20|21|22|23) ;;
-    *) echo "HAIKU_REGULAR_VNC_DISPLAY must be 13..23" >&2; exit 2 ;;
+    13|14|15|16|17|18|19|20|21|22|23|24) ;;
+    *) echo "HAIKU_REGULAR_VNC_DISPLAY must be 13..24" >&2; exit 2 ;;
 esac
 VNC_PORT=$((5900 + VNC_DISPLAY))
 
