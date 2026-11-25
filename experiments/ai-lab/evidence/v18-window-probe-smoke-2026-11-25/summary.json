@@ -1,0 +1,36 @@
+{
+  "expected": 9,
+  "attempted": 9,
+  "errors": 0,
+  "not_attempted": 0,
+  "playing_replies": 3,
+  "all_positions_advance": true,
+  "initialization_us": 14876,
+  "elapsed_us": 1013816,
+  "deadline_overrun_us": 0,
+  "complete": true,
+  "playback_valid": true,
+  "by_operation": {
+    "Title": {
+      "count": 3,
+      "median_us": 1141,
+      "p95_us": 4078,
+      "max_us": 4078,
+      "total_us": 6003
+    },
+    "IsPlaying": {
+      "count": 3,
+      "median_us": 580,
+      "p95_us": 943,
+      "max_us": 943,
+      "total_us": 2002
+    },
+    "Position": {
+      "count": 3,
+      "median_us": 1382,
+      "p95_us": 1903,
+      "max_us": 1903,
+      "total_us": 3788
+    }
+  }
+}
