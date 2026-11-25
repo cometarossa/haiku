@@ -169,3 +169,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] Native offscreen app_server draw/sync baseline Beta6/V5/V8 off: 27 runs, 1,769,472 final RGB pixel checks. Diagnostic IPC variant compiled and passed 6 runs/12,000 messages; original intermittent failure open.
 
 - [ ] V9 Interface Kit candidate: queue synchronous bitmap draw and AS_SYNC together where possible; retain reply and async behavior. Compile/boot, verify pixels and lifetime, measure packet counts and desktop regressions.
+
+- [x] V9 verified boot and offscreen bitmap lifetime/packet smoke: 36 runs, 2,359,296 final RGB checks, zero errors; direct inbound packets 2048 -> 1024 per 1024 draws. No consistent elapsed-time gain; full acceptance pending.

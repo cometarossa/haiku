@@ -1,0 +1,7 @@
+repeat,mode,draws,elapsed_us,checked,errors,packets,exit
+1,direct,1024,305898,65536,0,2048,0
+1,transaction,1024,316397,65536,0,1024,0
+2,transaction,1024,310768,65536,0,1024,0
+2,direct,1024,319161,65536,0,2048,0
+3,direct,1024,317796,65536,0,2048,0
+3,transaction,1024,315675,65536,0,1024,0

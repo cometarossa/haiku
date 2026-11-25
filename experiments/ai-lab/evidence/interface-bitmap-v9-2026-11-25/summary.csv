@@ -1,0 +1,13 @@
+test,version,mode,runs,median_elapsed_us,packets_per_run,pixels_checked
+lifetime,beta,direct,3,315115,,196608
+lifetime,beta,transaction,3,312136,,196608
+lifetime,v8,direct,3,321166,,196608
+lifetime,v8,transaction,3,316539,,196608
+lifetime,v9,direct,3,330090,,196608
+lifetime,v9,transaction,3,329512,,196608
+packets,beta,direct,3,317796,2048,196608
+packets,beta,transaction,3,315675,1024,196608
+packets,v8,direct,3,319186,2048,196608
+packets,v8,transaction,3,317757,1024,196608
+packets,v9,direct,3,314720,1024,196608
+packets,v9,transaction,3,315489,1024,196608

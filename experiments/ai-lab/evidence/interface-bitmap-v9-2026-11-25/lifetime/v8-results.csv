@@ -1,0 +1,7 @@
+repeat,mode,draws,elapsed_us,checked,errors,exit
+1,direct,1024,309927,65536,0,0
+1,transaction,1024,318044,65536,0,0
+2,transaction,1024,316218,65536,0,0
+2,direct,1024,321166,65536,0,0
+3,direct,1024,333922,65536,0,0
+3,transaction,1024,316539,65536,0,0
