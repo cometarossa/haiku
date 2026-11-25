@@ -1,0 +1,4 @@
+LAB_BITMAP_WARM team=464 token=351 bytes=262144 us=104
+LAB_BITMAP_SINGLE_CLEAR team=478 token=373 bytes=262144
+LAB_BITMAP_WARM team=478 token=373 bytes=262144 us=119
+slab memory manager: created area 0xffffffff94001000 (18951)

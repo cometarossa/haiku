@@ -1,0 +1,3 @@
+../configure: could not find setfattr, assuming host has no extended attributes
+x86_64 crosstools already exist in /work/haiku-ai/generated/cross-tools-x86_64; skipping build
+Configured successfully!
