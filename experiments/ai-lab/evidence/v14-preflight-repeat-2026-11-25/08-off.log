@@ -1,0 +1,15 @@
+VideoConsumer::CreateBuffers - ERROR CREATING VIDEO RING BUFFER (Index 0 Width 320 Height 180 Colorspace 8: Out of memory
+VideoConsumer::Connected - COULDN'T CREATE BUFFERS
+BMediaRoster::Connect: aborting after BBufferConsumer::Connected, status = 0x80000000
+VideoProducer::Connect() - consumer error: Out of memory
+BMediaRoster::Connect: aborted
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+open playlist item: stream-a.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+Can't connect the video source to the video window... trying without overlays, error: Out of memory
+running without audio node
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 500

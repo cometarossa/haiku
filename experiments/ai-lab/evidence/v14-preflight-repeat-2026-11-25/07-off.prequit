@@ -1,0 +1,5 @@
+VideoConsumer::CreateBuffers - ERROR CREATING VIDEO RING BUFFER (Index 0 Width 320 Height 180 Colorspace 8: Out of memory
+VideoConsumer::Connected - COULDN'T CREATE BUFFERS
+BMediaRoster::Connect: aborting after BBufferConsumer::Connected, status = 0x80000000
+VideoProducer::Connect() - consumer error: Out of memory
+BMediaRoster::Connect: aborted

@@ -1,0 +1,4 @@
+Reply BMessage(B_REPLY):
+   "result" (B_BOOL_TYPE) : TRUE
+   "thread" (B_INT32_TYPE) : 1375 (0x00001375)
+

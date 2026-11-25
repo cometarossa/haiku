@@ -219,3 +219,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V14 OFF: eight visible dynamic native video windows, 32/32 active samples, all advancing; dropped-frame diagnostics observed. Quantitative frame loss and ON/OFF comparison pending.
 
 - [x] V14 preflight first same-image OFF/ON pair: native marker branch activated, failed overlay retry avoided; both play and exit zero. One ON buffer-send error recorded. Repeated latency and drop measurements pending.
+
+- [x] V14 balanced startup proxy 12/12, six paired wins, median -46.1%; five buffer-send messages per treatment. First-frame and presentation-loss measurement pending.
