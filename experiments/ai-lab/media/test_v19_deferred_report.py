@@ -14,8 +14,9 @@ class DeferredReportTest(unittest.TestCase):
                   "queued=4"):
             with self.assertRaises(ValueError):deferred_records("LAB_VIDEO_DEFERRED "+s)
     def test_lifecycle(self):
-        a="STOP\nfalse\n"+pos(0)+"SEEK\nfalse\n"+pos(30000000)
+        a="STOP\nfalse\n"+pos(0)+"SEEK\nfalse\n"+pos(28000000)
         b="PAUSE\nfalse\n"+pos(33000000)+"PAUSE_LATER\n"+pos(33000000)
-        self.assertEqual(lifecycle(a,b)["seek_us"],30000000)
+        self.assertEqual(lifecycle(a,b)["seek_us"],28000000)
         with self.assertRaises(ValueError):lifecycle(a,b.replace("false","true"))
+        with self.assertRaises(ValueError):lifecycle(a.replace("28000000","30000000"),b)
         with self.assertRaises(ValueError):lifecycle(a,b.replace("33000000 (0x0)\n","35000000 (0x0)\n",1))

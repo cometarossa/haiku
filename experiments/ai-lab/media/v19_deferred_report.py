@@ -6,6 +6,10 @@ from pathlib import Path
 from window_probe_report import analyze
 from video_view_stats_report import parse, summarize
 
+# Fixture verified on ZimaBlade with ffprobe -skip_frame nokey.
+FIXTURE_SHA = "08e5d9773d11247b52892dbbc42c9673c4db18cf4bab05f65c253a885c549a99"
+SEEK_KEYFRAME_US = 28000000
+
 KEYS = "queued coalesced failed handled cancelled draw skipped".split()
 
 
@@ -45,7 +49,7 @@ def lifecycle(text, pause):
     if not stopped(a) or not stopped(b):
         raise ValueError("stop or seek state")
     stop,seek=position(a),position(b)
-    if not 0 <= stop <= 100000 or abs(seek-30000000)>1000000:
+    if not 0 <= stop <= 100000 or abs(seek-SEEK_KEYFRAME_US)>33334:
         raise ValueError("stop or seek position")
     if not pause.startswith("PAUSE\n") or pause.count("PAUSE_LATER\n") != 1:
         raise ValueError("pause boundary")
@@ -59,6 +63,8 @@ def lifecycle(text, pause):
 def validate(root):
     if (root/"done.txt").read_text().strip()!="0" or "ai_067ee57e" not in (root/"revision.txt").read_text():
         raise ValueError("completion or revision")
+    if FIXTURE_SHA+"  stream-a.mp4" not in (root/"input-sha256.txt").read_text().splitlines():
+        raise ValueError("unexpected seek fixture")
     results=[]
     for i,state in enumerate(("off","on")):
         tag=f"{i:02d}-n1-{state}"
@@ -72,7 +78,7 @@ def validate(root):
         probe=analyze(read("probe"),[int(mapping[0].split()[0])])
         if not probe["playback_valid"]:
             raise ValueError("playback failed")
-        if any(int(l.split()[-1])<29000000 for l in read("probe").splitlines() if " Position " in l):
+        if any(int(l.split()[-1])<SEEK_KEYFRAME_US-33334 for l in read("probe").splitlines() if " Position " in l):
             raise ValueError("resume did not start at seek target")
         states=lifecycle(read("lifecycle"),read("pause"))
         stats=summarize(parse(read("stderr")),1)
