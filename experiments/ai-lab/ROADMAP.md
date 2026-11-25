@@ -205,3 +205,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V13 quiet comparison complete 36/36; quiet median lifecycle improves in all four tested topologies, 10/12 paired wins vs OFF. Keep opt-in until client audit, quiet eligibility and repeat validation.
 
 - [x] V13 quiet public bitmap eligibility: 42/42, no errors; independent client write audit pending.
+
+- [x] V13 independent actual-client memset audit: 8/8 cases, 2,097,152 white bytes; OFF/warm/ordinary retain one client fill, lab single/quiet omit it. Scope 256 KiB allocation, diagnostic-only; broader workload and repeat pending.
