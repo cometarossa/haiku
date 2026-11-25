@@ -1,0 +1,34 @@
+[
+  {
+    "worker": 0,
+    "constructor_us": 3777,
+    "lock_us": 1,
+    "white_scan_us": 1271,
+    "attach_us": 84,
+    "initial_sync_us": 858
+  },
+  {
+    "worker": 1,
+    "constructor_us": 2703,
+    "lock_us": 0,
+    "white_scan_us": 138,
+    "attach_us": 214,
+    "initial_sync_us": 490
+  },
+  {
+    "worker": 2,
+    "constructor_us": 1883,
+    "lock_us": 1,
+    "white_scan_us": 137,
+    "attach_us": 10,
+    "initial_sync_us": 390
+  },
+  {
+    "worker": 3,
+    "constructor_us": 1646,
+    "lock_us": 1,
+    "white_scan_us": 136,
+    "attach_us": 10,
+    "initial_sync_us": 368
+  }
+]

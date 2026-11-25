@@ -195,3 +195,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] Corrected native lifecycle clock (earliest worker), compiled on Beta6 and hashed separately; balanced 36-run same-image comparison and paired ratio analyzer prepared; final acceptance pending.
 
 - [x] V12 corrected-clock balanced comparison: 36 runs, 108 workers, 147,456 fills, 7,077,888 final RGB checks; no errors. V12 lifecycle benefit only threads4; keep opt-in. V13 quiet control source 97075eae building on ZimaBlade.
+
+- [x] V12 phase diagnostic complete, 36/36 verified; constructor delay consistent across all four topologies. V13 quiet image 97075eae built; native verification pending.

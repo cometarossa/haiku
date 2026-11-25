@@ -1,0 +1,18 @@
+[
+  {
+    "worker": 0,
+    "constructor_us": 19408,
+    "lock_us": 2,
+    "white_scan_us": 410,
+    "attach_us": 369,
+    "initial_sync_us": 566
+  },
+  {
+    "worker": 1,
+    "constructor_us": 17069,
+    "lock_us": 1,
+    "white_scan_us": 219,
+    "attach_us": 32,
+    "initial_sync_us": 429
+  }
+]
