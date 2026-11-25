@@ -1,0 +1,13 @@
+mode,surfaces,flag,median_render_us,median_lifecycle_us,median_max_setup_us,median_warm_total_us
+threads,2,off,21173,32137,9793,0
+threads,2,warm,22309,30440,9068,210
+threads,2,single,19736,33950,13924,208
+teams,2,off,34944,40718,3728,0
+teams,2,warm,29023,36404,6847,273
+teams,2,single,30261,46283,14097,203
+threads,4,off,57146,71983,9294,0
+threads,4,warm,16320,34400,17163,449
+threads,4,single,17423,41457,23014,424
+teams,4,off,49683,89415,9399,0
+teams,4,warm,21073,72166,15728,430
+teams,4,single,31306,113469,24865,518

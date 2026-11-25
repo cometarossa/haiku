@@ -193,3 +193,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V12 two-surface legacy-clock smoke: 12 runs, 49,152 fills, 1,572,864 final RGB checks, 12 matched ack/skip pairs, no errors; lifecycle clock corrected in b3d306f7, repeat required.
 
 - [x] Corrected native lifecycle clock (earliest worker), compiled on Beta6 and hashed separately; balanced 36-run same-image comparison and paired ratio analyzer prepared; final acceptance pending.
+
+- [x] V12 corrected-clock balanced comparison: 36 runs, 108 workers, 147,456 fills, 7,077,888 final RGB checks; no errors. V12 lifecycle benefit only threads4; keep opt-in. V13 quiet control source 97075eae building on ZimaBlade.
