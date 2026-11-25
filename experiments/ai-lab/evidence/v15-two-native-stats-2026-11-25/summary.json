@@ -1,0 +1,30 @@
+{
+  "producer": {
+    "records": 2,
+    "lock_timeouts": 0,
+    "late": 0,
+    "attempts": 487,
+    "no_buffer": 0,
+    "fills": 487,
+    "fill_timeouts": 0,
+    "fill_errors": 0,
+    "end_buffers": 0,
+    "suppressed": 1,
+    "sent": 486,
+    "send_errors": 0,
+    "wait_us": 15265297,
+    "fill_us": 206611,
+    "max_fill_us": 36116
+  },
+  "consumer": {
+    "records": 2,
+    "received": 478,
+    "inactive": 0,
+    "late": 0,
+    "target_calls": 478,
+    "no_target": 0,
+    "copy_bytes": 0,
+    "copy_us": 0,
+    "target_us": 889666
+  }
+}

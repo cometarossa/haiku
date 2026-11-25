@@ -1,0 +1,23 @@
+LAB_MEDIA_PRODUCER thread=649 lock_timeouts=0 late=0 attempts=271 no_buffer=0 fills=271 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=271 send_errors=0 wait_us=8555683 fill_us=93311 max_fill_us=6527 last_send_error=0
+LAB_MEDIA_CONSUMER received=267 inactive=0 late=0 target_calls=267 no_target=0 copy_bytes=0 copy_us=0 target_us=467763 first_target_us=880996183641
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=668 lock_timeouts=0 late=0 attempts=216 no_buffer=0 fills=216 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=1 sent=215 send_errors=0 wait_us=6709614 fill_us=113300 max_fill_us=36116 last_send_error=0
+LAB_MEDIA_CONSUMER received=211 inactive=0 late=0 target_calls=211 no_target=0 copy_bytes=0 copy_us=0 target_us=421903 first_target_us=880998132624
+open playlist item: n2-1.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+open playlist item: n2-2.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
