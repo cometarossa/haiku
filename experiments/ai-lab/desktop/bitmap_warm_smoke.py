@@ -23,10 +23,13 @@ hmp = importlib.import_module("guest-hmp")
 OLD = BASE / "guest-results/drawing-white-lifecycle-20261125"
 MARKER = "/boot/home/config/settings/haiku-lab-bitmap-warm"
 SINGLE_MARKER = "/boot/home/config/settings/haiku-lab-bitmap-single-clear"
+QUIET_MARKER = "/boot/home/config/settings/haiku-lab-bitmap-quiet"
 PORT = 8899
 
 
-def guest_script(mode, workers, batch, enabled, single_clear=False):
+def guest_script(mode, workers, batch, enabled, single_clear=False, quiet=False):
+    if quiet and not (enabled and single_clear):
+        raise ValueError("quiet requires enabled single clear")
     command = mode if mode in ("lab", "ordinary") else f"{mode} {workers} {batch}"
     return f"""#!/bin/sh
 set -eu
@@ -37,20 +40,29 @@ for f in bitmap SHA256SUMS; do curl -fsS --max-time 20 http://10.0.2.2:{PORT}/"$
 sha256sum -c SHA256SUMS
 chmod +x bitmap
 marker={SINGLE_MARKER if single_clear else MARKER}
-for guard in {MARKER} {SINGLE_MARKER}; do test ! -e "$guard" && test ! -L "$guard"; done
+for guard in {MARKER} {SINGLE_MARKER} {QUIET_MARKER}; do test ! -e "$guard" && test ! -L "$guard"; done
 created=0
-cleanup() {{ if test "$created" = 1; then rm -f "$marker"; fi; }}
+quiet_created=0
+cleanup() {{
+    if test "$quiet_created" = 1; then rm -f {QUIET_MARKER}; fi
+    if test "$created" = 1; then rm -f "$marker"; fi
+}}
 trap cleanup 0
 trap 'exit 125' 1 2 15
 if test {int(enabled)} = 1; then
     (set -C; : > "$marker")
     created=1
 fi
+if test {int(quiet)} = 1; then
+    (set -C; : > {QUIET_MARKER})
+    quiet_created=1
+fi
 rc=0
 ./bitmap {command} > result.csv 2> errors.txt || rc=$?
 cleanup
 created=0
-test ! -e "$marker" && test ! -L "$marker"
+quiet_created=0
+for guard in {MARKER} {SINGLE_MARKER} {QUIET_MARKER}; do test ! -e "$guard" && test ! -L "$guard"; done
 uname -a > revision.txt
 printf '%s\\n' "$rc" > exit.txt
 for f in result.csv errors.txt revision.txt exit.txt; do curl -fsS --max-time 20 -T "$f" http://10.0.2.2:{PORT}/"$f"; done
@@ -178,24 +190,25 @@ def run(args):
     if args.eligibility:
         plan = [(mode, 1, 64, enabled) for enabled in (False, True)
                 for mode in ("lab", "ordinary")]
-    if args.three_way:
+    if args.three_way or args.quiet_compare:
         # Balanced order: each treatment appears once in each position.
         matrix = [("threads", 2), ("teams", 2), ("threads", 4), ("teams", 4)]
+        middle, last = ("single", "quiet") if args.quiet_compare else ("warm", "single")
         plan = [(mode, workers, 64, state != "off", state)
                 for mode, workers in matrix
-                for block in (("off", "warm", "single"), ("warm", "single", "off"),
-                              ("single", "off", "warm"))
+                for block in (("off", middle, last), (middle, last, "off"),
+                              (last, "off", middle))
                 for state in block]
     else:
         plan = [(mode, workers, batch, enabled,
                  ("single" if args.single_clear else "warm") if enabled else "off")
                 for mode, workers, batch, enabled in plan]
     for i, (mode, workers, batch, enabled, state) in enumerate(plan):
-        expected = 0 if (not enabled or args.expect_no_warm or args.control) else (
+        expected = 0 if (not enabled or state == "quiet" or args.expect_no_warm or args.control) else (
             (2 if mode == "lab" else 0) if args.eligibility else workers)
-        dest = root / ("%02d-%s-%d-%d-%s" % (i, mode, workers, batch, (state if args.three_way else ("on" if enabled else "off"))))
+        dest = root / ("%02d-%s-%d-%d-%s" % (i, mode, workers, batch, (state if (args.three_way or args.quiet_compare) else ("on" if enabled else "off"))))
         dest.mkdir()
-        script = guest_script(mode, workers, batch, enabled, state == "single")
+        script = guest_script(mode, workers, batch, enabled, state in ("single", "quiet"), state == "quiet")
         (dest / "run.sh").write_text(script)
         downloads = {"run.sh": script.encode(), "bitmap": binary, "SHA256SUMS": manifest.encode()}
         uploads = {"result.csv", "errors.txt", "revision.txt", "exit.txt"}
@@ -287,15 +300,16 @@ def main():
     campaign.add_argument("--two-surface", action="store_true",
                           help="paired two-surface batch64 lifecycle campaign")
     campaign.add_argument("--three-way", action="store_true")
+    campaign.add_argument("--quiet-compare", action="store_true")
     p.add_argument("--binary-dir", type=Path, help="explicit directory containing bitmap and SHA256SUMS")
     p.add_argument("--setup-phases", action="store_true", help="require 18-column phase diagnostic binary")
     p.add_argument("--single-clear", action="store_true", help="V12 single initialization marker")
     p.add_argument("--expect-no-warm", action="store_true",
                    help="negative control on a revision without the experiment")
     args = p.parse_args()
-    if args.setup_phases and not args.three_way:
+    if args.setup_phases and not (args.three_way or args.quiet_compare):
         p.error("--setup-phases requires --three-way and a separately compiled binary")
-    if args.three_way and (args.control or args.expect_no_warm or args.single_clear or args.binary_dir is None):
+    if (args.three_way or args.quiet_compare) and (args.control or args.expect_no_warm or args.single_clear or args.binary_dir is None):
         p.error("--three-way requires a V12 local image and explicit corrected binary directory")
     if args.single_clear and (args.control or args.expect_no_warm):
         p.error("--single-clear requires a V12 local image")

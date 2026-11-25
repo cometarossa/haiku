@@ -57,3 +57,14 @@ class BitmapWarmTests(unittest.TestCase):
         script = guest_script("threads", 2, 64, True, True)
         self.assertIn("marker=/boot/home/config/settings/haiku-lab-bitmap-single-clear", script)
         self.assertIn("for guard in /boot/home/config/settings/haiku-lab-bitmap-warm ", script)
+
+
+    def test_quiet_marker_requires_single_clear(self):
+        with self.assertRaises(ValueError):
+            guest_script("threads", 2, 64, True, False, True)
+
+    def test_quiet_marker_cleanup(self):
+        script = guest_script("threads", 2, 64, True, True, True)
+        self.assertIn('quiet_created=1', script)
+        self.assertIn('rm -f /boot/home/config/settings/haiku-lab-bitmap-quiet', script)
+        self.assertIn('if test 1 = 1; then', script)
