@@ -19,7 +19,7 @@ REV = "a1b69d83"
 HOME = Path.home() / "Developer/Haiku"
 
 
-def sample_host():
+def sample_host(revision=REV):
     rows = subprocess.check_output(["ps", "-axo", "pid=,comm=,%cpu=,rss=,command="], text=True)
     guests = []
     for line in rows.splitlines():
@@ -27,17 +27,20 @@ def sample_host():
         if len(fields) == 5 and Path(fields[4].split(None,1)[0]).name.startswith("qemu-system-"):
             guests.append(dict(pid=int(fields[0]), cpu=fields[2], rss_kib=int(fields[3]), command=fields[4]))
     haiku = [g for g in guests if f"file={HOME}/" in g["command"] or f"unix:{HOME}/" in g["command"]]
-    if len(haiku) != 2 or len(guests) != 3 or not any(f"run-local-{REV}/" in g["command"] for g in haiku):
-        raise RuntimeError("Unexpected VM inventory; require Beta6, V16, Fincept")
+    if len(haiku) != 2 or len(guests) != 3 or not any(f"run-local-{revision}/" in g["command"] for g in haiku):
+        raise RuntimeError("Unexpected VM inventory; require Beta6, experimental Haiku, Fincept")
     return dict(timestamp=time.time(), guests=guests,
                 uptime=subprocess.check_output(["uptime"],text=True).strip())
 
 
-def run(root, hd=False, sixteen=False):
+def run(root, hd=False, sixteen=False, adaptive=False):
+    revision = "f960376e" if adaptive else REV
+    if adaptive and sixteen:
+        raise ValueError("Adaptive validation starts with four/eight streams")
     if hd and sixteen:
         raise ValueError("Choose HD or sixteen-stream SD campaign")
     specs = SPECS_16 if sixteen else SPECS
-    initial = sample_host()
+    initial = sample_host(revision)
     initial_pids = {g["pid"] for g in initial["guests"]}
     fixture_dir = HOME/"guest-files"/("v16-hd" if hd else "concurrent-gui")
     source_name = "stream-hd.mp4" if hd else "stream-a.mp4"
@@ -50,6 +53,19 @@ def run(root, hd=False, sixteen=False):
         script=(MEDIA/"v16-catchup-hd-guest.sh").read_bytes()
     if sixteen:
         script=(MEDIA/"v16-catchup-16-guest.sh").read_bytes()
+    if adaptive:
+        # Both treatments get the guard marker; only ON gets catch-up.
+        # Preserve the exact derived guest script in the evidence.
+        script = script.replace(b'v16-catchup-hd-ram', b'v17-catchup-hd-ram').replace(b'v16-catchup-ab', b'v17-catchup-ab')
+        anchor=b'for m in "$stats" "$preflight" "$catchup"; do'
+        if script.count(anchor)!=2:
+            raise ValueError("unexpected marker precondition")
+        script=script.replace(anchor,b'for m in "$stats" "$preflight" "$catchup" "$adaptive"; do')
+        script=script.replace(b'for m in "$stats" "$preflight" "$catchup" "$adaptive"; do',b'adaptive=/boot/home/config/settings/haiku-lab-media-catchup-adaptive\nfor m in "$stats" "$preflight" "$catchup" "$adaptive"; do',1)
+        script=script.replace(b's=0;p=0;c=0',b's=0;p=0;c=0;a=0')
+        script=script.replace(b'cleanup() {',b'cleanup() {\n if test "$a" = 1; then rm -f "$adaptive"; a=0; fi')
+        script=script.replace(b'(set -C; : > "$stats"); s=1',b'(set -C; : > "$stats"); s=1\n(set -C; : > "$adaptive"); a=1')
+        subprocess.run(["sh","-n"],input=script,check=True)
     downloads={"run.sh":script,"stream-a.mp4":fixture,
                "SHA256SUMS":(digest+"  stream-a.mp4\n").encode()}
     allowed={"revision.txt","done.txt"}|{f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(specs)
@@ -92,7 +108,7 @@ def run(root, hd=False, sixteen=False):
     thread=Thread(target=server.serve_forever,daemon=True)
     thread.start()
     try:
-        cmd=[sys.executable,str(LAB/"guest-hmp.py"),"--local-id",REV,"type"]
+        cmd=[sys.executable,str(LAB/"guest-hmp.py"),"--local-id",revision,"type"]
         subprocess.run(cmd+["curl -fsS http://10.0.2.2:8901/run.sh -o "+("catchup16sd.sh" if sixteen else "catchuphd.sh" if hd else "catchup16.sh")],check=True,timeout=30)
         subprocess.run(cmd+["sh "+("catchup16sd.sh" if sixteen else "catchuphd.sh" if hd else "catchup16.sh")],check=True,timeout=30)
         sys.path.insert(0,str(LAB))
@@ -102,7 +118,7 @@ def run(root, hd=False, sixteen=False):
         last_done=0
         last_screen=0
         while time.monotonic()<deadline:
-            sample=sample_host()
+            sample=sample_host(revision)
             if {g["pid"] for g in sample["guests"]}!=initial_pids:
                 raise RuntimeError("VM inventory changed")
             with (root/"host-samples.jsonl").open("a") as f:
@@ -113,7 +129,7 @@ def run(root, hd=False, sixteen=False):
                 png=ppm.with_suffix(".png")
                 with socket.socket(socket.AF_UNIX) as sock:
                     sock.settimeout(8)
-                    sock.connect(str(HOME/"ai-images"/f"run-local-{REV}"/"haiku-ai-regular-monitor.sock"))
+                    sock.connect(str(HOME/"ai-images"/f"run-local-{revision}"/"haiku-ai-regular-monitor.sock"))
                     h.receive_prompt(sock)
                     h.exchange(sock,"screendump "+str(ppm))
                 subprocess.run(["sips","-s","format","png",str(ppm),"--out",str(png)],check=True,stdout=subprocess.DEVNULL)
@@ -139,8 +155,8 @@ def run(root, hd=False, sixteen=False):
             time.sleep(2)
         else:
             raise TimeoutError("campaign incomplete; retain logs")
-        (root/"host-end.json").write_text(json.dumps(sample_host(),indent=2)+"\n")
-        report=validate(root,specs=specs)
+        (root/"host-end.json").write_text(json.dumps(sample_host(revision),indent=2)+"\n")
+        report=validate(root,specs=specs,revision=revision,require_no_activation=adaptive and hd)
         (root/"summary.json").write_text(json.dumps(report,indent=2)+"\n")
         print("V16_CAMPAIGN_PASS",json.dumps(report["pairs"],indent=2),flush=True)
     finally:
@@ -154,5 +170,6 @@ if __name__=="__main__":
     p.add_argument("root",type=Path)
     p.add_argument("--hd",action="store_true")
     p.add_argument("--sixteen",action="store_true")
+    p.add_argument("--adaptive",action="store_true")
     a=p.parse_args()
-    run(a.root,a.hd,a.sixteen)
+    run(a.root,a.hd,a.sixteen,a.adaptive)

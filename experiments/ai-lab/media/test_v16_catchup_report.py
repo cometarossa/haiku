@@ -52,6 +52,15 @@ class CatchupReportTest(unittest.TestCase):
         self.write("00-n16-off.stop","16000000\n")
         with self.assertRaises(ValueError):validate(self.root,specs=SPECS_16)
 
+    def test_adaptive_hd_guard(self):
+        self.write("revision.txt","ai_f960376e")
+        with self.assertRaises(ValueError):
+            validate(self.root,revision="f960376e",require_no_activation=True)
+        for i,(n,state) in enumerate(SPECS):
+            if state=="on":
+                self.edit(f"{i:02d}-n{n}-{state}.stderr","LAB_MEDIA_CATCHUP progress from=5 to=6\n","")
+        self.assertEqual(validate(self.root,revision="f960376e",require_no_activation=True)["activated_pairs"],0)
+
     def test_complete_balanced(self):
         r=validate(self.root)
         self.assertEqual(r["completed"],8)

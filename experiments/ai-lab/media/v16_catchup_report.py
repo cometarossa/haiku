@@ -61,15 +61,18 @@ def validate_run(root, index, n, state):
                 consumer_late_fraction=c["late"]/c["received"])
 
 
-def validate(root, partial=False, specs=SPECS):
-    if "ai_a1b69d83" not in (root/"revision.txt").read_text():
+def validate(root, partial=False, specs=SPECS, revision="a1b69d83", require_no_activation=False):
+    if "ai_"+revision not in (root/"revision.txt").read_text():
         raise ValueError("wrong guest revision")
     rows=[]
     for index,(n,state) in enumerate(specs):
         tag=f"{index:02d}-n{n}-{state}"
         if partial and not (root/(tag+".exit")).exists():
             break
-        rows.append(validate_run(root,index,n,state))
+        row=validate_run(root,index,n,state)
+        if require_no_activation and row["activation_count"]:
+            raise ValueError(f"{tag}: recovery activated despite HD guard")
+        rows.append(row)
     if not partial and (root/"done.txt").read_text().strip()!="0":
         raise ValueError("campaign incomplete")
     comparisons=[]
@@ -91,5 +94,7 @@ if __name__=="__main__":
     p.add_argument("root",type=Path)
     p.add_argument("--partial",action="store_true")
     p.add_argument("--sixteen",action="store_true")
+    p.add_argument("--revision",default="a1b69d83")
+    p.add_argument("--require-no-activation",action="store_true")
     a=p.parse_args()
-    print(json.dumps(validate(a.root,a.partial,SPECS_16 if a.sixteen else SPECS),indent=2))
+    print(json.dumps(validate(a.root,a.partial,SPECS_16 if a.sixteen else SPECS,a.revision,a.require_no_activation),indent=2))
