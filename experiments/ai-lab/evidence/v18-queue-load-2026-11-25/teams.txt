@@ -1,0 +1,232 @@
+port: total:  4096, used:   147, left:  3949
+
+TEAM    1 (kernel_team):
+   ID                         name  capacity  queued
+----------------------------------------------------
+   50        BT Kernel RX assembly        24       0
+
+TEAM   32 (/boot/system/servers/launch_daemon):
+   ID                         name  capacity  queued
+----------------------------------------------------
+    1                   tmp_rport0         1       0
+    2                   tmp_rport1         1       0
+    3                   tmp_rport2         1       0
+    4         system:launch_daemon       200       0
+
+TEAM   38 (/boot/system/servers/debug_server):
+   ID                         name  capacity  queued
+----------------------------------------------------
+   11     x-vnd.haiku-debug_server       200       0
+   13                   tmp_rport1         1       0
+   14                   tmp_rport2         1       0
+   41              kernel listener        10       0
+  119                 a<app_server       100       0
+   12                   tmp_rport0         1       0
+  208 a<38:x-vnd.Haiku-debug_server        50       0
+
+TEAM   39 (/boot/system/servers/package_daemon):
+   ID                         name  capacity  queued
+----------------------------------------------------
+   15   x-vnd.haiku-package_daemon       200       0
+   17                   tmp_rport1         1       0
+   18                   tmp_rport2         1       0
+  120                 a<app_server       100       0
+   16                   tmp_rport0         1       0
+  200 a<39:x-vnd.haiku-package_daemon        50       0
+
+TEAM   40 (/boot/system/servers/mount_server):
+   ID                         name  capacity  queued
+----------------------------------------------------
+   22     x-vnd.haiku-mount_server       200       0
+   24                   tmp_rport1         1       0
+   25                   tmp_rport2         1       0
+   23                   tmp_rport0         1       0
+
+TEAM   41 (/boot/system/servers/net_server):
+   ID                         name  capacity  queued
+----------------------------------------------------
+   10                   tmp_rport2         1       0
+   40                AppLooperPort       200       0
+   49           PathMonitor looper       200       0
+  114           /dev/net/rtl81xx/0       200       0
+  117                 a<app_server       100       0
+    9                   tmp_rport1         1       0
+    8                   tmp_rport0         1       0
+  206  a<41:x-vnd.haiku-net_server        50       0
+
+TEAM   42 (/boot/system/servers/power_daemon):
+   ID                         name  capacity  queued
+----------------------------------------------------
+   20                   tmp_rport1         1       0
+   21                   tmp_rport2         1       0
+   39                AppLooperPort       200       0
+  116                 a<app_server       100       0
+   19                   tmp_rport0         1       0
+  203 a<42:x-vnd.Haiku-powermanagemen        50       0
+
+TEAM   43 (/boot/system/servers/registrar):
+   ID                         name  capacity  queued
+----------------------------------------------------
+   28        x-vnd.haiku-registrar       200       0
+   29        x-vnd.haiku-registrar       200       0
+   34                   tmp_rport1         1       0
+   35                   tmp_rport2         1       0
+   33                   tmp_rport0         1       0
+   36                    main_mime       200       0
+
+TEAM   44 (/boot/system/servers/syslog_daemon):
+   ID                         name  capacity  queued
+----------------------------------------------------
+   26     x-vnd.haiku-systemlogger       200       0
+   27     x-vnd.haiku-systemlogger       200       0
+   31                   tmp_rport1         1       0
+   32                   tmp_rport2         1       0
+  118                 a<app_server       100       0
+   30                   tmp_rport0         1       0
+  207 a<44:x-vnd.Haiku-SystemLogger        50       0
+
+TEAM   50 (/boot/system/servers/launch_daemon user):
+   ID                         name  capacity  queued
+----------------------------------------------------
+   44                   tmp_rport2         1       0
+   48                      AppPort       200       0
+   43                   tmp_rport1         1       0
+   42                   tmp_rport0         1       0
+
+TEAM   61 (/boot/system/servers/media_server):
+   ID                         name  capacity  queued
+----------------------------------------------------
+   52                   tmp_rport1         1       0
+   53                   tmp_rport2         1       0
+   84                AppLooperPort       200       0
+   85                 a<app_server       100       0
+  204   a<61:x-vnd.Be.media-server        50       0
+  215             media reply port         1       0
+  216          __media_server_port        64       0
+  230               _BMediaRoster_       200       0
+   51                   tmp_rport0         1       0
+
+TEAM  105 (/boot/system/servers/app_server):
+   ID                         name  capacity  queued
+----------------------------------------------------
+   86               rAppLooperPort       100       0
+   88                   tmp_rport1         1       0
+   89                   tmp_rport2         1       0
+   90         DelayedMessageSender        10       0
+   91            GlobalFontManager       200       0
+   99               screen manager       200       0
+  121                    d:0:baron        50       0
+   87                   tmp_rport0         1       0
+  243                 Notification       100       0
+  314                TrackerWindow       100       0
+  319                      Deskbar       100       0
+  334                     Twitcher       100       0
+  337                    offscreen       100       0
+  341               Tracker status       100       0
+  378                                    100       0
+
+TEAM  143 (/boot/system/servers/input_server):
+   ID                         name  capacity  queued
+----------------------------------------------------
+  194               rAppLooperPort       100       0
+  196                   tmp_rport1         1       0
+  197                   tmp_rport2         1       0
+  199                 a<app_server       100       0
+  201  a<143:x-vnd.Be-input_server        50       0
+  209          input server events       100       0
+  211                 AddOnMonitor       200       0
+  217          input server target       200       0
+  218           PathMonitor looper       200       0
+  231       screensaver controller       200       0
+  195                   tmp_rport0         1       0
+  232  Shortcuts commands executor       200       0
+  233        Shortcuts map watcher       200       0
+  234         ShortcutsCatcherPort         1       1
+
+TEAM  162 (/boot/system/servers/media_addon_server):
+   ID                         name  capacity  queued
+----------------------------------------------------
+  219               rAppLooperPort       100       0
+  221                   tmp_rport1         1       0
+  222                   tmp_rport2         1       0
+  224                 a<app_server       100       0
+  225    a<162:x-vnd.Be.addon-host        50       0
+  226               _BMediaRoster_       200       0
+  227             media reply port         1       0
+  228    __media_addon_server_port        64       0
+  229                 System clock        64       0
+  286                  Audio Mixer        64       0
+  287             media reply port         1       0
+  220                   tmp_rport0         1       0
+
+TEAM  178 (/boot/system/servers/notification_server):
+   ID                         name  capacity  queued
+----------------------------------------------------
+  235 x-vnd.haiku-notification_server       200       0
+  237                   tmp_rport1         1       0
+  238                   tmp_rport2         1       0
+  239                 a<app_server       100       0
+  240 a<178:x-vnd.Haiku-notification_        50       0
+  241                 Notification       200       0
+  242                 w<app_server       200       0
+  236                   tmp_rport0         1       0
+
+TEAM  231 (/boot/system/Deskbar):
+   ID                         name  capacity  queued
+----------------------------------------------------
+  302               rAppLooperPort       100       0
+  304                   tmp_rport1         1       0
+  305                   tmp_rport2         1       0
+  309                 a<app_server       100       0
+  310          a<231:x-vnd.Be-TSKB        50       0
+  317                      Deskbar       200       0
+  318                 w<app_server       200       0
+  332                     Twitcher       200       0
+  333                 w<app_server       200       0
+  335             offscreen bitmap       200       1
+  336                 w<app_server       200       0
+  364               _BMediaRoster_       200       0
+  365             media reply port         1       0
+  303                   tmp_rport0         1       0
+
+TEAM  233 (/boot/system/Tracker):
+   ID                         name  capacity  queued
+----------------------------------------------------
+  297               rAppLooperPort       100       0
+  300                   tmp_rport2         1       0
+  306                 a<app_server       100       0
+  307          a<233:x-vnd.Be-TRAK        50       0
+  311                launch looper       200       0
+  312                TrackerWindow       200       0
+  313                 w<app_server       200       0
+  331           PathMonitor looper       200       0
+  338                 TrashWatcher       200       0
+  339               Tracker status       200       0
+  340                 w<app_server       200       0
+  299                   tmp_rport1         1       0
+  348         ClipboardRefsWatcher      4096       0
+  298                   tmp_rport0         1       0
+
+TEAM  297 (/boot/system/apps/Terminal -w /boot/home/Desktop):
+   ID                         name  capacity  queued
+----------------------------------------------------
+  369               rAppLooperPort       100       0
+  371                   tmp_rport1         1       0
+  372                   tmp_rport2         1       0
+  374                 a<app_server       100       0
+  375   a<297:x-vnd.Haiku-Terminal        50       0
+  376                                    200       0
+  377                 w<app_server       200       0
+  370                   tmp_rport0         1       0
+
+TEAM  303 (/bin/bash -l):
+   ID                         name  capacity  queued
+----------------------------------------------------
+
+TEAM 8557 (/bin/sh load18.sh):
+   ID                         name  capacity  queued
+----------------------------------------------------
+
+TEAM 8572 (/bin/listport):
+   ID                         name  capacity  queued
+----------------------------------------------------
