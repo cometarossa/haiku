@@ -19,7 +19,8 @@
 
 
 enum {
-	MSG_INVALIDATE = 'ivdt'
+	MSG_INVALIDATE = 'ivdt',
+	MSG_LAB_DEFERRED_VIDEO = 'ldvf'
 };
 
 
@@ -65,6 +66,7 @@ VideoView::VideoView(BRect frame, const char* name, uint32 resizeMask)
 VideoView::~VideoView()
 {
 	fLabViewStats.Report();
+	fLabDeferred.Report();
 	Settings::Default()->RemoveListener(&fGlobalSettingsListener);
 	delete fSubtitleBitmap;
 }
@@ -95,9 +97,44 @@ VideoView::Draw(BRect updateRect)
 
 
 void
+VideoView::AttachedToWindow()
+{
+	BView::AttachedToWindow();
+	fLabDeferred.Attach(this);
+}
+
+
+void
+VideoView::DetachedFromWindow()
+{
+	fLabDeferred.Disable();
+	BView::DetachedFromWindow();
+}
+
+
+void
 VideoView::MessageReceived(BMessage* message)
 {
 	switch (message->what) {
+		case MSG_LAB_DEFERRED_VIDEO:
+		{
+			if (!fLabDeferred.BeginHandle())
+				break;
+			bool drew = false;
+			if (LockBitmap()) {
+				// The current bitmap is protected by the existing lock.
+				// Never capture a frame pointer in a queued message.
+				const BBitmap* bitmap = GetBitmap();
+				if (fLabDeferred.Enabled() && bitmap != NULL
+					&& (bitmap->Flags() & B_BITMAP_WILL_OVERLAY) == 0) {
+					_DrawBitmap(bitmap);
+					drew = true;
+				}
+				UnlockBitmap();
+			}
+			fLabDeferred.FinishHandle(drew);
+			break;
+		}
 		case MSG_OBJECT_CHANGED:
 			// received from fGlobalSettingsListener
 			// TODO: find out which object, if we ever watch more than
@@ -172,6 +209,11 @@ VideoView::SetBitmap(const BBitmap* bitmap)
 {
 	LabVideoViewStats::Sample sample(fLabViewStats);
 	bigtime_t phaseStart = sample.Now();
+	// Once an overlay has appeared, retain original behavior for
+	// the rest of this view. No producer-side overlay state reads.
+	if (bitmap != NULL && fLabDeferred.Enabled()
+		&& (bitmap->Flags() & B_BITMAP_WILL_OVERLAY) != 0)
+		fLabDeferred.Disable();
 	VideoTarget::SetBitmap(bitmap);
 	sample.update = sample.Elapsed(phaseStart);
 	// Attention: Don't lock the window, if the bitmap is NULL. Otherwise
@@ -180,6 +222,10 @@ VideoView::SetBitmap(const BBitmap* bitmap)
 	// -> Window).
 	if (!bitmap) {
 		sample.outcome = LabVideoViewStats::kNull;
+		return;
+	}
+	if (fLabDeferred.TryQueue(MSG_LAB_DEFERRED_VIDEO)) {
+		sample.outcome = LabVideoViewStats::kDeferred;
 		return;
 	}
 	phaseStart = sample.Now();
@@ -371,6 +417,9 @@ VideoView::SetVideoFrame(const BRect& frame)
 void
 VideoView::SetSubTitle(const char* text)
 {
+	// Even clearing subtitles can require the original invalidation
+	// path. Disable before touching subtitle state; never re-enable.
+	fLabDeferred.Disable();
 	BRect oldSubtitleFrame = fSubtitleFrame;
 
 	if (text == NULL || text[0] == '\0') {

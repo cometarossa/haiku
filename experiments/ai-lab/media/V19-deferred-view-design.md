@@ -53,3 +53,26 @@ The initial state-machine model is deliberately isolated from
 production VideoView. It tests the notification reservation rule,
 not Haiku's message ordering or bitmap lifetime. It must not be
 treated as a working renderer or proof of thread safety.
+
+## First integration
+LabDeferredVideo.h uses a one-way attachment/ready/pending/disabled
+atomic state. Cached BMessenger is initialized on attachment before
+controller target publication; no queued pointer payload. Any overlay
+bitmap or subtitle update permanently disables the experiment for that
+view, as does detachment. The fallback remains the original path.
+Null publication leaves an already pending message harmless: handler
+reads current bitmap only under the existing bitmap lock. A message
+already executing can finish drawing the previous valid bitmap while
+publication waits for that lock. No stronger display completion or
+stop guarantee than the existing async server path is claimed.
+
+Local BMessage::_SendMessage may enqueue directly in BDirectMessageTarget
+rather than the IPC port; the observed low port occupancy does not
+measure this internal queue. The timeout of zero applies to port
+fallback, not internal token/queue lock scheduling. A local send may
+return success during target closure; lifetime teardown must be
+validated, and the state is never revived after detach.
+V19 view stats append deferred publication count; a separate record
+tracks queue reservations, coalesces, failures, handlers, cancelled
+messages and draws. Host test compiles the actual helper with mock
+atomic and messenger primitives; no native concurrency proof yet.

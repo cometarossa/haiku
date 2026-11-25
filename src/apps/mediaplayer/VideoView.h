@@ -11,6 +11,7 @@
 #include "ListenerAdapter.h"
 #include "VideoTarget.h"
 #include "VideoViewStats.h"
+#include "LabDeferredVideo.h"
 
 
 enum {
@@ -29,6 +30,8 @@ public:
 
 	// BView interface
 	virtual	void				Draw(BRect updateRect);
+	virtual	void				AttachedToWindow();
+	virtual	void				DetachedFromWindow();
 	virtual	void				MessageReceived(BMessage* message);
 	virtual	void				Pulse();
 	virtual	void				MouseMoved(BPoint where, uint32 transit,
@@ -65,6 +68,7 @@ private:
 
 private:
 			LabVideoViewStats	fLabViewStats;
+			LabDeferredVideo	fLabDeferred;
 			BRect				fVideoFrame;
 			bool				fOverlayMode;
 			overlay_restrictions fOverlayRestrictions;

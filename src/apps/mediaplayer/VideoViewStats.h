@@ -16,7 +16,7 @@ class LabVideoViewStats {
 public:
 	enum Outcome {
 		kNull, kLooperFail, kBitmapFail, kOverlay, kInvalidate, kDraw,
-		kOutcomeCount
+		kDeferred, kOutcomeCount
 	};
 
 	LabVideoViewStats()
@@ -39,7 +39,7 @@ public:
 			" total_us=%" B_PRId64 " update_us=%" B_PRId64
 			" looper_us=%" B_PRId64 " bitmap_us=%" B_PRId64
 			" overlay_us=%" B_PRId64 " invalidate_us=%" B_PRId64
-			" draw_us=%" B_PRId64 "\n",
+			" draw_us=%" B_PRId64 " deferred=%" B_PRId64 "\n",
 			atomic_get64(&calls), atomic_get64(&outcomes[kNull]),
 			atomic_get64(&outcomes[kLooperFail]),
 			atomic_get64(&outcomes[kBitmapFail]),
@@ -48,7 +48,8 @@ public:
 			atomic_get64(&outcomes[kDraw]), atomic_get64(&total),
 			atomic_get64(&update), atomic_get64(&looper),
 			atomic_get64(&bitmap), atomic_get64(&overlay),
-			atomic_get64(&invalidate), atomic_get64(&draw));
+			atomic_get64(&invalidate), atomic_get64(&draw),
+			atomic_get64(&outcomes[kDeferred]));
 	}
 
 	class Sample {

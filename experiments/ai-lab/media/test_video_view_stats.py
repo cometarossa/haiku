@@ -58,7 +58,10 @@ void snooze(int us) { clock_us+=us; }
 struct VideoTarget {
     void SetBitmap(const BBitmap*) { clock_us+=3; }
 };
+const int MSG_LAB_DEFERRED_VIDEO=1;
+struct DeferredStub { bool Enabled(){return false;} void Disable(){} bool TryQueue(int){return false;} };
 struct VideoView : VideoTarget {
+    DeferredStub fLabDeferred;
     LabVideoViewStats fLabViewStats;
     bool fOverlayMode=false, fSubtitleChanged=false,fHasSubtitle=false;
     bool looper_ok=true,bitmap_ok=true, overlay_ok=true;

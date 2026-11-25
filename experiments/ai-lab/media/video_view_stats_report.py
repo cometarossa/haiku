@@ -20,10 +20,10 @@ def parse(text):
             raise ValueError("interleaved or malformed view record")
         fields = [re.fullmatch(r"([a-z_]+)=([0-9]+)", f)
                   for f in match.group(1).split()]
-        if any(f is None for f in fields) or [f.group(1) for f in fields] != FIELDS:
+        if any(f is None for f in fields) or [f.group(1) for f in fields] not in (FIELDS, FIELDS+["deferred"]):
             raise ValueError("invalid view fields")
         row = {f.group(1): int(f.group(2)) for f in fields}
-        if row["calls"] != sum(row[k] for k in OUTCOMES):
+        if row["calls"] != sum(row[k] for k in OUTCOMES) + row.get("deferred",0):
             raise ValueError("view outcome conservation failure")
         if row["total_us"] < sum(row[k] for k in PHASES):
             raise ValueError("view timing conservation failure")
@@ -43,7 +43,8 @@ def summarize(rows, expected, enabled=True):
         return {}
     if len(rows) != expected or not rows:
         raise ValueError("unexpected view lifetime count")
-    totals = {key: sum(r[key] for r in rows) for key in FIELDS}
+    keys = FIELDS + (["deferred"] if any("deferred" in r for r in rows) else [])
+    totals = {key: sum(r.get(key,0) for r in rows) for key in keys}
     if totals["calls"] == 0:
         raise ValueError("no sampled view activity")
     totals["records"] = len(rows)
