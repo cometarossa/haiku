@@ -39,8 +39,25 @@ cd "$ROOT/generated"
     >"$stage/configure.log" 2>&1 || { tail -n 100 "$stage/configure.log"; exit 1; }
 test -x cross-tools-x86_64/bin/x86_64-unknown-haiku-gcc
 cross-tools-x86_64/bin/x86_64-unknown-haiku-gcc --version >> "$stage/provenance.txt"
+# Jam's explicit HAIKU_REVISION action has no input dependency and
+# retains a stale generated/build/haiku-revision across incremental builds.
+# Refresh that exact generated file atomically when its contents differ,
+# before Jam decides which revision-bearing targets must be repackaged.
+revision_file=build/haiku-revision
+if [ -e "$revision_file" ]; then
+    test -f "$revision_file" && test ! -L "$revision_file" || die "Unexpected revision file type"
+    previous_revision=$(cat "$revision_file")
+    printf 'previous_revision=%s\n' "$previous_revision" >> "$stage/provenance.txt"
+    if [ "$previous_revision" != "$revision" ]; then
+        revision_temp=$(mktemp build/.haiku-revision.XXXXXX)
+        printf '%s\n' "$revision" > "$revision_temp"
+        mv "$revision_temp" "$revision_file"
+    fi
+fi
 "$jam" -q -j"$JOBS" "-sHAIKU_REVISION=$revision" @nightly-raw \
     >"$stage/image.log" 2>&1 || { tail -n 100 "$stage/image.log"; exit 1; }
+test -f "$revision_file" && test "$(cat "$revision_file")" = "$revision" \
+    || die "Generated revision does not match source snapshot"
 test "$(git -C "$ROOT" rev-parse HEAD)" = "$sha"
 test "$(git -C "$TOOLS" rev-parse HEAD)" = "$tools_sha"
 test -z "$(git -C "$ROOT" status --porcelain)"

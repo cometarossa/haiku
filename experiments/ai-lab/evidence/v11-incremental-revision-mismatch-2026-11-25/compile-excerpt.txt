@@ -1,0 +1,3 @@
+C++ objects/haiku/x86_64/release/servers/app/ServerApp.o 
+Link objects/haiku/x86_64/release/servers/app/app_server 
+...updated 1030 target(s)...
