@@ -17,7 +17,8 @@ REV = "fb8c2e41"
 SPECS = (4, 8, 16)
 
 
-def run(root):
+def run(root, queues=False):
+    specs = (8,) if queues else SPECS
     initial = sample_host(REV)
     pids = {g["pid"] for g in initial["guests"]}
     downloads = {}
@@ -33,12 +34,17 @@ def run(root):
     downloads["SHA256SUMS"] = "".join(
         f"{hashlib.sha256(b).hexdigest()}  {n}\n" for n,b in downloads.items()).encode()
     script = (MEDIA/"v18-probe-load-guest.sh").read_bytes()
+    if queues:
+        script=(MEDIA/"v18-queue-load-guest.sh").read_bytes()
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
-        f"{i:02d}-n{n}-on.{ext}" for i,n in enumerate(SPECS)
+        f"{i:02d}-n{n}-on.{ext}" for i,n in enumerate(specs)
         for ext in ("dispatch","play","stop","map","probe","probe-stderr","probe-exit",
                     "start","quit-time","windows","positions","stdout","stderr","exit")}
+    if queues:
+        allowed |= {"teams.txt","00-n8-on.teams","00-n8-on.ports"} | {
+            f"00-n8-on.port-{i:02d}" for i in range(1,11)}
     root.mkdir()
     (root/"run.sh").write_bytes(script)
     (root/"input-sha256.txt").write_bytes(downloads["SHA256SUMS"])
@@ -106,7 +112,7 @@ def run(root):
         if (root/"done.txt").read_text().strip()!="0" or "ai_"+REV not in (root/"revision.txt").read_text():
             raise ValueError("completion or revision invalid")
         rows=[]
-        for i,n in enumerate(SPECS):
+        for i,n in enumerate(specs):
             tag=f"{i:02d}-n{n}-on"
             mapping=[int(l.split()[0]) for l in (root/(tag+".map")).read_text().splitlines()]
             if len(mapping)!=n:
@@ -122,4 +128,9 @@ def run(root):
 
 
 if __name__=="__main__":
-    run(Path(sys.argv[1]))
+    import argparse
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument("root",type=Path)
+    p.add_argument("--queues",action="store_true")
+    a=p.parse_args()
+    run(a.root,a.queues)
