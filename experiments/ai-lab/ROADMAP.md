@@ -227,3 +227,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V15 4/8-window native host-load comparison before/after closing 11 guests. Enforce two Haiku guests in regular launcher. Log interleaving requires robust single-line record output; repeat under controlled host load.
 
 - [x] V16 same-image balanced 4/8-window native A/B: 8/8 complete, 8-window timeout rates 17.48% -> 1.29% and 11.87% -> 0.02%. Second pair duration confounded; first pair producer late fraction increased. Keep opt-in and repeat with phase timing, correctness and higher resolution.
+
+- [x] V16 HD A/B: 6/8 trials validated; both 8-stream catch-up ON trials fail responsiveness, OFF passes. Preserve negative evidence; completion PUT rejected. V17 conservative opt-in guard proposed, no HD acceleration claim.

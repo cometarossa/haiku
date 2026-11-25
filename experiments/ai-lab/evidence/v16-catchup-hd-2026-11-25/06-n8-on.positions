@@ -1,0 +1,223 @@
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+SAMPLE 1
+WINDOW 0
+06-n8-on-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 9366666 (0x8eec8a)
+
+WINDOW 3
+06-n8-on-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 29533333 (0x1c2a495)
+
+WINDOW 5
+06-n8-on-3.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 7
+06-n8-on-4.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 9
+06-n8-on-5.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 11
+06-n8-on-6.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 13
+06-n8-on-7.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 15
+06-n8-on-8.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+SAMPLE 2
+WINDOW 0
+06-n8-on-1.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 3
+06-n8-on-2.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 5
+06-n8-on-3.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 7
+06-n8-on-4.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 9
+06-n8-on-5.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 11
+06-n8-on-6.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 13
+06-n8-on-7.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 15
+06-n8-on-8.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+SAMPLE 3
+WINDOW 0
+06-n8-on-1.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 3
+06-n8-on-2.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 5
+06-n8-on-3.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 7
+06-n8-on-4.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 9
+06-n8-on-5.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 11
+06-n8-on-6.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 13
+06-n8-on-7.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 15
+06-n8-on-8.mp4
+false
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "result" (B_BOOL_TYPE) : TRUE
+   "thread" (B_INT32_TYPE) : 7887 (0x00007887)
+
