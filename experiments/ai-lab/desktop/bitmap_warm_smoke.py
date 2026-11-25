@@ -169,7 +169,7 @@ def run(args):
     serial = folder / "haiku-ai-regular-serial.log"
     if not monitor.is_socket() or not serial.is_file():
         raise RuntimeError("expected running experimental guest; confirm Terminal focus before invocation")
-    source = BASE / "guest-results/bitmap-warm-eligibility-20261125" if args.eligibility else OLD
+    source = BASE / "guest-results/bitmap-warm-eligibility-20261125" if (args.eligibility or args.quiet_eligibility) else OLD
     if args.binary_dir is not None:
         source = args.binary_dir.resolve()
     binary = (source / "bitmap").read_bytes()
@@ -190,7 +190,9 @@ def run(args):
     if args.eligibility:
         plan = [(mode, 1, 64, enabled) for enabled in (False, True)
                 for mode in ("lab", "ordinary")]
-    if args.three_way or args.quiet_compare:
+    if args.quiet_eligibility:
+        plan = [(mode, 1, 64, state != "off", state) for state in ("off", "single", "quiet") for mode in ("lab", "ordinary")]
+    elif args.three_way or args.quiet_compare:
         # Balanced order: each treatment appears once in each position.
         matrix = [("threads", 2), ("teams", 2), ("threads", 4), ("teams", 4)]
         middle, last = ("single", "quiet") if args.quiet_compare else ("warm", "single")
@@ -205,8 +207,8 @@ def run(args):
                 for mode, workers, batch, enabled in plan]
     for i, (mode, workers, batch, enabled, state) in enumerate(plan):
         expected = 0 if (not enabled or state == "quiet" or args.expect_no_warm or args.control) else (
-            (2 if mode == "lab" else 0) if args.eligibility else workers)
-        dest = root / ("%02d-%s-%d-%d-%s" % (i, mode, workers, batch, (state if (args.three_way or args.quiet_compare) else ("on" if enabled else "off"))))
+            (2 if mode == "lab" else 0) if (args.eligibility or args.quiet_eligibility) else workers)
+        dest = root / ("%02d-%s-%d-%d-%s" % (i, mode, workers, batch, (state if (args.three_way or args.quiet_compare or args.quiet_eligibility) else ("on" if enabled else "off"))))
         dest.mkdir()
         script = guest_script(mode, workers, batch, enabled, state in ("single", "quiet"), state == "quiet")
         (dest / "run.sh").write_text(script)
@@ -277,7 +279,7 @@ def run(args):
                 import json
                 (dest / "setup-phases.json").write_text(json.dumps(phases, indent=2) + "\n")
             else:
-                elapsed = verify_eligibility(data) if args.eligibility else verify_client(data, mode, workers, batch)
+                elapsed = verify_eligibility(data) if (args.eligibility or args.quiet_eligibility) else verify_client(data, mode, workers, batch)
             records = parse(raw.decode(errors="replace"), expected, mode)
             verify_single_clear(raw.decode(errors="replace"), records, state == "single")
             # parse() validates counts and completion. Preserve exact serial.
@@ -301,12 +303,15 @@ def main():
                           help="paired two-surface batch64 lifecycle campaign")
     campaign.add_argument("--three-way", action="store_true")
     campaign.add_argument("--quiet-compare", action="store_true")
+    campaign.add_argument("--quiet-eligibility", action="store_true")
     p.add_argument("--binary-dir", type=Path, help="explicit directory containing bitmap and SHA256SUMS")
     p.add_argument("--setup-phases", action="store_true", help="require 18-column phase diagnostic binary")
     p.add_argument("--single-clear", action="store_true", help="V12 single initialization marker")
     p.add_argument("--expect-no-warm", action="store_true",
                    help="negative control on a revision without the experiment")
     args = p.parse_args()
+    if args.quiet_eligibility and (args.control or args.expect_no_warm or args.single_clear):
+        p.error("--quiet-eligibility requires a V13 local image")
     if args.setup_phases and not (args.three_way or args.quiet_compare):
         p.error("--setup-phases requires --three-way and a separately compiled binary")
     if (args.three_way or args.quiet_compare) and (args.control or args.expect_no_warm or args.single_clear or args.binary_dir is None):
