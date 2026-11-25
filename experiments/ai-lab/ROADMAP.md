@@ -183,3 +183,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V10/Beta6 cold vs client/server buffer initialization, 36 runs, 147,456 timed fills and 9,437,184 RGB checks; V10 same-team first pass 46.515ms -> 5.415ms with server warm, no measured fault counts; full lifecycle and kernel counters pending.
 
 - [x] V11b local boot and revision fix verified; 28 eligibility cases, 18 alternating OFF/ON lifecycle runs, 73,728 fills, 3,538,944 final RGB checks, zero errors; 27 warm records; full acceptance pending.
+
+- [x] V11b two-surface batch64 extension: 12 runs, 49,152 fills, 1,572,864 RGB checks, no errors; lifecycle regresses despite faster rendering. Keep opt-in; V12 explicit completion acknowledgment candidate.
