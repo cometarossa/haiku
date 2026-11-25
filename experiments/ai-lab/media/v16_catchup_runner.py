@@ -11,7 +11,7 @@ import time
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from threading import Thread
-from v16_catchup_report import SPECS, validate
+from v16_catchup_report import SPECS, SPECS_16, validate
 
 MEDIA = Path(__file__).resolve().parent
 LAB = MEDIA.parent
@@ -33,7 +33,10 @@ def sample_host():
                 uptime=subprocess.check_output(["uptime"],text=True).strip())
 
 
-def run(root, hd=False):
+def run(root, hd=False, sixteen=False):
+    if hd and sixteen:
+        raise ValueError("Choose HD or sixteen-stream SD campaign")
+    specs = SPECS_16 if sixteen else SPECS
     initial = sample_host()
     initial_pids = {g["pid"] for g in initial["guests"]}
     fixture_dir = HOME/"guest-files"/("v16-hd" if hd else "concurrent-gui")
@@ -45,9 +48,11 @@ def run(root, hd=False):
     script=(MEDIA/"v16-catchup-guest.sh").read_bytes()
     if hd:
         script=(MEDIA/"v16-catchup-hd-guest.sh").read_bytes()
+    if sixteen:
+        script=(MEDIA/"v16-catchup-16-guest.sh").read_bytes()
     downloads={"run.sh":script,"stream-a.mp4":fixture,
                "SHA256SUMS":(digest+"  stream-a.mp4\n").encode()}
-    allowed={"revision.txt","done.txt"}|{f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(SPECS)
+    allowed={"revision.txt","done.txt"}|{f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(specs)
             for ext in ("start","play","stop","quit-time","windows","positions","stdout","stderr","exit")}
     root.mkdir()
     (root/"run.sh").write_bytes(script)
@@ -88,11 +93,11 @@ def run(root, hd=False):
     thread.start()
     try:
         cmd=[sys.executable,str(LAB/"guest-hmp.py"),"--local-id",REV,"type"]
-        subprocess.run(cmd+["curl -fsS http://10.0.2.2:8901/run.sh -o "+("catchuphd.sh" if hd else "catchup16.sh")],check=True,timeout=30)
-        subprocess.run(cmd+["sh "+("catchuphd.sh" if hd else "catchup16.sh")],check=True,timeout=30)
+        subprocess.run(cmd+["curl -fsS http://10.0.2.2:8901/run.sh -o "+("catchup16sd.sh" if sixteen else "catchuphd.sh" if hd else "catchup16.sh")],check=True,timeout=30)
+        subprocess.run(cmd+["sh "+("catchup16sd.sh" if sixteen else "catchuphd.sh" if hd else "catchup16.sh")],check=True,timeout=30)
         sys.path.insert(0,str(LAB))
         h=importlib.import_module("guest-hmp")
-        deadline=time.monotonic()+(600 if hd else 420)
+        deadline=time.monotonic()+(900 if sixteen else 600 if hd else 420)
         index=0
         last_done=0
         last_screen=0
@@ -115,7 +120,7 @@ def run(root, hd=False):
                 ppm.unlink()
                 last_screen=time.monotonic()
                 index+=1
-            for i,(n,state) in enumerate(SPECS):
+            for i,(n,state) in enumerate(specs):
                 tag=f"{i:02d}-n{n}-{state}"
                 e=root/(tag+".exit")
                 if e.exists() and e.read_text().strip()!="0":
@@ -127,7 +132,7 @@ def run(root, hd=False):
             # subsequent runs, rather than interrupt a running guest campaign.
             done=sum(1 for f in root.glob("*.exit"))
             if done!=last_done:
-                print(f"Collected {done}/{len(SPECS)} trials",flush=True)
+                print(f"Collected {done}/{len(specs)} trials",flush=True)
                 last_done=done
             if (root/"done.txt").exists():
                 break
@@ -135,7 +140,7 @@ def run(root, hd=False):
         else:
             raise TimeoutError("campaign incomplete; retain logs")
         (root/"host-end.json").write_text(json.dumps(sample_host(),indent=2)+"\n")
-        report=validate(root)
+        report=validate(root,specs=specs)
         (root/"summary.json").write_text(json.dumps(report,indent=2)+"\n")
         print("V16_CAMPAIGN_PASS",json.dumps(report["pairs"],indent=2),flush=True)
     finally:
@@ -148,5 +153,6 @@ if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("root",type=Path)
     p.add_argument("--hd",action="store_true")
+    p.add_argument("--sixteen",action="store_true")
     a=p.parse_args()
-    run(a.root,a.hd)
+    run(a.root,a.hd,a.sixteen)

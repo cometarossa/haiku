@@ -7,6 +7,8 @@ import statistics
 from pathlib import Path
 from media_stats_report import parse, summarize
 
+SPECS_16 = [(16,"off"),(16,"on"),(16,"on"),(16,"off")]
+
 SPECS = [(4,"off"),(4,"on"),(4,"on"),(4,"off"),
          (8,"off"),(8,"on"),(8,"on"),(8,"off")]
 
@@ -35,7 +37,8 @@ def validate_run(root, index, n, state):
     if [r[0] for r in positions]!=[1,2,3] or not all(all(b[k]>a[k] for k in range(1,n+1)) for a,b in zip(positions,positions[1:])):
         raise ValueError(f"{tag}: nonadvancing playback")
     start,play,stop,quit_time = [int(read(ext)) for ext in ("start","play","stop","quit-time")]
-    if not 0<start<play<stop<quit_time or not 8000000<=stop-play<=14000000:
+    minimum,maximum = (12000000,19000000) if n==16 else (8000000,14000000)
+    if not 0<start<play<stop<quit_time or not minimum<=stop-play<=maximum:
         raise ValueError(f"{tag}: invalid observation duration")
     stdout,stderr = read("stdout"),read("stderr")
     if stdout.count("LAB_MEDIA_OVERLAY_PREFLIGHT")!=n or "trying without overlays" in stdout+stderr:
@@ -58,11 +61,11 @@ def validate_run(root, index, n, state):
                 consumer_late_fraction=c["late"]/c["received"])
 
 
-def validate(root, partial=False):
+def validate(root, partial=False, specs=SPECS):
     if "ai_a1b69d83" not in (root/"revision.txt").read_text():
         raise ValueError("wrong guest revision")
     rows=[]
-    for index,(n,state) in enumerate(SPECS):
+    for index,(n,state) in enumerate(specs):
         tag=f"{index:02d}-n{n}-{state}"
         if partial and not (root/(tag+".exit")).exists():
             break
@@ -87,5 +90,6 @@ if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("root",type=Path)
     p.add_argument("--partial",action="store_true")
+    p.add_argument("--sixteen",action="store_true")
     a=p.parse_args()
-    print(json.dumps(validate(a.root,a.partial),indent=2))
+    print(json.dumps(validate(a.root,a.partial,SPECS_16 if a.sixteen else SPECS),indent=2))

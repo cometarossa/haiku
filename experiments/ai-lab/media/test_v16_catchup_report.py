@@ -1,7 +1,7 @@
 import tempfile
 import unittest
 from pathlib import Path
-from v16_catchup_report import validate, validate_run, SPECS
+from v16_catchup_report import validate, validate_run, SPECS, SPECS_16
 from test_media_stats_report import P, C
 
 
@@ -31,6 +31,27 @@ class CatchupReportTest(unittest.TestCase):
     def edit(self,name,old,new):
         p=self.root/name
         p.write_text(p.read_text().replace(old,new))
+    def test_sixteen_stream_campaign(self):
+        for index,(n,state) in enumerate(SPECS_16):
+            tag=f"{index:02d}-n{n}-{state}"
+            for ext,value in dict(start=1000000,play=5000000,stop=17000000,**{"quit-time":18000000},exit=0).items():
+                self.write(f"{tag}.{ext}",f"{value}\n")
+            self.write(tag+".windows","".join(f"{k} {k*2}\n" for k in range(1,n+1)))
+            self.write(tag+".positions","".join(
+                f"SAMPLE {i}\n"+"".join(
+                    f"WINDOW {k*2}\n{tag}-{k}.mp4\ntrue\nReply BMessage(B_REPLY):\n"
+                    f'   "result" (B_INT64_TYPE) : {i*3000000+k} (0x0)\n'
+                    for k in range(1,n+1)) for i in range(1,4)))
+            self.write(tag+".stdout","LAB_MEDIA_OVERLAY_PREFLIGHT software format=8\n"*n)
+            self.write(tag+".stderr","".join(P.replace("thread=123",f"thread={k+100}")+"\n"+C+"\n" for k in range(n))+
+                       ("LAB_MEDIA_CATCHUP progress from=5 to=6\n" if state=="on" else ""))
+        r=validate(self.root,specs=SPECS_16)
+        self.assertEqual(r["completed"],4)
+        self.assertEqual(r["activated_pairs"],2)
+        self.assertEqual([p["n"] for p in r["pairs"]],[16,16])
+        self.write("00-n16-off.stop","16000000\n")
+        with self.assertRaises(ValueError):validate(self.root,specs=SPECS_16)
+
     def test_complete_balanced(self):
         r=validate(self.root)
         self.assertEqual(r["completed"],8)
