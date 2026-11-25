@@ -1,0 +1,15 @@
+SAMPLE 1
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 633333 (0x9a9f5)
+
+SAMPLE 2
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 1700000 (0x19f0a0)
+
+SAMPLE 3
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2766666 (0x2a374a)
+

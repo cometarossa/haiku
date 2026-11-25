@@ -1,0 +1,12 @@
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=554 lock_timeouts=1 late=0 attempts=185 no_buffer=0 fills=185 fill_timeouts=0 fill_errors=1 end_buffers=0 suppressed=0 sent=184 send_errors=1 wait_us=5831331 fill_us=55925 max_fill_us=2236 last_send_error=-2147467146
+LAB_MEDIA_CONSUMER received=178 inactive=0 late=0 target_calls=177 no_target=1 copy_bytes=0 copy_us=0 target_us=426335 first_target_us=880784375442
+open playlist item: stream-a.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
