@@ -46,14 +46,16 @@ def v20_diagnostic_script(script, streams):
         (b'for spec in 4-off 4-on 4-on 4-off 8-off 8-on 8-on 8-off;', b'for spec in '+order+b';', 1),
         (b'view=/boot/home/config/settings/haiku-lab-video-view-stats', b'view=/boot/home/config/settings/haiku-lab-video-view-stats\ntiming=/boot/home/config/settings/haiku-lab-video-deferred-timing\nproxy=/boot/home/config/settings/haiku-lab-video-proxy-stats', 1),
         (b'"$catchup" "$view"', b'"$catchup" "$view" "$timing" "$proxy"', 2),
-        (b's=0;p=0;c=0;v=0', b's=0;p=0;c=0;v=0;t=0;x=0', 1),
-        (b'cleanup() {', b'cleanup() {\n if test "$t" = 1; then rm -f "$timing"; t=0; fi\n if test "$x" = 1; then rm -f "$proxy"; x=0; fi', 1),
-        (b'(set -C; : > "$view"); v=1', b'(set -C; : > "$view"); v=1\n(set -C; : > "$timing"); t=1\n(set -C; : > "$proxy"); x=1', 1),
+        (b's=0;p=0;c=0;v=0', b's=0;p=0;c=0;v=0;own_timing=0;own_proxy=0', 1),
+        (b'cleanup() {', b'cleanup() {\n if test "$own_timing" = 1; then rm -f "$timing"; own_timing=0; fi\n if test "$own_proxy" = 1; then rm -f "$proxy"; own_proxy=0; fi', 1),
+        (b'(set -C; : > "$view"); v=1', b'(set -C; : > "$view"); v=1\n(set -C; : > "$timing"); own_timing=1\n(set -C; : > "$proxy"); own_proxy=1', 1),
     ]
     for old,new,count in changes:
         if script.count(old)!=count:
             raise ValueError("Unexpected V20 script anchor: "+repr(old))
         script=script.replace(old,new)
+    script=script.replace(b'test ! -e "$m" && test ! -L "$m"', b'if test -e "$m" || test -L "$m"; then echo "Unexpected marker: $m" >&2; exit 7; fi')
+    script=script.replace(b'test ! -e "$catchup" && test ! -L "$catchup"', b'if test -e "$catchup" || test -L "$catchup"; then exit 7; fi')
     return script
 
 

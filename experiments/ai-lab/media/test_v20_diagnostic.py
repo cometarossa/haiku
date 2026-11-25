@@ -1,4 +1,5 @@
 import subprocess
+import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -18,10 +19,25 @@ class V20DiagnosticTest(unittest.TestCase):
             self.assertIn(f"for spec in {order};".encode(),s)
             self.assertIn(f"v20-diagnostic-{n}-ram".encode(),s)
             self.assertEqual(s.count(b'"$catchup" "$view" "$timing" "$proxy"'),2)
-            for m,flag in (("timing","t"),("proxy","x")):
+            for m,flag in (("timing","own_timing"),("proxy","own_proxy")):
                 self.assertIn(f'(set -C; : > "${m}"); {flag}=1'.encode(),s)
                 self.assertIn(f'rm -f "${m}"'.encode(),s)
         with self.assertRaises(ValueError):v20_diagnostic_script(raw,12)
+    def test_real_shell_marker_cleanup_and_preflight(self):
+        raw=Path(__file__).with_name("v18-probe-load-guest.sh").read_bytes()
+        script=v20_diagnostic_script(raw,8).decode()
+        prefix=script[script.index("stats=/boot/"):script.index("for f in stream-a.mp4")]
+        setup=script[script.index('(set -C; : > "$preflight")'):script.index("run=0")]
+        with tempfile.TemporaryDirectory() as d:
+            prefix=prefix.replace("/boot/home/config/settings",d)
+            subprocess.run(["sh","-ec",prefix+setup+"x=940; y=220; cleanup"],check=True)
+            self.assertEqual(list(Path(d).iterdir()),[])
+            marker=Path(d)/"haiku-lab-video-proxy-stats"
+            marker.touch()
+            rejected=subprocess.run(["sh","-ec",prefix+setup],capture_output=True)
+            self.assertEqual(rejected.returncode,7)
+            self.assertEqual(list(Path(d).iterdir()),[marker])
+
     @patch("v20_diagnostic_report.media_summary")
     @patch("v20_diagnostic_report.media_parse")
     def test_cross_check(self,parse,summary):
