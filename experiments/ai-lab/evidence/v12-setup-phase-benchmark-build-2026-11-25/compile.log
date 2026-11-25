@@ -1,0 +1,21 @@
+bitmap.cpp: In function 'status_t Draw(void*)':
+bitmap.cpp:49:21: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int32' {aka 'int'} [-Wsign-compare]
+   49 |     for(size_t i=0;i<bitmap.BitsLength();++i)if(white[i]!=255)++j.white_errors;
+      |                    ~^~~~~~~~~~~~~~~~~~~~
+bitmap.cpp:83:28: warning: comparison of integer expressions of different signedness: 'int32' {aka 'int'} and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+   83 |         bitmap.BitsLength()<size_t(bitmap.BytesPerRow())*kSide)return B_ERROR;
+      |         ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bitmap.cpp: In function 'int Threads(int, int)':
+bitmap.cpp:142:69: warning: missing initializer for member 'Job::constructed' [-Wmissing-field-initializers]
+  142 |         jobs[i]={i,batch,kTotalPasses/n,-1,-1,ready,go,0,0,0,0,0,0,0};
+      |                                                                     ^
+bitmap.cpp:142:69: warning: missing initializer for member 'Job::locked' [-Wmissing-field-initializers]
+bitmap.cpp:142:69: warning: missing initializer for member 'Job::scanned' [-Wmissing-field-initializers]
+bitmap.cpp:142:69: warning: missing initializer for member 'Job::attached' [-Wmissing-field-initializers]
+bitmap.cpp: In function 'int Teams(int, int)':
+bitmap.cpp:187:77: warning: missing initializer for member 'Job::constructed' [-Wmissing-field-initializers]
+  187 |             Job j={i,batch,kTotalPasses/n,ready[1],go[0],-1,-1,0,0,0,0,0,0,0};
+      |                                                                             ^
+bitmap.cpp:187:77: warning: missing initializer for member 'Job::locked' [-Wmissing-field-initializers]
+bitmap.cpp:187:77: warning: missing initializer for member 'Job::scanned' [-Wmissing-field-initializers]
+bitmap.cpp:187:77: warning: missing initializer for member 'Job::attached' [-Wmissing-field-initializers]

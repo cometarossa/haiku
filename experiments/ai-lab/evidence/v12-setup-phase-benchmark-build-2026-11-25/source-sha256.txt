@@ -1,0 +1,1 @@
+b9c5a633c145bb9e2488c6c571ff19d29dbb4dfd99cc9813881d278206289343  drawing_white_lifecycle.cpp
