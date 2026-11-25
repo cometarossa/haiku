@@ -65,7 +65,7 @@ def verify_client(data, mode, workers, batch):
         if len(row) != 13 or row[0] != mode:
             raise ValueError("malformed worker row")
         n, b, worker, draws, start, end, span, checked, errors, setup, life, white = map(int, row[1:])
-        if ((n, b, draws, checked, errors, white) != (workers, batch, 4096//workers, 65536, 0, 0, 0)
+        if ((n, b, draws, checked, errors, white) != (workers, batch, 4096//workers, 65536, 0, 0)
                 or worker not in range(workers) or worker in ids
                 or not 0 <= start < end <= span <= life or not 0 <= setup <= life):
             raise ValueError("worker verification failure")

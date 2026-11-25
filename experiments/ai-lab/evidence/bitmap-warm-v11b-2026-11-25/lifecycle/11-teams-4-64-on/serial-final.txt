@@ -1,0 +1,4 @@
+LAB_BITMAP_WARM team=882 token=715 bytes=262144 us=158
+LAB_BITMAP_WARM team=883 token=738 bytes=262144 us=114
+LAB_BITMAP_WARM team=884 token=741 bytes=262144 us=118
+LAB_BITMAP_WARM team=885 token=744 bytes=262144 us=170
