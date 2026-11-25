@@ -158,6 +158,8 @@ def run(args):
     if not monitor.is_socket() or not serial.is_file():
         raise RuntimeError("expected running experimental guest; confirm Terminal focus before invocation")
     source = BASE / "guest-results/bitmap-warm-eligibility-20261125" if args.eligibility else OLD
+    if args.binary_dir is not None:
+        source = args.binary_dir.resolve()
     binary = (source / "bitmap").read_bytes()
     manifest = (source / "SHA256SUMS").read_text()
     if manifest != hashlib.sha256(binary).hexdigest() + "  bitmap\n":
@@ -176,12 +178,24 @@ def run(args):
     if args.eligibility:
         plan = [(mode, 1, 64, enabled) for enabled in (False, True)
                 for mode in ("lab", "ordinary")]
-    for i, (mode, workers, batch, enabled) in enumerate(plan):
+    if args.three_way:
+        # Balanced order: each treatment appears once in each position.
+        matrix = [("threads", 2), ("teams", 2), ("threads", 4), ("teams", 4)]
+        plan = [(mode, workers, 64, state != "off", state)
+                for mode, workers in matrix
+                for block in (("off", "warm", "single"), ("warm", "single", "off"),
+                              ("single", "off", "warm"))
+                for state in block]
+    else:
+        plan = [(mode, workers, batch, enabled,
+                 ("single" if args.single_clear else "warm") if enabled else "off")
+                for mode, workers, batch, enabled in plan]
+    for i, (mode, workers, batch, enabled, state) in enumerate(plan):
         expected = 0 if (not enabled or args.expect_no_warm or args.control) else (
             (2 if mode == "lab" else 0) if args.eligibility else workers)
-        dest = root / ("%02d-%s-%d-%d-%s" % (i, mode, workers, batch, "on" if enabled else "off"))
+        dest = root / ("%02d-%s-%d-%d-%s" % (i, mode, workers, batch, (state if args.three_way else ("on" if enabled else "off"))))
         dest.mkdir()
-        script = guest_script(mode, workers, batch, enabled, args.single_clear)
+        script = guest_script(mode, workers, batch, enabled, state == "single")
         (dest / "run.sh").write_text(script)
         downloads = {"run.sh": script.encode(), "bitmap": binary, "SHA256SUMS": manifest.encode()}
         uploads = {"result.csv", "errors.txt", "revision.txt", "exit.txt"}
@@ -234,7 +248,7 @@ def run(args):
             # Allow end records to arrive, but never interpret incomplete lines.
             if expected:
                 while (raw.count(b"LAB_BITMAP_WARM ") < expected
-                       or (args.single_clear and raw.count(b"LAB_BITMAP_CLIENT_SKIP ") < expected)
+                       or (state == "single" and raw.count(b"LAB_BITMAP_CLIENT_SKIP ") < expected)
                        or not raw.endswith(b"\n")) and time.monotonic() < deadline:
                     time.sleep(.2)
                     raw = capture(serial, offset)
@@ -246,7 +260,7 @@ def run(args):
             data = (dest / "result.csv").read_text()
             elapsed = verify_eligibility(data) if args.eligibility else verify_client(data, mode, workers, batch)
             records = parse(raw.decode(errors="replace"), expected, mode)
-            verify_single_clear(raw.decode(errors="replace"), records, args.single_clear and enabled)
+            verify_single_clear(raw.decode(errors="replace"), records, state == "single")
             # parse() validates counts and completion. Preserve exact serial.
             import json
             (dest / "profile.json").write_text(json.dumps(records, indent=2) + "\n")
@@ -266,10 +280,14 @@ def main():
     campaign.add_argument("--eligibility", action="store_true")
     campaign.add_argument("--two-surface", action="store_true",
                           help="paired two-surface batch64 lifecycle campaign")
+    campaign.add_argument("--three-way", action="store_true")
+    p.add_argument("--binary-dir", type=Path, help="explicit directory containing bitmap and SHA256SUMS")
     p.add_argument("--single-clear", action="store_true", help="V12 single initialization marker")
     p.add_argument("--expect-no-warm", action="store_true",
                    help="negative control on a revision without the experiment")
     args = p.parse_args()
+    if args.three_way and (args.control or args.expect_no_warm or args.single_clear or args.binary_dir is None):
+        p.error("--three-way requires a V12 local image and explicit corrected binary directory")
     if args.single_clear and (args.control or args.expect_no_warm):
         p.error("--single-clear requires a V12 local image")
     if args.two_surface and args.control:

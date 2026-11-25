@@ -11,9 +11,10 @@ from pathlib import Path
 from bitmap_warm_smoke import parse, verify_client, verify_single_clear
 
 
-def collect(root, revision, matrix, single_clear=False):
-    order = [(mode, n, state) for mode, n in matrix
-             for state in ("off", "on", "on", "off", "off", "on")]
+def collect(root, revision, matrix, single_clear=False, three_way=False):
+    states = ("off", "warm", "single", "warm", "single", "off",
+              "single", "off", "warm") if three_way else ("off", "on", "on", "off", "off", "on")
+    order = [(mode, n, state) for mode, n in matrix for state in states]
     expected = {f"{i:02d}-{mode}-{n}-64-{state}"
                 for i, (mode, n, state) in enumerate(order)}
     actual = {p.name for p in root.iterdir() if p.is_dir()}
@@ -28,13 +29,13 @@ def collect(root, revision, matrix, single_clear=False):
                                  (folder / "revision.txt").read_text())):
             raise ValueError(f"failed execution/revision: {folder.name}")
         measured = verify_client((folder / "result.csv").read_text(), mode, n, 64)
-        count = n if state == "on" else 0
+        count = n if state != "off" else 0
         records = parse((folder / "serial.txt").read_text(), count, mode)
         final = parse((folder / "serial-final.txt").read_text(), count, mode)
         verify_single_clear((folder / "serial.txt").read_text(), records,
-                            single_clear and state == "on")
+                            state == "single" or (single_clear and state == "on"))
         verify_single_clear((folder / "serial-final.txt").read_text(), final,
-                            single_clear and state == "on")
+                            state == "single" or (single_clear and state == "on"))
         if records != final or records != json.loads((folder / "profile.json").read_text()):
             raise ValueError(f"serial/profile discrepancy: {folder.name}")
         rows.append(dict(run=i, mode=mode, surfaces=n, batch=64, flag=state,
@@ -61,12 +62,17 @@ def main():
     parser.add_argument("revision")
     parser.add_argument("--two-surface", action="store_true")
     parser.add_argument("--single-clear", action="store_true")
+    parser.add_argument("--three-way", action="store_true")
     args = parser.parse_args()
     if not re.fullmatch("[0-9a-f]{8}", args.revision):
         parser.error("invalid revision")
     matrix = [("threads", 2), ("teams", 2)] if args.two_surface else [
         ("threads", 4), ("teams", 4), ("threads", 1)]
-    rows = list(summarize(collect(args.root, args.revision, matrix, args.single_clear)))
+    if args.three_way:
+        if args.two_surface or args.single_clear:
+            parser.error("--three-way is a separate campaign")
+        matrix = [("threads", 2), ("teams", 2), ("threads", 4), ("teams", 4)]
+    rows = list(summarize(collect(args.root, args.revision, matrix, args.single_clear, args.three_way)))
     writer = csv.DictWriter(sys.stdout, fieldnames=list(rows[0]), lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
