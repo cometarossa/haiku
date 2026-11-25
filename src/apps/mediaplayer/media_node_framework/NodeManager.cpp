@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <MediaRoster.h>
 #include <scheduler.h>
@@ -392,6 +393,26 @@ NodeManager::_SetUpVideoNodes(color_space preferredVideoFormat,
 		}
 	};
 	format.u.raw_video = videoFormat;
+
+	// Independent lab: avoid an unsupported overlay negotiation where
+	// the server already reports no support for the requested color space.
+	// Keep the normal retry below for size limits or negotiation changes.
+#ifdef HAIKU_TARGET_PLATFORM_HAIKU
+	if (useOverlays && preferredVideoFormat
+			!= media_raw_video_format::wildcard.display.format
+		&& access("/boot/home/config/settings/haiku-lab-media-overlay-preflight",
+			F_OK) == 0) {
+		uint32 flags = 0;
+		if (bitmaps_support_space(preferredVideoFormat, &flags)
+			&& (flags & B_BITMAPS_SUPPORT_OVERLAY) == 0) {
+			useOverlays = false;
+			if ((flags & B_VIEWS_SUPPORT_DRAW_BITMAP) == 0)
+				format.u.raw_video.display.format = B_RGB32;
+			printf("LAB_MEDIA_OVERLAY_PREFLIGHT software format=%" B_PRIu32
+				"\n", (uint32)format.u.raw_video.display.format);
+		}
+	}
+#endif
 
 	// connect video producer to consumer (hopefully using overlays)
 	fVideoConsumer->SetTryOverlay(useOverlays);

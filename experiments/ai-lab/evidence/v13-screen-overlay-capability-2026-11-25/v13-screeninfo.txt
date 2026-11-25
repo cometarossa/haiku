@@ -1,0 +1,6 @@
+Screen 0: attached
+  version: 1
+  name:    VESA driver
+  chipset: Generic VESA
+  serial:  None
+  bitmap overlay colorspaces supported:
