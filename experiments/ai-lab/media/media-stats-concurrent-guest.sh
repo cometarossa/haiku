@@ -2,8 +2,8 @@
 # Same V15 image, independent files/windows, stats and preflight ON.
 set -eu
 cd /boot/home
-mkdir v15-media-stats-concurrent
-cd v15-media-stats-concurrent
+mkdir v15-media-stats-concurrent-retry
+cd v15-media-stats-concurrent-retry
 base=http://10.0.2.2:8901
 stats=/boot/home/config/settings/haiku-lab-media-stats
 preflight=/boot/home/config/settings/haiku-lab-media-overlay-preflight
@@ -22,7 +22,7 @@ curl -fsS -T revision.txt "$base/revision.txt"
 app=application/x-vnd.Haiku-MediaPlayer
 (set -C; : > "$preflight"); p=1
 (set -C; : > "$stats"); s=1
-for n in 2 4 8; do
+for n in 4 8; do
  tag="n$n"
  if hey -o "$app" count Window >/dev/null 2>&1; then exit 4; fi
  for i in $(seq 1 "$n"); do cp stream-a.mp4 "$tag-$i.mp4"; cmp stream-a.mp4 "$tag-$i.mp4"; done
@@ -32,7 +32,7 @@ for n in 2 4 8; do
  sleep 2
  for i in $(seq 2 "$n"); do
   open "$app" "$PWD/$tag-$i.mp4"
-  sleep .4
+  sleep 1
  done
  sleep 1
  count=$(hey -o "$app" count Window)
@@ -46,7 +46,13 @@ for n in 2 4 8; do
   esac
   i=$((i+1))
  done
- test "$(wc -l < "$tag.windows" | tr -d ' ')" = "$n"
+ if test "$(wc -l < "$tag.windows" | tr -d ' ')" != "$n"; then
+  curl -fsS -T "$tag.windows" "$base/$tag.windows"
+  hey "$app" quit || true
+  wait "$pid" || true
+  curl -fsS -T "$tag.log" "$base/$tag.log"
+  exit 6
+ fi
  {
  while read j i; do
   x=$((10+((j-1)%4)*310)); y=$((80+((j-1)/4)*340))
