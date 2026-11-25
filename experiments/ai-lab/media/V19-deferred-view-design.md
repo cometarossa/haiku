@@ -94,3 +94,13 @@ SeekToFrame; this is distinct from fManager lock timeout. Seek and
 ReadFrame can also propagate errors. Need categorize these causes
 before changing the decoder recovery policy. Do not assume every
 fill timeout is a lock timeout. Existing V19 build remains active.
+
+V20 proxy diagnostics: haiku-lab-video-proxy-stats counts only
+FillBuffer calls with a non-null track under the existing supplier
+lock. Distinguishes cached, explicit gap timeout, propagated seek
+timeout, propagated read timeout, other errors, and success.
+Reports on track detach/replacement (not reliance on proxy destructor).
+Gap total/max quantify distance; counters reset at replacement.
+Do not equate proxy counts directly to producer lifetime counts:
+calls without a supplier and multiple track lifetimes differ.
+No behavior or timeout threshold change.

@@ -33,10 +33,11 @@ struct Track {
     int calls=0, seeks=0;
     int delay=100, step=1;
     bool fail=false, mismatch=false, seekFail=false;
+    status_t readError=B_ERROR, seekError=B_ERROR;
     int64 CurrentFrame() { return current; }
     status_t SeekToFrame(int64* frame) {
         ++seeks;
-        if (seekFail) return B_ERROR;
+        if (seekFail) return seekError;
         // Model the forward same-keyframe optimization, and backward seeks.
         if (*frame < current) current=0;
         *frame=current+(mismatch ? 1 : 0);
@@ -44,13 +45,25 @@ struct Track {
     }
     status_t ReadFrame(void* buf,bigtime_t*,const media_raw_video_format&,bool& cached) {
         ++calls;clock_us+=delay;
-        if (fail) return B_ERROR;
+        if (fail) return readError;
         *static_cast<int64*>(buf)=current;
         current+=step;cached=false;
         return B_OK;
     }
 };
+struct Stats {
+    bool enabled=true;
+    int64 calls=0,cached=0,gap=0,seek=0,read=0,success=0,errors=0;
+    void Gap(int64 frames){assert(frames>5);++gap;}
+    status_t Finish(status_t ret,bool isSeek=false){
+        if(ret==B_OK)++success;
+        else if(ret==B_TIMED_OUT)++(isSeek?seek:read);
+        else ++errors;
+        return ret;
+    }
+};
 struct ProxyVideoSupplier {
+    Stats fLabProxyStats;
     int fSupplierLock=0;
     Track* fSupplier;
     bool fLabCatchup, fLabCatchupReported=false;
@@ -127,6 +140,17 @@ int main() {
     guardOnly.fLabAdaptiveCatchup=true;
     assert(guardOnly.FillBuffer(20,&output,fmt,false,cached)==B_TIMED_OUT);
     assert(disabled.calls==0);
+    assert(off.fLabProxyStats.calls==2 && off.fLabProxyStats.gap==2);
+    assert(on.fLabProxyStats.calls==4 && on.fLabProxyStats.gap==2
+        && on.fLabProxyStats.success==1 && on.fLabProxyStats.cached==1);
+    Track seekTimeout; seekTimeout.seekFail=true; seekTimeout.seekError=B_TIMED_OUT;
+    ProxyVideoSupplier st(&seekTimeout,false);
+    assert(st.FillBuffer(10,&output,fmt,false,cached)==B_TIMED_OUT);
+    assert(st.fLabProxyStats.seek==1 && st.fLabProxyStats.gap==0);
+    Track readTimeout; readTimeout.fail=true; readTimeout.readError=B_TIMED_OUT;
+    ProxyVideoSupplier rt(&readTimeout,false);
+    assert(rt.FillBuffer(0,&output,fmt,false,cached)==B_TIMED_OUT);
+    assert(rt.fLabProxyStats.read==1 && rt.fLabProxyStats.gap==0);
     return 0;
 }
 '''

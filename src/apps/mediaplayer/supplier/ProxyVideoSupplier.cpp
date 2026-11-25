@@ -54,9 +54,13 @@ ProxyVideoSupplier::FillBuffer(int64 startFrame, void* buffer,
 //printf("ProxyVideoSupplier::FillBuffer(%lld)\n", startFrame);
 	if (fSupplier == NULL)
 		return B_NO_INIT;
+	if (fLabProxyStats.enabled)
+		++fLabProxyStats.calls;
 
 	if (fSupplier->CurrentFrame() == startFrame + 1) {
 		wasCached = true;
+		if (fLabProxyStats.enabled)
+			++fLabProxyStats.cached;
 		return B_OK;
 	}
 
@@ -67,12 +71,13 @@ ProxyVideoSupplier::FillBuffer(int64 startFrame, void* buffer,
 		int64 frame = startFrame;
 		ret = fSupplier->SeekToFrame(&frame);
 		if (ret != B_OK)
-			return ret;
+			return fLabProxyStats.Finish(ret, true);
 		// Read frames until we reach the frame before the one we want to read.
 		// But don't do it for more than 5 frames, or we will take too much
 		// time. Doing it this way will still catch up to the next keyframe
 		// eventually (we may return the wrong frames until the next keyframe).
 		if (!forceGeneration && startFrame - frame > 5) {
+			fLabProxyStats.Gap(startFrame - frame);
 			// Lab-only: make bounded forward decoder progress instead of
 			// repeatedly abandoning the same keyframe gap. Never submit
 			// these intermediate frames. Keep the original timeout
@@ -124,7 +129,7 @@ ProxyVideoSupplier::FillBuffer(int64 startFrame, void* buffer,
 			ret = fSupplier->ReadFrame(buffer, &performanceTime, format,
 				wasCached);
 			if (ret != B_OK)
-				return ret;
+				return fLabProxyStats.Finish(ret);
 			frame++;
 		}
 	}
@@ -133,7 +138,7 @@ ProxyVideoSupplier::FillBuffer(int64 startFrame, void* buffer,
 
 	fProcessingLatency = system_time() - now;
 
-	return ret;
+	return fLabProxyStats.Finish(ret);
 }
 
 
@@ -148,6 +153,8 @@ ProxyVideoSupplier::SetSupplier(VideoTrackSupplier* supplier)
 {
 	BAutolock _(fSupplierLock);
 
+	if (fSupplier != NULL && fSupplier != supplier)
+		fLabProxyStats.ReportAndReset();
 	fSupplier = supplier;
 	fLabRecoveryAfter = 0;
 }

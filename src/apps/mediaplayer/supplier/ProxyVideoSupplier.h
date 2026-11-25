@@ -8,6 +8,7 @@
 #include <Locker.h>
 
 #include "VideoSupplier.h"
+#include "LabProxyVideoStats.h"
 
 
 class VideoTrackSupplier;
@@ -35,6 +36,7 @@ private:
 			bool				fLabCatchupReported;
 			const bool			fLabAdaptiveCatchup;
 			bigtime_t			fLabRecoveryAfter;
+			LabProxyVideoStats	fLabProxyStats;
 };
 
 #endif	// PROXY_VIDEO_SUPPLIER_H
