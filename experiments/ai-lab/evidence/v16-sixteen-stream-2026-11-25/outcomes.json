@@ -1,0 +1,152 @@
+{
+  "trials_collected": 4,
+  "valid": 0,
+  "complete_marker_received": true,
+  "host_samples": 144,
+  "runs": [
+    {
+      "tag": "00-n16-off",
+      "valid": false,
+      "error": "00-n16-off: incomplete playback",
+      "observation_us": 36058831,
+      "playing": 24,
+      "not_playing": 24,
+      "producer": {
+        "records": 16,
+        "lock_timeouts": 348,
+        "late": 1893,
+        "attempts": 8745,
+        "no_buffer": 0,
+        "fills": 8745,
+        "fill_timeouts": 7373,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 7373,
+        "sent": 1372,
+        "send_errors": 0,
+        "wait_us": 31050185,
+        "fill_us": 56555013,
+        "max_fill_us": 5593416
+      },
+      "consumer": {
+        "records": 16,
+        "received": 1323,
+        "inactive": 0,
+        "late": 56,
+        "target_calls": 1267,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 17876883
+      }
+    },
+    {
+      "tag": "01-n16-on",
+      "valid": false,
+      "error": "01-n16-on: incomplete playback",
+      "observation_us": 41955421,
+      "playing": 1,
+      "not_playing": 47,
+      "producer": {
+        "records": 16,
+        "lock_timeouts": 1206,
+        "late": 8569,
+        "attempts": 2592,
+        "no_buffer": 0,
+        "fills": 2592,
+        "fill_timeouts": 1229,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 1229,
+        "sent": 1363,
+        "send_errors": 0,
+        "wait_us": 25313246,
+        "fill_us": 13832270,
+        "max_fill_us": 174036
+      },
+      "consumer": {
+        "records": 16,
+        "received": 1319,
+        "inactive": 0,
+        "late": 83,
+        "target_calls": 1236,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 22583929
+      }
+    },
+    {
+      "tag": "02-n16-on",
+      "valid": false,
+      "error": "02-n16-on: incomplete playback",
+      "observation_us": 41848103,
+      "playing": 1,
+      "not_playing": 47,
+      "producer": {
+        "records": 16,
+        "lock_timeouts": 852,
+        "late": 6739,
+        "attempts": 3757,
+        "no_buffer": 0,
+        "fills": 3757,
+        "fill_timeouts": 850,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 850,
+        "sent": 2907,
+        "send_errors": 0,
+        "wait_us": 44298094,
+        "fill_us": 18839795,
+        "max_fill_us": 556799
+      },
+      "consumer": {
+        "records": 16,
+        "received": 2857,
+        "inactive": 0,
+        "late": 67,
+        "target_calls": 2790,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 61277764
+      }
+    },
+    {
+      "tag": "03-n16-off",
+      "valid": false,
+      "error": "03-n16-off: incomplete playback",
+      "observation_us": 29870434,
+      "playing": 9,
+      "not_playing": 39,
+      "producer": {
+        "records": 16,
+        "lock_timeouts": 455,
+        "late": 1908,
+        "attempts": 8654,
+        "no_buffer": 0,
+        "fills": 8654,
+        "fill_timeouts": 6981,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 6981,
+        "sent": 1673,
+        "send_errors": 0,
+        "wait_us": 35600409,
+        "fill_us": 9161250,
+        "max_fill_us": 531045
+      },
+      "consumer": {
+        "records": 16,
+        "received": 1625,
+        "inactive": 0,
+        "late": 50,
+        "target_calls": 1575,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 24710883
+      }
+    }
+  ]
+}
