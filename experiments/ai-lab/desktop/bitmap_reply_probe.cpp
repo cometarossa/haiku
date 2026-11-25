@@ -36,20 +36,31 @@ static int Probe(uint8 expected, bool white)
     ssize_t offset = -1;
     {
         AppServerLink link;
-        if (link.StartMessage(AS_CREATE_BITMAP) != B_OK
-            || link.Attach<BRect>(bounds) != B_OK
-            || link.Attach<color_space>(B_RGB32) != B_OK
-            || link.Attach<uint32>(flags) != B_OK
-            || link.Attach<int32>(stride) != B_OK
-            || link.Attach<int32>(0) != B_OK
-            || link.Flush(5000000, true) != B_OK
-            || link.GetNextMessage(reply,5000000) != B_OK
-            || reply != B_OK
-            || link.Read<int32>(&token) != B_OK || token < 0
-            || link.Read<uint8>(&received) != B_OK
-            || link.Read<area_id>(&serverArea) != B_OK
-            || link.Read<ssize_t>(&offset) != B_OK)
+#define REQUIRE_OK(expr) do { \
+        status_t status = (expr); \
+        if (status != B_OK) { \
+            fprintf(stderr,"%s: %" B_PRId32 " (%s)\n", #expr, status, strerror(status)); \
+            return 3; \
+        } \
+    } while (0)
+        REQUIRE_OK(link.StartMessage(AS_CREATE_BITMAP));
+        REQUIRE_OK(link.Attach<BRect>(bounds));
+        REQUIRE_OK(link.Attach<color_space>(B_RGB32));
+        REQUIRE_OK(link.Attach<uint32>(flags));
+        REQUIRE_OK(link.Attach<int32>(stride));
+        REQUIRE_OK(link.Attach<int32>(B_MAIN_SCREEN_ID.id));
+        REQUIRE_OK(link.Flush(5000000, true));
+        REQUIRE_OK(link.GetNextMessage(reply,5000000));
+        REQUIRE_OK(reply);
+        REQUIRE_OK(link.Read<int32>(&token));
+        if (token < 0) {
+            fprintf(stderr,"invalid token: %" B_PRId32 "\n", token);
             return 3;
+        }
+        REQUIRE_OK(link.Read<uint8>(&received));
+        REQUIRE_OK(link.Read<area_id>(&serverArea));
+        REQUIRE_OK(link.Read<ssize_t>(&offset));
+#undef REQUIRE_OK
     }
 
     int result = 0;
