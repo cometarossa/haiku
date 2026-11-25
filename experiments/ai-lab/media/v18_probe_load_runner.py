@@ -17,11 +17,36 @@ REV = "fb8c2e41"
 SPECS = (4, 8, 16)
 
 
-def run(root, queues=False, deferred_smoke=False):
-    if queues and deferred_smoke:
+def deferred_load_script(script, sixteen=False):
+    """Generate a balanced, fixed-duration same-image comparison."""
+    changes = [
+        (b'v18-probe-load-ram', b'v19-deferred-load-16-ram' if sixteen else b'v19-deferred-load-ram', 2),
+        (b'for spec in 4-on 8-on 16-on;', b'for spec in 16-off 16-on 16-on 16-off;' if sixteen else b'for spec in 4-off 4-on 4-on 4-off 8-off 8-on 8-on 8-off;', 1),
+        (b'catchup=/boot/home/config/settings/haiku-lab-video-view-stats', b'catchup=/boot/home/config/settings/haiku-lab-video-deferred\nview=/boot/home/config/settings/haiku-lab-video-view-stats', 1),
+        (b'for m in "$stats" "$preflight" "$catchup"', b'for m in "$stats" "$preflight" "$catchup" "$view"', 2),
+        (b's=0;p=0;c=0', b's=0;p=0;c=0;v=0', 1),
+        (b'cleanup() {', b'cleanup() {\n if test "$v" = 1; then rm -f "$view"; v=0; fi', 1),
+        (b'(set -C; : > "$stats"); s=1', b'(set -C; : > "$stats"); s=1\n(set -C; : > "$view"); v=1', 1),
+        (b' system_time > "$tag.stop"', b' # Hold the observation window at 20 s from last Play reply.\n while test "$(( $(system_time) - $(cat "$tag.play") ))" -lt 20000000; do sleep .1; done\n system_time > "$tag.stop"', 1),
+    ]
+    for old,new,count in changes:
+        if script.count(old)!=count:
+            raise ValueError("Unexpected source script anchor: "+repr(old))
+        script=script.replace(old,new)
+    return script
+
+
+def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None):
+    if sum((queues,deferred_smoke,deferred_load))>1 or (sixteen and not deferred_load):
         raise ValueError("Select one campaign")
-    revision = "067ee57e" if deferred_smoke else REV
+    revision = "067ee57e" if deferred_smoke or deferred_load else REV
     specs = ((1,"off"),(1,"on")) if deferred_smoke else tuple((n,"on") for n in ((8,) if queues else SPECS))
+    if deferred_load:
+        from v19_deferred_report import validate
+        if smoke_evidence is None:
+            raise ValueError("A validated V19 lifecycle smoke evidence root is required")
+        validate(smoke_evidence)
+        specs = tuple((n,state) for n in ((16,) if sixteen else (4,8)) for state in ("off","on","on","off"))
     initial = sample_host(revision)
     pids = {g["pid"] for g in initial["guests"]}
     downloads = {}
@@ -41,6 +66,8 @@ def run(root, queues=False, deferred_smoke=False):
         script=(MEDIA/"v18-queue-load-guest.sh").read_bytes()
     if deferred_smoke:
         script=(MEDIA/"v19-deferred-smoke-guest.sh").read_bytes()
+    if deferred_load:
+        script=deferred_load_script(script,sixteen)
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
@@ -92,7 +119,7 @@ def run(root, queues=False, deferred_smoke=False):
         subprocess.run(cmd+["sh load18.sh"],check=True,timeout=30)
         sys.path.insert(0,str(LAB))
         h = importlib.import_module("guest-hmp")
-        deadline = time.monotonic()+600
+        deadline = time.monotonic()+(1200 if deferred_load else 600)
         index=0
         while time.monotonic()<deadline:
             sample=sample_host(revision)
@@ -138,5 +165,8 @@ if __name__=="__main__":
     p.add_argument("root",type=Path)
     p.add_argument("--queues",action="store_true")
     p.add_argument("--deferred-smoke",action="store_true")
+    p.add_argument("--deferred-load",action="store_true")
+    p.add_argument("--sixteen",action="store_true")
+    p.add_argument("--smoke-evidence",type=Path)
     a=p.parse_args()
-    run(a.root,a.queues,a.deferred_smoke)
+    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence)
