@@ -27,6 +27,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <syslog.h>
+#include <unistd.h>
 
 #include <AppDefs.h>
 #include <Autolock.h>
@@ -752,6 +753,33 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 				Signature(), frame.Width() + 1, frame.Height() + 1));
 
 			if (bitmap != NULL && _AddBitmap(bitmap)) {
+				// AI-assisted independent research fork. The client explicitly
+				// requested white initialization and still performs it normally.
+				// Warm only a bounded, newly allocated ordinary lab bitmap,
+				// outside BitmapManager's global allocation lock, before reply.
+				const char* labPrefix = "application/x-vnd.cometarossa-v11-";
+				if (flags == (B_BITMAP_ACCEPTS_VIEWS | B_BITMAP_CLEAR_TO_WHITE)
+					&& colorSpace == B_RGB32 && allocationFlags == kAllocator
+					&& bitmap->Bits() != NULL && bitmap->BitsLength() > 0
+					&& bitmap->BitsLength() <= 1024 * 1024
+					&& strncmp(Signature(), labPrefix, strlen(labPrefix)) == 0
+					&& access("/boot/home/config/settings/haiku-lab-bitmap-warm",
+						F_OK) == 0) {
+					area_info info;
+					const size_t offset = bitmap->AreaOffset();
+					const size_t length = bitmap->BitsLength();
+					if (get_area_info(bitmap->Area(), &info) == B_OK
+						&& offset <= info.size && length <= info.size - offset
+						&& bitmap->Bits() == (uint8*)info.address + offset) {
+						bigtime_t start = system_time();
+						memset(bitmap->Bits(), 0xff, length);
+						debug_printf("LAB_BITMAP_WARM team=%" B_PRId32
+							" token=%" B_PRId32 " bytes=%" B_PRIu32
+							" us=%" B_PRId64 "\n", ClientTeam(),
+							bitmap->Token(), (uint32)length,
+							(int64)(system_time() - start));
+					}
+				}
 				fLink.StartMessage(B_OK);
 				fLink.Attach<int32>(bitmap->Token());
 				fLink.Attach<uint8>(allocationFlags);
