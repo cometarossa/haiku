@@ -204,6 +204,35 @@ if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
     echo "Connect from the Mac: vnc://127.0.0.1:$VNC_PORT"
     exit 0
 fi
+# Keep baseline + one experimental guest; other projects are not counted.
+# A launch reservation serializes concurrent calls to this helper.
+LAUNCH_LOCK="$BASE/.regular-launch-lock"
+mkdir "$LAUNCH_LOCK" || {
+    echo "Another regular launch is reserved; inspect lock before retry." >&2
+    exit 5
+}
+trap 'rmdir "$LAUNCH_LOCK"' EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+python3 - <<'GUARD'
+import subprocess
+from pathlib import Path
+home = str(Path.home() / "Developer/Haiku")
+processes = subprocess.check_output(["ps", "-axo", "pid=,comm=,command="], text=True)
+guests = []
+for line in processes.splitlines():
+    fields = line.strip().split(None, 2)
+    if len(fields) != 3:
+        continue
+    pid, executable, command = fields
+    if Path(executable).name.startswith("qemu-system-") and (
+        f"file={home}/" in command or f"unix:{home}/" in command
+    ):
+        guests.append(pid)
+if len(guests) >= 2:
+    raise SystemExit("Haiku VM limit reached (2); stop an old guest cleanly first: "
+                     + ", ".join(guests))
+GUARD
 if lsof -nP -iTCP:"$VNC_PORT" -sTCP:LISTEN >/dev/null 2>&1; then
     echo "VNC port $VNC_PORT is already in use; refusing to collide." >&2
     exit 5
