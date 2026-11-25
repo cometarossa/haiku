@@ -203,3 +203,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V13 traced public BBitmap eligibility: 28/28 verified, two matched acknowledgment/skip pairs, ordinary paths unchanged; quiet performance pending.
 
 - [x] V13 quiet comparison complete 36/36; quiet median lifecycle improves in all four tested topologies, 10/12 paired wins vs OFF. Keep opt-in until client audit, quiet eligibility and repeat validation.
+
+- [x] V13 quiet public bitmap eligibility: 42/42, no errors; independent client write audit pending.
