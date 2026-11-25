@@ -376,6 +376,7 @@ enum {
 	kAllocator			= 0x1,
 	kFramebuffer		= 0x2,
 	kHeap				= 0x4,
+	kWhiteInitialized	= 0x8, // V12 lab: server completed the full white fill
 };
 
 #endif	// APP_SERVER_PROTOCOL_H

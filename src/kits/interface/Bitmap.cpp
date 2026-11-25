@@ -27,6 +27,7 @@
 #include <Application.h>
 #include <GraphicsDefs.h>
 #include <Locker.h>
+#include <OS.h>
 #include <View.h>
 #include <Window.h>
 
@@ -1052,6 +1053,7 @@ BBitmap::_InitObject(BRect bounds, color_space colorSpace, uint32 flags,
 	// TODO: Should we handle rounding of the "bounds" here? How does R5 behave?
 
 	status_t error = B_OK;
+	bool serverClearedWhite = false;
 
 #ifdef RUN_WITHOUT_APP_SERVER
 	flags |= B_BITMAP_NO_SERVER_LINK;
@@ -1157,18 +1159,31 @@ BBitmap::_InitObject(BRect bounds, color_space colorSpace, uint32 flags,
 					// Get token
 					link.Read<int32>(&fServerToken);
 
-					uint8 allocationFlags;
-					link.Read<uint8>(&allocationFlags);
-					link.Read<area_id>(&fServerArea);
-					link.Read<ssize_t>(&fAreaOffset);
+					uint8 allocationFlags = 0;
+					const status_t flagsStatus = link.Read<uint8>(&allocationFlags);
+					const status_t areaStatus = link.Read<area_id>(&fServerArea);
+					const status_t offsetStatus = link.Read<ssize_t>(&fAreaOffset);
 
 					BPrivate::ServerMemoryAllocator* allocator
 						= BApplication::Private::ServerAllocator();
 
 					error = allocator->AddArea(fServerArea, fArea,
 						fBasePointer, size);
-					if (error == B_OK)
+					if (error == B_OK) {
 						fBasePointer += fAreaOffset;
+						// V12 lab: only a successful, explicit server acknowledgment
+						// of this exact ordinary RGB32 allocation can skip the fill.
+						serverClearedWhite = flagsStatus == B_OK
+							&& areaStatus == B_OK && offsetStatus == B_OK
+							&& allocationFlags == (kAllocator | kWhiteInitialized)
+							&& flags == (B_BITMAP_ACCEPTS_VIEWS | B_BITMAP_CLEAR_TO_WHITE)
+							&& colorSpace == B_RGB32 && size > 0 && size <= 1024 * 1024;
+						if (serverClearedWhite) {
+							debug_printf("LAB_BITMAP_CLIENT_SKIP team=%" B_PRId32
+								" token=%" B_PRId32 " bytes=%" B_PRIu32 "\n",
+								(int32)getpid(), fServerToken, (uint32)size);
+						}
+					}
 
 					if ((allocationFlags & kFramebuffer) != 0) {
 						// The base pointer will now point to an overlay_client_data
@@ -1210,7 +1225,7 @@ BBitmap::_InitObject(BRect bounds, color_space colorSpace, uint32 flags,
 
 	if (fInitError == B_OK) {
 		// clear to white if the flags say so.
-		if (flags & B_BITMAP_CLEAR_TO_WHITE) {
+		if ((flags & B_BITMAP_CLEAR_TO_WHITE) && !serverClearedWhite) {
 			if (fColorSpace == B_CMAP8) {
 				// "255" is the "transparent magic" index for B_CMAP8 bitmaps
 				// use the correct index for "white"

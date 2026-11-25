@@ -753,8 +753,8 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 				Signature(), frame.Width() + 1, frame.Height() + 1));
 
 			if (bitmap != NULL && _AddBitmap(bitmap)) {
-				// AI-assisted independent research fork. The client explicitly
-				// requested white initialization and still performs it normally.
+				// AI-assisted independent research fork. V11 keeps the client
+				// clear; V12 acknowledges a complete server clear in the reply.
 				// Warm only a bounded, newly allocated ordinary lab bitmap,
 				// outside BitmapManager's global allocation lock, before reply.
 				const char* labPrefix = "application/x-vnd.cometarossa-v11-";
@@ -762,22 +762,37 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 					&& colorSpace == B_RGB32 && allocationFlags == kAllocator
 					&& bitmap->Bits() != NULL && bitmap->BitsLength() > 0
 					&& bitmap->BitsLength() <= 1024 * 1024
-					&& strncmp(Signature(), labPrefix, strlen(labPrefix)) == 0
-					&& access("/boot/home/config/settings/haiku-lab-bitmap-warm",
-						F_OK) == 0) {
+					&& strncmp(Signature(), labPrefix, strlen(labPrefix)) == 0) {
+					const bool acknowledge = access(
+						"/boot/home/config/settings/haiku-lab-bitmap-single-clear",
+						F_OK) == 0;
+					const bool warm = acknowledge || access(
+						"/boot/home/config/settings/haiku-lab-bitmap-warm",
+						F_OK) == 0;
 					area_info info;
 					const size_t offset = bitmap->AreaOffset();
 					const size_t length = bitmap->BitsLength();
-					if (get_area_info(bitmap->Area(), &info) == B_OK
+					if (warm && get_area_info(bitmap->Area(), &info) == B_OK
 						&& offset <= info.size && length <= info.size - offset
 						&& bitmap->Bits() == (uint8*)info.address + offset) {
 						bigtime_t start = system_time();
 						memset(bitmap->Bits(), 0xff, length);
+						const bigtime_t elapsed = system_time() - start;
+						// Acknowledge only if the request and server agree on the
+						// complete byte extent, including row padding.
+						if (acknowledge && bytesPerRow > 0 && bitmap->Height() > 0
+							&& bitmap->BytesPerRow() == bytesPerRow
+							&& (uint64)bytesPerRow * (uint64)bitmap->Height() == length) {
+							allocationFlags |= kWhiteInitialized;
+							debug_printf("LAB_BITMAP_SINGLE_CLEAR team=%" B_PRId32
+								" token=%" B_PRId32 " bytes=%" B_PRIu32 "\n",
+								ClientTeam(), bitmap->Token(), (uint32)length);
+						}
 						debug_printf("LAB_BITMAP_WARM team=%" B_PRId32
 							" token=%" B_PRId32 " bytes=%" B_PRIu32
 							" us=%" B_PRId64 "\n", ClientTeam(),
 							bitmap->Token(), (uint32)length,
-							(int64)(system_time() - start));
+							(int64)elapsed);
 					}
 				}
 				fLink.StartMessage(B_OK);
