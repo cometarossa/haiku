@@ -1,0 +1,119 @@
+[
+  {
+    "expected": 36,
+    "attempted": 36,
+    "errors": 0,
+    "not_attempted": 0,
+    "playing_replies": 12,
+    "all_positions_advance": true,
+    "initialization_us": 15673,
+    "elapsed_us": 1040683,
+    "deadline_overrun_us": 0,
+    "complete": true,
+    "playback_valid": true,
+    "by_operation": {
+      "Title": {
+        "count": 12,
+        "median_us": 550.5,
+        "p95_us": 7231,
+        "max_us": 7231,
+        "total_us": 19781
+      },
+      "IsPlaying": {
+        "count": 12,
+        "median_us": 606.0,
+        "p95_us": 1630,
+        "max_us": 1630,
+        "total_us": 8028
+      },
+      "Position": {
+        "count": 12,
+        "median_us": 724.5,
+        "p95_us": 2318,
+        "max_us": 2318,
+        "total_us": 9547
+      }
+    },
+    "n": 4,
+    "probe_exit": 0,
+    "player_exit": 0
+  },
+  {
+    "expected": 72,
+    "attempted": 72,
+    "errors": 0,
+    "not_attempted": 0,
+    "playing_replies": 24,
+    "all_positions_advance": true,
+    "initialization_us": 14586,
+    "elapsed_us": 1333399,
+    "deadline_overrun_us": 0,
+    "complete": true,
+    "playback_valid": true,
+    "by_operation": {
+      "Title": {
+        "count": 24,
+        "median_us": 458.0,
+        "p95_us": 4333,
+        "max_us": 24607,
+        "total_us": 42579
+      },
+      "IsPlaying": {
+        "count": 24,
+        "median_us": 545.5,
+        "p95_us": 3906,
+        "max_us": 71526,
+        "total_us": 91304
+      },
+      "Position": {
+        "count": 24,
+        "median_us": 502.5,
+        "p95_us": 42764,
+        "max_us": 142592,
+        "total_us": 197310
+      }
+    },
+    "n": 8,
+    "probe_exit": 0,
+    "player_exit": 0
+  },
+  {
+    "expected": 144,
+    "attempted": 36,
+    "errors": 6,
+    "not_attempted": 108,
+    "playing_replies": 10,
+    "all_positions_advance": false,
+    "initialization_us": 16718,
+    "elapsed_us": 15001259,
+    "deadline_overrun_us": 1259,
+    "complete": false,
+    "playback_valid": false,
+    "by_operation": {
+      "Title": {
+        "count": 16,
+        "median_us": 152910.0,
+        "p95_us": 1578554,
+        "max_us": 1578554,
+        "total_us": 5778802
+      },
+      "IsPlaying": {
+        "count": 10,
+        "median_us": 237367.0,
+        "p95_us": 1648142,
+        "max_us": 1648142,
+        "total_us": 4942175
+      },
+      "Position": {
+        "count": 10,
+        "median_us": 226961.5,
+        "p95_us": 1254801,
+        "max_us": 1254801,
+        "total_us": 4266774
+      }
+    },
+    "n": 16,
+    "probe_exit": 4,
+    "player_exit": 0
+  }
+]
