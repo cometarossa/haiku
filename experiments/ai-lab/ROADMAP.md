@@ -179,3 +179,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [ ] V10 app_server opt-in per-window diagnostics: acquisition wall time for window/desktop read/write, dispatch and sync/fill/bitmap subsets; native build, boot and paired off/on acceptance pending.
 
 - [x] V10 independent ZimaBlade full build, verified Mac import/boot, 12 paired smoke runs at batch64, 49,152 fills, 2,359,296 pixel checks, zero errors; 18 complete ON profiles, zero OFF. Full acceptance and causal diagnosis pending.
+
+- [x] V10/Beta6 cold vs client/server buffer initialization, 36 runs, 147,456 timed fills and 9,437,184 RGB checks; V10 same-team first pass 46.515ms -> 5.415ms with server warm, no measured fault counts; full lifecycle and kernel counters pending.
