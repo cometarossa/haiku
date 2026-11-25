@@ -31,6 +31,8 @@ private:
 			BLocker				fSupplierLock;
 
 			VideoTrackSupplier*	fSupplier;
+			const bool			fLabCatchup;
+			bool				fLabCatchupReported;
 };
 
 #endif	// PROXY_VIDEO_SUPPLIER_H

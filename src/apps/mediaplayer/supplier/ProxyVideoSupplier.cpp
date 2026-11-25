@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <Autolock.h>
 
@@ -18,7 +19,10 @@
 ProxyVideoSupplier::ProxyVideoSupplier()
 	:
 	fSupplierLock("video supplier lock"),
-	fSupplier(NULL)
+	fSupplier(NULL),
+	fLabCatchup(access("/boot/home/config/settings/haiku-lab-media-catchup",
+		F_OK) == 0),
+	fLabCatchupReported(false)
 {
 }
 
@@ -64,8 +68,37 @@ ProxyVideoSupplier::FillBuffer(int64 startFrame, void* buffer,
 		// But don't do it for more than 5 frames, or we will take too much
 		// time. Doing it this way will still catch up to the next keyframe
 		// eventually (we may return the wrong frames until the next keyframe).
-		if (!forceGeneration && startFrame - frame > 5)
+		if (!forceGeneration && startFrame - frame > 5) {
+			// Lab-only: make bounded forward decoder progress instead of
+			// repeatedly abandoning the same keyframe gap. Never submit
+			// these intermediate frames. Keep the original timeout
+			// result and the existing forced-generation path unchanged.
+			if (fLabCatchup && frame >= 0
+				&& fSupplier->CurrentFrame() == frame) {
+				const bigtime_t recoveryStart = system_time();
+				for (int32 i = 0; i < 5; i++) {
+					if (i > 0 && system_time() - recoveryStart >= 4000)
+						break;
+					const int64 before = fSupplier->CurrentFrame();
+					if (before >= startFrame)
+						break;
+					bool intermediateCached = false;
+					status_t error = fSupplier->ReadFrame(buffer,
+						&performanceTime, format, intermediateCached);
+					const int64 after = fSupplier->CurrentFrame();
+					if (error != B_OK || after <= before
+						|| after > startFrame)
+						break;
+					if (!fLabCatchupReported) {
+						fprintf(stderr, "\nLAB_MEDIA_CATCHUP progress "
+							"from=%" B_PRId64 " to=%" B_PRId64 "\n",
+							before, after);
+						fLabCatchupReported = true;
+					}
+				}
+			}
 			return B_TIMED_OUT;
+		}
 		while (frame < startFrame) {
 			ret = fSupplier->ReadFrame(buffer, &performanceTime, format,
 				wasCached);
