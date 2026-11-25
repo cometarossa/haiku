@@ -59,7 +59,7 @@ def main():
     target = parser.add_mutually_exclusive_group(required=True)
     target.add_argument("--baseline", action="store_true")
     target.add_argument("--run-id", help="CI run ID of experimental Haiku VM")
-    target.add_argument("--local-id", help="8-character local build source SHA")
+    target.add_argument("--local-id", help="8-character local build source SHA, optionally -trial1..9")
     parser.add_argument("command", choices=("info", "screenshot", "type",
                                             "terminal"))
     parser.add_argument("text", nargs="*")
@@ -70,8 +70,8 @@ def main():
         out = base / "vm/haiku-ai-baseline-latest.ppm"
     else:
         if args.local_id is not None:
-            if re.fullmatch(r"[0-9a-f]{8}", args.local_id) is None:
-                parser.error("local ID must contain eight lowercase hex digits")
+            if re.fullmatch(r"[0-9a-f]{8}(?:-trial[1-9])?", args.local_id) is None:
+                parser.error("local ID must be eight lowercase hex digits, optionally -trial1..9")
             folder = base / "ai-images" / ("run-local-" + args.local_id)
         else:
             if not args.run_id.isdecimal():
