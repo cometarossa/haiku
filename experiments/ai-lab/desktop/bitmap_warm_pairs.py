@@ -15,7 +15,7 @@ STATES = ("off", "warm", "single", "warm", "single", "off",
 METRICS = ("render_us", "lifecycle_us", "max_setup_us")
 
 
-def completed(root, revision, partial=False, quiet_compare=False):
+def completed(root, revision, partial=False, quiet_compare=False, setup_phases=False):
     states = ("off", "single", "quiet", "single", "quiet", "off", "quiet", "off", "single") if quiet_compare else STATES
     order = [(mode, n, state) for mode, n in MATRIX for state in states]
     names = [f"{i:02d}-{mode}-{n}-64-{state}"
@@ -30,7 +30,7 @@ def completed(root, revision, partial=False, quiet_compare=False):
             if i != len(actual) - 1:
                 raise ValueError("incomplete interior run")
             break
-        rows.append(read_run(folder, revision, i, mode, n, state))
+        rows.append(read_run(folder, revision, i, mode, n, state, setup_phases=setup_phases))
     if not partial and len(rows) != len(order):
         raise ValueError("campaign incomplete")
     return rows
