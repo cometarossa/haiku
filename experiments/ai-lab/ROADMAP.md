@@ -223,3 +223,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V14 balanced startup proxy 12/12, six paired wins, median -46.1%; five buffer-send messages per treatment. First-frame and presentation-loss measurement pending.
 
 - [x] V15 native stats marker isolation and single-stream conservation passed; no recorded consumer copy or late drops, send error B_MEDIA_BAD_DESTINATION. Investigate buffer wait with 2/4/8 streams before changes.
+
+- [x] V15 4/8-window native host-load comparison before/after closing 11 guests. Enforce two Haiku guests in regular launcher. Log interleaving requires robust single-line record output; repeat under controlled host load.

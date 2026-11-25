@@ -1,0 +1,57 @@
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=1865 lock_timeouts=0 late=3 attempts=371 no_buffer=0 fills=371 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=371 send_errors=0 wait_us=11765492 fill_us=304411 max_fill_us=123912 last_send_error=0
+LAB_MEDIA_CONSUMER received=368 inactive=0 late=4 target_calls=364 no_target=0 copy_bytes=0 copy_us=0 target_us=476831 first_target_us=881346371496
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=1884 lock_timeouts=0 late=3 attempts=317 no_buffer=0 fills=317 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=317 send_errors=0 wait_us=9859201 fill_us=324869 max_fill_us=133360 last_send_error=0
+LAB_MEDIA_CONSUMER received=314 inactive=0 late=3 target_calls=311 no_target=0 copy_bytes=0 copy_us=0 target_us=358617 first_target_us=881348286756
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=1902 lock_timeouts=1 late=2 attempts=291 no_buffer=0 fills=291 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=291 send_errors=0 wait_us=9193907 fill_us=178866 max_fill_us=66403 last_send_error=0
+LAB_MEDIA_CONSUMER received=288 inactive=0 late=3 target_calls=285 no_target=0 copy_bytes=0 copy_us=0 target_us=393252 first_target_us=881349285466
+LAB_MEDIA_PRODUCER thread=1920 lock_timeouts=0 late=2 attempts=262 no_buffer=0 fills=262 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=262 send_errors=0 wait_us=8163742 fill_us=254148 max_fill_us=80638 last_send_error=0
+LAB_MEDIA_CONSUMER received=259 inactive=0 late=2 target_calls=257 no_target=0 copy_bytes=0 copy_us=0 target_us=379485 first_target_us=881350326185
+open playlist item: n4-1.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+open playlist item: n4-2.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+open playlist item: n4-3.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+open playlist item: n4-4.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+VideoProducer: dropped frame (48) (perf. time 1600000)
+VideoProducer: dropped frame (49) (perf. time 1633333)
+VideoProducer: dropped frame (77) (perf. time 2566666)
+VideoProducer: dropped frame (78) (perf. time 2600000)
+VideoProducer: dropped frame (79) (perf. time 2633333)
+VideoProducer: dropped frame (135) (perf. time 4500000)
+VideoProducer: dropped frame (136) (perf. time 4533333)
+VideoProducer: dropped frame (17) (perf. time 566666)
+VideoProducer: dropped frame (18) (perf. time 600000)
+VideoProducer: dropped frame (138) (perf. time 4600000)
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 2500
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 2500
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 1500

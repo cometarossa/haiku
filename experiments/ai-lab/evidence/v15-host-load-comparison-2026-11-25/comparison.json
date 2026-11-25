@@ -1,0 +1,262 @@
+{
+  "before": {
+    "4": {
+      "summary": {
+        "producer": {
+          "records": 4,
+          "lock_timeouts": 11,
+          "late": 148,
+          "attempts": 1400,
+          "no_buffer": 0,
+          "fills": 1400,
+          "fill_timeouts": 97,
+          "fill_errors": 0,
+          "end_buffers": 0,
+          "suppressed": 99,
+          "sent": 1301,
+          "send_errors": 0,
+          "wait_us": 41291141,
+          "fill_us": 1799260,
+          "max_fill_us": 573149
+        },
+        "consumer": {
+          "records": 4,
+          "received": 1289,
+          "inactive": 0,
+          "late": 46,
+          "target_calls": 1243,
+          "no_target": 0,
+          "copy_bytes": 0,
+          "copy_us": 0,
+          "target_us": 3365116
+        }
+      },
+      "positions": [
+        [
+          1,
+          266666,
+          333333,
+          466666,
+          633333
+        ],
+        [
+          2,
+          2066666,
+          2166666,
+          2333333,
+          2433333
+        ],
+        [
+          3,
+          3700000,
+          3800000,
+          3866666,
+          4000000
+        ]
+      ],
+      "elapsed_us": 16823378,
+      "play_to_stop_us": 7341072,
+      "normalized": false
+    },
+    "8": {
+      "summary": {
+        "producer": {
+          "records": 8,
+          "lock_timeouts": 65,
+          "late": 260,
+          "attempts": 3504,
+          "no_buffer": 0,
+          "fills": 3504,
+          "fill_timeouts": 2320,
+          "fill_errors": 0,
+          "end_buffers": 0,
+          "suppressed": 2320,
+          "sent": 1184,
+          "send_errors": 0,
+          "wait_us": 36661804,
+          "fill_us": 2296980,
+          "max_fill_us": 195379
+        },
+        "consumer": {
+          "records": 8,
+          "received": 1160,
+          "inactive": 0,
+          "late": 65,
+          "target_calls": 1095,
+          "no_target": 0,
+          "copy_bytes": 0,
+          "copy_us": 0,
+          "target_us": 2198207
+        }
+      },
+      "positions": [
+        [
+          1,
+          200000,
+          200000,
+          1100000,
+          1633333,
+          1766666,
+          1866666,
+          1966666,
+          2033333
+        ],
+        [
+          2,
+          3466666,
+          3533333,
+          3433333,
+          3533333,
+          3700000,
+          3766666,
+          3700000,
+          3733333
+        ],
+        [
+          3,
+          5000000,
+          5233333,
+          5166666,
+          5300000,
+          5366666,
+          5466666,
+          5433333,
+          5600000
+        ]
+      ],
+      "elapsed_us": 22095484,
+      "play_to_stop_us": 9033144,
+      "normalized": false
+    }
+  },
+  "after": {
+    "4": {
+      "summary": {
+        "producer": {
+          "records": 4,
+          "lock_timeouts": 1,
+          "late": 10,
+          "attempts": 1241,
+          "no_buffer": 0,
+          "fills": 1241,
+          "fill_timeouts": 0,
+          "fill_errors": 0,
+          "end_buffers": 0,
+          "suppressed": 0,
+          "sent": 1241,
+          "send_errors": 0,
+          "wait_us": 38982342,
+          "fill_us": 1062294,
+          "max_fill_us": 133360
+        },
+        "consumer": {
+          "records": 4,
+          "received": 1229,
+          "inactive": 0,
+          "late": 12,
+          "target_calls": 1217,
+          "no_target": 0,
+          "copy_bytes": 0,
+          "copy_us": 0,
+          "target_us": 1608185
+        }
+      },
+      "positions": [
+        [
+          1,
+          0,
+          0,
+          33333,
+          266666
+        ],
+        [
+          2,
+          1400000,
+          1500000,
+          1566666,
+          1633333
+        ],
+        [
+          3,
+          2800000,
+          2900000,
+          2966666,
+          3000000
+        ]
+      ],
+      "elapsed_us": 14265014,
+      "play_to_stop_us": 6287904,
+      "normalized": false
+    },
+    "8": {
+      "summary": {
+        "producer": {
+          "records": 8,
+          "lock_timeouts": 3,
+          "late": 108,
+          "attempts": 3543,
+          "no_buffer": 0,
+          "fills": 3543,
+          "fill_timeouts": 909,
+          "fill_errors": 0,
+          "end_buffers": 0,
+          "suppressed": 909,
+          "sent": 2634,
+          "send_errors": 0,
+          "wait_us": 80779649,
+          "fill_us": 5191645,
+          "max_fill_us": 490369
+        },
+        "consumer": {
+          "records": 8,
+          "received": 2610,
+          "inactive": 0,
+          "late": 44,
+          "target_calls": 2566,
+          "no_target": 0,
+          "copy_bytes": 0,
+          "copy_us": 0,
+          "target_us": 6065110
+        }
+      },
+      "positions": [
+        [
+          1,
+          33333,
+          200000,
+          266666,
+          733333,
+          1033333,
+          1066666,
+          1033333,
+          1033333
+        ],
+        [
+          2,
+          2366666,
+          2533333,
+          2633333,
+          2700000,
+          2833333,
+          2866666,
+          2966666,
+          3133333
+        ],
+        [
+          3,
+          4500000,
+          4633333,
+          4566666,
+          4800000,
+          4833333,
+          4900000,
+          4900000,
+          5033333
+        ]
+      ],
+      "elapsed_us": 21741426,
+      "play_to_stop_us": 8409674,
+      "normalized": true
+    }
+  }
+}
