@@ -61,6 +61,23 @@ class CatchupReportTest(unittest.TestCase):
                 self.edit(f"{i:02d}-n{n}-{state}.stderr","LAB_MEDIA_CATCHUP progress from=5 to=6\n","")
         self.assertEqual(validate(self.root,revision="f960376e",require_no_activation=True)["activated_pairs"],0)
 
+    def test_query_latency(self):
+        tag="00-n4-off"
+        rows=[]
+        clock=5000000
+        for sample in (1,2,3):
+            for win in (2,4,6,8):
+                for op in ("title","playing","position"):
+                    rows.append(f"{sample} {win} {op} {clock} {clock+1000} 0")
+                    clock+=2000
+        self.write(tag+".latency","\n".join(rows)+"\n")
+        r=validate_run(self.root,0,4,"off",True)
+        self.assertEqual(r["query_latency"],dict(count=36,median_us=1000,p95_us=1000,max_us=1000,total_us=36000))
+        self.write(tag+".latency","\n".join(rows[:-1])+"\n")
+        with self.assertRaises(ValueError):validate_run(self.root,0,4,"off",True)
+        self.write(tag+".latency","\n".join(rows).replace("5000000 5001000 0","5000000 5001000 1")+"\n")
+        with self.assertRaises(ValueError):validate_run(self.root,0,4,"off",True)
+
     def test_complete_balanced(self):
         r=validate(self.root)
         self.assertEqual(r["completed"],8)

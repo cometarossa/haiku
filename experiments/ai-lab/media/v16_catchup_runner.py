@@ -66,10 +66,36 @@ def run(root, hd=False, sixteen=False, adaptive=False):
         script=script.replace(b'cleanup() {',b'cleanup() {\n if test "$a" = 1; then rm -f "$adaptive"; a=0; fi')
         script=script.replace(b'(set -C; : > "$stats"); s=1',b'(set -C; : > "$stats"); s=1\n(set -C; : > "$adaptive"); a=1')
         subprocess.run(["sh","-n"],input=script,check=True)
+        # Measure each scripting round trip separately from frame counters.
+        anchor=b'   hey -o "$app" get Title of Window "$i"\n   hey -o "$app" get IsPlaying of Window "$i"\n   hey "$app" get Position of Window "$i"'
+        if script.count(anchor)!=1:
+            raise ValueError("unexpected sample block")
+        script=script.replace(anchor,b'   timed_query title hey -o "$app" get Title of Window "$i"\n   timed_query playing hey -o "$app" get IsPlaying of Window "$i"\n   timed_query position hey "$app" get Position of Window "$i"')
+        anchor=b'run=0\n'
+        if script.count(anchor)!=1:
+            raise ValueError("unexpected trial initialization")
+        script=script.replace(anchor,b"""timed_query() {
+ op="$1"; shift
+ query_start=$(system_time)
+ query_rc=0
+ "$@" || query_rc=$?
+ query_end=$(system_time)
+ printf '%s %s %s %s %s %s\\n' "$sample" "$i" "$op" "$query_start" "$query_end" "$query_rc" >> "$tag.latency"
+ return "$query_rc"
+}
+run=0
+""")
+        anchor=b'windows positions stdout stderr exit; do curl'
+        if script.count(anchor)!=1:
+            raise ValueError("unexpected upload list")
+        script=script.replace(anchor,b'windows positions stdout stderr latency exit; do curl')
+        subprocess.run(["sh","-n"],input=script,check=True)
     downloads={"run.sh":script,"stream-a.mp4":fixture,
                "SHA256SUMS":(digest+"  stream-a.mp4\n").encode()}
     allowed={"revision.txt","done.txt"}|{f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(specs)
             for ext in ("start","play","stop","quit-time","windows","positions","stdout","stderr","exit")}
+    if adaptive:
+        allowed |= {f"{i:02d}-n{n}-{state}.latency" for i,(n,state) in enumerate(specs)}
     root.mkdir()
     (root/"run.sh").write_bytes(script)
     (root/"fixture-sha256.txt").write_bytes(downloads["SHA256SUMS"])
@@ -156,7 +182,7 @@ def run(root, hd=False, sixteen=False, adaptive=False):
         else:
             raise TimeoutError("campaign incomplete; retain logs")
         (root/"host-end.json").write_text(json.dumps(sample_host(revision),indent=2)+"\n")
-        report=validate(root,specs=specs,revision=revision,require_no_activation=adaptive and hd)
+        report=validate(root,specs=specs,revision=revision,require_no_activation=adaptive and hd,require_latency=adaptive)
         (root/"summary.json").write_text(json.dumps(report,indent=2)+"\n")
         print("V16_CAMPAIGN_PASS",json.dumps(report["pairs"],indent=2),flush=True)
     finally:

@@ -13,7 +13,28 @@ SPECS = [(4,"off"),(4,"on"),(4,"on"),(4,"off"),
          (8,"off"),(8,"on"),(8,"on"),(8,"off")]
 
 
-def validate_run(root, index, n, state):
+def query_latency(root, tag, mapping, play, stop):
+    """Check exact query identities and monotonic timestamps; no FPS claim."""
+    rows = []
+    expected = [(sample, win, op) for sample in (1,2,3)
+                for win in mapping.values() for op in ("title","playing","position")]
+    previous = play
+    for line in (root/(tag+".latency")).read_text().splitlines():
+        sample, win, op, start, end, rc = line.split()
+        start,end=int(start),int(end)
+        if not previous<=start<=end<=stop or int(rc)!=0:
+            raise ValueError(f"{tag}: invalid query timing or exit")
+        rows.append((int(sample),int(win),op,end-start))
+        previous=end
+    if [r[:3] for r in rows]!=expected:
+        raise ValueError(f"{tag}: incomplete or reordered query timing")
+    values=sorted(r[3] for r in rows)
+    return dict(count=len(values),median_us=statistics.median(values),
+                p95_us=values[(95*len(values)+99)//100-1],max_us=values[-1],
+                total_us=sum(values))
+
+
+def validate_run(root, index, n, state, require_latency=False):
     tag = f"{index:02d}-n{n}-{state}"
     def read(ext):
         return (root / (tag+"."+ext)).read_text()
@@ -53,15 +74,18 @@ def validate_run(root, index, n, state):
         raise ValueError(f"{tag}: malformed activation")
     if len(activations)>n or (state=="off" and activations) or any(int(b)<=int(a) for a,b in activations):
         raise ValueError(f"{tag}: invalid catch-up treatment")
-    return dict(tag=tag,n=n,state=state,activation_count=len(activations),
+    result = dict(tag=tag,n=n,state=state,activation_count=len(activations),
                 positions=positions,lifetime_us=quit_time-start,
                 observation_us=stop-play,producer=p,consumer=c,
                 timeout_fraction=p["fill_timeouts"]/p["fills"],
                 producer_late_fraction=p["late"]/(p["attempts"]+p["late"]),
                 consumer_late_fraction=c["late"]/c["received"])
+    if require_latency:
+        result["query_latency"]=query_latency(root,tag,mapping,play,stop)
+    return result
 
 
-def validate(root, partial=False, specs=SPECS, revision="a1b69d83", require_no_activation=False):
+def validate(root, partial=False, specs=SPECS, revision="a1b69d83", require_no_activation=False, require_latency=False):
     if "ai_"+revision not in (root/"revision.txt").read_text():
         raise ValueError("wrong guest revision")
     rows=[]
@@ -69,7 +93,7 @@ def validate(root, partial=False, specs=SPECS, revision="a1b69d83", require_no_a
         tag=f"{index:02d}-n{n}-{state}"
         if partial and not (root/(tag+".exit")).exists():
             break
-        row=validate_run(root,index,n,state)
+        row=validate_run(root,index,n,state,require_latency)
         if require_no_activation and row["activation_count"]:
             raise ValueError(f"{tag}: recovery activated despite HD guard")
         rows.append(row)
@@ -96,5 +120,6 @@ if __name__=="__main__":
     p.add_argument("--sixteen",action="store_true")
     p.add_argument("--revision",default="a1b69d83")
     p.add_argument("--require-no-activation",action="store_true")
+    p.add_argument("--require-latency",action="store_true")
     a=p.parse_args()
-    print(json.dumps(validate(a.root,a.partial,SPECS_16 if a.sixteen else SPECS,a.revision,a.require_no_activation),indent=2))
+    print(json.dumps(validate(a.root,a.partial,SPECS_16 if a.sixteen else SPECS,a.revision,a.require_no_activation,a.require_latency),indent=2))
