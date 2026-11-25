@@ -22,6 +22,9 @@ struct Job {
     int checked,errors;
     bigtime_t setup_start,ready_time;
     int white_errors;
+#ifdef LAB_SETUP_PHASES
+    bigtime_t constructed,locked,scanned,attached;
+#endif
 };
 static rgb_color Color(int id,int x,int y,int pass)
 {
@@ -34,14 +37,26 @@ static status_t Draw(void* arg)
     BRect bounds(0,0,kSide-1,kSide-1);
     j.setup_start=system_time();
     BBitmap bitmap(bounds,B_BITMAP_ACCEPTS_VIEWS | B_BITMAP_CLEAR_TO_WHITE,B_RGB32);
+#ifdef LAB_SETUP_PHASES
+    j.constructed=system_time();
+#endif
     if(bitmap.InitCheck()!=B_OK||!bitmap.Lock())return B_ERROR;
+#ifdef LAB_SETUP_PHASES
+    j.locked=system_time();
+#endif
     if(!bitmap.Bits() || bitmap.BitsLength()!=size_t(kSide*kSide*4))return B_ERROR;
     const uint8* white=static_cast<const uint8*>(bitmap.Bits());
     for(size_t i=0;i<bitmap.BitsLength();++i)if(white[i]!=255)++j.white_errors;
     if(j.white_errors)return B_ERROR;
+#ifdef LAB_SETUP_PHASES
+    j.scanned=system_time();
+#endif
     BView* view=new BView(bounds,"offscreen",B_FOLLOW_NONE,0);
     bitmap.AddChild(view);
     view->SetDrawingMode(B_OP_COPY);
+#ifdef LAB_SETUP_PHASES
+    j.attached=system_time();
+#endif
     view->Sync();
     j.ready_time=system_time();
     if(j.readyFd>=0){
@@ -81,7 +96,12 @@ static bool Valid(const Job& j,int n,int batch,int id)
     return j.id==id&&j.batch==batch&&j.passes==kTotalPasses/n
         &&j.start>0&&j.end>j.start&&j.checked==65536&&!j.errors
         &&j.setup_start>0&&j.ready_time>=j.setup_start&&j.start>=j.ready_time
-        &&!j.white_errors;
+        &&!j.white_errors
+#ifdef LAB_SETUP_PHASES
+        &&j.setup_start<=j.constructed&&j.constructed<=j.locked
+        &&j.locked<=j.scanned&&j.scanned<=j.attached&&j.attached<=j.ready_time
+#endif
+        ;
 }
 static int Report(const char* mode,Job* jobs,int n,int batch)
 {
@@ -94,11 +114,20 @@ static int Report(const char* mode,Job* jobs,int n,int batch)
     }
     for(int i=0;i<n;++i){
         Job& j=jobs[i];
-        printf("%s,%d,%d,%d,%d,%lld,%lld,%lld,%d,%d,%lld,%lld,%d\n",mode,n,batch,i,kTotalDraws/n,
+        printf("%s,%d,%d,%d,%d,%lld,%lld,%lld,%d,%d,%lld,%lld,%d",mode,n,batch,i,kTotalDraws/n,
             (long long)(j.start-first),(long long)(j.end-first),
             (long long)(last-first),j.checked,j.errors,
             (long long)(j.ready_time-j.setup_start),
             (long long)(last-setup),j.white_errors);
+#ifdef LAB_SETUP_PHASES
+        printf(",%lld,%lld,%lld,%lld,%lld",
+            (long long)(j.constructed-j.setup_start),
+            (long long)(j.locked-j.constructed),
+            (long long)(j.scanned-j.locked),
+            (long long)(j.attached-j.scanned),
+            (long long)(j.ready_time-j.attached));
+#endif
+        putchar('\n');
     }
     return 0;
 }

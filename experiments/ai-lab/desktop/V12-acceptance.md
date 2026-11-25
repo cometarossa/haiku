@@ -27,3 +27,15 @@ validation remain valid. Historical lifecycle medians are provisional
 worker-0-origin values; never silently replace their raw evidence.
 The corrected source takes the minimum over workers. Recompile into a
 separate hashed binary and repeat same-image OFF/V11/V12 comparisons.
+
+## Optional setup attribution probe
+Compile a separate native binary with -DLAB_SETUP_PHASES (same source,
+compiler and optimization), hash it independently; run --three-way
+--setup-phases --binary-dir <new-directory>. Five extra fields per worker:
+constructor, lock, initial white scan, view attach/setup, first Sync.
+All are wall-clock durations, nonnegative and sum exactly to setup time.
+Preserve per-worker data; maxima for different workers are not additive.
+This measures client-visible phases, not CPU cost or page fault counts.
+Diagnostic timestamps and existing serial logs can perturb timing.
+Do not mix with uninstrumented performance evidence. Native compile and
+execution still pending.

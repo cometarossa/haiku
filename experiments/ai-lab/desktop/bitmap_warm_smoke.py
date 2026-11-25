@@ -258,7 +258,13 @@ def run(args):
             if revision not in (dest / "revision.txt").read_text():
                 raise ValueError("unexpected guest revision")
             data = (dest / "result.csv").read_text()
-            elapsed = verify_eligibility(data) if args.eligibility else verify_client(data, mode, workers, batch)
+            if args.setup_phases:
+                from bitmap_setup_phases import verify_phases
+                elapsed, phases = verify_phases(data, mode, workers, batch)
+                import json
+                (dest / "setup-phases.json").write_text(json.dumps(phases, indent=2) + "\n")
+            else:
+                elapsed = verify_eligibility(data) if args.eligibility else verify_client(data, mode, workers, batch)
             records = parse(raw.decode(errors="replace"), expected, mode)
             verify_single_clear(raw.decode(errors="replace"), records, state == "single")
             # parse() validates counts and completion. Preserve exact serial.
@@ -282,10 +288,13 @@ def main():
                           help="paired two-surface batch64 lifecycle campaign")
     campaign.add_argument("--three-way", action="store_true")
     p.add_argument("--binary-dir", type=Path, help="explicit directory containing bitmap and SHA256SUMS")
+    p.add_argument("--setup-phases", action="store_true", help="require 18-column phase diagnostic binary")
     p.add_argument("--single-clear", action="store_true", help="V12 single initialization marker")
     p.add_argument("--expect-no-warm", action="store_true",
                    help="negative control on a revision without the experiment")
     args = p.parse_args()
+    if args.setup_phases and not args.three_way:
+        p.error("--setup-phases requires --three-way and a separately compiled binary")
     if args.three_way and (args.control or args.expect_no_warm or args.single_clear or args.binary_dir is None):
         p.error("--three-way requires a V12 local image and explicit corrected binary directory")
     if args.single_clear and (args.control or args.expect_no_warm):
