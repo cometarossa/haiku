@@ -17,9 +17,12 @@ REV = "fb8c2e41"
 SPECS = (4, 8, 16)
 
 
-def run(root, queues=False):
-    specs = (8,) if queues else SPECS
-    initial = sample_host(REV)
+def run(root, queues=False, deferred_smoke=False):
+    if queues and deferred_smoke:
+        raise ValueError("Select one campaign")
+    revision = "067ee57e" if deferred_smoke else REV
+    specs = ((1,"off"),(1,"on")) if deferred_smoke else tuple((n,"on") for n in ((8,) if queues else SPECS))
+    initial = sample_host(revision)
     pids = {g["pid"] for g in initial["guests"]}
     downloads = {}
     for folder, name, alias in (
@@ -36,12 +39,14 @@ def run(root, queues=False):
     script = (MEDIA/"v18-probe-load-guest.sh").read_bytes()
     if queues:
         script=(MEDIA/"v18-queue-load-guest.sh").read_bytes()
+    if deferred_smoke:
+        script=(MEDIA/"v19-deferred-smoke-guest.sh").read_bytes()
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
-        f"{i:02d}-n{n}-on.{ext}" for i,n in enumerate(specs)
+        f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(specs)
         for ext in ("dispatch","play","stop","map","probe","probe-stderr","probe-exit",
-                    "start","quit-time","windows","positions","stdout","stderr","exit")}
+                    "start","quit-time","windows","positions","stdout","stderr","exit","lifecycle","pause")}
     if queues:
         allowed |= {"teams.txt","00-n8-on.teams","00-n8-on.ports"} | {
             f"00-n8-on.port-{i:02d}" for i in range(1,11)}
@@ -82,7 +87,7 @@ def run(root, queues=False):
     t = Thread(target=server.serve_forever,daemon=True)
     t.start()
     try:
-        cmd = [sys.executable,str(LAB/"guest-hmp.py"),"--local-id",REV,"type"]
+        cmd = [sys.executable,str(LAB/"guest-hmp.py"),"--local-id",revision,"type"]
         subprocess.run(cmd+["curl -fsS http://10.0.2.2:8901/run.sh -o load18.sh"],check=True,timeout=30)
         subprocess.run(cmd+["sh load18.sh"],check=True,timeout=30)
         sys.path.insert(0,str(LAB))
@@ -90,7 +95,7 @@ def run(root, queues=False):
         deadline = time.monotonic()+600
         index=0
         while time.monotonic()<deadline:
-            sample=sample_host(REV)
+            sample=sample_host(revision)
             if {g["pid"] for g in sample["guests"]} != pids:
                 raise RuntimeError("VM inventory changed")
             with (root/"host-samples.jsonl").open("a") as f:
@@ -98,7 +103,7 @@ def run(root, queues=False):
             ppm=root/f"frame-{index:03d}.ppm"
             with socket.socket(socket.AF_UNIX) as sock:
                 sock.settimeout(8)
-                sock.connect(str(HOME/"ai-images"/f"run-local-{REV}"/"haiku-ai-regular-monitor.sock"))
+                sock.connect(str(HOME/"ai-images"/f"run-local-{revision}"/"haiku-ai-regular-monitor.sock"))
                 h.receive_prompt(sock)
                 h.exchange(sock,"screendump "+str(ppm))
             subprocess.run(["sips","-s","format","png",str(ppm),"--out",str(ppm.with_suffix(".png"))],check=True,stdout=subprocess.DEVNULL)
@@ -109,16 +114,16 @@ def run(root, queues=False):
             time.sleep(4)
         else:
             raise TimeoutError("campaign incomplete; preserve guest and logs")
-        if (root/"done.txt").read_text().strip()!="0" or "ai_"+REV not in (root/"revision.txt").read_text():
+        if (root/"done.txt").read_text().strip()!="0" or "ai_"+revision not in (root/"revision.txt").read_text():
             raise ValueError("completion or revision invalid")
         rows=[]
-        for i,n in enumerate(specs):
-            tag=f"{i:02d}-n{n}-on"
+        for i,(n,state) in enumerate(specs):
+            tag=f"{i:02d}-n{n}-{state}"
             mapping=[int(l.split()[0]) for l in (root/(tag+".map")).read_text().splitlines()]
             if len(mapping)!=n:
                 raise ValueError("window count")
             r=analyze((root/(tag+".probe")).read_text(),mapping)
-            r.update(n=n,probe_exit=int((root/(tag+".probe-exit")).read_text()),
+            r.update(n=n,state=state,probe_exit=int((root/(tag+".probe-exit")).read_text()),
                      player_exit=int((root/(tag+".exit")).read_text()))
             rows.append(r)
         (root/"summary.json").write_text(json.dumps(rows,indent=2)+"\n")
@@ -132,5 +137,6 @@ if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("root",type=Path)
     p.add_argument("--queues",action="store_true")
+    p.add_argument("--deferred-smoke",action="store_true")
     a=p.parse_args()
-    run(a.root,a.queues)
+    run(a.root,a.queues,a.deferred_smoke)
