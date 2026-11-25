@@ -1,0 +1,1 @@
+link.Read<ssize_t>(&offset): -2147483643 (Invalid Argument)
