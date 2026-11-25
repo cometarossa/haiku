@@ -199,3 +199,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V12 phase diagnostic complete, 36/36 verified; constructor delay consistent across all four topologies. V13 quiet image 97075eae built; native verification pending.
 
 - [x] V13 image 97075eae imported and booted; 8/8 direct reply cases, 786432 initial bytes checked read-only, ordinary flags unchanged. Client quiet skip proof and performance pending.
+
+- [x] V13 traced public BBitmap eligibility: 28/28 verified, two matched acknowledgment/skip pairs, ordinary paths unchanged; quiet performance pending.
