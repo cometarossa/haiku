@@ -33,15 +33,18 @@ def sample_host():
                 uptime=subprocess.check_output(["uptime"],text=True).strip())
 
 
-def run(root):
+def run(root, hd=False):
     initial = sample_host()
     initial_pids = {g["pid"] for g in initial["guests"]}
-    fixture_dir = HOME/"guest-files/concurrent-gui"
-    fixture=(fixture_dir/"stream-a.mp4").read_bytes()
+    fixture_dir = HOME/"guest-files"/("v16-hd" if hd else "concurrent-gui")
+    source_name = "stream-hd.mp4" if hd else "stream-a.mp4"
+    fixture=(fixture_dir/source_name).read_bytes()
     digest=hashlib.sha256(fixture).hexdigest()
-    if digest+"  stream-a.mp4" not in (fixture_dir/"SHA256SUMS").read_text():
+    if digest+"  "+source_name not in (fixture_dir/"SHA256SUMS").read_text():
         raise ValueError("fixture hash mismatch")
     script=(MEDIA/"v16-catchup-guest.sh").read_bytes()
+    if hd:
+        script=(MEDIA/"v16-catchup-hd-guest.sh").read_bytes()
     downloads={"run.sh":script,"stream-a.mp4":fixture,
                "SHA256SUMS":(digest+"  stream-a.mp4\n").encode()}
     allowed={"revision.txt","done.txt"}|{f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(SPECS)
@@ -49,6 +52,8 @@ def run(root):
     root.mkdir()
     (root/"run.sh").write_bytes(script)
     (root/"fixture-sha256.txt").write_bytes(downloads["SHA256SUMS"])
+    if hd:
+        (root/"fixture-ffprobe.json").write_bytes((fixture_dir/"ffprobe.json").read_bytes())
     (root/"host-start.json").write_text(json.dumps(initial,indent=2)+"\n")
 
     class Handler(BaseHTTPRequestHandler):
@@ -83,11 +88,11 @@ def run(root):
     thread.start()
     try:
         cmd=[sys.executable,str(LAB/"guest-hmp.py"),"--local-id",REV,"type"]
-        subprocess.run(cmd+["curl -fsS http://10.0.2.2:8901/run.sh -o catchup16.sh"],check=True,timeout=30)
-        subprocess.run(cmd+["sh catchup16.sh"],check=True,timeout=30)
+        subprocess.run(cmd+["curl -fsS http://10.0.2.2:8901/run.sh -o "+("catchuphd.sh" if hd else "catchup16.sh")],check=True,timeout=30)
+        subprocess.run(cmd+["sh "+("catchuphd.sh" if hd else "catchup16.sh")],check=True,timeout=30)
         sys.path.insert(0,str(LAB))
         h=importlib.import_module("guest-hmp")
-        deadline=time.monotonic()+420
+        deadline=time.monotonic()+(600 if hd else 420)
         index=0
         last_done=0
         last_screen=0
@@ -142,5 +147,6 @@ def run(root):
 if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("root",type=Path)
+    p.add_argument("--hd",action="store_true")
     a=p.parse_args()
-    run(a.root)
+    run(a.root,a.hd)
