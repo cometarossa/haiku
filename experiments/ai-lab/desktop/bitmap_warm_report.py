@@ -23,26 +23,30 @@ def collect(root, revision, matrix, single_clear=False, three_way=False):
     rows = []
     for i, (mode, n, state) in enumerate(order):
         folder = root / f"{i:02d}-{mode}-{n}-64-{state}"
-        if ((folder / "exit.txt").read_text().strip() != "0"
-                or (folder / "errors.txt").read_text().strip()
-                or not re.search(r"(?<![0-9a-f])ai_" + re.escape(revision) + r"(?![0-9a-f])",
-                                 (folder / "revision.txt").read_text())):
-            raise ValueError(f"failed execution/revision: {folder.name}")
-        measured = verify_client((folder / "result.csv").read_text(), mode, n, 64)
-        count = n if state != "off" else 0
-        records = parse((folder / "serial.txt").read_text(), count, mode)
-        final = parse((folder / "serial-final.txt").read_text(), count, mode)
-        verify_single_clear((folder / "serial.txt").read_text(), records,
-                            state == "single" or (single_clear and state == "on"))
-        verify_single_clear((folder / "serial-final.txt").read_text(), final,
-                            state == "single" or (single_clear and state == "on"))
-        if records != final or records != json.loads((folder / "profile.json").read_text()):
-            raise ValueError(f"serial/profile discrepancy: {folder.name}")
-        rows.append(dict(run=i, mode=mode, surfaces=n, batch=64, flag=state,
-                         **measured, warm_records=count,
-                         warm_total_us=sum(r["us"] for r in records)))
+        rows.append(read_run(folder, revision, i, mode, n, state, single_clear))
     return rows
 
+
+
+def read_run(folder, revision, i, mode, n, state, single_clear=False):
+    if ((folder / "exit.txt").read_text().strip() != "0"
+            or (folder / "errors.txt").read_text().strip()
+            or not re.search(r"(?<![0-9a-f])ai_" + re.escape(revision) + r"(?![0-9a-f])",
+                             (folder / "revision.txt").read_text())):
+        raise ValueError(f"failed execution/revision: {folder.name}")
+    measured = verify_client((folder / "result.csv").read_text(), mode, n, 64)
+    count = n if state != "off" else 0
+    records = parse((folder / "serial.txt").read_text(), count, mode)
+    final = parse((folder / "serial-final.txt").read_text(), count, mode)
+    verify_single_clear((folder / "serial.txt").read_text(), records,
+                        state == "single" or (single_clear and state == "on"))
+    verify_single_clear((folder / "serial-final.txt").read_text(), final,
+                        state == "single" or (single_clear and state == "on"))
+    if records != final or records != json.loads((folder / "profile.json").read_text()):
+        raise ValueError(f"serial/profile discrepancy: {folder.name}")
+    return dict(run=i, mode=mode, surfaces=n, batch=64, flag=state,
+                     **measured, warm_records=count,
+                     warm_total_us=sum(r["us"] for r in records))
 
 def summarize(rows):
     groups = {}
