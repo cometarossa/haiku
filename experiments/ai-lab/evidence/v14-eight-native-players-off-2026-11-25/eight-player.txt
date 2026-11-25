@@ -1,0 +1,252 @@
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+SAMPLE 1
+WINDOW 3
+lab-eight-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 33333 (0x8235)
+
+WINDOW 5
+lab-eight-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 100000 (0x186a0)
+
+WINDOW 7
+lab-eight-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 200000 (0x30d40)
+
+WINDOW 9
+lab-eight-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 300000 (0x493e0)
+
+WINDOW 11
+lab-eight-5.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 400000 (0x61a80)
+
+WINDOW 13
+lab-eight-6.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 400000 (0x61a80)
+
+WINDOW 15
+lab-eight-7.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 533333 (0x82355)
+
+WINDOW 17
+lab-eight-8.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 666666 (0xa2c2a)
+
+SAMPLE 2
+WINDOW 3
+lab-eight-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2766666 (0x2a374a)
+
+WINDOW 5
+lab-eight-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 3733333 (0x38f755)
+
+WINDOW 7
+lab-eight-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 5100000 (0x4dd1e0)
+
+WINDOW 9
+lab-eight-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 7233333 (0x6e5f35)
+
+WINDOW 11
+lab-eight-5.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 10433333 (0x9f3335)
+
+WINDOW 13
+lab-eight-6.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 11300000 (0xac6ca0)
+
+WINDOW 15
+lab-eight-7.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 11366666 (0xad710a)
+
+WINDOW 17
+lab-eight-8.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 11600000 (0xb10080)
+
+SAMPLE 3
+WINDOW 3
+lab-eight-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 13000000 (0xc65d40)
+
+WINDOW 5
+lab-eight-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 13066666 (0xc761aa)
+
+WINDOW 7
+lab-eight-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 13266666 (0xca6eea)
+
+WINDOW 9
+lab-eight-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 13433333 (0xccf9f5)
+
+WINDOW 11
+lab-eight-5.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 13800000 (0xd29240)
+
+WINDOW 13
+lab-eight-6.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 14133333 (0xd7a855)
+
+WINDOW 15
+lab-eight-7.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 14500000 (0xdd40a0)
+
+WINDOW 17
+lab-eight-8.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 14500000 (0xdd40a0)
+
+SAMPLE 4
+WINDOW 3
+lab-eight-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 15866666 (0xf21b2a)
+
+WINDOW 5
+lab-eight-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 15933333 (0xf31f95)
+
+WINDOW 7
+lab-eight-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 15966666 (0xf3a1ca)
+
+WINDOW 9
+lab-eight-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 16000000 (0xf42400)
+
+WINDOW 11
+lab-eight-5.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 16200000 (0xf73140)
+
+WINDOW 13
+lab-eight-6.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 16500000 (0xfbc520)
+
+WINDOW 15
+lab-eight-7.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 17066666 (0x1046aaa)
+
+WINDOW 17
+lab-eight-8.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 18933333 (0x120e655)
+

@@ -215,3 +215,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V13 two native MediaPlayer windows: scripted distinct geometry, concurrent IsPlaying and advancing independent positions; actual presentation count still pending.
 
 - [x] V13 four dynamic native video windows: 16/16 active samples, four advancing visible frame counters. V14 image 63cc5489 imported with both hashes verified.
+
+- [x] V14 OFF: eight visible dynamic native video windows, 32/32 active samples, all advancing; dropped-frame diagnostics observed. Quantitative frame loss and ON/OFF comparison pending.
