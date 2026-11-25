@@ -1,0 +1,15 @@
+mode,case,bytes,initial_bytes,pixels,errors,exit
+lab,eligible,262144,262144,65536,0,0
+lab,boundary,1048576,1048576,262144,0,0
+lab,oversize,2097152,2097152,524288,0,0
+lab,no-clear,262144,0,65536,0,0
+lab,rgb16,131072,131072,0,0,0
+lab,no-views,262144,262144,0,0,0
+lab,neighbor,4096,4096,0,0,0
+ordinary,eligible,262144,262144,65536,0,0
+ordinary,boundary,1048576,1048576,262144,0,0
+ordinary,oversize,2097152,2097152,524288,0,0
+ordinary,no-clear,262144,0,65536,0,0
+ordinary,rgb16,131072,131072,0,0,0
+ordinary,no-views,262144,262144,0,0,0
+ordinary,neighbor,4096,4096,0,0,0
