@@ -151,6 +151,9 @@ def run(args):
         for mode, workers, batch in [("threads", 4, 64), ("teams", 4, 64), ("threads", 1, 64)]
         for enabled in (False, True, True, False, False, True)
     ]
+    if args.two_surface:
+        plan = [(mode, 2, 64, enabled) for mode in ("threads", "teams")
+                for enabled in (False, True, True, False, False, True)]
     if args.eligibility:
         plan = [(mode, 1, 64, enabled) for enabled in (False, True)
                 for mode in ("lab", "ordinary")]
@@ -237,10 +240,15 @@ def main():
     group = p.add_mutually_exclusive_group(required=True)
     group.add_argument("--control", action="store_true")
     group.add_argument("--local-id")
-    p.add_argument("--eligibility", action="store_true")
+    campaign = p.add_mutually_exclusive_group()
+    campaign.add_argument("--eligibility", action="store_true")
+    campaign.add_argument("--two-surface", action="store_true",
+                          help="paired two-surface batch64 lifecycle campaign")
     p.add_argument("--expect-no-warm", action="store_true",
                    help="negative control on a revision without the experiment")
     args = p.parse_args()
+    if args.two_surface and args.control:
+        p.error("--two-surface requires a local image")
     if args.local_id is not None and re.fullmatch("[0-9a-f]{8}", args.local_id) is None:
         p.error("invalid local ID")
     run(args)
