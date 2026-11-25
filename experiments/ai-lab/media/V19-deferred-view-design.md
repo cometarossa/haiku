@@ -76,3 +76,21 @@ V19 view stats append deferred publication count; a separate record
 tracks queue reservations, coalesces, failures, handlers, cancelled
 messages and draws. Host test compiles the actual helper with mock
 atomic and messenger primitives; no native concurrency proof yet.
+
+## V20 timing follow-up
+The first 16-stream pair shows a new bottleneck: ON 4838 of 6378
+publications coalesced, only 1536 draw requests versus 3291 OFF;
+both playback validations fail. Add independently gated
+haiku-lab-video-deferred-timing diagnostics to measure time from
+notification reservation to handler start, elapsed handler time,
+bitmap lock acquisition and draw submission. Queue time includes
+sender overhead and scheduling; handler duration includes unlock
+and bookkeeping outside measured phases. No CPU or display FPS
+claim. Timestamp is stored before submission, read before releasing
+pending. No behavioral treatment change; marker OFF avoids clocks.
+ProxyVideoSupplier::FillBuffer explicitly returns B_TIMED_OUT when
+a non-forced requested frame is more than five frames ahead after
+SeekToFrame; this is distinct from fManager lock timeout. Seek and
+ReadFrame can also propagate errors. Need categorize these causes
+before changing the decoder recovery policy. Do not assume every
+fill timeout is a lock timeout. Existing V19 build remains active.

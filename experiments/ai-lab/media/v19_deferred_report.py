@@ -16,6 +16,8 @@ KEYS = "queued coalesced failed handled cancelled draw skipped".split()
 def deferred_records(text):
     records = []
     for line in text.splitlines():
+        if line.startswith("LAB_VIDEO_DEFERRED_TIMING "):
+            continue
         if "LAB_VIDEO_DEFERRED" not in line:
             continue
         match = re.fullmatch(r"LAB_VIDEO_DEFERRED " + " ".join(k+r"=(\d+)" for k in KEYS), line)

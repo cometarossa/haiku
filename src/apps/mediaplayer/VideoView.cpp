@@ -120,19 +120,26 @@ VideoView::MessageReceived(BMessage* message)
 		{
 			if (!fLabDeferred.BeginHandle())
 				break;
+			const bigtime_t start = fLabDeferred.Now();
 			bool drew = false;
-			if (LockBitmap()) {
+			const bool locked = LockBitmap();
+			const bigtime_t bitmapUs = fLabDeferred.Now() - start;
+			bigtime_t drawUs = 0;
+			if (locked) {
 				// The current bitmap is protected by the existing lock.
 				// Never capture a frame pointer in a queued message.
 				const BBitmap* bitmap = GetBitmap();
 				if (fLabDeferred.Enabled() && bitmap != NULL
 					&& (bitmap->Flags() & B_BITMAP_WILL_OVERLAY) == 0) {
+					const bigtime_t drawStart = fLabDeferred.Now();
 					_DrawBitmap(bitmap);
+					drawUs = fLabDeferred.Now() - drawStart;
 					drew = true;
 				}
 				UnlockBitmap();
 			}
-			fLabDeferred.FinishHandle(drew);
+			fLabDeferred.FinishHandle(drew, fLabDeferred.Now() - start,
+				bitmapUs, drawUs);
 			break;
 		}
 		case MSG_OBJECT_CHANGED:

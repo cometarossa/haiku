@@ -14,6 +14,9 @@ class NativeDeferredHelperTest(unittest.TestCase):
 using int32=int;
 using uint32=unsigned;
 using int64=long long;
+using bigtime_t=long long;
+extern bigtime_t fake_clock;
+inline bigtime_t system_time(){return fake_clock;}
 #define B_PRId64 "lld"
 inline int32 atomic_get(int32* p){return __atomic_load_n(p,__ATOMIC_SEQ_CST);}
 inline int32 atomic_test_and_set(int32* p,int32 v,int32 expected){
@@ -21,6 +24,7 @@ inline int32 atomic_test_and_set(int32* p,int32 v,int32 expected){
     return expected;
 }
 inline void atomic_set(int32* p,int32 v){__atomic_store_n(p,v,__ATOMIC_SEQ_CST);}
+inline void atomic_set64(int64* p,int64 v){__atomic_store_n(p,v,__ATOMIC_SEQ_CST);}
 inline int64 atomic_add64(int64* p,int64 v){return __atomic_fetch_add(p,v,__ATOMIC_SEQ_CST);}
 inline int64 atomic_get64(int64* p){return __atomic_load_n(p,__ATOMIC_SEQ_CST);}
 constexpr int B_OK=0;
@@ -53,11 +57,14 @@ struct BMessenger {
 #include <cassert>
 #include <cstring>
 #include <unistd.h>
-bool marker=false,failAttach=false,failSend=false;
+bool marker=false,timing=false,failAttach=false,failSend=false;
+long long fake_clock=0;
 int sends=0,attaches=0;
 void (*onSend)()=nullptr;
 int fake_access(const char* p,int mode){
     assert(mode==F_OK);
+    if(strcmp(p,"/boot/home/config/settings/haiku-lab-video-deferred-timing")==0)
+        return timing?0:-1;
     assert(strcmp(p,"/boot/home/config/settings/haiku-lab-video-deferred")==0);
     return marker?0:-1;
 }
@@ -87,6 +94,15 @@ int main(){
     assert(!blocked.Enabled());
     failAttach=true;LabDeferredVideo invalid;invalid.Attach(&target);
     assert(!invalid.Enabled()&&!invalid.TryQueue(123));
+    timing=true;failAttach=false;
+    LabDeferredVideo timed;timed.Attach(&target);
+    fake_clock=100;assert(timed.TryQueue(123));
+    fake_clock=170;assert(timed.TryQueue(123));assert(timed.BeginHandle());
+    timed.FinishHandle(true,40,10,20);
+    fake_clock=250;assert(timed.TryQueue(123));
+    fake_clock=300;assert(timed.BeginHandle());
+    timed.FinishHandle(false,12,9,0);
+    timed.Report();
     return 0;
 }
 '''
@@ -97,6 +113,9 @@ int main(){
             subprocess.run(["c++","-std=c++11","-Wall","-Wextra","-Werror","-I",d,"-I",str(root/"src/apps/mediaplayer"),str(p/"test.cpp"),"-o",str(p/"test")],check=True)
             r=subprocess.run([str(p/"test")],check=True,capture_output=True,text=True)
         lines=[l for l in r.stderr.splitlines() if l.startswith("LAB_VIDEO_DEFERRED ")]
-        self.assertEqual(len(lines),1)
+        self.assertEqual(len(lines),2)
         self.assertEqual(dict((k,int(v)) for k,v in (s.split("=") for s in lines[0].split()[1:])),
             dict(queued=4,coalesced=100,failed=1,handled=3,cancelled=1,draw=2,skipped=1))
+
+        timing_lines=[l for l in r.stderr.splitlines() if l.startswith("LAB_VIDEO_DEFERRED_TIMING ")]
+        self.assertEqual(timing_lines,["LAB_VIDEO_DEFERRED_TIMING queue_us=120 handler_us=52 bitmap_us=19 draw_us=20"])
