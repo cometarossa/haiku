@@ -34,7 +34,7 @@ def query_latency(root, tag, mapping, play, stop):
                 total_us=sum(values))
 
 
-def validate_run(root, index, n, state, require_latency=False):
+def validate_run(root, index, n, state, require_latency=False, require_dispatch=False):
     tag = f"{index:02d}-n{n}-{state}"
     def read(ext):
         return (root / (tag+"."+ext)).read_text()
@@ -82,10 +82,15 @@ def validate_run(root, index, n, state, require_latency=False):
                 consumer_late_fraction=c["late"]/c["received"])
     if require_latency:
         result["query_latency"]=query_latency(root,tag,mapping,play,stop)
+    if require_dispatch:
+        dispatch=int(read("dispatch"))
+        if not start<dispatch<=play:
+            raise ValueError(f"{tag}: invalid Play dispatch interval")
+        result["play_dispatch_us"]=play-dispatch
     return result
 
 
-def validate(root, partial=False, specs=SPECS, revision="a1b69d83", require_no_activation=False, require_latency=False):
+def validate(root, partial=False, specs=SPECS, revision="a1b69d83", require_no_activation=False, require_latency=False, require_dispatch=False):
     if "ai_"+revision not in (root/"revision.txt").read_text():
         raise ValueError("wrong guest revision")
     rows=[]
@@ -93,7 +98,7 @@ def validate(root, partial=False, specs=SPECS, revision="a1b69d83", require_no_a
         tag=f"{index:02d}-n{n}-{state}"
         if partial and not (root/(tag+".exit")).exists():
             break
-        row=validate_run(root,index,n,state,require_latency)
+        row=validate_run(root,index,n,state,require_latency,require_dispatch)
         if require_no_activation and row["activation_count"]:
             raise ValueError(f"{tag}: recovery activated despite HD guard")
         rows.append(row)
@@ -121,5 +126,6 @@ if __name__=="__main__":
     p.add_argument("--revision",default="a1b69d83")
     p.add_argument("--require-no-activation",action="store_true")
     p.add_argument("--require-latency",action="store_true")
+    p.add_argument("--require-dispatch",action="store_true")
     a=p.parse_args()
-    print(json.dumps(validate(a.root,a.partial,SPECS_16 if a.sixteen else SPECS,a.revision,a.require_no_activation,a.require_latency),indent=2))
+    print(json.dumps(validate(a.root,a.partial,SPECS_16 if a.sixteen else SPECS,a.revision,a.require_no_activation,a.require_latency,a.require_dispatch),indent=2))

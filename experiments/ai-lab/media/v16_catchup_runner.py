@@ -35,15 +35,14 @@ def sample_host(revision=REV):
 
 def run(root, hd=False, sixteen=False, adaptive=False):
     revision = "f960376e" if adaptive else REV
-    if adaptive and sixteen:
-        raise ValueError("Adaptive validation starts with four/eight streams")
     if hd and sixteen:
         raise ValueError("Choose HD or sixteen-stream SD campaign")
     specs = SPECS_16 if sixteen else SPECS
     initial = sample_host(revision)
     initial_pids = {g["pid"] for g in initial["guests"]}
-    fixture_dir = HOME/"guest-files"/("v16-hd" if hd else "concurrent-gui")
-    source_name = "stream-hd.mp4" if hd else "stream-a.mp4"
+    long_sd = adaptive and sixteen
+    fixture_dir = HOME/"guest-files"/("v17-long-sd" if long_sd else "v16-hd" if hd else "concurrent-gui")
+    source_name = "stream-long-sd.mp4" if long_sd else "stream-hd.mp4" if hd else "stream-a.mp4"
     fixture=(fixture_dir/source_name).read_bytes()
     digest=hashlib.sha256(fixture).hexdigest()
     if digest+"  "+source_name not in (fixture_dir/"SHA256SUMS").read_text():
@@ -56,7 +55,7 @@ def run(root, hd=False, sixteen=False, adaptive=False):
     if adaptive:
         # Both treatments get the guard marker; only ON gets catch-up.
         # Preserve the exact derived guest script in the evidence.
-        script = script.replace(b'v16-catchup-hd-ram', b'v17-catchup-hd-ram').replace(b'v16-catchup-ab', b'v17-catchup-ab')
+        script = script.replace(b'v16-catchup-hd-ram', b'v17-catchup-hd-ram').replace(b'v16-catchup-ab', b'v17-catchup-ab').replace(b'v16-catchup-16-ram', b'v17-catchup-16-long-ram')
         anchor=b'for m in "$stats" "$preflight" "$catchup"; do'
         if script.count(anchor)!=2:
             raise ValueError("unexpected marker precondition")
@@ -90,16 +89,27 @@ run=0
             raise ValueError("unexpected upload list")
         script=script.replace(anchor,b'windows positions stdout stderr latency exit; do curl')
         subprocess.run(["sh","-n"],input=script,check=True)
+    if long_sd:
+        # Record when the first Play command starts; the observation window
+        # begins after the last Play reply, not before serial dispatch.
+        anchor=b' system_time > "$tag.play"\n while read j i; do hey "$app" do Play of Window "$i"; done < "$tag.windows"'
+        if script.count(anchor)!=1:
+            raise ValueError("unexpected Play dispatch block")
+        script=script.replace(anchor,b' system_time > "$tag.dispatch"\n while read j i; do hey "$app" do Play of Window "$i"; done < "$tag.windows"\n system_time > "$tag.play"')
+        script=script.replace(b'for ext in start play stop',b'for ext in start dispatch play stop')
+        subprocess.run(["sh","-n"],input=script,check=True)
     downloads={"run.sh":script,"stream-a.mp4":fixture,
                "SHA256SUMS":(digest+"  stream-a.mp4\n").encode()}
     allowed={"revision.txt","done.txt"}|{f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(specs)
             for ext in ("start","play","stop","quit-time","windows","positions","stdout","stderr","exit")}
     if adaptive:
         allowed |= {f"{i:02d}-n{n}-{state}.latency" for i,(n,state) in enumerate(specs)}
+    if long_sd:
+        allowed |= {f"{i:02d}-n{n}-{state}.dispatch" for i,(n,state) in enumerate(specs)}
     root.mkdir()
     (root/"run.sh").write_bytes(script)
     (root/"fixture-sha256.txt").write_bytes(downloads["SHA256SUMS"])
-    if hd:
+    if hd or long_sd:
         (root/"fixture-ffprobe.json").write_bytes((fixture_dir/"ffprobe.json").read_bytes())
     (root/"host-start.json").write_text(json.dumps(initial,indent=2)+"\n")
 
@@ -182,7 +192,7 @@ run=0
         else:
             raise TimeoutError("campaign incomplete; retain logs")
         (root/"host-end.json").write_text(json.dumps(sample_host(revision),indent=2)+"\n")
-        report=validate(root,specs=specs,revision=revision,require_no_activation=adaptive and hd,require_latency=adaptive)
+        report=validate(root,specs=specs,revision=revision,require_no_activation=adaptive and hd,require_latency=adaptive,require_dispatch=long_sd)
         (root/"summary.json").write_text(json.dumps(report,indent=2)+"\n")
         print("V16_CAMPAIGN_PASS",json.dumps(report["pairs"],indent=2),flush=True)
     finally:

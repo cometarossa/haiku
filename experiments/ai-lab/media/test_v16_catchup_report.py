@@ -78,6 +78,15 @@ class CatchupReportTest(unittest.TestCase):
         self.write(tag+".latency","\n".join(rows).replace("5000000 5001000 0","5000000 5001000 1")+"\n")
         with self.assertRaises(ValueError):validate_run(self.root,0,4,"off",True)
 
+    def test_play_dispatch(self):
+        tag="00-n4-off"
+        self.write(tag+".dispatch","4500000\n")
+        r=validate_run(self.root,0,4,"off",require_dispatch=True)
+        self.assertEqual(r["play_dispatch_us"],500000)
+        self.write(tag+".dispatch","5000001\n")
+        with self.assertRaises(ValueError):
+            validate_run(self.root,0,4,"off",require_dispatch=True)
+
     def test_complete_balanced(self):
         r=validate(self.root)
         self.assertEqual(r["completed"],8)
