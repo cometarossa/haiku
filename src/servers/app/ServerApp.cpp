@@ -766,6 +766,9 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 					const bool acknowledge = access(
 						"/boot/home/config/settings/haiku-lab-bitmap-single-clear",
 						F_OK) == 0;
+					const bool quiet = acknowledge && access(
+						"/boot/home/config/settings/haiku-lab-bitmap-quiet",
+						F_OK) == 0;
 					const bool warm = acknowledge || access(
 						"/boot/home/config/settings/haiku-lab-bitmap-warm",
 						F_OK) == 0;
@@ -784,15 +787,21 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 							&& bitmap->BytesPerRow() == bytesPerRow
 							&& (uint64)bytesPerRow * (uint64)bitmap->Height() == length) {
 							allocationFlags |= kWhiteInitialized;
-							debug_printf("LAB_BITMAP_SINGLE_CLEAR team=%" B_PRId32
-								" token=%" B_PRId32 " bytes=%" B_PRIu32 "\n",
-								ClientTeam(), bitmap->Token(), (uint32)length);
+							if (quiet)
+								allocationFlags |= kWhiteInitializedQuiet;
+							else
+								debug_printf("LAB_BITMAP_SINGLE_CLEAR team=%" B_PRId32
+									" token=%" B_PRId32 " bytes=%" B_PRIu32 "\n",
+									ClientTeam(), bitmap->Token(), (uint32)length);
 						}
-						debug_printf("LAB_BITMAP_WARM team=%" B_PRId32
-							" token=%" B_PRId32 " bytes=%" B_PRIu32
-							" us=%" B_PRId64 "\n", ClientTeam(),
-							bitmap->Token(), (uint32)length,
-							(int64)elapsed);
+						// Keep fallback diagnostics if the full-extent ack was denied.
+						if ((allocationFlags & kWhiteInitializedQuiet) == 0) {
+							debug_printf("LAB_BITMAP_WARM team=%" B_PRId32
+								" token=%" B_PRId32 " bytes=%" B_PRIu32
+								" us=%" B_PRId64 "\n", ClientTeam(),
+								bitmap->Token(), (uint32)length,
+								(int64)elapsed);
+						}
 					}
 				}
 				fLink.StartMessage(B_OK);

@@ -377,6 +377,7 @@ enum {
 	kFramebuffer		= 0x2,
 	kHeap				= 0x4,
 	kWhiteInitialized	= 0x8, // V12 lab: server completed the full white fill
+	kWhiteInitializedQuiet = 0x10, // V13 lab: suppress per-allocation tracing
 };
 
 #endif	// APP_SERVER_PROTOCOL_H

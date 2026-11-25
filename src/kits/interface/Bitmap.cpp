@@ -1175,10 +1175,12 @@ BBitmap::_InitObject(BRect bounds, color_space colorSpace, uint32 flags,
 						// of this exact ordinary RGB32 allocation can skip the fill.
 						serverClearedWhite = flagsStatus == B_OK
 							&& areaStatus == B_OK && offsetStatus == B_OK
-							&& allocationFlags == (kAllocator | kWhiteInitialized)
+							&& (allocationFlags & ~kWhiteInitializedQuiet)
+								== (kAllocator | kWhiteInitialized)
 							&& flags == (B_BITMAP_ACCEPTS_VIEWS | B_BITMAP_CLEAR_TO_WHITE)
 							&& colorSpace == B_RGB32 && size > 0 && size <= 1024 * 1024;
-						if (serverClearedWhite) {
+						if (serverClearedWhite
+						&& (allocationFlags & kWhiteInitializedQuiet) == 0) {
 							debug_printf("LAB_BITMAP_CLIENT_SKIP team=%" B_PRId32
 								" token=%" B_PRId32 " bytes=%" B_PRIu32 "\n",
 								(int32)getpid(), fServerToken, (uint32)size);
