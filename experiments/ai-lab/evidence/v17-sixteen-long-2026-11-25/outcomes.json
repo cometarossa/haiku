@@ -1,0 +1,155 @@
+{
+  "completion_marker": false,
+  "trials": [
+    {
+      "tag": "00-n16-off",
+      "valid": false,
+      "acceptance_error": "00-n16-off: incomplete playback",
+      "exit": "0",
+      "play_dispatch_us": 592173,
+      "observation_us": 137471209,
+      "lifetime_us": 170005869,
+      "stop_to_quit_us": 1769866,
+      "query_latency": {
+        "count": 144,
+        "median_us": 482136.0,
+        "p95_us": 3023263,
+        "max_us": 6449213,
+        "total_us": 133791702
+      },
+      "latency_by_operation": {
+        "title": {
+          "count": 48,
+          "median_us": 461827.5,
+          "p95_us": 2983742,
+          "max_us": 3998993,
+          "total_us": 46698139
+        },
+        "playing": {
+          "count": 48,
+          "median_us": 504867.0,
+          "p95_us": 2736624,
+          "max_us": 6449213,
+          "total_us": 44435029
+        },
+        "position": {
+          "count": 48,
+          "median_us": 497662.0,
+          "p95_us": 3071955,
+          "max_us": 4277194,
+          "total_us": 42658534
+        }
+      },
+      "sample_spans_us": [
+        52858869,
+        51005857,
+        30517182
+      ],
+      "playing_replies": 37,
+      "not_playing_replies": 11,
+      "producer": {
+        "records": 16,
+        "lock_timeouts": 2072,
+        "late": 12735,
+        "attempts": 46067,
+        "no_buffer": 0,
+        "fills": 46067,
+        "fill_timeouts": 36629,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 36629,
+        "sent": 9438,
+        "send_errors": 0,
+        "wait_us": 164130438,
+        "fill_us": 90055174,
+        "max_fill_us": 4739048
+      },
+      "consumer": {
+        "records": 16,
+        "received": 9390,
+        "inactive": 0,
+        "late": 294,
+        "target_calls": 9096,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 213740799
+      }
+    },
+    {
+      "tag": "01-n16-on",
+      "valid": false,
+      "acceptance_error": "01-n16-on: incomplete playback",
+      "exit": "0",
+      "play_dispatch_us": 2281150,
+      "observation_us": 212476567,
+      "lifetime_us": 254520156,
+      "stop_to_quit_us": 2742841,
+      "query_latency": {
+        "count": 144,
+        "median_us": 28031.0,
+        "p95_us": 6231370,
+        "max_us": 49966981,
+        "total_us": 208896954
+      },
+      "latency_by_operation": {
+        "title": {
+          "count": 48,
+          "median_us": 28202.0,
+          "p95_us": 7263408,
+          "max_us": 37831642,
+          "total_us": 69219701
+        },
+        "playing": {
+          "count": 48,
+          "median_us": 28709.0,
+          "p95_us": 5111625,
+          "max_us": 49966981,
+          "total_us": 68479134
+        },
+        "position": {
+          "count": 48,
+          "median_us": 27861.5,
+          "p95_us": 6231370,
+          "max_us": 48417671,
+          "total_us": 71198119
+        }
+      },
+      "sample_spans_us": [
+        206394066,
+        1465676,
+        1521232
+      ],
+      "playing_replies": 3,
+      "not_playing_replies": 45,
+      "producer": {
+        "records": 16,
+        "lock_timeouts": 5587,
+        "late": 37568,
+        "attempts": 21320,
+        "no_buffer": 0,
+        "fills": 21320,
+        "fill_timeouts": 13361,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 13361,
+        "sent": 7959,
+        "send_errors": 0,
+        "wait_us": 103226337,
+        "fill_us": 90963656,
+        "max_fill_us": 488736
+      },
+      "consumer": {
+        "records": 16,
+        "received": 7910,
+        "inactive": 0,
+        "late": 364,
+        "target_calls": 7546,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 206110669
+      }
+    }
+  ]
+}

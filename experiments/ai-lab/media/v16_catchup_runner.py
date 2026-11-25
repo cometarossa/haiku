@@ -152,7 +152,10 @@ run=0
                 length=int(self.headers.get("Content-Length","-1"))
             except ValueError:
                 self.send_error(400);return
-            if name not in allowed or not 0<=length<=2000000 or (root/name).exists():
+            # Verbose dropped-frame logs can exceed 2 MB under stress.
+            # Increase only stdout/stderr allowance; keep finite bounds.
+            limit = 32000000 if name.endswith((".stdout",".stderr")) else 2000000
+            if name not in allowed or not 0<=length<=limit or (root/name).exists():
                 self.send_error(400);return
             data=self.rfile.read(length)
             if len(data)!=length:
