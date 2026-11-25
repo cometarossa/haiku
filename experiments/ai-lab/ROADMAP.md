@@ -187,3 +187,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V11b two-surface batch64 extension: 12 runs, 49,152 fills, 1,572,864 RGB checks, no errors; lifecycle regresses despite faster rendering. Keep opt-in; V12 explicit completion acknowledgment candidate.
 
 - [ ] V12 private opt-in server white-clear completion bit; client skips redundant fill only on validated acknowledgment. Native build, boot, correctness and lifecycle acceptance pending.
+
+- [x] V12 local build 5581c34f, verified boot and 28 native eligibility cases; two matching server/client skip pairs, no incorrect activations. Lifecycle acceptance pending.
