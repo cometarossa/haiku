@@ -15,3 +15,14 @@ No trace in quiet runs is NOT independent proof of the client skip.
 Require separate raw reply-bit verification or low-overhead audit before
 accepting attribution. White and RGB correctness alone cannot prove
 single initialization. Preserve all historical measurements.
+
+## Independent server wire probe
+bitmap_reply_probe.cpp uses the private application link to create one
+normal RGB32 bitmap and reads the actual allocation reply. For enabled
+lab treatments it clones the area read-only, checks the bounded extent
+and all 262144 bytes before any client fill, then releases both resources.
+Expected literal reply bits: off/warm 0x01, single 0x09, quiet 0x19;
+ordinary app always 0x01. Warm/single/quiet lab must already be white.
+This confirms server acknowledgment and pre-fill independently of logs;
+it does NOT prove the public BBitmap client actually skipped memset.
+Native build and test pending, private header/symbol availability unverified.
