@@ -191,3 +191,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V12 local build 5581c34f, verified boot and 28 native eligibility cases; two matching server/client skip pairs, no incorrect activations. Lifecycle acceptance pending.
 
 - [x] V12 two-surface legacy-clock smoke: 12 runs, 49,152 fills, 1,572,864 final RGB checks, 12 matched ack/skip pairs, no errors; lifecycle clock corrected in b3d306f7, repeat required.
+
+- [x] Corrected native lifecycle clock (earliest worker), compiled on Beta6 and hashed separately; balanced 36-run same-image comparison and paired ratio analyzer prepared; final acceptance pending.
