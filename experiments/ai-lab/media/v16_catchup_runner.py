@@ -24,7 +24,7 @@ def sample_host():
     guests = []
     for line in rows.splitlines():
         fields = line.strip().split(None, 4)
-        if len(fields) == 5 and Path(fields[1]).name.startswith("qemu-system-"):
+        if len(fields) == 5 and Path(fields[4].split(None,1)[0]).name.startswith("qemu-system-"):
             guests.append(dict(pid=int(fields[0]), cpu=fields[2], rss_kib=int(fields[3]), command=fields[4]))
     haiku = [g for g in guests if f"file={HOME}/" in g["command"] or f"unix:{HOME}/" in g["command"]]
     if len(haiku) != 2 or len(guests) != 3 or not any(f"run-local-{REV}/" in g["command"] for g in haiku):
