@@ -64,6 +64,7 @@ VideoView::VideoView(BRect frame, const char* name, uint32 resizeMask)
 
 VideoView::~VideoView()
 {
+	fLabViewStats.Report();
 	Settings::Default()->RemoveListener(&fGlobalSettingsListener);
 	delete fSubtitleBitmap;
 }
@@ -169,15 +170,31 @@ VideoView::MouseMoved(BPoint where, uint32 transit,
 void
 VideoView::SetBitmap(const BBitmap* bitmap)
 {
+	LabVideoViewStats::Sample sample(fLabViewStats);
+	bigtime_t phaseStart = sample.Now();
 	VideoTarget::SetBitmap(bitmap);
+	sample.update = sample.Elapsed(phaseStart);
 	// Attention: Don't lock the window, if the bitmap is NULL. Otherwise
 	// we're going to deadlock when the window tells the node manager to
 	// stop the nodes (Window -> NodeManager -> VideoConsumer -> VideoView
 	// -> Window).
-	if (!bitmap || LockLooperWithTimeout(10000) != B_OK)
+	if (!bitmap) {
+		sample.outcome = LabVideoViewStats::kNull;
 		return;
+	}
+	phaseStart = sample.Now();
+	status_t lockStatus = LockLooperWithTimeout(10000);
+	sample.looper = sample.Elapsed(phaseStart);
+	if (lockStatus != B_OK) {
+		sample.outcome = LabVideoViewStats::kLooperFail;
+		return;
+	}
 
-	if (LockBitmap()) {
+	phaseStart = sample.Now();
+	bool bitmapLocked = LockBitmap();
+	sample.bitmap = sample.Elapsed(phaseStart);
+	if (bitmapLocked) {
+		phaseStart = sample.Now();
 		if (fOverlayMode
 			|| (bitmap->Flags() & B_BITMAP_WILL_OVERLAY) != 0) {
 			if (!fOverlayMode) {
@@ -219,19 +236,31 @@ VideoView::SetBitmap(const BBitmap* bitmap)
 			ClearViewOverlay();
 			SetViewColor(B_TRANSPARENT_COLOR);
 		}
+		sample.overlay = sample.Elapsed(phaseStart);
+		phaseStart = sample.Now();
 		if (!fOverlayMode) {
 			if (fSubtitleChanged) {
 				_LayoutSubtitle();
 				Invalidate(fVideoFrame | fSubtitleFrame);
+				sample.outcome = LabVideoViewStats::kInvalidate;
 			} else if (fHasSubtitle
 				&& fVideoFrame.Intersects(fSubtitleFrame)) {
 				Invalidate(fVideoFrame);
-			} else
+				sample.outcome = LabVideoViewStats::kInvalidate;
+			} else {
 				_DrawBitmap(bitmap);
-		}
+				sample.outcome = LabVideoViewStats::kDraw;
+			}
+			if (sample.outcome == LabVideoViewStats::kDraw)
+				sample.draw = sample.Elapsed(phaseStart);
+			else
+				sample.invalidate = sample.Elapsed(phaseStart);
+		} else
+			sample.outcome = LabVideoViewStats::kOverlay;
 
 		UnlockBitmap();
-	}
+	} else
+		sample.outcome = LabVideoViewStats::kBitmapFail;
 	UnlockLooper();
 }
 

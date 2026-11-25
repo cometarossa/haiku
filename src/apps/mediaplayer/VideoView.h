@@ -10,6 +10,7 @@
 
 #include "ListenerAdapter.h"
 #include "VideoTarget.h"
+#include "VideoViewStats.h"
 
 
 enum {
@@ -63,6 +64,7 @@ private:
 			void				_LayoutSubtitle();
 
 private:
+			LabVideoViewStats	fLabViewStats;
 			BRect				fVideoFrame;
 			bool				fOverlayMode;
 			overlay_restrictions fOverlayRestrictions;
