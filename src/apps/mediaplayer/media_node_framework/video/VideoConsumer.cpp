@@ -62,7 +62,12 @@ VideoConsumer::VideoConsumer(const char* name, BMediaAddOn* addon,
 	  fTargetLock(),
 	  fTarget(target),
 	  fLastBufferIndex(-1),
-	  fTryOverlay(true)
+	  fTryOverlay(true),
+	  fLabStats(access("/boot/home/config/settings/haiku-lab-media-stats",
+	      F_OK) == 0),
+	  fLabReceived(0), fLabInactive(0), fLabLate(0), fLabTargetCalls(0),
+	  fLabNoTarget(0), fLabCopyBytes(0), fLabCopyUs(0), fLabTargetUs(0),
+	  fLabFirstTarget(0)
 {
 	FUNCTION("VideoConsumer::VideoConsumer\n");
 
@@ -81,6 +86,17 @@ VideoConsumer::VideoConsumer(const char* name, BMediaAddOn* addon,
 VideoConsumer::~VideoConsumer()
 {
 	Quit();
+	// Quit joins the control thread; read counters only after that join.
+	if (fLabStats) {
+		fprintf(stderr, "LAB_MEDIA_CONSUMER received=%" B_PRIu64
+			" inactive=%" B_PRIu64 " late=%" B_PRIu64
+			" target_calls=%" B_PRIu64 " no_target=%" B_PRIu64
+			" copy_bytes=%" B_PRIu64 " copy_us=%" B_PRId64
+			" target_us=%" B_PRId64 " first_target_us=%" B_PRId64 "\n",
+			fLabReceived, fLabInactive, fLabLate, fLabTargetCalls,
+			fLabNoTarget, fLabCopyBytes, fLabCopyUs, fLabTargetUs,
+			fLabFirstTarget);
+	}
 	DeleteBuffers();
 }
 
@@ -550,7 +566,9 @@ VideoConsumer::_SetPerformanceTimeBase(bigtime_t performanceTime)
 void
 VideoConsumer::_HandleBuffer(BBuffer* buffer)
 {
+	if (fLabStats) ++fLabReceived;
 	if (RunState() != B_STARTED || !fConnectionActive) {
+		if (fLabStats) ++fLabInactive;
 		TRACE("RunState() != B_STARTED\n");
 		buffer->Recycle();
 		return;
@@ -581,8 +599,13 @@ VideoConsumer::_HandleBuffer(BBuffer* buffer)
 		// Only display the buffer if it's not too late, or if we are
 		// in B_OFFLINE run-mode.
 		if (!fOurBuffers) {
+			const bigtime_t copyStart = fLabStats ? system_time() : 0;
 			memcpy(fBitmap[index]->Bits(), buffer->Data(),
 				fBitmap[index]->BitsLength());
+			if (fLabStats) {
+				fLabCopyBytes += fBitmap[index]->BitsLength();
+				fLabCopyUs += system_time() - copyStart;
+			}
 		}
 		bigtime_t tooEarly = buffer->Header()->start_time - now;
 		if (tooEarly > 3000)
@@ -590,7 +613,14 @@ VideoConsumer::_HandleBuffer(BBuffer* buffer)
 
 		fTargetLock.Lock();
 		if (fTarget) {
+			const bigtime_t targetStart = fLabStats ? system_time() : 0;
 			fTarget->SetBitmap(fBitmap[index]);
+			if (fLabStats) {
+				const bigtime_t end = system_time();
+				++fLabTargetCalls;
+				fLabTargetUs += end - targetStart;
+				if (fLabFirstTarget == 0) fLabFirstTarget = end;
+			}
 			if (fOurBuffers) {
 				// recycle the previous but not the current buffer
 				if (fLastBufferIndex >= 0)
@@ -598,9 +628,11 @@ VideoConsumer::_HandleBuffer(BBuffer* buffer)
 				recycle = false;
 			}
 			fLastBufferIndex = index;
-		}
+		} else if (fLabStats)
+			++fLabNoTarget;
 		fTargetLock.Unlock();
 	} else {
+		if (fLabStats) ++fLabLate;
 		// Drop the buffer if it's too late.
 		if (fManager->LockWithTimeout(10000) == B_OK) {
 			fManager->FrameDropped();

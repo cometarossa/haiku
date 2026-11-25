@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <Autolock.h>
 #include <Buffer.h>
@@ -37,6 +38,42 @@
 #define BUFFER_COUNT 3
 
 #define TOUCH(x) ((void)(x))
+
+// Independent lab: one summary per thread lifetime, no new frame logging.
+namespace {
+struct LabProducerStats {
+    const bool enabled;
+    const thread_id thread;
+    uint64 lockTimeouts, late, attempts, noBuffer, fills, fillTimeouts;
+    uint64 fillErrors, endBuffers, suppressed, sent, sendErrors;
+    bigtime_t waitUs, fillUs, maxFillUs;
+    status_t lastSendError;
+
+    LabProducerStats()
+        : enabled(access("/boot/home/config/settings/haiku-lab-media-stats",
+            F_OK) == 0), thread(find_thread(NULL)), lockTimeouts(0), late(0),
+          attempts(0), noBuffer(0), fills(0), fillTimeouts(0), fillErrors(0),
+          endBuffers(0), suppressed(0), sent(0), sendErrors(0), waitUs(0),
+          fillUs(0), maxFillUs(0), lastSendError(B_OK) {}
+
+    ~LabProducerStats()
+    {
+        if (!enabled) return;
+        fprintf(stderr, "LAB_MEDIA_PRODUCER thread=%" B_PRId32
+            " lock_timeouts=%" B_PRIu64 " late=%" B_PRIu64
+            " attempts=%" B_PRIu64 " no_buffer=%" B_PRIu64
+            " fills=%" B_PRIu64 " fill_timeouts=%" B_PRIu64
+            " fill_errors=%" B_PRIu64 " end_buffers=%" B_PRIu64
+            " suppressed=%" B_PRIu64 " sent=%" B_PRIu64
+            " send_errors=%" B_PRIu64 " wait_us=%" B_PRId64
+            " fill_us=%" B_PRId64 " max_fill_us=%" B_PRId64
+            " last_send_error=%" B_PRId32 "\n",
+            thread, lockTimeouts, late, attempts, noBuffer, fills,
+            fillTimeouts, fillErrors, endBuffers, suppressed, sent,
+            sendErrors, waitUs, fillUs, maxFillUs, lastSendError);
+    }
+};
+} // namespace
 
 
 VideoProducer::VideoProducer(BMediaAddOn* addon, const char* name,
@@ -632,6 +669,7 @@ VideoProducer::_FrameGeneratorThreadEntry(void* data)
 int32
 VideoProducer::_FrameGeneratorThread()
 {
+	LabProducerStats lab;
 	bool forceSendingBuffer = true;
 	int32 droppedFrames = 0;
 	const int32 kMaxDroppedFrames = 15;
@@ -676,6 +714,7 @@ VideoProducer::_FrameGeneratorThread()
 			case B_TIMED_OUT:
 				TRACE("_FrameGeneratorThread: Couldn't lock the node "
 					"manager.\n");
+				if (lab.enabled) ++lab.lockTimeouts;
 				ignoreEvent = true;
 				waitUntil = system_time() - 1;
 				break;
@@ -716,6 +755,7 @@ VideoProducer::_FrameGeneratorThread()
 							performanceTime);
 					}
 					// next frame
+					if (lab.enabled) ++lab.late;
 					droppedFrames++;
 					fFrame++;
 				} else if (playingDirection != 0 || forceSendingBuffer) {
@@ -724,11 +764,15 @@ VideoProducer::_FrameGeneratorThread()
 					TRACE("_FrameGeneratorThread: produce frame\n");
 					BAutolock _(fLock);
 					// Fetch a buffer from the buffer group
+					if (lab.enabled) ++lab.attempts;
+					const bigtime_t waitStart = lab.enabled ? system_time() : 0;
 					fUsedBufferGroup->WaitForBuffers();
 					BBuffer* buffer = fUsedBufferGroup->RequestBuffer(
 						fConnectedFormat.display.bytes_per_row
 						* fConnectedFormat.display.line_count, 0LL);
+					if (lab.enabled) lab.waitUs += system_time() - waitStart;
 					if (buffer == NULL) {
+						if (lab.enabled) ++lab.noBuffer;
 						// Wait until a buffer becomes available again
 						ERROR("_FrameGeneratorThread: no buffer!\n");
 						break;
@@ -758,9 +802,19 @@ VideoProducer::_FrameGeneratorThread()
 					TRACE("_FrameGeneratorThread: frame: %lld, "
 						"playlistFrame: %lld\n", fFrame, playlistFrame);
 					bool wasCached = false;
+					const bigtime_t fillStart = lab.enabled ? system_time() : 0;
 					err = fSupplier->FillBuffer(playlistFrame,
 						buffer->Data(), fConnectedFormat, forceSendingBuffer,
 						wasCached);
+					if (lab.enabled) {
+						const bigtime_t elapsed = system_time() - fillStart;
+						++lab.fills;
+						lab.fillUs += elapsed;
+						if (elapsed > lab.maxFillUs) lab.maxFillUs = elapsed;
+						if (err == B_TIMED_OUT) ++lab.fillTimeouts;
+						else if (err == B_LAST_BUFFER_ERROR) ++lab.endBuffers;
+						else if (err != B_OK) ++lab.fillErrors;
+					}
 					if (err == B_TIMED_OUT) {
 						// Don't send the buffer if there was insufficient
 						// time for rendering, this will leave the last
@@ -796,6 +850,15 @@ VideoProducer::_FrameGeneratorThread()
 								"sending buffer\n");
 							fSupplier->DeleteCaches();
 						}
+					}
+					if (lab.enabled) {
+						if (err != B_OK) {
+							++lab.sendErrors;
+							lab.lastSendError = err;
+						} else if (wasCached)
+							++lab.suppressed;
+						else
+							++lab.sent;
 					}
 					// Only if everything went fine we clear the flag
 					// that forces us to send a buffer even if not

@@ -119,6 +119,11 @@ private:
 			int32				fLastBufferIndex;
 
 			bool				fTryOverlay;
+
+			const bool			fLabStats;
+			uint64				fLabReceived, fLabInactive, fLabLate;
+			uint64				fLabTargetCalls, fLabNoTarget, fLabCopyBytes;
+			bigtime_t			fLabCopyUs, fLabTargetUs, fLabFirstTarget;
 };
 
 #endif // VIDEO_CONSUMER_H
