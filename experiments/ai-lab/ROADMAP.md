@@ -201,3 +201,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V13 image 97075eae imported and booted; 8/8 direct reply cases, 786432 initial bytes checked read-only, ordinary flags unchanged. Client quiet skip proof and performance pending.
 
 - [x] V13 traced public BBitmap eligibility: 28/28 verified, two matched acknowledgment/skip pairs, ordinary paths unchanged; quiet performance pending.
+
+- [x] V13 quiet comparison complete 36/36; quiet median lifecycle improves in all four tested topologies, 10/12 paired wins vs OFF. Keep opt-in until client audit, quiet eligibility and repeat validation.
