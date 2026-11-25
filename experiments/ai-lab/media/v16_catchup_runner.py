@@ -33,8 +33,28 @@ def sample_host(revision=REV):
                 uptime=subprocess.check_output(["uptime"],text=True).strip())
 
 
-def run(root, hd=False, sixteen=False, adaptive=False):
-    revision = "f960376e" if adaptive else REV
+def view_stats_script(script):
+    """Replace the recovery treatment with view diagnostics only."""
+    script=script.replace(b'v17-catchup-hd-ram',b'v18-view-hd-ram').replace(b'v17-catchup-ab',b'v18-view-sd')
+    old=b'catchup=/boot/home/config/settings/haiku-lab-media-catchup\n'
+    if script.count(old)!=1:
+        raise ValueError("unexpected treatment marker")
+    # The shell variable name is retained, but refers solely to view stats.
+    script=script.replace(old,b'catchup=/boot/home/config/settings/haiku-lab-video-view-stats\n')
+    anchor=b'for m in "$stats" "$preflight" "$catchup" "$adaptive"; do'
+    if script.count(anchor)!=2:
+        raise ValueError("unexpected marker precondition")
+    script=script.replace(anchor,b'for m in "$stats" "$preflight" "$catchup" "$adaptive" /boot/home/config/settings/haiku-lab-media-catchup; do')
+    subprocess.run(["sh","-n"],input=script,check=True)
+    return script
+
+
+def run(root, hd=False, sixteen=False, adaptive=False, view_stats=False):
+    if view_stats and sixteen:
+        raise ValueError("View diagnostics start with four/eight streams")
+    if view_stats:
+        adaptive=True  # reuse timing and guard setup, not recovery treatment
+    revision = "fb8c2e41" if view_stats else "f960376e" if adaptive else REV
     if hd and sixteen:
         raise ValueError("Choose HD or sixteen-stream SD campaign")
     specs = SPECS_16 if sixteen else SPECS
@@ -98,6 +118,8 @@ run=0
         script=script.replace(anchor,b' system_time > "$tag.dispatch"\n while read j i; do hey "$app" do Play of Window "$i"; done < "$tag.windows"\n system_time > "$tag.play"')
         script=script.replace(b'for ext in start play stop',b'for ext in start dispatch play stop')
         subprocess.run(["sh","-n"],input=script,check=True)
+    if view_stats:
+        script=view_stats_script(script)
     downloads={"run.sh":script,"stream-a.mp4":fixture,
                "SHA256SUMS":(digest+"  stream-a.mp4\n").encode()}
     allowed={"revision.txt","done.txt"}|{f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(specs)
@@ -107,6 +129,8 @@ run=0
     if long_sd:
         allowed |= {f"{i:02d}-n{n}-{state}.dispatch" for i,(n,state) in enumerate(specs)}
     root.mkdir()
+    (root/"runner-source.py").write_bytes(Path(__file__).read_bytes())
+    (root/"report-source.py").write_bytes((MEDIA/"v16_catchup_report.py").read_bytes())
     (root/"run.sh").write_bytes(script)
     (root/"fixture-sha256.txt").write_bytes(downloads["SHA256SUMS"])
     if hd or long_sd:
@@ -192,7 +216,7 @@ run=0
         else:
             raise TimeoutError("campaign incomplete; retain logs")
         (root/"host-end.json").write_text(json.dumps(sample_host(revision),indent=2)+"\n")
-        report=validate(root,specs=specs,revision=revision,require_no_activation=adaptive and hd,require_latency=adaptive,require_dispatch=long_sd)
+        report=validate(root,specs=specs,revision=revision,require_no_activation=view_stats or (adaptive and hd),require_latency=adaptive,require_dispatch=long_sd,require_view_stats=view_stats)
         (root/"summary.json").write_text(json.dumps(report,indent=2)+"\n")
         print("V16_CAMPAIGN_PASS",json.dumps(report["pairs"],indent=2),flush=True)
     finally:
@@ -207,5 +231,6 @@ if __name__=="__main__":
     p.add_argument("--hd",action="store_true")
     p.add_argument("--sixteen",action="store_true")
     p.add_argument("--adaptive",action="store_true")
+    p.add_argument("--view-stats",action="store_true")
     a=p.parse_args()
-    run(a.root,a.hd,a.sixteen,a.adaptive)
+    run(a.root,a.hd,a.sixteen,a.adaptive,a.view_stats)

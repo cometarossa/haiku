@@ -87,6 +87,23 @@ class CatchupReportTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_run(self.root,0,4,"off",require_dispatch=True)
 
+    def test_view_stats_treatment(self):
+        from test_video_view_stats_report import R
+        self.write("revision.txt","ai_fb8c2e41")
+        for i,(n,state) in enumerate(SPECS):
+            tag=f"{i:02d}-n{n}-{state}"
+            self.edit(tag+".stderr","LAB_MEDIA_CATCHUP progress from=5 to=6\n","")
+            if state=="on":
+                f=self.root/(tag+".stderr")
+                f.write_text(f.read_text()+(R+"\n")*n)
+        r=validate(self.root,revision="fb8c2e41",require_no_activation=True,require_view_stats=True)
+        self.assertEqual(r["runs"][0]["view_stats"],{})
+        self.assertEqual(r["runs"][1]["view_stats"]["records"],4)
+        f=self.root/"00-n4-off.stderr"
+        f.write_text(f.read_text()+R+"\n")
+        with self.assertRaises(ValueError):
+            validate(self.root,revision="fb8c2e41",require_no_activation=True,require_view_stats=True)
+
     def test_complete_balanced(self):
         r=validate(self.root)
         self.assertEqual(r["completed"],8)

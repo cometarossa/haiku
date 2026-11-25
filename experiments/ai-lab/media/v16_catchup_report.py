@@ -6,6 +6,7 @@ import re
 import statistics
 from pathlib import Path
 from media_stats_report import parse, summarize
+from video_view_stats_report import parse as parse_views, summarize as summarize_views
 
 SPECS_16 = [(16,"off"),(16,"on"),(16,"on"),(16,"off")]
 
@@ -90,7 +91,7 @@ def validate_run(root, index, n, state, require_latency=False, require_dispatch=
     return result
 
 
-def validate(root, partial=False, specs=SPECS, revision="a1b69d83", require_no_activation=False, require_latency=False, require_dispatch=False):
+def validate(root, partial=False, specs=SPECS, revision="a1b69d83", require_no_activation=False, require_latency=False, require_dispatch=False, require_view_stats=False):
     if "ai_"+revision not in (root/"revision.txt").read_text():
         raise ValueError("wrong guest revision")
     rows=[]
@@ -101,6 +102,8 @@ def validate(root, partial=False, specs=SPECS, revision="a1b69d83", require_no_a
         row=validate_run(root,index,n,state,require_latency,require_dispatch)
         if require_no_activation and row["activation_count"]:
             raise ValueError(f"{tag}: recovery activated despite HD guard")
+        if require_view_stats:
+            row["view_stats"]=summarize_views(parse_views((root/(tag+".stderr")).read_text()),n,state=="on")
         rows.append(row)
     if not partial and (root/"done.txt").read_text().strip()!="0":
         raise ValueError("campaign incomplete")
@@ -127,5 +130,6 @@ if __name__=="__main__":
     p.add_argument("--require-no-activation",action="store_true")
     p.add_argument("--require-latency",action="store_true")
     p.add_argument("--require-dispatch",action="store_true")
+    p.add_argument("--require-view-stats",action="store_true")
     a=p.parse_args()
-    print(json.dumps(validate(a.root,a.partial,SPECS_16 if a.sixteen else SPECS,a.revision,a.require_no_activation,a.require_latency,a.require_dispatch),indent=2))
+    print(json.dumps(validate(a.root,a.partial,SPECS_16 if a.sixteen else SPECS,a.revision,a.require_no_activation,a.require_latency,a.require_dispatch,a.require_view_stats),indent=2))
