@@ -22,10 +22,11 @@ sys.path.insert(0, str(LAB))
 hmp = importlib.import_module("guest-hmp")
 OLD = BASE / "guest-results/drawing-white-lifecycle-20261125"
 MARKER = "/boot/home/config/settings/haiku-lab-bitmap-warm"
+SINGLE_MARKER = "/boot/home/config/settings/haiku-lab-bitmap-single-clear"
 PORT = 8899
 
 
-def guest_script(mode, workers, batch, enabled):
+def guest_script(mode, workers, batch, enabled, single_clear=False):
     command = mode if mode in ("lab", "ordinary") else f"{mode} {workers} {batch}"
     return f"""#!/bin/sh
 set -eu
@@ -35,8 +36,8 @@ cd bitmap-warm-lab
 for f in bitmap SHA256SUMS; do curl -fsS --max-time 20 http://10.0.2.2:{PORT}/"$f" -o "$f"; done
 sha256sum -c SHA256SUMS
 chmod +x bitmap
-marker={MARKER}
-test ! -e "$marker" && test ! -L "$marker"
+marker={SINGLE_MARKER if single_clear else MARKER}
+for guard in {MARKER} {SINGLE_MARKER}; do test ! -e "$guard" && test ! -L "$guard"; done
 created=0
 cleanup() {{ if test "$created" = 1; then rm -f "$marker"; fi; }}
 trap cleanup 0
@@ -119,6 +120,24 @@ def parse(text, expected, mode):
     return records
 
 
+def verify_single_clear(text, warm, enabled):
+    expected = {(r["team"], r["token"], r["bytes"]) for r in warm} if enabled else set()
+    seen = {"LAB_BITMAP_SINGLE_CLEAR": set(), "LAB_BITMAP_CLIENT_SKIP": set()}
+    for line in text.splitlines():
+        for label, entries in seen.items():
+            if not line.startswith(label):
+                continue
+            match = re.fullmatch(label + r" team=(\d+) token=(\d+) bytes=(\d+)", line)
+            if not match:
+                raise ValueError("malformed single-clear record")
+            key = tuple(map(int, match.groups()))
+            if key in entries:
+                raise ValueError("duplicate single-clear record")
+            entries.add(key)
+    if any(entries != expected for entries in seen.values()):
+        raise ValueError("server acknowledgment/client skip mismatch")
+
+
 def capture(serial, offset):
     with serial.open("rb") as f:
         f.seek(offset)
@@ -162,7 +181,7 @@ def run(args):
             (2 if mode == "lab" else 0) if args.eligibility else workers)
         dest = root / ("%02d-%s-%d-%d-%s" % (i, mode, workers, batch, "on" if enabled else "off"))
         dest.mkdir()
-        script = guest_script(mode, workers, batch, enabled)
+        script = guest_script(mode, workers, batch, enabled, args.single_clear)
         (dest / "run.sh").write_text(script)
         downloads = {"run.sh": script.encode(), "bitmap": binary, "SHA256SUMS": manifest.encode()}
         uploads = {"result.csv", "errors.txt", "revision.txt", "exit.txt"}
@@ -214,7 +233,9 @@ def run(args):
             raw = capture(serial, offset)
             # Allow end records to arrive, but never interpret incomplete lines.
             if expected:
-                while (raw.count(b"LAB_BITMAP_WARM ") < expected or not raw.endswith(b"\n")) and time.monotonic() < deadline:
+                while (raw.count(b"LAB_BITMAP_WARM ") < expected
+                       or (args.single_clear and raw.count(b"LAB_BITMAP_CLIENT_SKIP ") < expected)
+                       or not raw.endswith(b"\n")) and time.monotonic() < deadline:
                     time.sleep(.2)
                     raw = capture(serial, offset)
             (dest / "serial.txt").write_bytes(raw)
@@ -225,6 +246,7 @@ def run(args):
             data = (dest / "result.csv").read_text()
             elapsed = verify_eligibility(data) if args.eligibility else verify_client(data, mode, workers, batch)
             records = parse(raw.decode(errors="replace"), expected, mode)
+            verify_single_clear(raw.decode(errors="replace"), records, args.single_clear and enabled)
             # parse() validates counts and completion. Preserve exact serial.
             import json
             (dest / "profile.json").write_text(json.dumps(records, indent=2) + "\n")
@@ -244,9 +266,12 @@ def main():
     campaign.add_argument("--eligibility", action="store_true")
     campaign.add_argument("--two-surface", action="store_true",
                           help="paired two-surface batch64 lifecycle campaign")
+    p.add_argument("--single-clear", action="store_true", help="V12 single initialization marker")
     p.add_argument("--expect-no-warm", action="store_true",
                    help="negative control on a revision without the experiment")
     args = p.parse_args()
+    if args.single_clear and (args.control or args.expect_no_warm):
+        p.error("--single-clear requires a V12 local image")
     if args.two_surface and args.control:
         p.error("--two-surface requires a local image")
     if args.local_id is not None and re.fullmatch("[0-9a-f]{8}", args.local_id) is None:

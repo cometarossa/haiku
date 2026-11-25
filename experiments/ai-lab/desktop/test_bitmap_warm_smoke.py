@@ -1,6 +1,6 @@
 """Host-side regression tests for V11 bitmap evidence validation."""
 import unittest
-from bitmap_warm_smoke import verify_client, parse
+from bitmap_warm_smoke import verify_client, parse, verify_single_clear, guest_script
 
 
 class BitmapWarmTests(unittest.TestCase):
@@ -39,3 +39,21 @@ class BitmapWarmTests(unittest.TestCase):
         line = "LAB_BITMAP_WARM team=7 token=1 bytes=262144 us=10\n"
         with self.assertRaises(ValueError):
             parse(line * 2, 2, "threads")
+
+
+    def test_single_clear_pair(self):
+        warm = [{"team": 7, "token": 1, "bytes": 262144}]
+        ack = "LAB_BITMAP_SINGLE_CLEAR team=7 token=1 bytes=262144\n"
+        skip = "LAB_BITMAP_CLIENT_SKIP team=7 token=1 bytes=262144\n"
+        verify_single_clear(ack + skip, warm, True)
+        verify_single_clear("", warm, False)
+        for bad in (ack, skip, ack + skip + skip, ack + skip.replace("token=1", "token=2")):
+            with self.assertRaises(ValueError):
+                verify_single_clear(bad, warm, True)
+        with self.assertRaises(ValueError):
+            verify_single_clear(ack + skip, warm, False)
+
+    def test_single_clear_marker(self):
+        script = guest_script("threads", 2, 64, True, True)
+        self.assertIn("marker=/boot/home/config/settings/haiku-lab-bitmap-single-clear", script)
+        self.assertIn("for guard in /boot/home/config/settings/haiku-lab-bitmap-warm ", script)
