@@ -1,0 +1,652 @@
+{
+  "completed": 8,
+  "runs": [
+    {
+      "tag": "00-n4-off",
+      "n": 4,
+      "state": "off",
+      "activation_count": 0,
+      "positions": [
+        [
+          1,
+          2000000,
+          2066666,
+          2100000,
+          2333333
+        ],
+        [
+          2,
+          4066666,
+          4133333,
+          4233333,
+          4333333
+        ],
+        [
+          3,
+          6066666,
+          6133333,
+          6166666,
+          6266666
+        ]
+      ],
+      "lifetime_us": 16127338,
+      "observation_us": 8087855,
+      "producer": {
+        "records": 4,
+        "lock_timeouts": 2,
+        "late": 13,
+        "attempts": 1409,
+        "no_buffer": 0,
+        "fills": 1409,
+        "fill_timeouts": 94,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 95,
+        "sent": 1314,
+        "send_errors": 0,
+        "wait_us": 40019934,
+        "fill_us": 2768595,
+        "max_fill_us": 309676
+      },
+      "consumer": {
+        "records": 4,
+        "received": 1304,
+        "inactive": 0,
+        "late": 7,
+        "target_calls": 1297,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 1945120
+      },
+      "timeout_fraction": 0.0667139815471966,
+      "producer_late_fraction": 0.009142053445850914,
+      "consumer_late_fraction": 0.005368098159509203,
+      "query_latency": {
+        "count": 36,
+        "median_us": 32683.0,
+        "p95_us": 42122,
+        "max_us": 44575,
+        "total_us": 1206919
+      }
+    },
+    {
+      "tag": "01-n4-on",
+      "n": 4,
+      "state": "on",
+      "activation_count": 0,
+      "positions": [
+        [
+          1,
+          2000000,
+          2066666,
+          2200000,
+          2300000
+        ],
+        [
+          2,
+          4066666,
+          4133333,
+          4200000,
+          4333333
+        ],
+        [
+          3,
+          6000000,
+          6100000,
+          6133333,
+          6333333
+        ]
+      ],
+      "lifetime_us": 16012929,
+      "observation_us": 8049489,
+      "producer": {
+        "records": 4,
+        "lock_timeouts": 0,
+        "late": 12,
+        "attempts": 1436,
+        "no_buffer": 0,
+        "fills": 1436,
+        "fill_timeouts": 0,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 0,
+        "sent": 1436,
+        "send_errors": 0,
+        "wait_us": 44062117,
+        "fill_us": 2319949,
+        "max_fill_us": 214069
+      },
+      "consumer": {
+        "records": 4,
+        "received": 1424,
+        "inactive": 0,
+        "late": 13,
+        "target_calls": 1411,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 1797970
+      },
+      "timeout_fraction": 0.0,
+      "producer_late_fraction": 0.008287292817679558,
+      "consumer_late_fraction": 0.009129213483146067,
+      "query_latency": {
+        "count": 36,
+        "median_us": 35336.5,
+        "p95_us": 61395,
+        "max_us": 122141,
+        "total_us": 1365203
+      }
+    },
+    {
+      "tag": "02-n4-on",
+      "n": 4,
+      "state": "on",
+      "activation_count": 0,
+      "positions": [
+        [
+          1,
+          2000000,
+          2133333,
+          2166666,
+          2300000
+        ],
+        [
+          2,
+          4033333,
+          4133333,
+          4200000,
+          4266666
+        ],
+        [
+          3,
+          6066666,
+          6200000,
+          6266666,
+          6366666
+        ]
+      ],
+      "lifetime_us": 16068606,
+      "observation_us": 8041080,
+      "producer": {
+        "records": 4,
+        "lock_timeouts": 1,
+        "late": 1,
+        "attempts": 1445,
+        "no_buffer": 0,
+        "fills": 1445,
+        "fill_timeouts": 0,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 0,
+        "sent": 1445,
+        "send_errors": 0,
+        "wait_us": 44373957,
+        "fill_us": 1947366,
+        "max_fill_us": 54573
+      },
+      "consumer": {
+        "records": 4,
+        "received": 1433,
+        "inactive": 0,
+        "late": 5,
+        "target_calls": 1428,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 1951285
+      },
+      "timeout_fraction": 0.0,
+      "producer_late_fraction": 0.0006915629322268327,
+      "consumer_late_fraction": 0.0034891835310537334,
+      "query_latency": {
+        "count": 36,
+        "median_us": 35431.5,
+        "p95_us": 58513,
+        "max_us": 59500,
+        "total_us": 1318078
+      }
+    },
+    {
+      "tag": "03-n4-off",
+      "n": 4,
+      "state": "off",
+      "activation_count": 0,
+      "positions": [
+        [
+          1,
+          2000000,
+          2133333,
+          2200000,
+          2266666
+        ],
+        [
+          2,
+          4000000,
+          4100000,
+          4200000,
+          4266666
+        ],
+        [
+          3,
+          6033333,
+          6100000,
+          6166666,
+          6300000
+        ]
+      ],
+      "lifetime_us": 16338814,
+      "observation_us": 8094259,
+      "producer": {
+        "records": 4,
+        "lock_timeouts": 3,
+        "late": 10,
+        "attempts": 1471,
+        "no_buffer": 0,
+        "fills": 1471,
+        "fill_timeouts": 0,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 0,
+        "sent": 1471,
+        "send_errors": 0,
+        "wait_us": 45117334,
+        "fill_us": 2388063,
+        "max_fill_us": 107842
+      },
+      "consumer": {
+        "records": 4,
+        "received": 1459,
+        "inactive": 0,
+        "late": 9,
+        "target_calls": 1450,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 1833192
+      },
+      "timeout_fraction": 0.0,
+      "producer_late_fraction": 0.00675219446320054,
+      "consumer_late_fraction": 0.00616860863605209,
+      "query_latency": {
+        "count": 36,
+        "median_us": 33660.0,
+        "p95_us": 40490,
+        "max_us": 52415,
+        "total_us": 1236907
+      }
+    },
+    {
+      "tag": "04-n8-off",
+      "n": 8,
+      "state": "off",
+      "activation_count": 0,
+      "positions": [
+        [
+          1,
+          1900000,
+          2066666,
+          2166666,
+          2200000,
+          2266666,
+          2600000,
+          3200000,
+          3300000
+        ],
+        [
+          2,
+          4466666,
+          5166666,
+          6133333,
+          6133333,
+          6300000,
+          6433333,
+          6433333,
+          6600000
+        ],
+        [
+          3,
+          6933333,
+          7066666,
+          7166666,
+          7266666,
+          7366666,
+          7900000,
+          9000000,
+          11200000
+        ]
+      ],
+      "lifetime_us": 28072722,
+      "observation_us": 11662809,
+      "producer": {
+        "records": 8,
+        "lock_timeouts": 95,
+        "late": 414,
+        "attempts": 4556,
+        "no_buffer": 0,
+        "fills": 4556,
+        "fill_timeouts": 1566,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 1567,
+        "sent": 2989,
+        "send_errors": 0,
+        "wait_us": 69893531,
+        "fill_us": 11134980,
+        "max_fill_us": 406398
+      },
+      "consumer": {
+        "records": 8,
+        "received": 2965,
+        "inactive": 0,
+        "late": 83,
+        "target_calls": 2882,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 33024770
+      },
+      "timeout_fraction": 0.3437225636523266,
+      "producer_late_fraction": 0.08329979879275654,
+      "consumer_late_fraction": 0.027993254637436762,
+      "query_latency": {
+        "count": 72,
+        "median_us": 44734.0,
+        "p95_us": 558973,
+        "max_us": 849076,
+        "total_us": 9056781
+      }
+    },
+    {
+      "tag": "05-n8-on",
+      "n": 8,
+      "state": "on",
+      "activation_count": 0,
+      "positions": [
+        [
+          1,
+          2300000,
+          2366666,
+          2333333,
+          2500000,
+          2466666,
+          2566666,
+          2766666,
+          2766666
+        ],
+        [
+          2,
+          3866666,
+          4133333,
+          4633333,
+          4833333,
+          5033333,
+          5966666,
+          6133333,
+          7033333
+        ],
+        [
+          3,
+          8900000,
+          10433333,
+          10666666,
+          10866666,
+          10900000,
+          11000000,
+          11100000,
+          11200000
+        ]
+      ],
+      "lifetime_us": 24999081,
+      "observation_us": 11576616,
+      "producer": {
+        "records": 8,
+        "lock_timeouts": 94,
+        "late": 470,
+        "attempts": 3998,
+        "no_buffer": 0,
+        "fills": 3998,
+        "fill_timeouts": 1673,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 1674,
+        "sent": 2324,
+        "send_errors": 0,
+        "wait_us": 52728019,
+        "fill_us": 15992582,
+        "max_fill_us": 603822
+      },
+      "consumer": {
+        "records": 8,
+        "received": 2299,
+        "inactive": 0,
+        "late": 74,
+        "target_calls": 2225,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 25093585
+      },
+      "timeout_fraction": 0.4184592296148074,
+      "producer_late_fraction": 0.10519247985675918,
+      "consumer_late_fraction": 0.03218790778599391,
+      "query_latency": {
+        "count": 72,
+        "median_us": 35450.0,
+        "p95_us": 553693,
+        "max_us": 923309,
+        "total_us": 8320957
+      }
+    },
+    {
+      "tag": "06-n8-on",
+      "n": 8,
+      "state": "on",
+      "activation_count": 0,
+      "positions": [
+        [
+          1,
+          1900000,
+          2433333,
+          2666666,
+          2800000,
+          2700000,
+          2833333,
+          3000000,
+          3100000
+        ],
+        [
+          2,
+          3933333,
+          4166666,
+          5066666,
+          5133333,
+          5433333,
+          5533333,
+          5733333,
+          5666666
+        ],
+        [
+          3,
+          6033333,
+          6100000,
+          6066666,
+          6133333,
+          6233333,
+          6333333,
+          6300000,
+          6433333
+        ]
+      ],
+      "lifetime_us": 22377932,
+      "observation_us": 8016281,
+      "producer": {
+        "records": 8,
+        "lock_timeouts": 69,
+        "late": 366,
+        "attempts": 3445,
+        "no_buffer": 0,
+        "fills": 3445,
+        "fill_timeouts": 1421,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 1421,
+        "sent": 2024,
+        "send_errors": 0,
+        "wait_us": 54193405,
+        "fill_us": 12082816,
+        "max_fill_us": 534165
+      },
+      "consumer": {
+        "records": 8,
+        "received": 2002,
+        "inactive": 0,
+        "late": 53,
+        "target_calls": 1949,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 9435412
+      },
+      "timeout_fraction": 0.4124818577648766,
+      "producer_late_fraction": 0.09603778535817371,
+      "consumer_late_fraction": 0.026473526473526472,
+      "query_latency": {
+        "count": 72,
+        "median_us": 31498.0,
+        "p95_us": 225771,
+        "max_us": 379128,
+        "total_us": 4347350
+      }
+    },
+    {
+      "tag": "07-n8-off",
+      "n": 8,
+      "state": "off",
+      "activation_count": 0,
+      "positions": [
+        [
+          1,
+          3600000,
+          3833333,
+          5866666,
+          6233333,
+          6333333,
+          6400000,
+          6533333,
+          6733333
+        ],
+        [
+          2,
+          7233333,
+          7233333,
+          7433333,
+          7600000,
+          7833333,
+          7933333,
+          8066666,
+          8166666
+        ],
+        [
+          3,
+          8400000,
+          8833333,
+          8800000,
+          9066666,
+          9133333,
+          9233333,
+          9300000,
+          9500000
+        ]
+      ],
+      "lifetime_us": 24267303,
+      "observation_us": 9927664,
+      "producer": {
+        "records": 8,
+        "lock_timeouts": 55,
+        "late": 488,
+        "attempts": 3720,
+        "no_buffer": 0,
+        "fills": 3720,
+        "fill_timeouts": 1846,
+        "fill_errors": 0,
+        "end_buffers": 0,
+        "suppressed": 1846,
+        "sent": 1874,
+        "send_errors": 0,
+        "wait_us": 49671908,
+        "fill_us": 15767553,
+        "max_fill_us": 479519
+      },
+      "consumer": {
+        "records": 8,
+        "received": 1850,
+        "inactive": 0,
+        "late": 107,
+        "target_calls": 1743,
+        "no_target": 0,
+        "copy_bytes": 0,
+        "copy_us": 0,
+        "target_us": 9322353
+      },
+      "timeout_fraction": 0.4962365591397849,
+      "producer_late_fraction": 0.11596958174904944,
+      "consumer_late_fraction": 0.05783783783783784,
+      "query_latency": {
+        "count": 72,
+        "median_us": 44943.5,
+        "p95_us": 524398,
+        "max_us": 977942,
+        "total_us": 7453645
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "n": 4,
+      "off": "00-n4-off",
+      "on": "01-n4-on",
+      "activation_count": 0,
+      "timeout_delta": -0.0667139815471966,
+      "producer_late_delta": -0.0008547606281713565,
+      "consumer_late_delta": 0.0037611153236368645,
+      "send_error_delta": 0,
+      "target_calls_ratio": 1.0878951426368544
+    },
+    {
+      "n": 4,
+      "off": "03-n4-off",
+      "on": "02-n4-on",
+      "activation_count": 0,
+      "timeout_delta": 0.0,
+      "producer_late_delta": -0.006060631530973707,
+      "consumer_late_delta": -0.002679425104998357,
+      "send_error_delta": 0,
+      "target_calls_ratio": 0.9848275862068966
+    },
+    {
+      "n": 8,
+      "off": "04-n8-off",
+      "on": "05-n8-on",
+      "activation_count": 0,
+      "timeout_delta": 0.0747366659624808,
+      "producer_late_delta": 0.021892681064002648,
+      "consumer_late_delta": 0.004194653148557149,
+      "send_error_delta": 0,
+      "target_calls_ratio": 0.7720333102012491
+    },
+    {
+      "n": 8,
+      "off": "07-n8-off",
+      "on": "06-n8-on",
+      "activation_count": 0,
+      "timeout_delta": -0.08375470137490831,
+      "producer_late_delta": -0.019931796390875722,
+      "consumer_late_delta": -0.031364311364311365,
+      "send_error_delta": 0,
+      "target_calls_ratio": 1.1181870338496844
+    }
+  ],
+  "activated_pairs": 0
+}

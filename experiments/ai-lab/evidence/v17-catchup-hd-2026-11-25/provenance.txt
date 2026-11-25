@@ -1,0 +1,10 @@
+source=f960376e4c6e8cbb8343e39d57affc29208a4f8c
+buildtools=33d46bf5c300bd34cd07c596431e4545c754ac03
+revision=hrev60465+ai_f960376e
+jobs=2
+x86_64-unknown-haiku-gcc (GCC) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+previous_revision=hrev60465+ai_a1b69d83
