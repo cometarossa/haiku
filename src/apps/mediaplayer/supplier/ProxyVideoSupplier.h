@@ -33,6 +33,8 @@ private:
 			VideoTrackSupplier*	fSupplier;
 			const bool			fLabCatchup;
 			bool				fLabCatchupReported;
+			const bool			fLabAdaptiveCatchup;
+			bigtime_t			fLabRecoveryAfter;
 };
 
 #endif	// PROXY_VIDEO_SUPPLIER_H

@@ -22,7 +22,11 @@ ProxyVideoSupplier::ProxyVideoSupplier()
 	fSupplier(NULL),
 	fLabCatchup(access("/boot/home/config/settings/haiku-lab-media-catchup",
 		F_OK) == 0),
-	fLabCatchupReported(false)
+	fLabCatchupReported(false),
+	fLabAdaptiveCatchup(access(
+		"/boot/home/config/settings/haiku-lab-media-catchup-adaptive",
+		F_OK) == 0),
+	fLabRecoveryAfter(0)
 {
 }
 
@@ -73,7 +77,18 @@ ProxyVideoSupplier::FillBuffer(int64 startFrame, void* buffer,
 			// repeatedly abandoning the same keyframe gap. Never submit
 			// these intermediate frames. Keep the original timeout
 			// result and the existing forced-generation path unchanged.
-			if (fLabCatchup && frame >= 0
+			bool allowRecovery = fLabCatchup;
+			if (allowRecovery && fLabAdaptiveCatchup) {
+				// Conservative safety gate until HD rendering is profiled.
+				// Resolution bounds the amount of speculative work, not
+				// decode complexity. A slow read triggers per-track backoff.
+				const uint32 width = format.display.line_width;
+				const uint32 height = format.display.line_count;
+				allowRecovery = width > 0 && height > 0
+					&& (uint64)width * height <= 640 * 480
+					&& system_time() >= fLabRecoveryAfter;
+			}
+			if (allowRecovery && frame >= 0
 				&& fSupplier->CurrentFrame() == frame) {
 				const bigtime_t recoveryStart = system_time();
 				for (int32 i = 0; i < 5; i++) {
@@ -86,8 +101,14 @@ ProxyVideoSupplier::FillBuffer(int64 startFrame, void* buffer,
 					status_t error = fSupplier->ReadFrame(buffer,
 						&performanceTime, format, intermediateCached);
 					const int64 after = fSupplier->CurrentFrame();
-					if (error != B_OK || after <= before
-						|| after > startFrame)
+					const bool progressed = error == B_OK && after > before
+						&& after <= startFrame;
+					if (fLabAdaptiveCatchup) {
+						const bigtime_t end = system_time();
+						if (!progressed || end - recoveryStart >= 4000)
+							fLabRecoveryAfter = end + 100000;
+					}
+					if (!progressed)
 						break;
 					if (!fLabCatchupReported) {
 						fprintf(stderr, "\nLAB_MEDIA_CATCHUP progress "
@@ -128,5 +149,6 @@ ProxyVideoSupplier::SetSupplier(VideoTrackSupplier* supplier)
 	BAutolock _(fSupplierLock);
 
 	fSupplier = supplier;
+	fLabRecoveryAfter = 0;
 }
 

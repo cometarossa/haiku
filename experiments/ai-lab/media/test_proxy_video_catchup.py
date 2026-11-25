@@ -18,13 +18,15 @@ class ProxyCatchupTest(unittest.TestCase):
 #include <cassert>
 using int64=long long;
 using int32=int;
+using uint32=unsigned int;
+using uint64=unsigned long long;
 using bigtime_t=long long;
 using status_t=int;
 #define B_PRId64 "lld"
 const status_t B_OK=0, B_TIMED_OUT=-1, B_NO_INIT=-2, B_ERROR=-3;
 bigtime_t clock_us=0;
 bigtime_t system_time(){ return clock_us; }
-struct media_raw_video_format {};
+struct media_raw_video_format { struct { uint32 line_width=320, line_count=180; } display; };
 struct BAutolock { BAutolock(int&) {} };
 struct Track {
     int64 current=0;
@@ -52,6 +54,8 @@ struct ProxyVideoSupplier {
     int fSupplierLock=0;
     Track* fSupplier;
     bool fLabCatchup, fLabCatchupReported=false;
+    bool fLabAdaptiveCatchup=false;
+    bigtime_t fLabRecoveryAfter=0;
     bigtime_t fProcessingLatency=0;
     ProxyVideoSupplier(Track* t,bool on): fSupplier(t),fLabCatchup(on) {}
     status_t FillBuffer(int64,void*,const media_raw_video_format&,bool,bool&);
@@ -97,6 +101,32 @@ int main() {
     Track t9; t9.current=20; ProxyVideoSupplier reverse(&t9,true);
     assert(reverse.FillBuffer(3,&output,fmt,false,cached)==B_OK);
     assert(output==3 && t9.calls==4 && !reverse.fLabCatchupReported);
+    // Adaptive marker requires catch-up; HD never speculatively decodes.
+    Track h; ProxyVideoSupplier hd(&h,true); hd.fLabAdaptiveCatchup=true;
+    fmt.display.line_width=1280; fmt.display.line_count=720;
+    assert(hd.FillBuffer(20,&output,fmt,false,cached)==B_TIMED_OUT);
+    assert(h.calls==0 && h.current==0);
+    assert(hd.FillBuffer(3,&output,fmt,true,cached)==B_OK && output==3);
+    fmt.display.line_width=320; fmt.display.line_count=180;
+    Track a; a.delay=5000; ProxyVideoSupplier adaptive(&a,true);
+    adaptive.fLabAdaptiveCatchup=true;
+    assert(adaptive.FillBuffer(20,&output,fmt,false,cached)==B_TIMED_OUT);
+    assert(a.calls==1 && adaptive.fLabRecoveryAfter==clock_us+100000);
+    assert(adaptive.FillBuffer(21,&output,fmt,false,cached)==B_TIMED_OUT);
+    assert(a.calls==1);
+    clock_us+=100000; a.delay=100;
+    assert(adaptive.FillBuffer(22,&output,fmt,false,cached)==B_TIMED_OUT);
+    assert(a.calls==6);
+    Track e; e.fail=true; ProxyVideoSupplier errors(&e,true);
+    errors.fLabAdaptiveCatchup=true;
+    assert(errors.FillBuffer(20,&output,fmt,false,cached)==B_TIMED_OUT);
+    assert(e.calls==1 && errors.fLabRecoveryAfter>clock_us);
+    assert(errors.FillBuffer(21,&output,fmt,false,cached)==B_TIMED_OUT);
+    assert(e.calls==1);
+    Track disabled; ProxyVideoSupplier guardOnly(&disabled,false);
+    guardOnly.fLabAdaptiveCatchup=true;
+    assert(guardOnly.FillBuffer(20,&output,fmt,false,cached)==B_TIMED_OUT);
+    assert(disabled.calls==0);
     return 0;
 }
 '''
