@@ -112,4 +112,6 @@ printf '0\n' > done.txt
 # after successful unmount, so a complete run also verifies cleanup.
 cd /boot/home
 unmount "$ramdir"
-printf '0\n' | curl -fsS -T - "$base/done.txt"
+# A regular file supplies Content-Length; stdin PUT uses chunked encoding.
+(set -C; printf '0\n' > "$ramdir/done.txt")
+curl -fsS -T "$ramdir/done.txt" "$base/done.txt"
