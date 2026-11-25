@@ -8,10 +8,10 @@ import statistics
 import sys
 from pathlib import Path
 
-from bitmap_warm_smoke import parse, verify_client
+from bitmap_warm_smoke import parse, verify_client, verify_single_clear
 
 
-def collect(root, revision, matrix):
+def collect(root, revision, matrix, single_clear=False):
     order = [(mode, n, state) for mode, n in matrix
              for state in ("off", "on", "on", "off", "off", "on")]
     expected = {f"{i:02d}-{mode}-{n}-64-{state}"
@@ -31,6 +31,10 @@ def collect(root, revision, matrix):
         count = n if state == "on" else 0
         records = parse((folder / "serial.txt").read_text(), count, mode)
         final = parse((folder / "serial-final.txt").read_text(), count, mode)
+        verify_single_clear((folder / "serial.txt").read_text(), records,
+                            single_clear and state == "on")
+        verify_single_clear((folder / "serial-final.txt").read_text(), final,
+                            single_clear and state == "on")
         if records != final or records != json.loads((folder / "profile.json").read_text()):
             raise ValueError(f"serial/profile discrepancy: {folder.name}")
         rows.append(dict(run=i, mode=mode, surfaces=n, batch=64, flag=state,
@@ -56,12 +60,13 @@ def main():
     parser.add_argument("root", type=Path)
     parser.add_argument("revision")
     parser.add_argument("--two-surface", action="store_true")
+    parser.add_argument("--single-clear", action="store_true")
     args = parser.parse_args()
     if not re.fullmatch("[0-9a-f]{8}", args.revision):
         parser.error("invalid revision")
     matrix = [("threads", 2), ("teams", 2)] if args.two_surface else [
         ("threads", 4), ("teams", 4), ("threads", 1)]
-    rows = list(summarize(collect(args.root, args.revision, matrix)))
+    rows = list(summarize(collect(args.root, args.revision, matrix, args.single_clear)))
     writer = csv.DictWriter(sys.stdout, fieldnames=list(rows[0]), lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
