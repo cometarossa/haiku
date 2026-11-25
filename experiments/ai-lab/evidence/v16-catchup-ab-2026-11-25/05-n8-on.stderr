@@ -1,0 +1,31 @@
+
+LAB_MEDIA_CATCHUP progress from=62 to=63
+
+LAB_MEDIA_CATCHUP progress from=62 to=63
+
+LAB_MEDIA_CATCHUP progress from=67 to=68
+
+LAB_MEDIA_CATCHUP progress from=74 to=75
+
+LAB_MEDIA_CATCHUP progress from=80 to=81
+LAB_MEDIA_PRODUCER thread=2917 lock_timeouts=3 late=18 attempts=542 no_buffer=0 fills=542 fill_timeouts=16 fill_errors=0 end_buffers=0 suppressed=16 sent=526 send_errors=0 wait_us=16684266 fill_us=1101256 max_fill_us=338326 last_send_error=0
+LAB_MEDIA_CONSUMER received=523 inactive=0 late=1 target_calls=522 no_target=0 copy_bytes=0 copy_us=0 target_us=491377 first_target_us=882293001949
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=2936 lock_timeouts=0 late=18 attempts=491 no_buffer=0 fills=491 fill_timeouts=18 fill_errors=0 end_buffers=0 suppressed=18 sent=473 send_errors=0 wait_us=14875745 fill_us=1192737 max_fill_us=204372 last_send_error=0
+LAB_MEDIA_CONSUMER received=469 inactive=0 late=1 target_calls=468 no_target=0 copy_bytes=0 copy_us=0 target_us=325064 first_target_us=882294937804
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=2954 lock_timeouts=1 late=9 attempts=465 no_buffer=0 fills=465 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=465 send_errors=0 wait_us=14183925 fill_us=914863 max_fill_us=138655 last_send_error=0
+LAB_MEDIA_CONSUMER received=462 inactive=0 late=2 target_calls=460 no_target=0 copy_bytes=0 copy_us=0 target_us=616263 first_target_us=882296013201
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=2972 lock_timeouts=1 late=13 attempts=443 no_buffer=0 fills=443 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=443 send_errors=0 wait_us=13372007 fill_us=1109509 max_fill_us=141269 last_send_error=0
+LAB_MEDIA_CONSUMER received=440 inactive=0 late=2 target_calls=438 no_target=0 copy_bytes=0 copy_us=0 target_us=583795 first_target_us=882296948002
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=2990 lock_timeouts=0 late=12 attempts=414 no_buffer=0 fills=414 fill_timeouts=5 fill_errors=0 end_buffers=0 suppressed=5 sent=409 send_errors=0 wait_us=12295286 fill_us=1152710 max_fill_us=248777 last_send_error=0
+LAB_MEDIA_CONSUMER received=406 inactive=0 late=2 target_calls=404 no_target=0 copy_bytes=0 copy_us=0 target_us=590017 first_target_us=882298004123
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=3008 lock_timeouts=9 late=10 attempts=388 no_buffer=0 fills=388 fill_timeouts=4 fill_errors=0 end_buffers=0 suppressed=4 sent=384 send_errors=0 wait_us=11677694 fill_us=705298 max_fill_us=262652 last_send_error=0
+LAB_MEDIA_CONSUMER received=381 inactive=0 late=1 target_calls=380 no_target=0 copy_bytes=0 copy_us=0 target_us=647243 first_target_us=882299042246
+LAB_MEDIA_PRODUCER thread=3026 lock_timeouts=0 late=19 attempts=350 no_buffer=0 fills=350 fill_timeouts=1 fill_errors=0 end_buffers=0 suppressed=1 sent=349 send_errors=0 wait_us=10264982 fill_us=1245667 max_fill_us=199558 last_send_error=0
+LAB_MEDIA_CONSUMER received=346 inactive=0 late=2 target_calls=344 no_target=0 copy_bytes=0 copy_us=0 target_us=595710 first_target_us=882300104636
+LAB_MEDIA_PRODUCER thread=3044 lock_timeouts=0 late=17 attempts=324 no_buffer=0 fills=324 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=324 send_errors=0 wait_us=9707096 fill_us=1067872 max_fill_us=162486 last_send_error=0
+LAB_MEDIA_CONSUMER received=321 inactive=0 late=4 target_calls=317 no_target=0 copy_bytes=0 copy_us=0 target_us=740137 first_target_us=882301121129

@@ -1,0 +1,115 @@
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+SAMPLE 1
+WINDOW 0
+02-n4-on-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2000000 (0x1e8480)
+
+WINDOW 3
+02-n4-on-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2033333 (0x1f06b5)
+
+WINDOW 5
+02-n4-on-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2100000 (0x200b20)
+
+WINDOW 7
+02-n4-on-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2133333 (0x208d55)
+
+SAMPLE 2
+WINDOW 0
+02-n4-on-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 3933333 (0x3c0495)
+
+WINDOW 3
+02-n4-on-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 4000000 (0x3d0900)
+
+WINDOW 5
+02-n4-on-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 4100000 (0x3e8fa0)
+
+WINDOW 7
+02-n4-on-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 4133333 (0x3f11d5)
+
+SAMPLE 3
+WINDOW 0
+02-n4-on-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 5966666 (0x5b0b4a)
+
+WINDOW 3
+02-n4-on-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 5966666 (0x5b0b4a)
+
+WINDOW 5
+02-n4-on-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 6100000 (0x5d1420)
+
+WINDOW 7
+02-n4-on-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 6100000 (0x5d1420)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "result" (B_BOOL_TYPE) : TRUE
+   "thread" (B_INT32_TYPE) : 1344 (0x00001344)
+

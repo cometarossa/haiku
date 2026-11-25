@@ -1,0 +1,115 @@
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+SAMPLE 1
+WINDOW 0
+03-n4-off-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2000000 (0x1e8480)
+
+WINDOW 3
+03-n4-off-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2033333 (0x1f06b5)
+
+WINDOW 5
+03-n4-off-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2133333 (0x208d55)
+
+WINDOW 7
+03-n4-off-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2233333 (0x2213f5)
+
+SAMPLE 2
+WINDOW 0
+03-n4-off-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 4000000 (0x3d0900)
+
+WINDOW 3
+03-n4-off-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 4066666 (0x3e0d6a)
+
+WINDOW 5
+03-n4-off-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 4100000 (0x3e8fa0)
+
+WINDOW 7
+03-n4-off-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 4133333 (0x3f11d5)
+
+SAMPLE 3
+WINDOW 0
+03-n4-off-1.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 5933333 (0x5a8915)
+
+WINDOW 3
+03-n4-off-2.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 6133333 (0x5d9655)
+
+WINDOW 5
+03-n4-off-3.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 6200000 (0x5e9ac0)
+
+WINDOW 7
+03-n4-off-4.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 6266666 (0x5f9f2a)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+   "result" (B_BOOL_TYPE) : TRUE
+   "thread" (B_INT32_TYPE) : 1784 (0x00001784)
+

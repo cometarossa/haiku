@@ -1,0 +1,140 @@
+open playlist item: 04-n8-off-1.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+open playlist item: 04-n8-off-2.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+open playlist item: 04-n8-off-3.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+open playlist item: 04-n8-off-4.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+open playlist item: 04-n8-off-5.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+open playlist item: 04-n8-off-6.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+open playlist item: 04-n8-off-7.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+VideoProducer: dropped frame (122) (perf. time 4066666)
+VideoProducer: dropped frame (155) (perf. time 5166666)
+VideoProducer: dropped frame (63) (perf. time 2100000)
+open playlist item: 04-n8-off-8.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+VideoProducer: dropped frame (92) (perf. time 3066666)
+VideoProducer: dropped frame (184) (perf. time 6133333)
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 1500
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 500
+VideoProducer: dropped frame (320) (perf. time 10666666)
+VideoProducer: dropped frame (196) (perf. time 6533333)
+VideoProducer: dropped frame (167) (perf. time 5566666)
+VideoProducer: dropped frame (322) (perf. time 10733333)
+VideoProducer: dropped frame (323) (perf. time 10766666)
+VideoProducer: dropped frame (324) (perf. time 10800000)
+VideoProducer: dropped frame (198) (perf. time 6600000)
+VideoProducer: dropped frame (199) (perf. time 6633333)
+VideoProducer: dropped frame (200) (perf. time 6666666)
+VideoProducer: dropped frame (201) (perf. time 6700000)
+VideoProducer: dropped frame (202) (perf. time 6733333)
+VideoProducer: dropped frame (297) (perf. time 9900000)
+VideoProducer: dropped frame (299) (perf. time 9966666)
+VideoProducer: dropped frame (326) (perf. time 10866666)
+VideoProducer: dropped frame (327) (perf. time 10900000)
+VideoProducer: dropped frame (328) (perf. time 10933333)
+VideoProducer: dropped frame (329) (perf. time 10966666)
+VideoProducer: dropped frame (273) (perf. time 9100000)
+VideoProducer: dropped frame (330) (perf. time 11000000)
+VideoProducer: dropped frame (331) (perf. time 11033333)
+VideoProducer: dropped frame (304) (perf. time 10133333)
+VideoProducer: dropped frame (332) (perf. time 11066666)
+VideoProducer: dropped frame (333) (perf. time 11100000)
+VideoProducer: dropped frame (334) (perf. time 11133333)
+VideoProducer: dropped frame (424) (perf. time 14133333)
+VideoProducer: dropped frame (204) (perf. time 6800000)
+VideoProducer: dropped frame (275) (perf. time 9166666)
+VideoProducer: dropped frame (179) (perf. time 5966666)
+VideoProducer: dropped frame (180) (perf. time 6000000)
+VideoProducer: dropped frame (205) (perf. time 6833333)
+VideoProducer: dropped frame (206) (perf. time 6866666)
+VideoProducer: dropped frame (207) (perf. time 6900000)
+VideoProducer: dropped frame (208) (perf. time 6933333)
+VideoProducer: dropped frame (182) (perf. time 6066666)
+VideoProducer: dropped frame (209) (perf. time 6966666)
+VideoProducer: dropped frame (210) (perf. time 7000000)
+VideoProducer: dropped frame (211) (perf. time 7033333)
+VideoProducer: dropped frame (212) (perf. time 7066666)
+VideoProducer: dropped frame (426) (perf. time 14200000)
+VideoProducer: dropped frame (320) (perf. time 10666666)
+VideoProducer: dropped frame (258) (perf. time 8600000)
+VideoProducer: dropped frame (259) (perf. time 8633333)
+VideoProducer: dropped frame (439) (perf. time 14633333)
+VideoProducer: dropped frame (440) (perf. time 14666666)
+VideoProducer: dropped frame (321) (perf. time 10700000)
+VideoProducer: dropped frame (290) (perf. time 9666666)
+VideoProducer: dropped frame (291) (perf. time 9700000)
+VideoProducer: dropped frame (352) (perf. time 11733333)
+VideoProducer: dropped frame (261) (perf. time 8700000)
+VideoProducer: dropped frame (382) (perf. time 12733333)
+VideoProducer: dropped frame (195) (perf. time 6500000)
+VideoProducer: dropped frame (383) (perf. time 12766666)
+VideoProducer: dropped frame (196) (perf. time 6533333)
+VideoProducer: dropped frame (292) (perf. time 9733333)
+VideoProducer: dropped frame (293) (perf. time 9766666)
+VideoProducer: dropped frame (197) (perf. time 6566666)
+VideoProducer: dropped frame (384) (perf. time 12800000)
+VideoProducer: dropped frame (198) (perf. time 6600000)
+VideoProducer: dropped frame (385) (perf. time 12833333)
+VideoProducer: dropped frame (199) (perf. time 6633333)
+VideoProducer: dropped frame (386) (perf. time 12866666)
+VideoProducer: dropped frame (387) (perf. time 12900000)
+VideoProducer: dropped frame (200) (perf. time 6666666)
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 1500
+BMediaEventLooper: SchedulingLatency is 1500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 1000

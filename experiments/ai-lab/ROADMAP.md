@@ -225,3 +225,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V15 native stats marker isolation and single-stream conservation passed; no recorded consumer copy or late drops, send error B_MEDIA_BAD_DESTINATION. Investigate buffer wait with 2/4/8 streams before changes.
 
 - [x] V15 4/8-window native host-load comparison before/after closing 11 guests. Enforce two Haiku guests in regular launcher. Log interleaving requires robust single-line record output; repeat under controlled host load.
+
+- [x] V16 same-image balanced 4/8-window native A/B: 8/8 complete, 8-window timeout rates 17.48% -> 1.29% and 11.87% -> 0.02%. Second pair duration confounded; first pair producer late fraction increased. Keep opt-in and repeat with phase timing, correctness and higher resolution.

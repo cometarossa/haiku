@@ -1,0 +1,12 @@
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=1367 lock_timeouts=0 late=0 attempts=427 no_buffer=0 fills=427 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=427 send_errors=0 wait_us=13665582 fill_us=122467 max_fill_us=9923 last_send_error=0
+LAB_MEDIA_CONSUMER received=424 inactive=0 late=1 target_calls=423 no_target=0 copy_bytes=0 copy_us=0 target_us=369590 first_target_us=882235196627
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=1386 lock_timeouts=0 late=0 attempts=372 no_buffer=0 fills=372 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=372 send_errors=0 wait_us=11801483 fill_us=167926 max_fill_us=27189 last_send_error=0
+LAB_MEDIA_CONSUMER received=369 inactive=0 late=0 target_calls=369 no_target=0 copy_bytes=0 copy_us=0 target_us=367390 first_target_us=882237091030
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=1404 lock_timeouts=0 late=0 attempts=346 no_buffer=0 fills=346 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=346 send_errors=0 wait_us=10944800 fill_us=145895 max_fill_us=40247 last_send_error=0
+LAB_MEDIA_CONSUMER received=343 inactive=0 late=0 target_calls=343 no_target=0 copy_bytes=0 copy_us=0 target_us=411764 first_target_us=882238053851
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=1422 lock_timeouts=0 late=0 attempts=317 no_buffer=0 fills=317 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=317 send_errors=0 wait_us=10033642 fill_us=105033 max_fill_us=6458 last_send_error=0
+LAB_MEDIA_CONSUMER received=314 inactive=0 late=1 target_calls=313 no_target=0 copy_bytes=0 copy_us=0 target_us=477725 first_target_us=882239119330
