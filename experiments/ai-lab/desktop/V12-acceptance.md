@@ -19,3 +19,11 @@ matching exactly one ack+skip per eligible allocation; cleanup markers.
 Add padded row, CMAP8, no-server-link, clone, overlay and churn tests.
 Do not enable globally or claim benefit until repeated complete lifecycle
 and pressure/desktop regression tests pass. No page fault attribution.
+
+## Lifecycle measurement correction
+The original native binary measured from worker 0 setup_start, not the
+earliest setup_start across workers. Rendering makespan and byte/pixel
+validation remain valid. Historical lifecycle medians are provisional
+worker-0-origin values; never silently replace their raw evidence.
+The corrected source takes the minimum over workers. Recompile into a
+separate hashed binary and repeat same-image OFF/V11/V12 comparisons.

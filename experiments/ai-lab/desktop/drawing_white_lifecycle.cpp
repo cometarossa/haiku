@@ -90,6 +90,7 @@ static int Report(const char* mode,Job* jobs,int n,int batch)
         if(!Valid(jobs[i],n,batch,i))return 8;
         if(jobs[i].start<first)first=jobs[i].start;
         if(jobs[i].end>last)last=jobs[i].end;
+        if(jobs[i].setup_start<setup)setup=jobs[i].setup_start;
     }
     for(int i=0;i<n;++i){
         Job& j=jobs[i];
