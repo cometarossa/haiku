@@ -173,3 +173,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V9 verified boot and offscreen bitmap lifetime/packet smoke: 36 runs, 2,359,296 final RGB checks, zero errors; direct inbound packets 2048 -> 1024 per 1024 draws. No consistent elapsed-time gain; full acceptance pending.
 
 - [x] Concurrent offscreen rendering baseline Beta6/V8/V9: 81 runs, 189 workers, 193,536 fills, 12,386,304 RGB checks; no errors; inspect fixed-work scaling and server locks next.
+
+- [x] Fixed-work offscreen rendering comparison: 162 runs, 378 workers, 663,552 fills, 24,772,608 final RGB checks; same-team versus separate teams; first malformed-output campaign retained but excluded. Desktop shared read lock identified for instrumentation, no causal claim.

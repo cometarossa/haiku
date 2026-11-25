@@ -1,0 +1,1 @@
+Excluded original run: C++ printf emitted literal backslash-n, so shell row prefixes and suffixes were not properly applied. Raw malformed CSV preserved. No timing or correctness claims derived from it. Corrected source recompiled and all runs repeated.
