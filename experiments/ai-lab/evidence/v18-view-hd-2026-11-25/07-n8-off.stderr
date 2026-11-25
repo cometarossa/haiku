@@ -1,0 +1,16 @@
+LAB_MEDIA_PRODUCER thread=4836 lock_timeouts=6 late=49 attempts=557 no_buffer=0 fills=557 fill_timeouts=190 fill_errors=0 end_buffers=0 suppressed=190 sent=367 send_errors=0 wait_us=9493285 fill_us=2267756 max_fill_us=219572 last_send_error=0
+LAB_MEDIA_CONSUMER received=364 inactive=0 late=12 target_calls=352 no_target=0 copy_bytes=0 copy_us=0 target_us=1585052 first_target_us=886221142400
+LAB_MEDIA_PRODUCER thread=4855 lock_timeouts=3 late=61 attempts=495 no_buffer=0 fills=495 fill_timeouts=184 fill_errors=0 end_buffers=0 suppressed=184 sent=311 send_errors=0 wait_us=7428870 fill_us=2868312 max_fill_us=399837 last_send_error=0
+LAB_MEDIA_CONSUMER received=308 inactive=0 late=10 target_calls=298 no_target=0 copy_bytes=0 copy_us=0 target_us=2069177 first_target_us=886222884888
+LAB_MEDIA_PRODUCER thread=4873 lock_timeouts=11 late=63 attempts=463 no_buffer=0 fills=463 fill_timeouts=205 fill_errors=0 end_buffers=0 suppressed=205 sent=258 send_errors=0 wait_us=6057544 fill_us=2603699 max_fill_us=179654 last_send_error=0
+LAB_MEDIA_CONSUMER received=255 inactive=0 late=17 target_calls=238 no_target=0 copy_bytes=0 copy_us=0 target_us=989816 first_target_us=886223960280
+LAB_MEDIA_PRODUCER thread=4891 lock_timeouts=10 late=34 attempts=458 no_buffer=0 fills=458 fill_timeouts=213 fill_errors=0 end_buffers=0 suppressed=213 sent=245 send_errors=0 wait_us=5829253 fill_us=1617836 max_fill_us=96649 last_send_error=0
+LAB_MEDIA_CONSUMER received=242 inactive=0 late=6 target_calls=236 no_target=0 copy_bytes=0 copy_us=0 target_us=1297333 first_target_us=886225094607
+LAB_MEDIA_PRODUCER thread=4909 lock_timeouts=13 late=53 attempts=417 no_buffer=0 fills=417 fill_timeouts=218 fill_errors=0 end_buffers=0 suppressed=218 sent=199 send_errors=0 wait_us=4626557 fill_us=2038947 max_fill_us=226330 last_send_error=0
+LAB_MEDIA_CONSUMER received=196 inactive=0 late=11 target_calls=185 no_target=0 copy_bytes=0 copy_us=0 target_us=1669929 first_target_us=886226159786
+LAB_MEDIA_PRODUCER thread=4927 lock_timeouts=4 late=55 attempts=385 no_buffer=0 fills=385 fill_timeouts=153 fill_errors=0 end_buffers=0 suppressed=153 sent=232 send_errors=0 wait_us=5364040 fill_us=2449815 max_fill_us=391101 last_send_error=0
+LAB_MEDIA_CONSUMER received=229 inactive=0 late=12 target_calls=217 no_target=0 copy_bytes=0 copy_us=0 target_us=1431946 first_target_us=886227031941
+LAB_MEDIA_PRODUCER thread=4945 lock_timeouts=3 late=63 attempts=348 no_buffer=0 fills=348 fill_timeouts=178 fill_errors=0 end_buffers=0 suppressed=178 sent=170 send_errors=0 wait_us=3040757 fill_us=2271443 max_fill_us=149266 last_send_error=0
+LAB_MEDIA_CONSUMER received=167 inactive=0 late=6 target_calls=161 no_target=0 copy_bytes=0 copy_us=0 target_us=2214060 first_target_us=886228154830
+LAB_MEDIA_PRODUCER thread=4963 lock_timeouts=9 late=41 attempts=334 no_buffer=0 fills=334 fill_timeouts=124 fill_errors=0 end_buffers=0 suppressed=124 sent=210 send_errors=0 wait_us=4777634 fill_us=1120597 max_fill_us=69862 last_send_error=0
+LAB_MEDIA_CONSUMER received=207 inactive=0 late=15 target_calls=192 no_target=0 copy_bytes=0 copy_us=0 target_us=2325951 first_target_us=886229411201

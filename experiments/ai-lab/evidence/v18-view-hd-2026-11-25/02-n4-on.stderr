@@ -1,0 +1,17 @@
+
+LAB_VIDEO_VIEW calls=405 null=1 looper_fail=11 bitmap_fail=0 overlay=0 invalidate=0 draw=393 total_us=551211 update_us=217 looper_us=494101 bitmap_us=73 overlay_us=188 invalidate_us=0 draw_us=27298
+LAB_MEDIA_PRODUCER thread=1496 lock_timeouts=1 late=4 attempts=413 no_buffer=0 fills=413 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=413 send_errors=0 wait_us=12604550 fill_us=696527 max_fill_us=74764 last_send_error=0
+LAB_MEDIA_CONSUMER received=410 inactive=0 late=6 target_calls=404 no_target=0 copy_bytes=0 copy_us=0 target_us=551555 first_target_us=886111251285
+
+LAB_VIDEO_VIEW calls=358 null=1 looper_fail=7 bitmap_fail=0 overlay=0 invalidate=0 draw=350 total_us=551900 update_us=315 looper_us=493971 bitmap_us=73 overlay_us=469 invalidate_us=0 draw_us=38024
+LAB_MEDIA_PRODUCER thread=1515 lock_timeouts=0 late=6 attempts=365 no_buffer=0 fills=365 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=365 send_errors=0 wait_us=11183533 fill_us=577865 max_fill_us=42196 last_send_error=0
+LAB_MEDIA_CONSUMER received=362 inactive=0 late=5 target_calls=357 no_target=0 copy_bytes=0 copy_us=0 target_us=552298 first_target_us=886112880525
+
+LAB_VIDEO_VIEW calls=329 null=1 looper_fail=5 bitmap_fail=0 overlay=0 invalidate=0 draw=323 total_us=330752 update_us=180 looper_us=297179 bitmap_us=54 overlay_us=175 invalidate_us=0 draw_us=12968
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=1533 lock_timeouts=2 late=4 attempts=338 no_buffer=0 fills=338 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=338 send_errors=0 wait_us=10282533 fill_us=569409 max_fill_us=80989 last_send_error=0
+LAB_MEDIA_CONSUMER received=335 inactive=0 late=7 target_calls=328 no_target=0 copy_bytes=0 copy_us=0 target_us=331278 first_target_us=886113926652
+
+LAB_VIDEO_VIEW calls=300 null=1 looper_fail=19 bitmap_fail=0 overlay=0 invalidate=0 draw=280 total_us=722739 update_us=175 looper_us=678161 bitmap_us=63 overlay_us=128 invalidate_us=0 draw_us=17368
+LAB_MEDIA_PRODUCER thread=1551 lock_timeouts=0 late=4 attempts=309 no_buffer=0 fills=309 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=309 send_errors=0 wait_us=9250823 fill_us=603064 max_fill_us=57175 last_send_error=0
+LAB_MEDIA_CONSUMER received=306 inactive=0 late=7 target_calls=299 no_target=0 copy_bytes=0 copy_us=0 target_us=723071 first_target_us=886114947514
