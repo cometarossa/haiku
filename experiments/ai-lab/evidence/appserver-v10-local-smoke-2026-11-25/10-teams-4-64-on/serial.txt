@@ -1,0 +1,32 @@
+LAB_APPWIN team=700 port=794 phase=window n=36 us=9 max=1 ge50=0
+LAB_APPWIN team=702 port=797 phase=window n=36 us=9 max=1 ge50=0
+LAB_APPWIN team=699 port=790 phase=window n=36 us=3 max=1 ge50=0
+LAB_APPWIN team=700 port=794 phase=desktop_read n=36 us=7 max=1 ge50=0
+LAB_APPWIN team=702 port=797 phase=desktop_read n=36 us=4 max=1 ge50=0
+LAB_APPWIN team=701 port=800 phase=window n=36 us=6 max=1 ge50=0
+LAB_APPWIN team=699 port=790 phase=desktop_read n=36 us=3 max=1 ge50=0
+LAB_APPWIN team=700 port=794 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=702 port=797 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=701 port=800 phase=desktop_read n=36 us=5 max=1 ge50=0
+LAB_APPWIN team=699 port=790 phase=desktop_write n=2 us=1 max=1 ge50=0
+LAB_APPWIN team=700 port=794 phase=dispatch n=2077 us=2363 max=944 ge50=11
+LAB_APPWIN team=702 port=797 phase=dispatch n=2077 us=1268 max=77 ge50=8
+LAB_APPWIN team=701 port=800 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=699 port=790 phase=dispatch n=2077 us=1132 max=88 ge50=6
+LAB_APPWIN team=700 port=794 phase=sync n=17 us=1689 max=944 ge50=10
+LAB_APPWIN team=702 port=797 phase=sync n=17 us=669 max=77 ge50=7
+LAB_APPWIN team=701 port=800 phase=dispatch n=2077 us=1784 max=496 ge50=12
+LAB_APPWIN team=699 port=790 phase=sync n=17 us=486 max=88 ge50=5
+LAB_APPWIN team=700 port=794 phase=fill n=1024 us=487 max=18 ge50=0
+LAB_APPWIN team=702 port=797 phase=fill n=1024 us=470 max=16 ge50=0
+LAB_APPWIN team=701 port=800 phase=sync n=17 us=747 max=66 ge50=11
+LAB_APPWIN team=699 port=790 phase=fill n=1024 us=454 max=18 ge50=0
+LAB_APPWIN team=700 port=794 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN team=702 port=797 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN team=701 port=800 phase=fill n=1024 us=474 max=14 ge50=0
+LAB_APPWIN team=699 port=790 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN_END team=700 port=794 normal=1
+LAB_APPWIN_END team=702 port=797 normal=1
+LAB_APPWIN team=701 port=800 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN_END team=699 port=790 normal=1
+LAB_APPWIN_END team=701 port=800 normal=1

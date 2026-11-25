@@ -1,0 +1,32 @@
+LAB_APPWIN team=667 port=733 phase=window n=38 us=10 max=1 ge50=0
+LAB_APPWIN team=667 port=733 phase=desktop_read n=37 us=3 max=1 ge50=0
+LAB_APPWIN team=666 port=737 phase=window n=36 us=5 max=1 ge50=0
+LAB_APPWIN team=667 port=733 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=666 port=737 phase=desktop_read n=36 us=6 max=1 ge50=0
+LAB_APPWIN team=668 port=742 phase=window n=36 us=4 max=1 ge50=0
+LAB_APPWIN team=667 port=733 phase=dispatch n=2077 us=1690 max=302 ge50=11
+LAB_APPWIN team=669 port=745 phase=window n=36 us=8 max=1 ge50=0
+LAB_APPWIN team=666 port=737 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=668 port=742 phase=desktop_read n=36 us=5 max=1 ge50=0
+LAB_APPWIN team=667 port=733 phase=sync n=17 us=676 max=83 ge50=8
+LAB_APPWIN team=669 port=745 phase=desktop_read n=36 us=5 max=1 ge50=0
+LAB_APPWIN team=666 port=737 phase=dispatch n=2077 us=1046 max=132 ge50=5
+LAB_APPWIN team=668 port=742 phase=desktop_write n=2 us=1 max=1 ge50=0
+LAB_APPWIN team=667 port=733 phase=fill n=1024 us=773 max=302 ge50=1
+LAB_APPWIN team=669 port=745 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=666 port=737 phase=sync n=17 us=427 max=132 ge50=4
+LAB_APPWIN team=668 port=742 phase=dispatch n=2077 us=1984 max=976 ge50=7
+LAB_APPWIN team=667 port=733 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN team=669 port=745 phase=dispatch n=2077 us=1698 max=110 ge50=13
+LAB_APPWIN team=666 port=737 phase=fill n=1024 us=489 max=34 ge50=0
+LAB_APPWIN team=668 port=742 phase=sync n=17 us=456 max=116 ge50=6
+LAB_APPWIN_END team=667 port=733 normal=1
+LAB_APPWIN team=669 port=745 phase=sync n=17 us=1011 max=110 ge50=11
+LAB_APPWIN team=666 port=737 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN team=668 port=742 phase=fill n=1024 us=463 max=14 ge50=0
+LAB_APPWIN team=669 port=745 phase=fill n=1024 us=467 max=14 ge50=0
+LAB_APPWIN_END team=666 port=737 normal=1
+LAB_APPWIN team=668 port=742 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN team=669 port=745 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN_END team=668 port=742 normal=1
+LAB_APPWIN_END team=669 port=745 normal=1

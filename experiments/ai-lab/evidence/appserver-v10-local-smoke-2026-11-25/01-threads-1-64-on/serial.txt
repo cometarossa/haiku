@@ -1,0 +1,8 @@
+LAB_APPWIN team=469 port=449 phase=window n=132 us=18 max=1 ge50=0
+LAB_APPWIN team=469 port=449 phase=desktop_read n=132 us=159 max=138 ge50=1
+LAB_APPWIN team=469 port=449 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=469 port=449 phase=dispatch n=8269 us=4649 max=456 ge50=12
+LAB_APPWIN team=469 port=449 phase=sync n=65 us=2338 max=456 ge50=8
+LAB_APPWIN team=469 port=449 phase=fill n=4096 us=1912 max=273 ge50=2
+LAB_APPWIN team=469 port=449 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN_END team=469 port=449 normal=1

@@ -1,0 +1,32 @@
+LAB_APPWIN team=555 port=567 phase=window n=36 us=4 max=1 ge50=0
+LAB_APPWIN team=555 port=567 phase=desktop_read n=36 us=5 max=1 ge50=0
+LAB_APPWIN team=555 port=567 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=555 port=565 phase=window n=36 us=1 max=1 ge50=0
+LAB_APPWIN team=555 port=567 phase=dispatch n=2077 us=33904 max=4169 ge50=18
+LAB_APPWIN team=555 port=565 phase=desktop_read n=36 us=8 max=3 ge50=0
+LAB_APPWIN team=555 port=566 phase=window n=36 us=6 max=1 ge50=0
+LAB_APPWIN team=555 port=567 phase=sync n=17 us=139 max=61 ge50=2
+LAB_APPWIN team=555 port=564 phase=window n=36 us=1 max=1 ge50=0
+LAB_APPWIN team=555 port=565 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=555 port=566 phase=desktop_read n=36 us=5 max=1 ge50=0
+LAB_APPWIN team=555 port=567 phase=fill n=1024 us=33609 max=4169 ge50=15
+LAB_APPWIN team=555 port=564 phase=desktop_read n=36 us=3 max=1 ge50=0
+LAB_APPWIN team=555 port=565 phase=dispatch n=2077 us=39791 max=4275 ge50=21
+LAB_APPWIN team=555 port=566 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=555 port=567 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN team=555 port=564 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=555 port=565 phase=sync n=17 us=1307 max=921 ge50=5
+LAB_APPWIN team=555 port=566 phase=dispatch n=2077 us=39989 max=4168 ge50=23
+LAB_APPWIN_END team=555 port=567 normal=1
+LAB_APPWIN team=555 port=564 phase=dispatch n=2077 us=39241 max=4174 ge50=22
+LAB_APPWIN team=555 port=565 phase=fill n=1024 us=38407 max=4275 ge50=16
+LAB_APPWIN team=555 port=566 phase=sync n=17 us=760 max=110 ge50=6
+LAB_APPWIN team=555 port=564 phase=sync n=17 us=1314 max=741 ge50=5
+LAB_APPWIN team=555 port=565 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN team=555 port=566 phase=fill n=1024 us=38398 max=4168 ge50=16
+LAB_APPWIN team=555 port=564 phase=fill n=1024 us=37759 max=4174 ge50=16
+LAB_APPWIN_END team=555 port=565 normal=1
+LAB_APPWIN team=555 port=566 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN team=555 port=564 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN_END team=555 port=566 normal=1
+LAB_APPWIN_END team=555 port=564 normal=1

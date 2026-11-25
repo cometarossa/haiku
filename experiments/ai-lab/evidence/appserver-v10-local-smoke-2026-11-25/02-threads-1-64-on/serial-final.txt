@@ -1,0 +1,9 @@
+LAB_APPWIN team=490 port=474 phase=window n=132 us=20 max=1 ge50=0
+LAB_APPWIN team=490 port=474 phase=desktop_read n=132 us=19 max=1 ge50=0
+LAB_APPWIN team=490 port=474 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=490 port=474 phase=dispatch n=8269 us=3851 max=84 ge50=12
+LAB_APPWIN team=490 port=474 phase=sync n=65 us=1972 max=84 ge50=12
+LAB_APPWIN team=490 port=474 phase=fill n=4096 us=1597 max=42 ge50=0
+LAB_APPWIN team=490 port=474 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN_END team=490 port=474 normal=1
+slab memory manager: created area 0xffffffff94001000 (18661)

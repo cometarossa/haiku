@@ -1,0 +1,32 @@
+LAB_APPWIN team=582 port=594 phase=window n=36 us=4 max=1 ge50=0
+LAB_APPWIN team=582 port=594 phase=desktop_read n=36 us=4 max=1 ge50=0
+LAB_APPWIN team=582 port=594 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=582 port=594 phase=dispatch n=2077 us=20222 max=2983 ge50=8
+LAB_APPWIN team=582 port=594 phase=sync n=17 us=27 max=3 ge50=0
+LAB_APPWIN team=582 port=594 phase=fill n=1024 us=20089 max=2983 ge50=8
+LAB_APPWIN team=582 port=594 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN_END team=582 port=594 normal=1
+LAB_APPWIN team=582 port=599 phase=window n=36 us=1 max=1 ge50=0
+LAB_APPWIN team=582 port=599 phase=desktop_read n=36 us=2 max=1 ge50=0
+LAB_APPWIN team=582 port=601 phase=window n=36 us=4 max=1 ge50=0
+LAB_APPWIN team=582 port=600 phase=window n=36 us=7 max=1 ge50=0
+LAB_APPWIN team=582 port=599 phase=desktop_write n=2 us=0 max=0 ge50=0
+LAB_APPWIN team=582 port=601 phase=desktop_read n=36 us=6 max=1 ge50=0
+LAB_APPWIN team=582 port=600 phase=desktop_read n=36 us=2 max=1 ge50=0
+LAB_APPWIN team=582 port=599 phase=dispatch n=2077 us=20481 max=3119 ge50=8
+LAB_APPWIN team=582 port=601 phase=desktop_write n=2 us=1 max=1 ge50=0
+LAB_APPWIN team=582 port=600 phase=desktop_write n=2 us=1 max=1 ge50=0
+LAB_APPWIN team=582 port=599 phase=sync n=17 us=23 max=2 ge50=0
+LAB_APPWIN team=582 port=601 phase=dispatch n=2077 us=21057 max=2823 ge50=11
+LAB_APPWIN team=582 port=600 phase=dispatch n=2077 us=20662 max=3265 ge50=9
+LAB_APPWIN team=582 port=599 phase=fill n=1024 us=20382 max=3119 ge50=8
+LAB_APPWIN team=582 port=601 phase=sync n=17 us=180 max=65 ge50=2
+LAB_APPWIN team=582 port=600 phase=sync n=17 us=144 max=56 ge50=1
+LAB_APPWIN team=582 port=599 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN team=582 port=601 phase=fill n=1024 us=20797 max=2823 ge50=9
+LAB_APPWIN team=582 port=600 phase=fill n=1024 us=20442 max=3265 ge50=8
+LAB_APPWIN_END team=582 port=599 normal=1
+LAB_APPWIN team=582 port=601 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN team=582 port=600 phase=bitmap n=0 us=0 max=0 ge50=0
+LAB_APPWIN_END team=582 port=601 normal=1
+LAB_APPWIN_END team=582 port=600 normal=1
