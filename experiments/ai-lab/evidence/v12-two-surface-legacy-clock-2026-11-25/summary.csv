@@ -1,0 +1,5 @@
+mode,surfaces,flag,median_render_us,median_lifecycle_us,median_max_setup_us,median_warm_total_us
+threads,2,off,22531,29138,4889,0
+threads,2,on,19361,33984,14528,204
+teams,2,off,35343,39727,3357,0
+teams,2,on,28515,69642,14917,295
