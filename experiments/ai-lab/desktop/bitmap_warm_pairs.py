@@ -15,8 +15,9 @@ STATES = ("off", "warm", "single", "warm", "single", "off",
 METRICS = ("render_us", "lifecycle_us", "max_setup_us")
 
 
-def completed(root, revision, partial=False):
-    order = [(mode, n, state) for mode, n in MATRIX for state in STATES]
+def completed(root, revision, partial=False, quiet_compare=False):
+    states = ("off", "single", "quiet", "single", "quiet", "off", "quiet", "off", "single") if quiet_compare else STATES
+    order = [(mode, n, state) for mode, n in MATRIX for state in states]
     names = [f"{i:02d}-{mode}-{n}-64-{state}"
              for i, (mode, n, state) in enumerate(order)]
     actual = sorted(p.name for p in root.iterdir() if p.is_dir())
@@ -35,7 +36,8 @@ def completed(root, revision, partial=False):
     return rows
 
 
-def paired(rows):
+def paired(rows, quiet_compare=False):
+    middle, last = ("single", "quiet") if quiet_compare else ("warm", "single")
     groups = {}
     for i in range(0, len(rows) - 2, 3):
         block = rows[i:i+3]
@@ -43,10 +45,10 @@ def paired(rows):
         if any((r["mode"], r["surfaces"]) != (mode, n) for r in block):
             raise ValueError("mixed block")
         states = {r["flag"]: r for r in block}
-        if set(states) != {"off", "warm", "single"}:
+        if set(states) != {"off", middle, last}:
             raise ValueError("invalid block")
         for metric in METRICS:
-            for a, b in (("warm", "off"), ("single", "off"), ("single", "warm")):
+            for a, b in ((middle, "off"), (last, "off"), (last, middle)):
                 x, y = states[a][metric], states[b][metric]
                 if y <= 0:
                     raise ValueError("invalid denominator")
@@ -63,12 +65,13 @@ def main():
     p.add_argument("root", type=Path)
     p.add_argument("revision")
     p.add_argument("--partial", action="store_true")
+    p.add_argument("--quiet-compare", action="store_true")
     args = p.parse_args()
     if not re.fullmatch("[0-9a-f]{8}", args.revision):
         p.error("invalid revision")
-    rows = completed(args.root, args.revision, args.partial)
+    rows = completed(args.root, args.revision, args.partial, args.quiet_compare)
     print(f"Validated {len(rows)}/36 runs; partial={len(rows)!=36}", file=sys.stderr)
-    output = list(paired(rows))
+    output = list(paired(rows, args.quiet_compare))
     if not output:
         return
     writer = csv.DictWriter(sys.stdout, fieldnames=list(output[0]), lineterminator="\n")

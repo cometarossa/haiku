@@ -27,3 +27,13 @@ class PairedTests(unittest.TestCase):
     def test_duplicate_state(self):
         with self.assertRaises(ValueError):
             list(paired([self.row("off",100)]*3))
+
+
+    def test_quiet_comparison(self):
+        r = self.row
+        result = list(paired([r("off",100),r("single",110),r("quiet",80)], True))
+        row = next(x for x in result if x["metric"]=="lifecycle_us"
+                   and x["treatment"]=="quiet" and x["reference"]=="single")
+        self.assertEqual(row["median_ratio"], .7273)
+        with self.assertRaises(ValueError):
+            list(paired([r("off",100),r("warm",110),r("single",80)], True))

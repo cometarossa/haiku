@@ -11,9 +11,11 @@ from pathlib import Path
 from bitmap_warm_smoke import parse, verify_client, verify_single_clear
 
 
-def collect(root, revision, matrix, single_clear=False, three_way=False, setup_phases=False):
+def collect(root, revision, matrix, single_clear=False, three_way=False, setup_phases=False, quiet_compare=False):
     states = ("off", "warm", "single", "warm", "single", "off",
               "single", "off", "warm") if three_way else ("off", "on", "on", "off", "off", "on")
+    if quiet_compare:
+        states = ("off", "single", "quiet", "single", "quiet", "off", "quiet", "off", "single")
     order = [(mode, n, state) for mode, n in matrix for state in states]
     expected = {f"{i:02d}-{mode}-{n}-64-{state}"
                 for i, (mode, n, state) in enumerate(order)}
@@ -42,7 +44,7 @@ def read_run(folder, revision, i, mode, n, state, single_clear=False, setup_phas
             raise ValueError(f"phase evidence mismatch: {folder.name}")
     else:
         measured = verify_client(data, mode, n, 64)
-    count = n if state != "off" else 0
+    count = n if state not in ("off", "quiet") else 0
     records = parse((folder / "serial.txt").read_text(), count, mode)
     final = parse((folder / "serial-final.txt").read_text(), count, mode)
     verify_single_clear((folder / "serial.txt").read_text(), records,
@@ -74,19 +76,20 @@ def main():
     parser.add_argument("--two-surface", action="store_true")
     parser.add_argument("--single-clear", action="store_true")
     parser.add_argument("--three-way", action="store_true")
+    parser.add_argument("--quiet-compare", action="store_true")
     parser.add_argument("--setup-phases", action="store_true")
     args = parser.parse_args()
     if not re.fullmatch("[0-9a-f]{8}", args.revision):
         parser.error("invalid revision")
     matrix = [("threads", 2), ("teams", 2)] if args.two_surface else [
         ("threads", 4), ("teams", 4), ("threads", 1)]
-    if args.setup_phases and not args.three_way:
+    if args.setup_phases and not (args.three_way or args.quiet_compare):
         parser.error("--setup-phases requires --three-way")
-    if args.three_way:
-        if args.two_surface or args.single_clear:
+    if args.three_way or args.quiet_compare:
+        if args.two_surface or args.single_clear or (args.three_way and args.quiet_compare):
             parser.error("--three-way is a separate campaign")
         matrix = [("threads", 2), ("teams", 2), ("threads", 4), ("teams", 4)]
-    rows = list(summarize(collect(args.root, args.revision, matrix, args.single_clear, args.three_way, args.setup_phases)))
+    rows = list(summarize(collect(args.root, args.revision, matrix, args.single_clear, args.three_way, args.setup_phases, args.quiet_compare)))
     writer = csv.DictWriter(sys.stdout, fieldnames=list(rows[0]), lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
