@@ -211,3 +211,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V13 native concurrent decode 1/2/4 processes: 1050 frames, 7/7 digests match Beta6. GUI concurrency and timed presentation pending.
 
 - [x] V13 native screeninfo confirms Generic VESA, zero overlay color spaces. V14 opt-in MediaPlayer capability preflight candidate implemented; native build/test pending.
+
+- [x] V13 two native MediaPlayer windows: scripted distinct geometry, concurrent IsPlaying and advancing independent positions; actual presentation count still pending.

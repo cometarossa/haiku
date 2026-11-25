@@ -1,0 +1,31 @@
+7
+WINDOW 0
+MediaPlayer
+Unsupported type
+false
+Unsupported type
+WINDOW 1
+Playlist
+Unsupported type
+Didn't understand the specifier(s) (error 0x80002008)
+Didn't understand the specifier(s) (error 0x80002008)
+WINDOW 2
+MediaPlayer settings
+Unsupported type
+Didn't understand the specifier(s) (error 0x80002008)
+Didn't understand the specifier(s) (error 0x80002008)
+WINDOW 3
+stream-a.mp4
+Unsupported type
+false
+Unsupported type
+WINDOW 4
+Playlist
+Unsupported type
+Didn't understand the specifier(s) (error 0x80002008)
+Didn't understand the specifier(s) (error 0x80002008)
+WINDOW 5
+stream-b.mp4
+Unsupported type
+false
+Unsupported type

@@ -1,0 +1,66 @@
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+   "error" (B_INT32_TYPE) : 0 (0x00000000)
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+Reply BMessage(B_REPLY):
+
+SAMPLE 1
+WINDOW 3
+stream-a.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+WINDOW 5
+stream-b.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 0 (0x0)
+
+SAMPLE 2
+WINDOW 3
+stream-a.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 1166666 (0x11cd4a)
+
+WINDOW 5
+stream-b.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 1200000 (0x124f80)
+
+SAMPLE 3
+WINDOW 3
+stream-a.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2366666 (0x241cca)
+
+WINDOW 5
+stream-b.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 2400000 (0x249f00)
+
+SAMPLE 4
+WINDOW 3
+stream-a.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 3500000 (0x3567e0)
+
+WINDOW 5
+stream-b.mp4
+true
+Reply BMessage(B_REPLY):
+   "result" (B_INT64_TYPE) : 3600000 (0x36ee80)
+
