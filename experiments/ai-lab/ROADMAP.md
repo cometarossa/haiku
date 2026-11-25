@@ -217,3 +217,5 @@ hardware, repeatable stimuli, real hardware frame/latency/power measurements.
 - [x] V13 four dynamic native video windows: 16/16 active samples, four advancing visible frame counters. V14 image 63cc5489 imported with both hashes verified.
 
 - [x] V14 OFF: eight visible dynamic native video windows, 32/32 active samples, all advancing; dropped-frame diagnostics observed. Quantitative frame loss and ON/OFF comparison pending.
+
+- [x] V14 preflight first same-image OFF/ON pair: native marker branch activated, failed overlay retry avoided; both play and exit zero. One ON buffer-send error recorded. Repeated latency and drop measurements pending.
