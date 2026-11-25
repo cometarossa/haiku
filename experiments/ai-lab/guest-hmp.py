@@ -5,6 +5,7 @@ Uses only known laboratory QEMU monitor UNIX sockets. The type command
 simulates guest keyboard input, so use explicit targets and text.
 """
 import argparse
+import re
 from pathlib import Path
 import socket
 import time
@@ -58,6 +59,7 @@ def main():
     target = parser.add_mutually_exclusive_group(required=True)
     target.add_argument("--baseline", action="store_true")
     target.add_argument("--run-id", help="CI run ID of experimental Haiku VM")
+    target.add_argument("--local-id", help="8-character local build source SHA")
     parser.add_argument("command", choices=("info", "screenshot", "type",
                                             "terminal"))
     parser.add_argument("text", nargs="*")
@@ -67,9 +69,14 @@ def main():
         monitor = base / "vm/haiku-ai-baseline-monitor.sock"
         out = base / "vm/haiku-ai-baseline-latest.ppm"
     else:
-        if not args.run_id.isdecimal():
-            parser.error("run ID must contain only decimal digits")
-        folder = base / "ai-images" / ("run-" + args.run_id)
+        if args.local_id is not None:
+            if re.fullmatch(r"[0-9a-f]{8}", args.local_id) is None:
+                parser.error("local ID must contain eight lowercase hex digits")
+            folder = base / "ai-images" / ("run-local-" + args.local_id)
+        else:
+            if not args.run_id.isdecimal():
+                parser.error("run ID must contain only decimal digits")
+            folder = base / "ai-images" / ("run-" + args.run_id)
         monitors = [folder / "haiku-ai-minimum-monitor.sock",
                     folder / "haiku-ai-regular-monitor.sock"]
         available = [path for path in monitors if path.is_socket()]

@@ -38,3 +38,18 @@ Network is required for fetching image packages, unlike earlier offline
 preflight. No persistent background service. Copy successful artifact
 to independent Sequoia build directory; verify both hashes, then boot
 in isolated QEMU overlay. Full local image path not yet executed.
+
+## Local artifact import (Mac)
+After the build has completed successfully, transfer the provenance and
+three artifact files to a dedicated Mac staging directory. Then:
+    HAIKU_LOCAL_IMPORT_ONLY=1 sh experiments/ai-lab/boot-regular-macos.sh --local /path/to/artifact
+    HAIKU_REGULAR_VNC_DISPLAY=14 sh experiments/ai-lab/boot-regular-macos.sh --local /path/to/artifact
+    python3 experiments/ai-lab/guest-hmp.py --local-id <8-hex-source-id> info
+Use a free VNC port only. The importer checks source ancestry, revision,
+compressed and raw hashes, rejects conflicting cached provenance, and
+uses a separate run-local-* target. Five isolated synthetic import
+checks passed on Mac (wrong compressed hash, wrong raw hash, correct
+import, cache reuse, conflicting cache). No real local image boot tested.
+The ZimaBlade build uses the previous source snapshot 12b5c9ec,
+not this documentation/host-helper commit. Do not update the running
+builder's checkout while it is compiling.

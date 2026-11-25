@@ -1,17 +1,40 @@
 #!/bin/sh
 # AI-assisted experimental Haiku fork only.
-# Download an independently-built raw CI image and boot a QCOW2 overlay.
+# Import a local or CI-built raw image and boot a QCOW2 overlay.
 # Never alters an official Haiku beta6 disk.
 set -eu
-if [ "$#" -ne 1 ]; then
-    echo "Usage: sh $0 <successful GitHub Actions run ID>" >&2
+LOCAL_ARTIFACT=
+if [ "$#" -eq 2 ] && [ "$1" = --local ]; then
+    LOCAL_ARTIFACT=$(cd "$2" && pwd)
+    test -s "$LOCAL_ARTIFACT/provenance.txt" || {
+        echo "Missing local build provenance" >&2; exit 2;
+    }
+    SOURCE_SHA=$(sed -n 's/^source=//p' "$LOCAL_ARTIFACT/provenance.txt")
+    case "$SOURCE_SHA" in
+        ''|*[!0-9a-f]*) echo "Invalid local source SHA" >&2; exit 2 ;;
+    esac
+    test "${#SOURCE_SHA}" -eq 40 || {
+        echo "Invalid local source SHA length" >&2; exit 2;
+    }
+    SHORT_SHA=$(printf '%s' "$SOURCE_SHA" | cut -c1-8)
+    grep -qx "revision=hrev60465+ai_$SHORT_SHA" "$LOCAL_ARTIFACT/provenance.txt" || {
+        echo "Local revision mismatch" >&2; exit 2;
+    }
+    # Bind local artifact to a known commit in the independent fork.
+    ROOT=$(cd "$(dirname "$0")/../.." && pwd)
+    git -C "$ROOT" merge-base --is-ancestor "$SOURCE_SHA" ai-experimental || {
+        echo "Local source not in ai-experimental history" >&2; exit 2;
+    }
+    RUN_ID=local-$SHORT_SHA
+elif [ "$#" -eq 1 ]; then
+    RUN_ID=$1
+    case "$RUN_ID" in
+        ''|*[!0-9]*) echo "Run ID must be decimal digits" >&2; exit 2 ;;
+    esac
+else
+    echo "Usage: sh $0 <successful CI run ID> | --local <artifact directory>" >&2
     exit 2
 fi
-
-RUN_ID=$1
-case "$RUN_ID" in
-    ''|*[!0-9]*) echo "Run ID must be decimal digits" >&2; exit 2 ;;
-esac
 
 # Leave the older full Haiku on VNC 5913 while testing the patched
 # fork on a distinct port 5914. Only bounded localhost ports allowed.
@@ -22,7 +45,7 @@ case "$VNC_DISPLAY" in
 esac
 VNC_PORT=$((5900 + VNC_DISPLAY))
 
-for command in gh qemu-img qemu-system-x86_64 zstd shasum python3; do
+for command in qemu-img qemu-system-x86_64 zstd shasum python3; do
     command -v "$command" >/dev/null 2>&1 || {
         echo "Missing host command: $command" >&2; exit 2;
     }
@@ -31,21 +54,25 @@ test "$(uname -s)" = Darwin || {
     echo "This boot helper targets macOS; aborting." >&2; exit 2;
 }
 
-# Reject unrelated successful workflows before touching any local image.
-RUN_KIND=$(gh run view "$RUN_ID" --repo cometarossa/haiku \
-    --json workflowName,headBranch \
-    --jq '(.workflowName == "Haiku fork x86-64 regular desktop image") and (.headBranch == "ai-experimental")')
-if [ "$RUN_KIND" != true ]; then
-    echo "Run $RUN_ID is not a regular desktop build of ai-experimental." >&2
-    exit 3
-fi
+if [ -z "$LOCAL_ARTIFACT" ]; then
+    command -v gh >/dev/null || { echo "Missing gh" >&2; exit 2; }
+    # Reject unrelated successful workflows before touching any local image.
+    RUN_KIND=$(gh run view "$RUN_ID" --repo cometarossa/haiku \
+        --json workflowName,headBranch \
+        --jq '(.workflowName == "Haiku fork x86-64 regular desktop image") and (.headBranch == "ai-experimental")')
+    if [ "$RUN_KIND" != true ]; then
+        echo "Run $RUN_ID is not a regular desktop build of ai-experimental." >&2
+        exit 3
+    fi
 
-RUN_RESULT=$(gh run view "$RUN_ID" --repo cometarossa/haiku \
-    --json conclusion --jq '.conclusion')
-if [ "$RUN_RESULT" != success ]; then
-    echo "CI run $RUN_ID has not successfully completed: $RUN_RESULT" >&2
-    echo "No disk image will be downloaded or started." >&2
-    exit 3
+    RUN_RESULT=$(gh run view "$RUN_ID" --repo cometarossa/haiku \
+        --json conclusion --jq '.conclusion')
+    if [ "$RUN_RESULT" != success ]; then
+        echo "CI run $RUN_ID has not successfully completed: $RUN_RESULT" >&2
+        echo "No disk image will be downloaded or started." >&2
+        exit 3
+    fi
+
 fi
 
 BASE="$HOME/Developer/Haiku/ai-images"
@@ -55,20 +82,65 @@ if [ -L "$BASE" ] && [ ! -d "$BASE" ]; then
     exit 4
 fi
 TARGET="$BASE/run-$RUN_ID"
-mkdir -p "$TARGET"
-# Reuse a complete cached artifact; checksum validation below is mandatory.
-if [ -f "$TARGET/haiku-regular-x86_64.raw.zst" ] &&
-   [ -f "$TARGET/haiku-regular-x86_64.raw.zst.sha256" ] &&
-   [ -f "$TARGET/haiku-regular-x86_64.raw.sha256" ]; then
-    echo "Reusing cached CI artifact for run $RUN_ID"
-elif [ -e "$TARGET/haiku-regular-x86_64.raw.zst" ] ||
-     [ -e "$TARGET/haiku-regular-x86_64.raw.zst.sha256" ] ||
-     [ -e "$TARGET/haiku-regular-x86_64.raw.sha256" ]; then
-    echo "Incomplete cached artifact; refusing to overwrite: $TARGET" >&2
-    exit 4
+if [ -n "$LOCAL_ARTIFACT" ]; then
+    # Import to a new directory only, after verifying compressed and raw
+    # hashes. Never replace a CI cache or a previous local overlay.
+    if [ ! -d "$BASE" ] || [ ! -L "$BASE" ]; then
+        echo "Expected mounted experimental image storage symlink" >&2; exit 4
+    fi
+    if [ -L "$TARGET" ]; then
+        echo "Refusing symlink as local build target" >&2; exit 4
+    fi
+    if [ ! -e "$TARGET" ]; then
+        for name in haiku-regular-x86_64.raw.zst haiku-regular-x86_64.raw.zst.sha256 haiku-regular-x86_64.raw.sha256; do
+            test -s "$LOCAL_ARTIFACT/$name" || {
+                echo "Missing local artifact: $name" >&2; exit 4;
+            }
+        done
+        stage=$(mktemp -d "$BASE/.local-import-$SHORT_SHA.XXXXXX")
+        for name in provenance.txt haiku-regular-x86_64.raw.zst haiku-regular-x86_64.raw.zst.sha256 haiku-regular-x86_64.raw.sha256; do
+            cp "$LOCAL_ARTIFACT/$name" "$stage/$name"
+        done
+        (
+            cd "$stage" || exit 1
+            expected=$(awk 'NR == 1 {print $1}' haiku-regular-x86_64.raw.zst.sha256)
+            actual=$(shasum -a 256 haiku-regular-x86_64.raw.zst | awk '{print $1}')
+            test -n "$expected" && test "$expected" = "$actual" || exit 1
+            zstd -dc haiku-regular-x86_64.raw.zst > haiku-regular-x86_64.raw || exit 1
+            expected=$(awk 'NR == 1 {print $1}' haiku-regular-x86_64.raw.sha256)
+            actual=$(shasum -a 256 haiku-regular-x86_64.raw | awk '{print $1}')
+            test -n "$expected" && test "$expected" = "$actual" || exit 1
+        ) || { echo "Local import checksum failed; retained $stage" >&2; exit 4; }
+        # mkdir reservation prevents concurrent imports from replacing a cache.
+        mkdir "$TARGET" || { echo "Local target already exists" >&2; exit 4; }
+        mv "$stage/"* "$TARGET/"
+        rmdir "$stage"
+    fi
+    cmp -s "$LOCAL_ARTIFACT/provenance.txt" "$TARGET/provenance.txt" || {
+        echo "Local cached provenance differs" >&2; exit 4;
+    }
+    for name in haiku-regular-x86_64.raw.zst.sha256 haiku-regular-x86_64.raw.sha256; do
+        cmp -s "$LOCAL_ARTIFACT/$name" "$TARGET/$name" || {
+            echo "Local cached hashes differ" >&2; exit 4;
+        }
+    done
 else
-    gh run download "$RUN_ID" --repo cometarossa/haiku \
-        --name haiku-ai-regular-x86_64 --dir "$TARGET"
+    mkdir -p "$TARGET"
+    # Reuse a complete cached artifact; checksum validation below is mandatory.
+    if [ -f "$TARGET/haiku-regular-x86_64.raw.zst" ] &&
+       [ -f "$TARGET/haiku-regular-x86_64.raw.zst.sha256" ] &&
+       [ -f "$TARGET/haiku-regular-x86_64.raw.sha256" ]; then
+        echo "Reusing cached CI artifact for run $RUN_ID"
+    elif [ -e "$TARGET/haiku-regular-x86_64.raw.zst" ] ||
+         [ -e "$TARGET/haiku-regular-x86_64.raw.zst.sha256" ] ||
+         [ -e "$TARGET/haiku-regular-x86_64.raw.sha256" ]; then
+        echo "Incomplete cached artifact; refusing to overwrite: $TARGET" >&2
+        exit 4
+    else
+        gh run download "$RUN_ID" --repo cometarossa/haiku \
+            --name haiku-ai-regular-x86_64 --dir "$TARGET"
+    fi
+
 fi
 
 ZST="$TARGET/haiku-regular-x86_64.raw.zst"
@@ -102,6 +174,11 @@ if [ ! -f "$RAW" ]; then
     mv "$RAW.partial" "$RAW"
 fi
 check_sha "$RAW" "$RAW.sha256"
+
+if [ -n "$LOCAL_ARTIFACT" ] && [ "$(printenv HAIKU_LOCAL_IMPORT_ONLY 2>/dev/null || echo 0)" = 1 ]; then
+    echo "Verified local artifact imported: $TARGET (no VM started)"
+    exit 0
+fi
 
 if [ ! -f "$OVERLAY" ]; then
     qemu-img create -f qcow2 -F raw -b "$RAW" "$OVERLAY"
@@ -169,5 +246,5 @@ printf '%s\n' "$VNC_PORT" > "$VNC_PORTFILE"
 echo "Booted experimental Haiku image via disposable QCOW2 overlay."
 echo "VNC: vnc://127.0.0.1:$VNC_PORT"
 echo "QEMU PID: $(cat "$PIDFILE")"
-echo "Raw CI artifact: $RAW"
+echo "Raw artifact: $RAW"
 echo "Original beta6 disk: UNCHANGED"
