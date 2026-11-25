@@ -1,0 +1,7 @@
+
+LAB_VIDEO_VIEW calls=144 null=1 looper_fail=0 bitmap_fail=0 overlay=0 invalidate=0 draw=0 total_us=3566 update_us=165 looper_us=0 bitmap_us=0 overlay_us=0 invalidate_us=0 draw_us=0 deferred=143
+
+LAB_VIDEO_DEFERRED queued=143 coalesced=0 failed=0 handled=143 cancelled=0 draw=143 skipped=0
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=597 lock_timeouts=1 late=1 attempts=148 no_buffer=0 fills=148 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=148 send_errors=0 wait_us=4605209 fill_us=54046 max_fill_us=6671 last_send_error=0
+LAB_MEDIA_CONSUMER received=145 inactive=0 late=2 target_calls=143 no_target=0 copy_bytes=0 copy_us=0 target_us=3720 first_target_us=888439825578

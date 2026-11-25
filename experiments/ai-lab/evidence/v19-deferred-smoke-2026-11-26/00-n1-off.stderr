@@ -1,0 +1,4 @@
+
+LAB_VIDEO_VIEW calls=124 null=1 looper_fail=0 bitmap_fail=0 overlay=0 invalidate=0 draw=123 total_us=201662 update_us=90 looper_us=192143 bitmap_us=56 overlay_us=90 invalidate_us=0 draw_us=5837 deferred=0
+LAB_MEDIA_PRODUCER thread=484 lock_timeouts=0 late=0 attempts=127 no_buffer=0 fills=127 fill_timeouts=0 fill_errors=0 end_buffers=0 suppressed=0 sent=127 send_errors=0 wait_us=3908842 fill_us=68626 max_fill_us=34153 last_send_error=0
+LAB_MEDIA_CONSUMER received=124 inactive=0 late=1 target_calls=123 no_target=0 copy_bytes=0 copy_us=0 target_us=201793 first_target_us=888430218169

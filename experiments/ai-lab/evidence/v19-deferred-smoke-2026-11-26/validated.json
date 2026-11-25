@@ -1,0 +1,142 @@
+[
+  {
+    "state": "off",
+    "probe": {
+      "expected": 9,
+      "attempted": 9,
+      "errors": 0,
+      "not_attempted": 0,
+      "playing_replies": 3,
+      "all_positions_advance": true,
+      "initialization_us": 13373,
+      "elapsed_us": 1027235,
+      "deadline_overrun_us": 0,
+      "complete": true,
+      "playback_valid": true,
+      "by_operation": {
+        "Title": {
+          "count": 3,
+          "median_us": 986,
+          "p95_us": 10748,
+          "max_us": 10748,
+          "total_us": 12354
+        },
+        "IsPlaying": {
+          "count": 3,
+          "median_us": 955,
+          "p95_us": 1068,
+          "max_us": 1068,
+          "total_us": 2427
+        },
+        "Position": {
+          "count": 3,
+          "median_us": 453,
+          "p95_us": 689,
+          "max_us": 689,
+          "total_us": 1568
+        }
+      }
+    },
+    "states": {
+      "stop_us": 0,
+      "seek_us": 28000000,
+      "pause_us": 30166666,
+      "pause_later_us": 30166666
+    },
+    "view": {
+      "calls": 124,
+      "null": 1,
+      "looper_fail": 0,
+      "bitmap_fail": 0,
+      "overlay": 0,
+      "invalidate": 0,
+      "draw": 123,
+      "total_us": 201662,
+      "update_us": 90,
+      "looper_us": 192143,
+      "bitmap_us": 56,
+      "overlay_us": 90,
+      "invalidate_us": 0,
+      "draw_us": 5837,
+      "deferred": 0,
+      "records": 1,
+      "unattributed_us": 3446
+    },
+    "deferred": []
+  },
+  {
+    "state": "on",
+    "probe": {
+      "expected": 9,
+      "attempted": 9,
+      "errors": 0,
+      "not_attempted": 0,
+      "playing_replies": 3,
+      "all_positions_advance": true,
+      "initialization_us": 15646,
+      "elapsed_us": 1007724,
+      "deadline_overrun_us": 0,
+      "complete": true,
+      "playback_valid": true,
+      "by_operation": {
+        "Title": {
+          "count": 3,
+          "median_us": 448,
+          "p95_us": 1481,
+          "max_us": 1481,
+          "total_us": 2106
+        },
+        "IsPlaying": {
+          "count": 3,
+          "median_us": 365,
+          "p95_us": 1038,
+          "max_us": 1038,
+          "total_us": 1570
+        },
+        "Position": {
+          "count": 3,
+          "median_us": 476,
+          "p95_us": 2026,
+          "max_us": 2026,
+          "total_us": 2685
+        }
+      }
+    },
+    "states": {
+      "stop_us": 0,
+      "seek_us": 28000000,
+      "pause_us": 30200000,
+      "pause_later_us": 30200000
+    },
+    "view": {
+      "calls": 144,
+      "null": 1,
+      "looper_fail": 0,
+      "bitmap_fail": 0,
+      "overlay": 0,
+      "invalidate": 0,
+      "draw": 0,
+      "total_us": 3566,
+      "update_us": 165,
+      "looper_us": 0,
+      "bitmap_us": 0,
+      "overlay_us": 0,
+      "invalidate_us": 0,
+      "draw_us": 0,
+      "deferred": 143,
+      "records": 1,
+      "unattributed_us": 3401
+    },
+    "deferred": [
+      {
+        "queued": 143,
+        "coalesced": 0,
+        "failed": 0,
+        "handled": 143,
+        "cancelled": 0,
+        "draw": 143,
+        "skipped": 0
+      }
+    ]
+  }
+]
