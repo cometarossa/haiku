@@ -1,0 +1,162 @@
+[
+  {
+    "expected": 72,
+    "attempted": 72,
+    "errors": 0,
+    "not_attempted": 0,
+    "playing_replies": 24,
+    "all_positions_advance": true,
+    "initialization_us": 22864,
+    "elapsed_us": 1060140,
+    "deadline_overrun_us": 0,
+    "complete": true,
+    "playback_valid": true,
+    "by_operation": {
+      "Title": {
+        "count": 24,
+        "median_us": 427.0,
+        "p95_us": 2459,
+        "max_us": 3038,
+        "total_us": 18471
+      },
+      "IsPlaying": {
+        "count": 24,
+        "median_us": 513.0,
+        "p95_us": 1587,
+        "max_us": 3023,
+        "total_us": 15554
+      },
+      "Position": {
+        "count": 24,
+        "median_us": 487.0,
+        "p95_us": 2593,
+        "max_us": 9177,
+        "total_us": 24289
+      }
+    },
+    "n": 8,
+    "state": "off",
+    "probe_exit": 0,
+    "player_exit": 0
+  },
+  {
+    "expected": 72,
+    "attempted": 72,
+    "errors": 0,
+    "not_attempted": 0,
+    "playing_replies": 24,
+    "all_positions_advance": true,
+    "initialization_us": 12102,
+    "elapsed_us": 2894714,
+    "deadline_overrun_us": 0,
+    "complete": true,
+    "playback_valid": true,
+    "by_operation": {
+      "Title": {
+        "count": 24,
+        "median_us": 1028.0,
+        "p95_us": 123179,
+        "max_us": 145866,
+        "total_us": 597669
+      },
+      "IsPlaying": {
+        "count": 24,
+        "median_us": 805.5,
+        "p95_us": 142710,
+        "max_us": 143502,
+        "total_us": 605490
+      },
+      "Position": {
+        "count": 24,
+        "median_us": 738.0,
+        "p95_us": 117393,
+        "max_us": 137857,
+        "total_us": 687319
+      }
+    },
+    "n": 8,
+    "state": "on",
+    "probe_exit": 0,
+    "player_exit": 0
+  },
+  {
+    "expected": 72,
+    "attempted": 72,
+    "errors": 0,
+    "not_attempted": 0,
+    "playing_replies": 24,
+    "all_positions_advance": true,
+    "initialization_us": 8207,
+    "elapsed_us": 4292459,
+    "deadline_overrun_us": 0,
+    "complete": true,
+    "playback_valid": true,
+    "by_operation": {
+      "Title": {
+        "count": 24,
+        "median_us": 42030.0,
+        "p95_us": 84864,
+        "max_us": 89785,
+        "total_us": 978508
+      },
+      "IsPlaying": {
+        "count": 24,
+        "median_us": 44724.5,
+        "p95_us": 84030,
+        "max_us": 117064,
+        "total_us": 1070730
+      },
+      "Position": {
+        "count": 24,
+        "median_us": 57224.5,
+        "p95_us": 106566,
+        "max_us": 112203,
+        "total_us": 1240851
+      }
+    },
+    "n": 8,
+    "state": "on",
+    "probe_exit": 0,
+    "player_exit": 0
+  },
+  {
+    "expected": 72,
+    "attempted": 72,
+    "errors": 0,
+    "not_attempted": 0,
+    "playing_replies": 24,
+    "all_positions_advance": true,
+    "initialization_us": 19618,
+    "elapsed_us": 8284241,
+    "deadline_overrun_us": 0,
+    "complete": true,
+    "playback_valid": true,
+    "by_operation": {
+      "Title": {
+        "count": 24,
+        "median_us": 65608.5,
+        "p95_us": 263980,
+        "max_us": 289444,
+        "total_us": 2322885
+      },
+      "IsPlaying": {
+        "count": 24,
+        "median_us": 65848.0,
+        "p95_us": 293987,
+        "max_us": 326815,
+        "total_us": 2409898
+      },
+      "Position": {
+        "count": 24,
+        "median_us": 101494.5,
+        "p95_us": 288278,
+        "max_us": 328270,
+        "total_us": 2548118
+      }
+    },
+    "n": 8,
+    "state": "off",
+    "probe_exit": 0,
+    "player_exit": 0
+  }
+]

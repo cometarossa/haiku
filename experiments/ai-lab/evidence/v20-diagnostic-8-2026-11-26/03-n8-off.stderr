@@ -1,0 +1,55 @@
+
+LAB_VIDEO_VIEW calls=499 null=1 looper_fail=66 bitmap_fail=0 overlay=0 invalidate=0 draw=432 total_us=5092848 update_us=161 looper_us=2697767 bitmap_us=134 overlay_us=290 invalidate_us=0 draw_us=1616021 deferred=0
+
+LAB_VIDEO_PROXY calls=643 cached=0 gap_timeout=110 seek_timeout=0 read_timeout=0 other_errors=0 success=533 gap_frames=4615 max_gap=91
+LAB_MEDIA_PRODUCER thread=6449 lock_timeouts=14 late=57 attempts=643 no_buffer=0 fills=643 fill_timeouts=110 fill_errors=0 end_buffers=0 suppressed=110 sent=533 send_errors=0 wait_us=13980861 fill_us=1384470 max_fill_us=114822 last_send_error=0
+LAB_MEDIA_CONSUMER received=530 inactive=0 late=28 target_calls=498 no_target=4 copy_bytes=0 copy_us=0 target_us=5093200 first_target_us=891982218281
+
+LAB_VIDEO_VIEW calls=544 null=1 looper_fail=77 bitmap_fail=0 overlay=0 invalidate=0 draw=466 total_us=5161126 update_us=230 looper_us=2937685 bitmap_us=176 overlay_us=172 invalidate_us=0 draw_us=1504610 deferred=0
+
+LAB_VIDEO_PROXY calls=626 cached=0 gap_timeout=44 seek_timeout=0 read_timeout=0 other_errors=0 success=582 gap_frames=1474 max_gap=55
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=6471 lock_timeouts=3 late=60 attempts=627 no_buffer=0 fills=627 fill_timeouts=44 fill_errors=1 end_buffers=0 suppressed=44 sent=582 send_errors=1 wait_us=15510117 fill_us=1472558 max_fill_us=244794 last_send_error=-2147467146
+LAB_MEDIA_CONSUMER received=576 inactive=0 late=32 target_calls=543 no_target=1 copy_bytes=0 copy_us=0 target_us=5161599 first_target_us=891984164480
+
+LAB_VIDEO_VIEW calls=413 null=1 looper_fail=56 bitmap_fail=0 overlay=0 invalidate=0 draw=356 total_us=4149920 update_us=191 looper_us=2308297 bitmap_us=106 overlay_us=158 invalidate_us=0 draw_us=1187364 deferred=0
+
+LAB_VIDEO_PROXY calls=642 cached=0 gap_timeout=200 seek_timeout=0 read_timeout=0 other_errors=0 success=442 gap_frames=9294 max_gap=94
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=6511 lock_timeouts=5 late=48 attempts=643 no_buffer=0 fills=643 fill_timeouts=200 fill_errors=1 end_buffers=0 suppressed=200 sent=442 send_errors=1 wait_us=11667979 fill_us=1230189 max_fill_us=159326 last_send_error=-2147467146
+LAB_MEDIA_CONSUMER received=436 inactive=0 late=24 target_calls=412 no_target=0 copy_bytes=0 copy_us=0 target_us=4150319 first_target_us=891985375698
+
+LAB_VIDEO_VIEW calls=411 null=1 looper_fail=63 bitmap_fail=0 overlay=0 invalidate=0 draw=347 total_us=4104715 update_us=140 looper_us=2359167 bitmap_us=106 overlay_us=582 invalidate_us=0 draw_us=1193099 deferred=0
+
+LAB_VIDEO_PROXY calls=653 cached=0 gap_timeout=214 seek_timeout=0 read_timeout=0 other_errors=0 success=439 gap_frames=9237 max_gap=93
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=6559 lock_timeouts=2 late=43 attempts=654 no_buffer=0 fills=654 fill_timeouts=214 fill_errors=1 end_buffers=0 suppressed=214 sent=439 send_errors=1 wait_us=11559274 fill_us=1148675 max_fill_us=211812 last_send_error=-2147467146
+LAB_MEDIA_CONSUMER received=433 inactive=0 late=23 target_calls=410 no_target=0 copy_bytes=0 copy_us=0 target_us=4105112 first_target_us=891986592692
+
+LAB_VIDEO_VIEW calls=299 null=1 looper_fail=43 bitmap_fail=0 overlay=0 invalidate=0 draw=255 total_us=3722707 update_us=96 looper_us=1902788 bitmap_us=460 overlay_us=85 invalidate_us=0 draw_us=1131900 deferred=0
+
+LAB_VIDEO_PROXY calls=665 cached=0 gap_timeout=346 seek_timeout=0 read_timeout=0 other_errors=0 success=319 gap_frames=15565 max_gap=95
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=6615 lock_timeouts=6 late=41 attempts=666 no_buffer=0 fills=666 fill_timeouts=346 fill_errors=1 end_buffers=0 suppressed=346 sent=320 send_errors=0 wait_us=8213981 fill_us=996444 max_fill_us=428311 last_send_error=0
+LAB_MEDIA_CONSUMER received=316 inactive=0 late=18 target_calls=298 no_target=0 copy_bytes=0 copy_us=0 target_us=3722941 first_target_us=891987921597
+
+LAB_VIDEO_VIEW calls=362 null=1 looper_fail=67 bitmap_fail=0 overlay=0 invalidate=0 draw=294 total_us=4040591 update_us=146 looper_us=2168749 bitmap_us=94 overlay_us=104 invalidate_us=0 draw_us=1256705 deferred=0
+
+LAB_VIDEO_PROXY calls=643 cached=0 gap_timeout=246 seek_timeout=0 read_timeout=0 other_errors=0 success=397 gap_frames=10565 max_gap=95
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=6679 lock_timeouts=4 late=64 attempts=644 no_buffer=0 fills=644 fill_timeouts=246 fill_errors=1 end_buffers=0 suppressed=246 sent=397 send_errors=1 wait_us=10298310 fill_us=1479469 max_fill_us=300875 last_send_error=-2147467146
+LAB_MEDIA_CONSUMER received=391 inactive=0 late=29 target_calls=361 no_target=1 copy_bytes=0 copy_us=0 target_us=4040986 first_target_us=891989286271
+
+LAB_VIDEO_VIEW calls=453 null=1 looper_fail=57 bitmap_fail=0 overlay=0 invalidate=0 draw=395 total_us=4793923 update_us=165 looper_us=2699660 bitmap_us=161 overlay_us=1013 invalidate_us=0 draw_us=1431669 deferred=0
+
+LAB_VIDEO_PROXY calls=666 cached=0 gap_timeout=173 seek_timeout=0 read_timeout=0 other_errors=0 success=493 gap_frames=8454 max_gap=96
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=6751 lock_timeouts=2 late=47 attempts=667 no_buffer=0 fills=667 fill_timeouts=173 fill_errors=1 end_buffers=0 suppressed=173 sent=493 send_errors=1 wait_us=12802257 fill_us=1387460 max_fill_us=85953 last_send_error=-2147467146
+LAB_MEDIA_CONSUMER received=487 inactive=0 late=35 target_calls=452 no_target=0 copy_bytes=0 copy_us=0 target_us=4794343 first_target_us=891990667444
+
+LAB_VIDEO_VIEW calls=490 null=1 looper_fail=71 bitmap_fail=0 overlay=0 invalidate=0 draw=418 total_us=4834700 update_us=213 looper_us=2713789 bitmap_us=115 overlay_us=138 invalidate_us=0 draw_us=1407415 deferred=0
+
+LAB_VIDEO_PROXY calls=651 cached=0 gap_timeout=119 seek_timeout=0 read_timeout=0 other_errors=0 success=532 gap_frames=5244 max_gap=96
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=6831 lock_timeouts=7 late=67 attempts=652 no_buffer=0 fills=652 fill_timeouts=119 fill_errors=1 end_buffers=0 suppressed=119 sent=532 send_errors=1 wait_us=13931775 fill_us=1172736 max_fill_us=145943 last_send_error=-2147467146
+LAB_MEDIA_CONSUMER received=526 inactive=0 late=36 target_calls=489 no_target=1 copy_bytes=0 copy_us=0 target_us=4835170 first_target_us=891992150648
