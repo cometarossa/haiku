@@ -7,7 +7,14 @@ from v20_diagnostic_report import diagnostics
 from v21_decode_report import threads,REV
 
 
-def report(root,n,combined=False):
+def report(root,n,combined=False,gop=False):
+    if combined and gop:
+        raise ValueError("choose one treatment")
+    if gop:
+        from v22_gop_decode_report import HASHES
+        manifest=(root/"input-sha256.txt").read_text().splitlines()
+        if any(f"{h}  gop-{g}.mp4" not in manifest for g,h in HASHES.items()):
+            raise ValueError("wrong GOP fixture manifest")
     if n not in (4,8,16):
         raise ValueError("unsupported stream count")
     if "ai_"+REV not in (root/"revision.txt").read_text():
@@ -21,9 +28,11 @@ def report(root,n,combined=False):
             view_state=state if combined else "off"
             row=report_trial(root,i,n,state,view_state=view_state)
             log=(root/(tag+".stderr")).read_text()
-            records=threads(log,"on" if combined else state)
+            records=threads(log,"on" if combined or gop else state)
             if len(records)!=n:
                 raise ValueError("decoder negotiation count")
+            if gop:
+                row["gop"]=15 if state=="on" else 120
             row["threads"]=records
             row["diagnostics"]=diagnostics(log,n,view_state)
             row["diagnostic_valid"]=row["player_exit"]==0
@@ -41,5 +50,6 @@ if __name__=="__main__":
     p.add_argument("root",type=Path)
     p.add_argument("streams",type=int,choices=(4,8,16))
     p.add_argument("--combined",action="store_true")
+    p.add_argument("--gop",action="store_true")
     a=p.parse_args()
-    print(json.dumps(report(a.root,a.streams,a.combined),indent=2))
+    print(json.dumps(report(a.root,a.streams,a.combined,a.gop),indent=2))

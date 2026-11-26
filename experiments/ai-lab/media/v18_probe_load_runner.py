@@ -112,9 +112,28 @@ def v21_combined_script(script, streams):
     return script
 
 
-def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None):
+def v22_gop_script(script, streams):
+    # OFF = GOP 120, ON = GOP 15; both use the same decoder/renderer.
+    script=v21_combined_script(script,streams)
+    changes=[
+        (f'v21-combined-{streams}-ram'.encode(),f'v22-gop-{streams}-ram'.encode(),2),
+        (b'for f in stream-a.mp4 media-window-probe SHA256SUMS;',b'for f in gop-120.mp4 gop-15.mp4 media-window-probe SHA256SUMS;',1),
+        (b'(set -C; : > "$timing"); own_timing=1\n',b'',1),
+        (b'if test "$st" = on; then (set -C; : > "$catchup"); c=1; fi',b'if test "$st" = on; then fixture=gop-15.mp4; else fixture=gop-120.mp4; fi',1),
+        (b'cp stream-a.mp4 "$tag-$i.mp4"; cmp stream-a.mp4 "$tag-$i.mp4"',b'cp "$fixture" "$tag-$i.mp4"; cmp "$fixture" "$tag-$i.mp4"',1),
+    ]
+    for old,new,count in changes:
+        if script.count(old)!=count:
+            raise ValueError("Unexpected GOP source anchor: "+repr(old))
+        script=script.replace(old,new)
+    return script
+
+
+def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None, gop=False, gop_decode_evidence=None, gop_evidence=None):
     if sum((queues,deferred_smoke,deferred_load,v20_streams is not None,v21_smoke,v21_streams is not None))>1 or (sixteen and not deferred_load):
         raise ValueError("Select one campaign")
+    if gop and (combined or v21_streams is None):
+        raise ValueError("GOP requires V21 streams without combined treatment")
     if combined and v21_streams is None:
         raise ValueError("Combined treatment requires V21 streams")
     revision = "067ee57e" if deferred_smoke or deferred_load else REV
@@ -173,6 +192,17 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
                 raise ValueError("Combined four-stream gate not met")
         revision="2f9d27bf"
         specs=tuple((v21_streams,state) for state in ("off","on","on","off"))
+    if gop:
+        from v22_gop_decode_report import validate as validate_gop
+        if gop_decode_evidence is None or not validate_gop(gop_decode_evidence)["valid"]:
+            raise ValueError("GOP native decode gate required")
+        if v21_streams>4:
+            from v21_load_report import report
+            if gop_evidence is None:
+                raise ValueError("GOP four-stream gate required")
+            gate=report(gop_evidence,4,gop=True)
+            if not gate["all_diagnostic_valid"] or not gate["all_playback_valid"]:
+                raise ValueError("GOP four-stream gate not met")
     initial = sample_host(revision)
     pids = {g["pid"] for g in initial["guests"]}
     downloads = {}
@@ -185,6 +215,15 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
         if hashlib.sha256(b).hexdigest() != (src/"SHA256SUMS").read_text().split()[0]:
             raise ValueError("input checksum mismatch")
         downloads[alias] = b
+    if gop:
+        from v22_gop_decode_report import HASHES
+        del downloads["stream-a.mp4"]
+        for g,expected in HASHES.items():
+            name=f"gop-{g}.mp4"
+            data=(HOME/"guest-files"/"v22-gop"/name).read_bytes()
+            if hashlib.sha256(data).hexdigest()!=expected:
+                raise ValueError("GOP fixture checksum")
+            downloads[name]=data
     downloads["SHA256SUMS"] = "".join(
         f"{hashlib.sha256(b).hexdigest()}  {n}\n" for n,b in downloads.items()).encode()
     script = (MEDIA/"v18-probe-load-guest.sh").read_bytes()
@@ -200,6 +239,8 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
         script=v21_lifecycle_script((MEDIA/"v19-deferred-smoke-guest.sh").read_bytes())
     if v21_streams is not None:
         script=v21_combined_script(script,v21_streams) if combined else v21_load_script(script,v21_streams)
+    if gop:
+        script=v22_gop_script((MEDIA/"v18-probe-load-guest.sh").read_bytes(),v21_streams)
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
@@ -311,5 +352,8 @@ if __name__=="__main__":
     p.add_argument("--v21-evidence",type=Path)
     p.add_argument("--combined",action="store_true")
     p.add_argument("--combined-evidence",type=Path)
+    p.add_argument("--gop",action="store_true")
+    p.add_argument("--gop-decode-evidence",type=Path)
+    p.add_argument("--gop-evidence",type=Path)
     a=p.parse_args()
-    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence,a.combined,a.combined_evidence)
+    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence,a.combined,a.combined_evidence,a.gop,a.gop_decode_evidence,a.gop_evidence)
