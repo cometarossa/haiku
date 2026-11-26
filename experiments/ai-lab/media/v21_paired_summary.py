@@ -11,7 +11,9 @@ def metrics(row):
     c=d["media"]["consumer"]
     q=row["probe"]
     return dict(playback_valid=row["valid"], successful_queries=q["attempted"]-q["errors"],
-                expected_queries=q["expected"], position_p95_us=q["by_operation"]["Position"]["p95_us"],
+                expected_queries=q["expected"], failed_queries=q["errors"],
+                not_attempted_queries=q["expected"]-q["attempted"],
+                position_p95_us=q["by_operation"].get("Position",{}).get("p95_us"),
                 fills=p["fills"], fill_timeouts=p["fill_timeouts"],
                 gap_timeouts=d["proxy"]["gap_timeout"], draw_submissions=row["view"]["draw"],
                 looper_fail=row["view"]["looper_fail"], late_consumer_buffers=c["late"],
@@ -32,7 +34,7 @@ def aggregate(result):
     groups={}
     for state in ("off","on"):
         m=[metrics(r) for r in rows if r["state"]==state]
-        totals={k:sum(v[k] for v in m) for k in ("successful_queries","expected_queries","fills",
+        totals={k:sum(v[k] for v in m) for k in ("successful_queries","expected_queries","failed_queries","not_attempted_queries","fills",
             "fill_timeouts","gap_timeouts","draw_submissions","looper_fail","late_consumer_buffers","lifetime_us")}
         totals["fill_timeout_fraction"]=totals["fill_timeouts"]/totals["fills"] if totals["fills"] else None
         totals["draw_requests_per_lifetime_second"]=totals["draw_submissions"]*1e6/totals["lifetime_us"]
@@ -40,7 +42,7 @@ def aggregate(result):
         totals["valid_playback_trials"]=sum(v["playback_valid"] for v in m)
         groups[state]=totals
     return dict(groups=groups,pairs=pairs,all_playback_valid=result["all_playback_valid"],
-                limitations="Lifetime counters include setup and teardown; normalized draw requests use start-to-quit-request time, not presentation FPS. Two pairs, non-isolated host.")
+                limitations="Lifetime counters include setup and teardown; normalized draw requests use start-to-quit-request time, not presentation FPS. Position latency includes failed attempts; missing samples remain null. Two pairs, non-isolated host.")
 
 
 if __name__=="__main__":

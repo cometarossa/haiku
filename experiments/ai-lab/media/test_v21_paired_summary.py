@@ -19,3 +19,15 @@ class PairedSummaryTest(unittest.TestCase):
         self.assertTrue(a["pairs"][1]["both_playback_valid"])
         r["complete"]=False
         with self.assertRaises(ValueError):aggregate(r)
+
+
+    def test_no_position_under_saturation(self):
+        bad=row("off",False)
+        bad["probe"]=dict(attempted=3,errors=3,expected=36,by_operation={"Title":{"p95_us":2000000}})
+        r=dict(complete=True,all_diagnostic_valid=True,all_playback_valid=False,
+            rows=[bad,row("on"),row("on"),row("off")])
+        a=aggregate(r)
+        self.assertEqual(a["groups"]["off"]["position_p95_us"],[None,100])
+        self.assertEqual(a["groups"]["off"]["failed_queries"],3)
+        self.assertEqual(a["groups"]["off"]["not_attempted_queries"],33)
+        self.assertFalse(a["pairs"][0]["both_playback_valid"])
