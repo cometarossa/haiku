@@ -65,6 +65,7 @@ int fake_access(const char* p,int mode){
     assert(mode==F_OK);
     if(strcmp(p,"/boot/home/config/settings/haiku-lab-video-deferred-timing")==0)
         return timing?0:-1;
+    if(strcmp(p,"/boot/home/config/settings/haiku-lab-video-observation")==0) return -1;
     assert(strcmp(p,"/boot/home/config/settings/haiku-lab-video-deferred")==0);
     return marker?0:-1;
 }

@@ -20,6 +20,7 @@
 
 #include "NodeManager.h"
 #include "VideoSupplier.h"
+#include "../../LabObservationStats.h"
 
 
 // debugging
@@ -45,6 +46,7 @@ struct LabProducerStats {
     const bool enabled;
     const thread_id thread;
     const bool timingEnabled;
+    LabObservationStats observation;
     uint64 fillOutcomeCount[5];
     bigtime_t fillOutcomeUs[5];
     uint64 lockTimeouts, late, attempts, noBuffer, fills, fillTimeouts;
@@ -57,7 +59,7 @@ struct LabProducerStats {
             F_OK) == 0), thread(find_thread(NULL)),
           timingEnabled(enabled && access(
             "/boot/home/config/settings/haiku-lab-video-fill-timing",
-            F_OK) == 0), fillOutcomeCount{}, fillOutcomeUs{},
+            F_OK) == 0), observation(enabled), fillOutcomeCount{}, fillOutcomeUs{},
           lockTimeouts(0), late(0),
           attempts(0), noBuffer(0), fills(0), fillTimeouts(0), fillErrors(0),
           endBuffers(0), suppressed(0), sent(0), sendErrors(0), waitUs(0),
@@ -90,6 +92,7 @@ struct LabProducerStats {
             thread, lockTimeouts, late, attempts, noBuffer, fills,
             fillTimeouts, fillErrors, endBuffers, suppressed, sent,
             sendErrors, waitUs, fillUs, maxFillUs, lastSendError);
+        observation.Report("producer", thread);
         if (timingEnabled) {
             fprintf(stderr, "LAB_MEDIA_FILL_TIMING thread=%" B_PRId32
                 " ok=%" B_PRIu64 " cached=%" B_PRIu64
@@ -842,6 +845,10 @@ VideoProducer::_FrameGeneratorThread()
 						++lab.fills;
 						lab.fillUs += elapsed;
 						lab.RecordFillOutcome(err, wasCached, elapsed);
+						lab.observation.Record(err == B_OK ? (wasCached ? 1 : 0)
+							: err == B_TIMED_OUT ? 2
+							: err == B_LAST_BUFFER_ERROR ? 3 : 4,
+							fillStart + elapsed);
 						if (elapsed > lab.maxFillUs) lab.maxFillUs = elapsed;
 						if (err == B_TIMED_OUT) ++lab.fillTimeouts;
 						else if (err == B_LAST_BUFFER_ERROR) ++lab.endBuffers;
@@ -884,6 +891,7 @@ VideoProducer::_FrameGeneratorThread()
 						}
 					}
 					if (lab.enabled) {
+						lab.observation.Record(err != B_OK ? 7 : wasCached ? 6 : 5);
 						if (err != B_OK) {
 							++lab.sendErrors;
 							lab.lastSendError = err;

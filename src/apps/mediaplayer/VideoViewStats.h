@@ -8,6 +8,7 @@
 #include <OS.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "LabObservationStats.h"
 
 
 // SetBitmap is called under the existing consumer target lock. Keep
@@ -23,7 +24,7 @@ public:
 		:
 		enabled(access("/boot/home/config/settings/haiku-lab-video-view-stats",
 			F_OK) == 0),
-		calls(0), outcomes(), total(0), update(0), looper(0),
+		observation(enabled), calls(0), outcomes(), total(0), update(0), looper(0),
 		bitmap(0), overlay(0), invalidate(0), draw(0)
 	{
 	}
@@ -50,6 +51,7 @@ public:
 			atomic_get64(&bitmap), atomic_get64(&overlay),
 			atomic_get64(&invalidate), atomic_get64(&draw),
 			atomic_get64(&outcomes[kDeferred]));
+		observation.Report("view", (int64)(uintptr_t)this);
 	}
 
 	class Sample {
@@ -67,7 +69,9 @@ public:
 			if (!fStats.enabled)
 				return;
 			// An unexpected outcome remains detectable by conservation.
-			bigtime_t elapsed = Elapsed(start);
+			const bigtime_t end = Now();
+			bigtime_t elapsed = end - start;
+			fStats.observation.Record(outcome, end);
 			atomic_add64(&fStats.calls, 1);
 			if (outcome < kOutcomeCount)
 				atomic_add64(&fStats.outcomes[outcome], 1);
@@ -101,6 +105,7 @@ public:
 
 private:
 	const bool enabled;
+	LabObservationStats observation;
 	int64 calls;
 	int64 outcomes[kOutcomeCount];
 	int64 total, update, looper, bitmap, overlay, invalidate, draw;

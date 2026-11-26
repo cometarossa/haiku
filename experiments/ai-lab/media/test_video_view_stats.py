@@ -29,6 +29,7 @@ inline int64 atomic_get64(int64* p) { return __atomic_load_n(p,__ATOMIC_ACQUIRE)
 #include <cstring>
 bool marker=false;
 int lab_access(const char* path,int mode) {
+    if(strcmp(path,"/boot/home/config/settings/haiku-lab-video-observation")==0) return -1;
     assert(strcmp(path,"/boot/home/config/settings/haiku-lab-video-view-stats")==0);
     assert(mode==F_OK);
     return marker ? 0 : -1;

@@ -7,6 +7,7 @@
 #include <OS.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "LabObservationStats.h"
 
 
 class LabDeferredVideo {
@@ -18,6 +19,7 @@ public:
 		fTiming(fRequested && access(
 			"/boot/home/config/settings/haiku-lab-video-deferred-timing",
 			F_OK) == 0),
+		fObservation(fRequested),
 		fState(fRequested ? kUnattached : kDisabled),
 		fQueued(0), fCoalesced(0), fFailed(0), fHandled(0),
 		fCancelled(0), fDraw(0), fSkipped(0), fEnqueueTime(0),
@@ -106,6 +108,7 @@ public:
 		bigtime_t bitmap = 0, bigtime_t draw = 0)
 	{
 		atomic_add64(drew ? &fDraw : &fSkipped, 1);
+		fObservation.Record(drew ? 0 : 1);
 		if (fTiming) {
 			atomic_add64(&fHandlerUs, elapsed);
 			atomic_add64(&fBitmapUs, bitmap);
@@ -125,6 +128,7 @@ public:
 			atomic_get64(&fFailed), atomic_get64(&fHandled),
 			atomic_get64(&fCancelled), atomic_get64(&fDraw),
 			atomic_get64(&fSkipped));
+		fObservation.Report("deferred", (int64)(uintptr_t)this);
 		if (fTiming) {
 			fprintf(stderr, "\nLAB_VIDEO_DEFERRED_TIMING queue_us=%" B_PRId64
 				" handler_us=%" B_PRId64 " bitmap_us=%" B_PRId64
@@ -138,6 +142,7 @@ private:
 	enum { kUnattached = -1, kDisabled, kReady, kPending };
 	const bool fRequested;
 	const bool fTiming;
+	LabObservationStats fObservation;
 	int32 fState;
 	BMessenger fMessenger;
 	int64 fQueued, fCoalesced, fFailed, fHandled, fCancelled, fDraw, fSkipped;
