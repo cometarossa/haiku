@@ -1,0 +1,765 @@
+{
+  "complete": true,
+  "rows": [
+    {
+      "tag": "00-n16-off",
+      "n": 16,
+      "state": "off",
+      "observation_us": 20159454,
+      "lifetime_to_quit_request_us": 57396057,
+      "dispatch_us": 1533426,
+      "probe": {
+        "expected": 144,
+        "attempted": 18,
+        "errors": 13,
+        "not_attempted": 126,
+        "playing_replies": 2,
+        "all_positions_advance": false,
+        "initialization_us": 18582,
+        "elapsed_us": 15000644,
+        "deadline_overrun_us": 644,
+        "complete": false,
+        "playback_valid": false,
+        "by_operation": {
+          "Title": {
+            "count": 14,
+            "median_us": 155680.5,
+            "p95_us": 2000949,
+            "max_us": 2000949,
+            "total_us": 7955373
+          },
+          "IsPlaying": {
+            "count": 2,
+            "median_us": 1792836.5,
+            "p95_us": 1840265,
+            "max_us": 1840265,
+            "total_us": 3585673
+          },
+          "Position": {
+            "count": 2,
+            "median_us": 1729458.0,
+            "p95_us": 2000234,
+            "max_us": 2000234,
+            "total_us": 3458916
+          }
+        }
+      },
+      "view": {
+        "calls": 7210,
+        "null": 16,
+        "looper_fail": 1192,
+        "bitmap_fail": 0,
+        "overlay": 0,
+        "invalidate": 0,
+        "draw": 6002,
+        "total_us": 144798089,
+        "update_us": 4538,
+        "looper_us": 63427460,
+        "bitmap_us": 2398,
+        "overlay_us": 3548,
+        "invalidate_us": 0,
+        "draw_us": 54395930,
+        "deferred": 0,
+        "records": 16,
+        "unattributed_us": 26964215
+      },
+      "deferred": [],
+      "player_exit": 0,
+      "valid": false,
+      "diagnostics": {
+        "proxy": {
+          "calls": 21123,
+          "cached": 0,
+          "gap_timeout": 13424,
+          "seek_timeout": 0,
+          "read_timeout": 0,
+          "other_errors": 0,
+          "success": 7699,
+          "gap_frames": 856981,
+          "max_gap": 119,
+          "records": 16,
+          "timeouts": 13424
+        },
+        "timing": {},
+        "media": {
+          "producer": {
+            "records": 16,
+            "lock_timeouts": 1351,
+            "late": 9401,
+            "attempts": 21129,
+            "no_buffer": 0,
+            "fills": 21129,
+            "fill_timeouts": 13424,
+            "fill_errors": 6,
+            "end_buffers": 0,
+            "suppressed": 13424,
+            "sent": 7703,
+            "send_errors": 2,
+            "wait_us": 162848914,
+            "fill_us": 21425634,
+            "max_fill_us": 440837
+          },
+          "consumer": {
+            "records": 16,
+            "received": 7631,
+            "inactive": 0,
+            "late": 318,
+            "target_calls": 7194,
+            "no_target": 119,
+            "copy_bytes": 0,
+            "copy_us": 0,
+            "target_us": 144820758
+          }
+        }
+      },
+      "diagnostic_valid": true
+    },
+    {
+      "tag": "01-n16-on",
+      "n": 16,
+      "state": "on",
+      "observation_us": 20102939,
+      "lifetime_to_quit_request_us": 51994439,
+      "dispatch_us": 1461426,
+      "probe": {
+        "expected": 144,
+        "attempted": 40,
+        "errors": 6,
+        "not_attempted": 104,
+        "playing_replies": 11,
+        "all_positions_advance": false,
+        "initialization_us": 12372,
+        "elapsed_us": 15001093,
+        "deadline_overrun_us": 1093,
+        "complete": false,
+        "playback_valid": false,
+        "by_operation": {
+          "Title": {
+            "count": 16,
+            "median_us": 317532.0,
+            "p95_us": 1024589,
+            "max_us": 1024589,
+            "total_us": 5827778
+          },
+          "IsPlaying": {
+            "count": 12,
+            "median_us": 423270.5,
+            "p95_us": 1001475,
+            "max_us": 1001475,
+            "total_us": 4861245
+          },
+          "Position": {
+            "count": 12,
+            "median_us": 297998.5,
+            "p95_us": 743209,
+            "max_us": 743209,
+            "total_us": 4294635
+          }
+        }
+      },
+      "view": {
+        "calls": 4674,
+        "null": 16,
+        "looper_fail": 0,
+        "bitmap_fail": 0,
+        "overlay": 0,
+        "invalidate": 0,
+        "draw": 0,
+        "total_us": 1156273,
+        "update_us": 946652,
+        "looper_us": 0,
+        "bitmap_us": 0,
+        "overlay_us": 0,
+        "invalidate_us": 0,
+        "draw_us": 0,
+        "deferred": 4658,
+        "records": 16,
+        "unattributed_us": 209621
+      },
+      "deferred": [
+        {
+          "queued": 71,
+          "coalesced": 58,
+          "failed": 0,
+          "handled": 70,
+          "cancelled": 0,
+          "draw": 70,
+          "skipped": 0
+        },
+        {
+          "queued": 70,
+          "coalesced": 254,
+          "failed": 0,
+          "handled": 70,
+          "cancelled": 0,
+          "draw": 70,
+          "skipped": 0
+        },
+        {
+          "queued": 56,
+          "coalesced": 69,
+          "failed": 0,
+          "handled": 56,
+          "cancelled": 0,
+          "draw": 56,
+          "skipped": 0
+        },
+        {
+          "queued": 64,
+          "coalesced": 178,
+          "failed": 0,
+          "handled": 63,
+          "cancelled": 0,
+          "draw": 63,
+          "skipped": 0
+        },
+        {
+          "queued": 73,
+          "coalesced": 154,
+          "failed": 0,
+          "handled": 73,
+          "cancelled": 0,
+          "draw": 73,
+          "skipped": 0
+        },
+        {
+          "queued": 84,
+          "coalesced": 159,
+          "failed": 0,
+          "handled": 83,
+          "cancelled": 0,
+          "draw": 83,
+          "skipped": 0
+        },
+        {
+          "queued": 59,
+          "coalesced": 58,
+          "failed": 0,
+          "handled": 59,
+          "cancelled": 0,
+          "draw": 59,
+          "skipped": 0
+        },
+        {
+          "queued": 81,
+          "coalesced": 229,
+          "failed": 0,
+          "handled": 81,
+          "cancelled": 0,
+          "draw": 81,
+          "skipped": 0
+        },
+        {
+          "queued": 76,
+          "coalesced": 190,
+          "failed": 0,
+          "handled": 76,
+          "cancelled": 0,
+          "draw": 76,
+          "skipped": 0
+        },
+        {
+          "queued": 105,
+          "coalesced": 162,
+          "failed": 0,
+          "handled": 105,
+          "cancelled": 0,
+          "draw": 105,
+          "skipped": 0
+        },
+        {
+          "queued": 137,
+          "coalesced": 234,
+          "failed": 0,
+          "handled": 137,
+          "cancelled": 0,
+          "draw": 137,
+          "skipped": 0
+        },
+        {
+          "queued": 132,
+          "coalesced": 244,
+          "failed": 0,
+          "handled": 132,
+          "cancelled": 0,
+          "draw": 132,
+          "skipped": 0
+        },
+        {
+          "queued": 80,
+          "coalesced": 240,
+          "failed": 0,
+          "handled": 80,
+          "cancelled": 0,
+          "draw": 80,
+          "skipped": 0
+        },
+        {
+          "queued": 74,
+          "coalesced": 356,
+          "failed": 0,
+          "handled": 74,
+          "cancelled": 0,
+          "draw": 74,
+          "skipped": 0
+        },
+        {
+          "queued": 186,
+          "coalesced": 252,
+          "failed": 0,
+          "handled": 186,
+          "cancelled": 0,
+          "draw": 186,
+          "skipped": 0
+        },
+        {
+          "queued": 147,
+          "coalesced": 326,
+          "failed": 0,
+          "handled": 147,
+          "cancelled": 0,
+          "draw": 147,
+          "skipped": 0
+        }
+      ],
+      "player_exit": 0,
+      "valid": false,
+      "diagnostics": {
+        "proxy": {
+          "calls": 12686,
+          "cached": 0,
+          "gap_timeout": 7889,
+          "seek_timeout": 0,
+          "read_timeout": 0,
+          "other_errors": 0,
+          "success": 4797,
+          "gap_frames": 472396,
+          "max_gap": 119,
+          "records": 16,
+          "timeouts": 7889
+        },
+        "timing": {
+          "queue_us": 153813070,
+          "handler_us": 7300890,
+          "bitmap_us": 1021,
+          "draw_us": 7285178,
+          "handled": 1492,
+          "mean_queue_us": 103091.86997319035,
+          "mean_handler_us": 4893.357908847185
+        },
+        "media": {
+          "producer": {
+            "records": 16,
+            "lock_timeouts": 403,
+            "late": 2356,
+            "attempts": 12692,
+            "no_buffer": 0,
+            "fills": 12692,
+            "fill_timeouts": 7889,
+            "fill_errors": 6,
+            "end_buffers": 0,
+            "suppressed": 7889,
+            "sent": 4799,
+            "send_errors": 4,
+            "wait_us": 86947008,
+            "fill_us": 17190752,
+            "max_fill_us": 201220
+          },
+          "consumer": {
+            "records": 16,
+            "received": 4733,
+            "inactive": 0,
+            "late": 23,
+            "target_calls": 4658,
+            "no_target": 52,
+            "copy_bytes": 0,
+            "copy_us": 0,
+            "target_us": 1162422
+          }
+        }
+      },
+      "diagnostic_valid": true
+    },
+    {
+      "tag": "02-n16-on",
+      "n": 16,
+      "state": "on",
+      "observation_us": 20032351,
+      "lifetime_to_quit_request_us": 50938004,
+      "dispatch_us": 476676,
+      "probe": {
+        "expected": 144,
+        "attempted": 36,
+        "errors": 8,
+        "not_attempted": 108,
+        "playing_replies": 9,
+        "all_positions_advance": false,
+        "initialization_us": 28096,
+        "elapsed_us": 15001168,
+        "deadline_overrun_us": 1168,
+        "complete": false,
+        "playback_valid": false,
+        "by_operation": {
+          "Title": {
+            "count": 16,
+            "median_us": 146947.5,
+            "p95_us": 1902462,
+            "max_us": 1902462,
+            "total_us": 6195040
+          },
+          "IsPlaying": {
+            "count": 10,
+            "median_us": 432701.5,
+            "p95_us": 1185312,
+            "max_us": 1185312,
+            "total_us": 4508936
+          },
+          "Position": {
+            "count": 10,
+            "median_us": 437361.0,
+            "p95_us": 1102392,
+            "max_us": 1102392,
+            "total_us": 4293219
+          }
+        }
+      },
+      "view": {
+        "calls": 5453,
+        "null": 16,
+        "looper_fail": 0,
+        "bitmap_fail": 0,
+        "overlay": 0,
+        "invalidate": 0,
+        "draw": 0,
+        "total_us": 909572,
+        "update_us": 801673,
+        "looper_us": 0,
+        "bitmap_us": 0,
+        "overlay_us": 0,
+        "invalidate_us": 0,
+        "draw_us": 0,
+        "deferred": 5437,
+        "records": 16,
+        "unattributed_us": 107899
+      },
+      "deferred": [
+        {
+          "queued": 77,
+          "coalesced": 131,
+          "failed": 0,
+          "handled": 77,
+          "cancelled": 0,
+          "draw": 77,
+          "skipped": 0
+        },
+        {
+          "queued": 52,
+          "coalesced": 36,
+          "failed": 0,
+          "handled": 52,
+          "cancelled": 0,
+          "draw": 52,
+          "skipped": 0
+        },
+        {
+          "queued": 65,
+          "coalesced": 371,
+          "failed": 0,
+          "handled": 65,
+          "cancelled": 0,
+          "draw": 65,
+          "skipped": 0
+        },
+        {
+          "queued": 51,
+          "coalesced": 64,
+          "failed": 0,
+          "handled": 51,
+          "cancelled": 0,
+          "draw": 51,
+          "skipped": 0
+        },
+        {
+          "queued": 61,
+          "coalesced": 99,
+          "failed": 0,
+          "handled": 60,
+          "cancelled": 0,
+          "draw": 60,
+          "skipped": 0
+        },
+        {
+          "queued": 67,
+          "coalesced": 179,
+          "failed": 0,
+          "handled": 67,
+          "cancelled": 0,
+          "draw": 67,
+          "skipped": 0
+        },
+        {
+          "queued": 96,
+          "coalesced": 271,
+          "failed": 0,
+          "handled": 95,
+          "cancelled": 0,
+          "draw": 95,
+          "skipped": 0
+        },
+        {
+          "queued": 90,
+          "coalesced": 212,
+          "failed": 0,
+          "handled": 89,
+          "cancelled": 0,
+          "draw": 89,
+          "skipped": 0
+        },
+        {
+          "queued": 131,
+          "coalesced": 369,
+          "failed": 0,
+          "handled": 131,
+          "cancelled": 0,
+          "draw": 131,
+          "skipped": 0
+        },
+        {
+          "queued": 106,
+          "coalesced": 270,
+          "failed": 0,
+          "handled": 105,
+          "cancelled": 0,
+          "draw": 105,
+          "skipped": 0
+        },
+        {
+          "queued": 195,
+          "coalesced": 227,
+          "failed": 0,
+          "handled": 195,
+          "cancelled": 0,
+          "draw": 195,
+          "skipped": 0
+        },
+        {
+          "queued": 144,
+          "coalesced": 380,
+          "failed": 0,
+          "handled": 144,
+          "cancelled": 0,
+          "draw": 144,
+          "skipped": 0
+        },
+        {
+          "queued": 123,
+          "coalesced": 71,
+          "failed": 0,
+          "handled": 123,
+          "cancelled": 0,
+          "draw": 123,
+          "skipped": 0
+        },
+        {
+          "queued": 164,
+          "coalesced": 314,
+          "failed": 0,
+          "handled": 164,
+          "cancelled": 0,
+          "draw": 164,
+          "skipped": 0
+        },
+        {
+          "queued": 154,
+          "coalesced": 391,
+          "failed": 0,
+          "handled": 154,
+          "cancelled": 0,
+          "draw": 154,
+          "skipped": 0
+        },
+        {
+          "queued": 179,
+          "coalesced": 297,
+          "failed": 0,
+          "handled": 179,
+          "cancelled": 0,
+          "draw": 179,
+          "skipped": 0
+        }
+      ],
+      "player_exit": 0,
+      "valid": false,
+      "diagnostics": {
+        "proxy": {
+          "calls": 12644,
+          "cached": 0,
+          "gap_timeout": 7011,
+          "seek_timeout": 0,
+          "read_timeout": 0,
+          "other_errors": 0,
+          "success": 5633,
+          "gap_frames": 430495,
+          "max_gap": 119,
+          "records": 16,
+          "timeouts": 7011
+        },
+        "timing": {
+          "queue_us": 176109249,
+          "handler_us": 8638926,
+          "bitmap_us": 532,
+          "draw_us": 8627255,
+          "handled": 1751,
+          "mean_queue_us": 100576.38435179897,
+          "mean_handler_us": 4933.709880068533
+        },
+        "media": {
+          "producer": {
+            "records": 16,
+            "lock_timeouts": 366,
+            "late": 2155,
+            "attempts": 12654,
+            "no_buffer": 0,
+            "fills": 12654,
+            "fill_timeouts": 7011,
+            "fill_errors": 10,
+            "end_buffers": 0,
+            "suppressed": 7011,
+            "sent": 5637,
+            "send_errors": 6,
+            "wait_us": 104331575,
+            "fill_us": 16888060,
+            "max_fill_us": 346065
+          },
+          "consumer": {
+            "records": 16,
+            "received": 5559,
+            "inactive": 0,
+            "late": 29,
+            "target_calls": 5437,
+            "no_target": 93,
+            "copy_bytes": 0,
+            "copy_us": 0,
+            "target_us": 913609
+          }
+        }
+      },
+      "diagnostic_valid": true
+    },
+    {
+      "tag": "03-n16-off",
+      "n": 16,
+      "state": "off",
+      "observation_us": 20078507,
+      "lifetime_to_quit_request_us": 60126269,
+      "dispatch_us": 1640657,
+      "probe": {
+        "expected": 144,
+        "attempted": 18,
+        "errors": 12,
+        "not_attempted": 126,
+        "playing_replies": 2,
+        "all_positions_advance": false,
+        "initialization_us": 22287,
+        "elapsed_us": 15013276,
+        "deadline_overrun_us": 13276,
+        "complete": false,
+        "playback_valid": false,
+        "by_operation": {
+          "Title": {
+            "count": 12,
+            "median_us": 117528.5,
+            "p95_us": 1777579,
+            "max_us": 1777579,
+            "total_us": 5326156
+          },
+          "IsPlaying": {
+            "count": 3,
+            "median_us": 1459571,
+            "p95_us": 2001309,
+            "max_us": 2001309,
+            "total_us": 4903022
+          },
+          "Position": {
+            "count": 3,
+            "median_us": 1533923,
+            "p95_us": 2001308,
+            "max_us": 2001308,
+            "total_us": 4783199
+          }
+        }
+      },
+      "view": {
+        "calls": 5243,
+        "null": 16,
+        "looper_fail": 1103,
+        "bitmap_fail": 0,
+        "overlay": 0,
+        "invalidate": 0,
+        "draw": 4124,
+        "total_us": 120685496,
+        "update_us": 3780,
+        "looper_us": 52998921,
+        "bitmap_us": 2265,
+        "overlay_us": 5725,
+        "invalidate_us": 0,
+        "draw_us": 44613920,
+        "deferred": 0,
+        "records": 16,
+        "unattributed_us": 23060885
+      },
+      "deferred": [],
+      "player_exit": 0,
+      "valid": false,
+      "diagnostics": {
+        "proxy": {
+          "calls": 22071,
+          "cached": 0,
+          "gap_timeout": 16407,
+          "seek_timeout": 0,
+          "read_timeout": 0,
+          "other_errors": 0,
+          "success": 5664,
+          "gap_frames": 991728,
+          "max_gap": 119,
+          "records": 16,
+          "timeouts": 16407
+        },
+        "timing": {},
+        "media": {
+          "producer": {
+            "records": 16,
+            "lock_timeouts": 1744,
+            "late": 10391,
+            "attempts": 22081,
+            "no_buffer": 0,
+            "fills": 22081,
+            "fill_timeouts": 16407,
+            "fill_errors": 10,
+            "end_buffers": 0,
+            "suppressed": 16407,
+            "sent": 5672,
+            "send_errors": 2,
+            "wait_us": 101476820,
+            "fill_us": 21401108,
+            "max_fill_us": 269323
+          },
+          "consumer": {
+            "records": 16,
+            "received": 5596,
+            "inactive": 0,
+            "late": 284,
+            "target_calls": 5227,
+            "no_target": 85,
+            "copy_bytes": 0,
+            "copy_us": 0,
+            "target_us": 120692400
+          }
+        }
+      },
+      "diagnostic_valid": true
+    }
+  ],
+  "all_diagnostic_valid": true,
+  "all_playback_valid": false
+}

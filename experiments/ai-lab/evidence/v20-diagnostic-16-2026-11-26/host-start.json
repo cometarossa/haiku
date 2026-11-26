@@ -1,0 +1,24 @@
+{
+  "timestamp": 1795651489.338835,
+  "guests": [
+    {
+      "pid": 1055,
+      "cpu": "6,4",
+      "rss_kib": 1996488,
+      "command": "qemu-system-x86_64 -machine pc,accel=hvf,vmport=off -cpu Penryn -smp 4 -m 8192 -drive file=/Users/ehm/Developer/Haiku/ai-images/run-local-11904750/haiku-ai-regular-overlay.qcow2,format=qcow2,if=ide,index=0,media=disk -vga std -nic user,model=rtl8139 -vnc 127.0.0.1:24,password=on -monitor unix:/Users/ehm/Developer/Haiku/ai-images/run-local-11904750/haiku-ai-regular-monitor.sock,server,nowait -serial file:/Users/ehm/Developer/Haiku/ai-images/run-local-11904750/haiku-ai-regular-serial.log -pidfile /Users/ehm/Developer/Haiku/ai-images/run-local-11904750/haiku-ai-regular-qemu.pid -daemonize -boot order=c"
+    },
+    {
+      "pid": 45837,
+      "cpu": "5,1",
+      "rss_kib": 6492120,
+      "command": "qemu-system-x86_64 -machine pc,accel=hvf,vmport=off -cpu Penryn -smp 4 -m 8192 -drive file=/Users/ehm/Developer/Haiku/vm/haiku-ai-baseline-overlay-20261123.qcow2,format=qcow2,if=ide,index=0,media=disk -vga std -nic user,model=rtl8139 -vnc 127.0.0.1:11,password=on -monitor unix:/Users/ehm/Developer/Haiku/vm/haiku-ai-baseline-monitor.sock,server,nowait -serial file:/Users/ehm/Developer/Haiku/vm/haiku-ai-baseline-serial.log -pidfile /Users/ehm/Developer/Haiku/vm/haiku-ai-baseline-qemu.pid -daemonize -boot order=c"
+    },
+    {
+      "pid": 47615,
+      "cpu": "12,4",
+      "rss_kib": 6225196,
+      "command": "/usr/local/bin/qemu-system-x86_64 -name fincept-qa-offline-20261116 -machine q35,accel=hvf -smp 4 -m 8192 -drive file=/Users/ehm/Library/Caches/kairos-fincept-vm/fincept-lab-overlay.qcow2,format=qcow2,if=virtio,snapshot=on -netdev user,id=net0,restrict=on,hostfwd=tcp:127.0.0.1:2228-:22 -device virtio-net-pci,netdev=net0 -vga std -display none -vnc 127.0.0.1:10 -monitor unix:/tmp/fincept-qa-offline-monitor.sock,server,nowait -serial file:/tmp/fincept-qa-offline-serial.log -daemonize"
+    }
+  ],
+  "uptime": "1:04  up 10 days,  7:48, 5 users, load averages: 5,40 7,71 8,36"
+}
