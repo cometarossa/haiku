@@ -142,9 +142,30 @@ def record_teardown_clocks(script):
     return script
 
 
-def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None, gop=False, gop_decode_evidence=None, gop_evidence=None):
+def observation_script(script, mode):
+    if mode not in ("off","on"):
+        raise ValueError("invalid observation mode")
+    changes=[
+        (b'v21-combined-4-ram',f'v22-observation-{mode}-ram'.encode(),2),
+        (b'proxy=/boot/home/config/settings/haiku-lab-video-proxy-stats',b'proxy=/boot/home/config/settings/haiku-lab-video-proxy-stats\nobservation=/boot/home/config/settings/haiku-lab-video-observation\nfilltiming=/boot/home/config/settings/haiku-lab-video-fill-timing',1),
+        (b'"$threadstats" "$single"',b'"$threadstats" "$single" "$observation" "$filltiming"',2),
+        (b'own_single=0\ncleanup()',b'own_single=0;own_observation=0;own_filltiming=0\ncleanup()',1),
+        (b'cleanup() {',b'cleanup() {\n if test "$own_observation" = 1; then rm -f "$observation"; own_observation=0; fi\n if test "$own_filltiming" = 1; then rm -f "$filltiming"; own_filltiming=0; fi',1),
+    ]
+    if mode=="on":
+        changes.append((b'(set -C; : > "$single"); own_single=1',b'(set -C; : > "$single"); own_single=1\n(set -C; : > "$observation"); own_observation=1\n(set -C; : > "$filltiming"); own_filltiming=1',1))
+    for old,new,count in changes:
+        if script.count(old)!=count:
+            raise ValueError("Unexpected observation anchor: "+repr(old))
+        script=script.replace(old,new)
+    return script
+
+
+def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None, gop=False, gop_decode_evidence=None, gop_evidence=None, observation=None):
     if sum((queues,deferred_smoke,deferred_load,v20_streams is not None,v21_smoke,v21_streams is not None))>1 or (sixteen and not deferred_load):
         raise ValueError("Select one campaign")
+    if observation is not None and (not combined or v21_streams!=4):
+        raise ValueError("Observation smoke requires combined four-stream campaign")
     if gop and (combined or v21_streams is None):
         raise ValueError("GOP requires V21 streams without combined treatment")
     if combined and v21_streams is None:
@@ -216,6 +237,8 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
             gate=report(gop_evidence,4,gop=True)
             if not gate["all_diagnostic_valid"] or not gate["all_playback_valid"]:
                 raise ValueError("GOP four-stream gate not met")
+    if observation is not None:
+        revision="4ae8e7ea"
     initial = sample_host(revision)
     pids = {g["pid"] for g in initial["guests"]}
     downloads = {}
@@ -256,6 +279,8 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
         script=v22_gop_script((MEDIA/"v18-probe-load-guest.sh").read_bytes(),v21_streams)
     if v21_streams is not None:
         script=record_teardown_clocks(script)
+    if observation is not None:
+        script=observation_script(script,observation)
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
@@ -370,5 +395,6 @@ if __name__=="__main__":
     p.add_argument("--gop",action="store_true")
     p.add_argument("--gop-decode-evidence",type=Path)
     p.add_argument("--gop-evidence",type=Path)
+    p.add_argument("--observation",choices=("off","on"))
     a=p.parse_args()
-    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence,a.combined,a.combined_evidence,a.gop,a.gop_decode_evidence,a.gop_evidence)
+    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence,a.combined,a.combined_evidence,a.gop,a.gop_decode_evidence,a.gop_evidence,a.observation)

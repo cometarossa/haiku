@@ -7,7 +7,7 @@ from v20_diagnostic_report import diagnostics
 from v21_decode_report import threads,REV
 
 
-def report(root,n,combined=False,gop=False):
+def report(root,n,combined=False,gop=False,revision=REV):
     if combined and gop:
         raise ValueError("choose one treatment")
     if gop:
@@ -17,7 +17,7 @@ def report(root,n,combined=False,gop=False):
             raise ValueError("wrong GOP fixture manifest")
     if n not in (4,8,16):
         raise ValueError("unsupported stream count")
-    if "ai_"+REV not in (root/"revision.txt").read_text():
+    if "ai_"+revision not in (root/"revision.txt").read_text():
         raise ValueError("wrong image")
     rows=[]
     for i,state in enumerate(("off","on","on","off")):
