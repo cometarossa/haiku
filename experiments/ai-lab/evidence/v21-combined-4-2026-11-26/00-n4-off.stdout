@@ -1,0 +1,77 @@
+open playlist item: 00-n4-off-1.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+BMediaEventLooper: SchedulingLatency is 1500
+open playlist item: 00-n4-off-2.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+BMediaEventLooper: SchedulingLatency is 500
+open playlist item: 00-n4-off-3.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+BMediaEventLooper: SchedulingLatency is 500
+open playlist item: 00-n4-off-4.mp4
+MediaTrackVideoSupplier::_SwitchFormat() - preferred color space: B_YUV420
+MediaTrackVideoSupplier::_SwitchFormat() -  codec changed colorspace of decoded format (B_YUV420 -> B_RGB32)!
+should skip -1 lines at bottom!
+LAB_MEDIA_OVERLAY_PREFLIGHT software format=8
+running without audio node
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 1500
+VideoProducer: dropped frame (306) (perf. time 10200000)
+VideoProducer: dropped frame (383) (perf. time 12766666)
+VideoProducer: dropped frame (438) (perf. time 14600000)
+VideoProducer: dropped frame (347) (perf. time 11566666)
+VideoProducer: dropped frame (348) (perf. time 11600000)
+VideoProducer: dropped frame (440) (perf. time 14666666)
+VideoProducer: dropped frame (373) (perf. time 12433333)
+VideoProducer: dropped frame (374) (perf. time 12466666)
+VideoProducer: dropped frame (333) (perf. time 11100000)
+VideoProducer: dropped frame (334) (perf. time 11133333)
+VideoProducer: dropped frame (464) (perf. time 15466666)
+VideoProducer: dropped frame (465) (perf. time 15500000)
+VideoProducer: dropped frame (409) (perf. time 13633333)
+VideoProducer: dropped frame (410) (perf. time 13666666)
+VideoProducer: dropped frame (359) (perf. time 11966666)
+VideoProducer: dropped frame (434) (perf. time 14466666)
+VideoProducer: dropped frame (399) (perf. time 13300000)
+VideoProducer: dropped frame (435) (perf. time 14500000)
+VideoProducer: dropped frame (400) (perf. time 13333333)
+VideoProducer: dropped frame (491) (perf. time 16366666)
+VideoProducer: dropped frame (492) (perf. time 16400000)
+VideoProducer: dropped frame (436) (perf. time 14533333)
+VideoProducer: dropped frame (401) (perf. time 13366666)
+VideoProducer: dropped frame (437) (perf. time 14566666)
+VideoProducer: dropped frame (402) (perf. time 13400000)
+VideoProducer: dropped frame (448) (perf. time 14933333)
+VideoProducer: dropped frame (524) (perf. time 17466666)
+VideoProducer: dropped frame (579) (perf. time 19300000)
+VideoProducer: dropped frame (488) (perf. time 16266666)
+VideoProducer: dropped frame (664) (perf. time 22133333)
+VideoProducer: dropped frame (629) (perf. time 20966666)
+VideoProducer: dropped frame (589) (perf. time 19633333)
+VideoProducer: dropped frame (720) (perf. time 24000000)
+VideoProducer: dropped frame (721) (perf. time 24033333)
+VideoProducer: dropped frame (666) (perf. time 22200000)
+VideoProducer: dropped frame (700) (perf. time 23333333)
+VideoProducer: dropped frame (664) (perf. time 22133333)
+VideoProducer: dropped frame (755) (perf. time 25166666)
+VideoProducer: dropped frame (665) (perf. time 22166666)
+VideoProducer: dropped frame (624) (perf. time 20800000)
+VideoProducer: dropped frame (756) (perf. time 25200000)
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 1000
+BMediaEventLooper: SchedulingLatency is 500
+BMediaEventLooper: SchedulingLatency is 500
