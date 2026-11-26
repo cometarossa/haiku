@@ -22,3 +22,12 @@ class ObservationScriptTest(unittest.TestCase):
                 r=subprocess.run(["sh","-ec",prefix+setup],capture_output=True)
                 self.assertEqual(r.returncode,7)
                 self.assertEqual(list(Path(d).iterdir()),[marker])
+
+    def test_capacity_variants(self):
+        raw=Path(__file__).with_name("v18-probe-load-guest.sh").read_bytes()
+        for n in (8,16):
+            s=observation_script(record_teardown_clocks(v21_combined_script(raw,n)),"on",n)
+            subprocess.run(["sh","-n"],input=s,check=True)
+            self.assertIn(f"v22-observation-on-{n}-ram".encode(),s)
+            self.assertIn(f"for spec in {n}-off {n}-on {n}-on {n}-off;".encode(),s)
+            self.assertEqual(s.count(b': > "$observation"'),1)
