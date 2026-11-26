@@ -1,0 +1,37 @@
+{
+  "identical": true,
+  "results": {
+    "off": {
+      "frames": 600,
+      "summary": "600,320,180,B_RGB32,596d0a4ed6595baf",
+      "elapsed_us": 1076121,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 4,
+          "effective": 4,
+          "active_type": 1
+        }
+      ]
+    },
+    "on": {
+      "frames": 600,
+      "summary": "600,320,180,B_RGB32,596d0a4ed6595baf",
+      "elapsed_us": 384803,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 1,
+          "effective": 1,
+          "active_type": 0
+        }
+      ]
+    }
+  }
+}
