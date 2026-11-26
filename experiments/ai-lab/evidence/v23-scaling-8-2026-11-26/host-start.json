@@ -1,0 +1,24 @@
+{
+  "timestamp": 1795658423.719549,
+  "guests": [
+    {
+      "pid": 45837,
+      "cpu": "3,7",
+      "rss_kib": 6492000,
+      "command": "qemu-system-x86_64 -machine pc,accel=hvf,vmport=off -cpu Penryn -smp 4 -m 8192 -drive file=/Users/ehm/Developer/Haiku/vm/haiku-ai-baseline-overlay-20261123.qcow2,format=qcow2,if=ide,index=0,media=disk -vga std -nic user,model=rtl8139 -vnc 127.0.0.1:11,password=on -monitor unix:/Users/ehm/Developer/Haiku/vm/haiku-ai-baseline-monitor.sock,server,nowait -serial file:/Users/ehm/Developer/Haiku/vm/haiku-ai-baseline-serial.log -pidfile /Users/ehm/Developer/Haiku/vm/haiku-ai-baseline-qemu.pid -daemonize -boot order=c"
+    },
+    {
+      "pid": 47615,
+      "cpu": "15,3",
+      "rss_kib": 6245552,
+      "command": "/usr/local/bin/qemu-system-x86_64 -name fincept-qa-offline-20261116 -machine q35,accel=hvf -smp 4 -m 8192 -drive file=/Users/ehm/Library/Caches/kairos-fincept-vm/fincept-lab-overlay.qcow2,format=qcow2,if=virtio,snapshot=on -netdev user,id=net0,restrict=on,hostfwd=tcp:127.0.0.1:2228-:22 -device virtio-net-pci,netdev=net0 -vga std -display none -vnc 127.0.0.1:10 -monitor unix:/tmp/fincept-qa-offline-monitor.sock,server,nowait -serial file:/tmp/fincept-qa-offline-serial.log -daemonize"
+    },
+    {
+      "pid": 52603,
+      "cpu": "6,9",
+      "rss_kib": 1615956,
+      "command": "qemu-system-x86_64 -machine pc,accel=hvf,vmport=off -cpu Penryn -smp 4 -m 8192 -drive file=/Users/ehm/Developer/Haiku/ai-images/run-local-4ae8e7ea/haiku-ai-regular-overlay.qcow2,format=qcow2,if=ide,index=0,media=disk -vga std -nic user,model=rtl8139 -vnc 127.0.0.1:24,password=on -monitor unix:/Users/ehm/Developer/Haiku/ai-images/run-local-4ae8e7ea/haiku-ai-regular-monitor.sock,server,nowait -serial file:/Users/ehm/Developer/Haiku/ai-images/run-local-4ae8e7ea/haiku-ai-regular-serial.log -pidfile /Users/ehm/Developer/Haiku/ai-images/run-local-4ae8e7ea/haiku-ai-regular-qemu.pid -daemonize -boot order=c"
+    }
+  ],
+  "uptime": "3:00  up 10 days,  9:44, 5 users, load averages: 4,06 5,21 5,50"
+}

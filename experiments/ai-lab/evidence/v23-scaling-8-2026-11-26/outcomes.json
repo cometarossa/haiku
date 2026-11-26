@@ -1,0 +1,1494 @@
+{
+  "report": {
+    "complete": true,
+    "rows": [
+      {
+        "tag": "00-n8-off",
+        "n": 8,
+        "state": "off",
+        "observation_us": 20138588,
+        "quit_rpc_us": 3229724,
+        "teardown_us": 3231961,
+        "lifetime_to_exit_us": 38487314,
+        "lifetime_to_quit_request_us": 35255353,
+        "dispatch_us": 194919,
+        "probe": {
+          "expected": 72,
+          "attempted": 72,
+          "errors": 0,
+          "not_attempted": 0,
+          "playing_replies": 24,
+          "all_positions_advance": true,
+          "initialization_us": 25555,
+          "elapsed_us": 1057571,
+          "deadline_overrun_us": 0,
+          "complete": true,
+          "playback_valid": true,
+          "by_operation": {
+            "Title": {
+              "count": 24,
+              "median_us": 535.5,
+              "p95_us": 2180,
+              "max_us": 4596,
+              "total_us": 20783
+            },
+            "IsPlaying": {
+              "count": 24,
+              "median_us": 541.5,
+              "p95_us": 2735,
+              "max_us": 3051,
+              "total_us": 19619
+            },
+            "Position": {
+              "count": 24,
+              "median_us": 498.0,
+              "p95_us": 1323,
+              "max_us": 2229,
+              "total_us": 15070
+            }
+          }
+        },
+        "view": {
+          "calls": 5924,
+          "null": 8,
+          "looper_fail": 961,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 4955,
+          "total_us": 69545075,
+          "update_us": 3221,
+          "looper_us": 37783880,
+          "bitmap_us": 20210,
+          "overlay_us": 1648,
+          "invalidate_us": 0,
+          "draw_us": 20756077,
+          "deferred": 0,
+          "records": 8,
+          "unattributed_us": 10980039
+        },
+        "deferred": [],
+        "player_exit": 0,
+        "valid": true,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 6000,
+            "cached": 0,
+            "gap_timeout": 0,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 6000,
+            "gap_frames": 0,
+            "max_gap": 0,
+            "records": 8,
+            "timeouts": 0
+          },
+          "timing": {},
+          "media": {
+            "producer": {
+              "records": 8,
+              "lock_timeouts": 18,
+              "late": 17,
+              "attempts": 6007,
+              "no_buffer": 0,
+              "fills": 6007,
+              "fill_timeouts": 0,
+              "fill_errors": 7,
+              "end_buffers": 0,
+              "suppressed": 0,
+              "sent": 6002,
+              "send_errors": 5,
+              "wait_us": 153392928,
+              "fill_us": 2968293,
+              "max_fill_us": 14348
+            },
+            "consumer": {
+              "records": 8,
+              "received": 5954,
+              "inactive": 0,
+              "late": 2,
+              "target_calls": 5916,
+              "no_target": 36,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 69551881
+            }
+          }
+        },
+        "diagnostic_valid": true,
+        "fill_timing": [
+          {
+            "thread": 20338,
+            "ok": 726,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 348020,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 20356,
+            "ok": 725,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 0,
+            "ok_us": 353752,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 20392,
+            "ok": 745,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 381668,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 20436,
+            "ok": 749,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 354346,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 20488,
+            "ok": 757,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 384445,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 20548,
+            "ok": 760,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 381934,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 20616,
+            "ok": 765,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 360177,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 20692,
+            "ok": 773,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 403946,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          }
+        ],
+        "observation": {
+          "start_us": 899041000000,
+          "stop_us": 899060000000,
+          "seconds": 19.0,
+          "stages": {
+            "producer": {
+              "lifetime": {
+                "ok": 6000,
+                "cached": 0,
+                "timeout": 0,
+                "end": 0,
+                "error": 7,
+                "sent": 6002,
+                "suppressed": 0,
+                "send_error": 5
+              },
+              "observed": {
+                "ok": 4542,
+                "cached": 0,
+                "timeout": 0,
+                "end": 0,
+                "error": 0,
+                "sent": 4542,
+                "suppressed": 0,
+                "send_error": 0
+              }
+            },
+            "view": {
+              "lifetime": {
+                "null": 8,
+                "looper_fail": 961,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 4955,
+                "deferred": 0,
+                "unused": 0
+              },
+              "observed": {
+                "null": 0,
+                "looper_fail": 768,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 3774,
+                "deferred": 0,
+                "unused": 0
+              }
+            },
+            "deferred": {
+              "lifetime": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              },
+              "observed": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              }
+            }
+          },
+          "draw_completions": 3774,
+          "limitation": "Completion events only; partial boundary bins excluded. Not actual presented FPS."
+        }
+      },
+      {
+        "tag": "01-n8-on",
+        "n": 8,
+        "state": "on",
+        "observation_us": 20093096,
+        "quit_rpc_us": 3039514,
+        "teardown_us": 3047170,
+        "lifetime_to_exit_us": 38093146,
+        "lifetime_to_quit_request_us": 35045976,
+        "dispatch_us": 188930,
+        "probe": {
+          "expected": 72,
+          "attempted": 72,
+          "errors": 0,
+          "not_attempted": 0,
+          "playing_replies": 24,
+          "all_positions_advance": true,
+          "initialization_us": 10546,
+          "elapsed_us": 2934040,
+          "deadline_overrun_us": 0,
+          "complete": true,
+          "playback_valid": true,
+          "by_operation": {
+            "Title": {
+              "count": 24,
+              "median_us": 1506.0,
+              "p95_us": 110309,
+              "max_us": 112747,
+              "total_us": 537111
+            },
+            "IsPlaying": {
+              "count": 24,
+              "median_us": 1755.5,
+              "p95_us": 92373,
+              "max_us": 121372,
+              "total_us": 646186
+            },
+            "Position": {
+              "count": 24,
+              "median_us": 1254.0,
+              "p95_us": 106031,
+              "max_us": 120674,
+              "total_us": 747982
+            }
+          }
+        },
+        "view": {
+          "calls": 5881,
+          "null": 8,
+          "looper_fail": 985,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 4888,
+          "total_us": 69703691,
+          "update_us": 2474,
+          "looper_us": 38443331,
+          "bitmap_us": 2013,
+          "overlay_us": 1408,
+          "invalidate_us": 0,
+          "draw_us": 20748210,
+          "deferred": 0,
+          "records": 8,
+          "unattributed_us": 10506255
+        },
+        "deferred": [],
+        "player_exit": 0,
+        "valid": true,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 5957,
+            "cached": 0,
+            "gap_timeout": 0,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 5957,
+            "gap_frames": 0,
+            "max_gap": 0,
+            "records": 8,
+            "timeouts": 0
+          },
+          "timing": {},
+          "media": {
+            "producer": {
+              "records": 8,
+              "lock_timeouts": 13,
+              "late": 5,
+              "attempts": 5965,
+              "no_buffer": 0,
+              "fills": 5965,
+              "fill_timeouts": 0,
+              "fill_errors": 8,
+              "end_buffers": 0,
+              "suppressed": 0,
+              "sent": 5958,
+              "send_errors": 7,
+              "wait_us": 152750157,
+              "fill_us": 3030124,
+              "max_fill_us": 27677
+            },
+            "consumer": {
+              "records": 8,
+              "received": 5910,
+              "inactive": 0,
+              "late": 0,
+              "target_calls": 5873,
+              "no_target": 37,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 69713589
+            }
+          }
+        },
+        "diagnostic_valid": true,
+        "fill_timing": [
+          {
+            "thread": 21400,
+            "ok": 726,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 353061,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 21418,
+            "ok": 722,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 392120,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 21454,
+            "ok": 738,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 352871,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 21498,
+            "ok": 745,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 376814,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 21550,
+            "ok": 749,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 368175,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 21610,
+            "ok": 754,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 387782,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 21678,
+            "ok": 758,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 392491,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 21754,
+            "ok": 765,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 406805,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          }
+        ],
+        "observation": {
+          "start_us": 899080000000,
+          "stop_us": 899099000000,
+          "seconds": 19.0,
+          "stages": {
+            "producer": {
+              "lifetime": {
+                "ok": 5957,
+                "cached": 0,
+                "timeout": 0,
+                "end": 0,
+                "error": 8,
+                "sent": 5958,
+                "suppressed": 0,
+                "send_error": 7
+              },
+              "observed": {
+                "ok": 4553,
+                "cached": 0,
+                "timeout": 0,
+                "end": 0,
+                "error": 0,
+                "sent": 4553,
+                "suppressed": 0,
+                "send_error": 0
+              }
+            },
+            "view": {
+              "lifetime": {
+                "null": 8,
+                "looper_fail": 985,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 4888,
+                "deferred": 0,
+                "unused": 0
+              },
+              "observed": {
+                "null": 0,
+                "looper_fail": 809,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 3744,
+                "deferred": 0,
+                "unused": 0
+              }
+            },
+            "deferred": {
+              "lifetime": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              },
+              "observed": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              }
+            }
+          },
+          "draw_completions": 3744,
+          "limitation": "Completion events only; partial boundary bins excluded. Not actual presented FPS."
+        }
+      },
+      {
+        "tag": "02-n8-on",
+        "n": 8,
+        "state": "on",
+        "observation_us": 20095134,
+        "quit_rpc_us": 3003381,
+        "teardown_us": 3005847,
+        "lifetime_to_exit_us": 38035106,
+        "lifetime_to_quit_request_us": 35029259,
+        "dispatch_us": 197944,
+        "probe": {
+          "expected": 72,
+          "attempted": 72,
+          "errors": 0,
+          "not_attempted": 0,
+          "playing_replies": 24,
+          "all_positions_advance": true,
+          "initialization_us": 21444,
+          "elapsed_us": 6836864,
+          "deadline_overrun_us": 0,
+          "complete": true,
+          "playback_valid": true,
+          "by_operation": {
+            "Title": {
+              "count": 24,
+              "median_us": 78189.5,
+              "p95_us": 147250,
+              "max_us": 152206,
+              "total_us": 1743169
+            },
+            "IsPlaying": {
+              "count": 24,
+              "median_us": 91705.5,
+              "p95_us": 162531,
+              "max_us": 163698,
+              "total_us": 1913122
+            },
+            "Position": {
+              "count": 24,
+              "median_us": 107022.5,
+              "p95_us": 181501,
+              "max_us": 192467,
+              "total_us": 2177110
+            }
+          }
+        },
+        "view": {
+          "calls": 5871,
+          "null": 8,
+          "looper_fail": 1144,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 4719,
+          "total_us": 81580075,
+          "update_us": 2067,
+          "looper_us": 44678048,
+          "bitmap_us": 1806,
+          "overlay_us": 2653,
+          "invalidate_us": 0,
+          "draw_us": 24499263,
+          "deferred": 0,
+          "records": 8,
+          "unattributed_us": 12396238
+        },
+        "deferred": [],
+        "player_exit": 0,
+        "valid": true,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 5946,
+            "cached": 0,
+            "gap_timeout": 0,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 5946,
+            "gap_frames": 0,
+            "max_gap": 0,
+            "records": 8,
+            "timeouts": 0
+          },
+          "timing": {},
+          "media": {
+            "producer": {
+              "records": 8,
+              "lock_timeouts": 12,
+              "late": 9,
+              "attempts": 5953,
+              "no_buffer": 0,
+              "fills": 5953,
+              "fill_timeouts": 0,
+              "fill_errors": 7,
+              "end_buffers": 0,
+              "suppressed": 0,
+              "sent": 5947,
+              "send_errors": 6,
+              "wait_us": 145315653,
+              "fill_us": 3026330,
+              "max_fill_us": 27495
+            },
+            "consumer": {
+              "records": 8,
+              "received": 5898,
+              "inactive": 0,
+              "late": 0,
+              "target_calls": 5863,
+              "no_target": 35,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 81589725
+            }
+          }
+        },
+        "diagnostic_valid": true,
+        "fill_timing": [
+          {
+            "thread": 22417,
+            "ok": 722,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 386431,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 22435,
+            "ok": 722,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 0,
+            "ok_us": 340989,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 22471,
+            "ok": 740,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 382280,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 22515,
+            "ok": 742,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 383817,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 22567,
+            "ok": 749,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 383044,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 22627,
+            "ok": 754,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 397412,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 22695,
+            "ok": 755,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 369491,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 22771,
+            "ok": 762,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 382861,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          }
+        ],
+        "observation": {
+          "start_us": 899118000000,
+          "stop_us": 899137000000,
+          "seconds": 19.0,
+          "stages": {
+            "producer": {
+              "lifetime": {
+                "ok": 5946,
+                "cached": 0,
+                "timeout": 0,
+                "end": 0,
+                "error": 7,
+                "sent": 5947,
+                "suppressed": 0,
+                "send_error": 6
+              },
+              "observed": {
+                "ok": 4552,
+                "cached": 0,
+                "timeout": 0,
+                "end": 0,
+                "error": 0,
+                "sent": 4552,
+                "suppressed": 0,
+                "send_error": 0
+              }
+            },
+            "view": {
+              "lifetime": {
+                "null": 8,
+                "looper_fail": 1144,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 4719,
+                "deferred": 0,
+                "unused": 0
+              },
+              "observed": {
+                "null": 0,
+                "looper_fail": 913,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 3639,
+                "deferred": 0,
+                "unused": 0
+              }
+            },
+            "deferred": {
+              "lifetime": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              },
+              "observed": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              }
+            }
+          },
+          "draw_completions": 3639,
+          "limitation": "Completion events only; partial boundary bins excluded. Not actual presented FPS."
+        }
+      },
+      {
+        "tag": "03-n8-off",
+        "n": 8,
+        "state": "off",
+        "observation_us": 20118210,
+        "quit_rpc_us": 3386986,
+        "teardown_us": 3391859,
+        "lifetime_to_exit_us": 38619139,
+        "lifetime_to_quit_request_us": 35227280,
+        "dispatch_us": 190923,
+        "probe": {
+          "expected": 72,
+          "attempted": 72,
+          "errors": 0,
+          "not_attempted": 0,
+          "playing_replies": 24,
+          "all_positions_advance": true,
+          "initialization_us": 7903,
+          "elapsed_us": 1748650,
+          "deadline_overrun_us": 0,
+          "complete": true,
+          "playback_valid": true,
+          "by_operation": {
+            "Title": {
+              "count": 24,
+              "median_us": 501.5,
+              "p95_us": 71981,
+              "max_us": 77134,
+              "total_us": 179018
+            },
+            "IsPlaying": {
+              "count": 24,
+              "median_us": 391.0,
+              "p95_us": 96553,
+              "max_us": 98274,
+              "total_us": 251090
+            },
+            "Position": {
+              "count": 24,
+              "median_us": 668.5,
+              "p95_us": 75632,
+              "max_us": 132484,
+              "total_us": 315390
+            }
+          }
+        },
+        "view": {
+          "calls": 5935,
+          "null": 8,
+          "looper_fail": 984,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 4943,
+          "total_us": 64504517,
+          "update_us": 3917,
+          "looper_us": 36312285,
+          "bitmap_us": 3284,
+          "overlay_us": 1865,
+          "invalidate_us": 0,
+          "draw_us": 18606852,
+          "deferred": 0,
+          "records": 8,
+          "unattributed_us": 9576314
+        },
+        "deferred": [],
+        "player_exit": 0,
+        "valid": true,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 6015,
+            "cached": 0,
+            "gap_timeout": 0,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 6015,
+            "gap_frames": 0,
+            "max_gap": 0,
+            "records": 8,
+            "timeouts": 0
+          },
+          "timing": {},
+          "media": {
+            "producer": {
+              "records": 8,
+              "lock_timeouts": 15,
+              "late": 8,
+              "attempts": 6022,
+              "no_buffer": 0,
+              "fills": 6022,
+              "fill_timeouts": 0,
+              "fill_errors": 7,
+              "end_buffers": 0,
+              "suppressed": 0,
+              "sent": 6015,
+              "send_errors": 7,
+              "wait_us": 156972175,
+              "fill_us": 3077659,
+              "max_fill_us": 53993
+            },
+            "consumer": {
+              "records": 8,
+              "received": 5967,
+              "inactive": 0,
+              "late": 2,
+              "target_calls": 5927,
+              "no_target": 38,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 64511305
+            }
+          }
+        },
+        "diagnostic_valid": true,
+        "fill_timing": [
+          {
+            "thread": 23344,
+            "ok": 724,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 405035,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 23362,
+            "ok": 722,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 0,
+            "ok_us": 385312,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 23398,
+            "ok": 745,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 348389,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 23442,
+            "ok": 754,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 424777,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 23494,
+            "ok": 759,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 366435,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 23554,
+            "ok": 766,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 366364,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 23622,
+            "ok": 769,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 395347,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 23698,
+            "ok": 776,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 1,
+            "ok_us": 385994,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 1
+          }
+        ],
+        "observation": {
+          "start_us": 899157000000,
+          "stop_us": 899176000000,
+          "seconds": 19.0,
+          "stages": {
+            "producer": {
+              "lifetime": {
+                "ok": 6015,
+                "cached": 0,
+                "timeout": 0,
+                "end": 0,
+                "error": 7,
+                "sent": 6015,
+                "suppressed": 0,
+                "send_error": 7
+              },
+              "observed": {
+                "ok": 4552,
+                "cached": 0,
+                "timeout": 0,
+                "end": 0,
+                "error": 0,
+                "sent": 4552,
+                "suppressed": 0,
+                "send_error": 0
+              }
+            },
+            "view": {
+              "lifetime": {
+                "null": 8,
+                "looper_fail": 984,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 4943,
+                "deferred": 0,
+                "unused": 0
+              },
+              "observed": {
+                "null": 0,
+                "looper_fail": 843,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 3710,
+                "deferred": 0,
+                "unused": 0
+              }
+            },
+            "deferred": {
+              "lifetime": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              },
+              "observed": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              }
+            }
+          },
+          "draw_completions": 3710,
+          "limitation": "Completion events only; partial boundary bins excluded. Not actual presented FPS."
+        }
+      }
+    ],
+    "all_diagnostic_valid": true,
+    "all_playback_valid": true
+  },
+  "host_samples": 38
+}
