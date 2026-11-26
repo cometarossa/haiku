@@ -1,0 +1,160 @@
+{
+  "identical": true,
+  "rows": [
+    {
+      "tag": "00-off",
+      "state": "off",
+      "frames": 600,
+      "summary": "600,320,180,B_RGB32,596d0a4ed6595baf",
+      "elapsed_us": 409547,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 4,
+          "effective": 4,
+          "active_type": 1
+        }
+      ]
+    },
+    {
+      "tag": "01-on",
+      "state": "on",
+      "frames": 600,
+      "summary": "600,320,180,B_RGB32,596d0a4ed6595baf",
+      "elapsed_us": 450495,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 1,
+          "effective": 1,
+          "active_type": 0
+        }
+      ]
+    },
+    {
+      "tag": "02-on",
+      "state": "on",
+      "frames": 600,
+      "summary": "600,320,180,B_RGB32,596d0a4ed6595baf",
+      "elapsed_us": 372399,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 1,
+          "effective": 1,
+          "active_type": 0
+        }
+      ]
+    },
+    {
+      "tag": "03-off",
+      "state": "off",
+      "frames": 600,
+      "summary": "600,320,180,B_RGB32,596d0a4ed6595baf",
+      "elapsed_us": 396339,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 4,
+          "effective": 4,
+          "active_type": 1
+        }
+      ]
+    },
+    {
+      "tag": "04-off",
+      "state": "off",
+      "frames": 600,
+      "summary": "600,320,180,B_RGB32,596d0a4ed6595baf",
+      "elapsed_us": 390739,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 4,
+          "effective": 4,
+          "active_type": 1
+        }
+      ]
+    },
+    {
+      "tag": "05-on",
+      "state": "on",
+      "frames": 600,
+      "summary": "600,320,180,B_RGB32,596d0a4ed6595baf",
+      "elapsed_us": 409514,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 1,
+          "effective": 1,
+          "active_type": 0
+        }
+      ]
+    },
+    {
+      "tag": "06-on",
+      "state": "on",
+      "frames": 600,
+      "summary": "600,320,180,B_RGB32,596d0a4ed6595baf",
+      "elapsed_us": 399360,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 1,
+          "effective": 1,
+          "active_type": 0
+        }
+      ]
+    },
+    {
+      "tag": "07-off",
+      "state": "off",
+      "frames": 600,
+      "summary": "600,320,180,B_RGB32,596d0a4ed6595baf",
+      "elapsed_us": 376481,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 4,
+          "effective": 4,
+          "active_type": 1
+        }
+      ]
+    }
+  ],
+  "median_us": {
+    "off": 393539.0,
+    "on": 404437.0
+  },
+  "paired_ratios": [
+    0.9091044295719153,
+    1.064285886911619,
+    0.9541529715711795,
+    0.9427108373397436
+  ],
+  "median_paired_ratio": 0.9484319044554615
+}
