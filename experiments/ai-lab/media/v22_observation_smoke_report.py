@@ -6,9 +6,9 @@ from v21_load_report import report
 from observation_report import parse,summarize
 from fill_timing_report import validate
 
-def analyze(root,mode,n=4,scaling=False):
+def analyze(root,mode,n=4,scaling=False,revision="4ae8e7ea"):
     if mode not in ("off","on"):raise ValueError("mode")
-    r=report(root,n,combined=not scaling,revision="4ae8e7ea",scaling=scaling)
+    r=report(root,n,combined=not scaling,revision=revision,scaling=scaling)
     for row in r["rows"]:
         if not row["diagnostic_valid"]:continue
         tag=row["tag"]

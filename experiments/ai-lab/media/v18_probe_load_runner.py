@@ -161,7 +161,7 @@ def observation_script(script, mode, streams=4):
     return script
 
 
-def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None, gop=False, gop_decode_evidence=None, gop_evidence=None, observation=None, observation_evidence=None, scaling_evidence=None, scaling_prior=None):
+def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None, gop=False, gop_decode_evidence=None, gop_evidence=None, observation=None, observation_evidence=None, scaling_evidence=None, scaling_prior=None, appserver_profile=None):
     if sum((queues,deferred_smoke,deferred_load,v20_streams is not None,v21_smoke,v21_streams is not None))>1 or (sixteen and not deferred_load):
         raise ValueError("Select one campaign")
     if observation is not None and (not combined or v21_streams not in (4,8,16)):
@@ -260,6 +260,15 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
             if not (prior["complete"] and prior["all_diagnostic_valid"] and prior["all_playback_valid"]):
                 raise ValueError("preceding scaling gate failed")
         settings_sha=validate_smoke(scaling_evidence)["sha256"]
+    if appserver_profile is not None:
+        from v23_appserver_profile import REV as server_revision
+        if observation!="on" or v21_streams!=4 or not combined or scaling_evidence is not None or observation_evidence is None:
+            raise ValueError("Appserver smoke requires native four-stream observation evidence")
+        from v22_observation_smoke_report import analyze as analyze_observation
+        gate=analyze_observation(observation_evidence,"on",4)
+        if not gate["all_diagnostic_valid"] or not gate["all_playback_valid"]:
+            raise ValueError("V22 observation gate failed")
+        revision=server_revision
     initial = sample_host(revision)
     pids = {g["pid"] for g in initial["guests"]}
     downloads = {}
@@ -309,6 +318,9 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
     if scaling_evidence is not None:
         from v23_scaling_campaign import scaling_script
         script=scaling_script(script,settings_sha,v21_streams)
+    if appserver_profile is not None:
+        from v23_appserver_profile import profile_script
+        script=profile_script(script,appserver_profile,v21_streams)
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
@@ -353,6 +365,12 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
             temp.rename(root/name)
             self.send_response(201); self.end_headers()
 
+    serial=None
+    if appserver_profile is not None:
+        serial=HOME/"ai-images"/f"run-local-{revision}"/"haiku-ai-regular-serial.log"
+        if not serial.is_file():raise ValueError("serial file missing")
+        serial_stat=serial.stat()
+        serial_offset=serial_stat.st_size
     server = HTTPServer(("127.0.0.1",8901),H)
     t = Thread(target=server.serve_forever,daemon=True)
     t.start()
@@ -399,10 +417,24 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
         if v21_smoke:
             from v19_deferred_report import validate
             rows=validate(root,revision,thread_policy=True)
+        if serial is not None:
+            time.sleep(2)
+            stat=serial.stat()
+            if stat.st_ino!=serial_stat.st_ino or stat.st_size<serial_offset:
+                raise ValueError("serial file replaced or truncated")
+            with serial.open("rb") as f:
+                f.seek(serial_offset)
+                (root/"appserver-serial.log").write_bytes(f.read())
         (root/"summary.json").write_text(json.dumps(rows,indent=2)+"\n")
         print(json.dumps(rows,indent=2))
     finally:
         server.shutdown();server.server_close();t.join()
+        if serial is not None and not (root/"appserver-serial.log").exists():
+            stat=serial.stat()
+            if stat.st_ino==serial_stat.st_ino and stat.st_size>=serial_offset:
+                with serial.open("rb") as f:
+                    f.seek(serial_offset)
+                    (root/"appserver-serial.log").write_bytes(f.read())
 
 
 if __name__=="__main__":
@@ -429,5 +461,6 @@ if __name__=="__main__":
     p.add_argument("--observation-evidence",type=Path)
     p.add_argument("--scaling-evidence",type=Path)
     p.add_argument("--scaling-prior",type=Path)
+    p.add_argument("--appserver-profile",choices=("off","on"))
     a=p.parse_args()
-    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence,a.combined,a.combined_evidence,a.gop,a.gop_decode_evidence,a.gop_evidence,a.observation,a.observation_evidence,a.scaling_evidence,a.scaling_prior)
+    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence,a.combined,a.combined_evidence,a.gop,a.gop_decode_evidence,a.gop_evidence,a.observation,a.observation_evidence,a.scaling_evidence,a.scaling_prior,a.appserver_profile)
