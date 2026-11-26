@@ -15,6 +15,7 @@ def profile_script(script,mode,n=4):
         (b'filltiming=/boot/home/config/settings/haiku-lab-video-fill-timing',b'filltiming=/boot/home/config/settings/haiku-lab-video-fill-timing\nserverprofile=/boot/home/config/settings/haiku-lab-media-appserver-profile',1),
         (b'"$observation" "$filltiming"',b'"$observation" "$filltiming" "$serverprofile"',2),
         (b'own_filltiming=0\ncleanup()',b'own_filltiming=0;own_serverprofile=0\ncleanup()',1),
+        (b' pid=$!\n',b' pid=$!\n printf "%s\\n" "$pid" > "$tag.team"\n curl -fsS -T "$tag.team" "$base/$tag.team"\n',1),
         (b'cleanup() {',b'cleanup() {\n if test "$own_serverprofile" = 1; then rm -f "$serverprofile"; own_serverprofile=0; fi',1),
     ]
     if mode=="on":
@@ -38,10 +39,28 @@ def serial_profiles(log,mode,n):
                 raise ValueError("insufficient bitmap-active windows")
     return rows
 
+def associate_trials(root,rows,windows,mode,n):
+    teams={}
+    for row in rows:
+        team=int((root/(row["tag"]+".team")).read_text().strip())
+        if team<=0 or team in teams:
+            raise ValueError("invalid or duplicate player team")
+        teams[team]=row["tag"]
+    if len(teams)!=4:raise ValueError("incomplete trial team list")
+    groups={tag:[] for tag in teams.values()}
+    for w in windows:
+        if w["team"] not in teams:raise ValueError("unattributed server team")
+        groups[teams[w["team"]]].append(w)
+    if mode=="on" and any(sum(w["bitmap"]["n"]>0 for w in group)<n for group in groups.values()):
+        raise ValueError("insufficient per-trial bitmap-active windows")
+    if mode=="off" and windows:raise ValueError("unexpected server profile")
+    return groups
+
 def report(root,mode,n=4):
     r=analyze(root,"on",n,revision=REV)
     if r["complete"]:
         r["server_windows"]=serial_profiles((root/"appserver-serial.log").read_text(errors="replace"),mode,n)
+        r["server_by_trial"]=associate_trials(root,r["rows"],r["server_windows"],mode,n)
     return r
 
 if __name__=="__main__":

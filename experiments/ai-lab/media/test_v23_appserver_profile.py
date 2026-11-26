@@ -28,3 +28,21 @@ class AppserverProfileTest(unittest.TestCase):
         self.assertEqual(len(serial_profiles(log,"on",4)),16)
         with self.assertRaises(ValueError):serial_profiles(log,"off",4)
         with self.assertRaises(ValueError):serial_profiles(log,"on",8)
+
+    def test_associate_trials(self):
+        import tempfile
+        from v23_appserver_profile import associate_trials
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            rows=[{"tag":str(i)} for i in range(4)]
+            for i in range(4):
+                (root/f"{i}.team").write_text(str(100+i)+"\n")
+            windows=[dict(team=100+i,bitmap={"n":1}) for i in range(4) for _ in range(4)]
+            result=associate_trials(root,rows,list(reversed(windows)),"on",4)
+            self.assertEqual(result["0"][0]["team"],100)
+            self.assertEqual(len(result["3"]),4)
+            with self.assertRaises(ValueError):associate_trials(root,rows,windows[:-1],"on",4)
+            with self.assertRaises(ValueError):associate_trials(root,rows,windows+[dict(team=999,bitmap={"n":1})],"on",4)
+            self.assertEqual(associate_trials(root,rows,[],"off",4),{str(i):[] for i in range(4)})
+            (root/"3.team").write_text("100\n")
+            with self.assertRaises(ValueError):associate_trials(root,rows,windows,"on",4)

@@ -327,6 +327,8 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
         f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(specs)
         for ext in ("dispatch","play","stop","map","probe","probe-stderr","probe-exit",
                     "start","quit-time","quit-return","exit-time","windows","positions","stdout","stderr","exit","lifecycle","pause")}
+    if appserver_profile is not None:
+        allowed|={f"{i:02d}-n{n}-{state}.team" for i,(n,state) in enumerate(specs)}
     if scaling_evidence is not None:
         allowed|={"settings-restored.txt"}|{f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(specs) for ext in ("scaling-before","scaling-after")}
     if queues:
