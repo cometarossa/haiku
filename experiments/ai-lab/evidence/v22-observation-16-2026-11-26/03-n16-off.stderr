@@ -1,0 +1,2333 @@
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested=1 effective=1 active_type=0
+
+LAB_VIDEO_VIEW calls=259 null=1 looper_fail=41 bitmap_fail=0 overlay=0 invalidate=0 draw=217 total_us=4923022 update_us=91 looper_us=2112728 bitmap_us=87 overlay_us=72 invalidate_us=0 draw_us=1927608 deferred=0
+
+LAB_OBSERVATION stage=view id=428513416520 anchor=898115000000 created=898115517959 ended=898169804832 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898116000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898117000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898144000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898145000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898146000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898147000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898148000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898149000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898152000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=4 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898153000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898156000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898157000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898160000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898161000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=4 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898164000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898165000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898166000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898168000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428513416520 bin=898169000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=5 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=640 cached=0 gap_timeout=376 seek_timeout=0 read_timeout=0 other_errors=0 success=264 gap_frames=20946 max_gap=109
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=15563 lock_timeouts=21 late=178 attempts=640 no_buffer=0 fills=640 fill_timeouts=376 fill_errors=0 end_buffers=0 suppressed=376 sent=264 send_errors=0 wait_us=5427850 fill_us=286025 max_fill_us=57059 last_send_error=0
+
+LAB_OBSERVATION stage=producer id=15563 anchor=898115000000 created=898115805901 ended=898170305674 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898115000000 c0=6 c1=0 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898116000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898117000000 c0=17 c1=0 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898144000000 c0=6 c1=0 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898145000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898146000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898147000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898148000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898149000000 c0=15 c1=0 c2=5 c3=0 c4=0 c5=15 c6=5 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898150000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898151000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898152000000 c0=7 c1=0 c2=20 c3=0 c4=0 c5=7 c6=20 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898153000000 c0=12 c1=0 c2=13 c3=0 c4=0 c5=12 c6=13 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898154000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898155000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898156000000 c0=7 c1=0 c2=20 c3=0 c4=0 c5=7 c6=20 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898157000000 c0=9 c1=0 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898158000000 c0=0 c1=0 c2=2 c3=0 c4=0 c5=0 c6=2 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898159000000 c0=0 c1=0 c2=26 c3=0 c4=0 c5=0 c6=26 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898160000000 c0=7 c1=0 c2=20 c3=0 c4=0 c5=7 c6=20 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898161000000 c0=3 c1=0 c2=1 c3=0 c4=0 c5=3 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898162000000 c0=0 c1=0 c2=21 c3=0 c4=0 c5=0 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898163000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898164000000 c0=6 c1=0 c2=20 c3=0 c4=0 c5=6 c6=20 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898165000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898166000000 c0=10 c1=0 c2=15 c3=0 c4=0 c5=10 c6=15 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898167000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898168000000 c0=6 c1=0 c2=20 c3=0 c4=0 c5=6 c6=20 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898169000000 c0=2 c1=0 c2=1 c3=0 c4=0 c5=2 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15563 bin=898170000000 c0=0 c1=0 c2=11 c3=0 c4=0 c5=0 c6=11 c7=0
+LAB_MEDIA_FILL_TIMING thread=15563 ok=264 cached=0 timeout=376 end=0 error=0 ok_us=191077 cached_us=0 timeout_us=94948 end_us=0 error_us=0
+LAB_MEDIA_CONSUMER received=261 inactive=0 late=3 target_calls=258 no_target=0 copy_bytes=0 copy_us=0 target_us=4923289 first_target_us=898116115267
+
+LAB_VIDEO_VIEW calls=273 null=1 looper_fail=62 bitmap_fail=0 overlay=0 invalidate=0 draw=210 total_us=5288595 update_us=84 looper_us=2488248 bitmap_us=75 overlay_us=51 invalidate_us=0 draw_us=1874225 deferred=0
+
+LAB_OBSERVATION stage=view id=428514226504 anchor=898117000000 created=898117544045 ended=898172578579 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898117000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898118000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898144000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898145000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898146000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898147000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898148000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898149000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898152000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898153000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=7 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898156000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898157000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898160000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898161000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898164000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898165000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898166000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898167000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898168000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898169000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428514226504 bin=898172000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=0 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=685 cached=0 gap_timeout=404 seek_timeout=0 read_timeout=0 other_errors=0 success=281 gap_frames=25899 max_gap=113
+LAB_MEDIA_PRODUCER thread=15581 lock_timeouts=29 late=190 attempts=685 no_buffer=0 fills=685 fill_timeouts=404 fill_errors=0 end_buffers=0 suppressed=404 sent=281 send_errors=0 wait_us=5008445 fill_us=205789 max_fill_us=18853 last_send_error=0
+
+LAB_OBSERVATION stage=producer id=15581 anchor=898117000000 created=898117606340 ended=898172944244 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898117000000 c0=9 c1=0 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898118000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898144000000 c0=5 c1=0 c2=0 c3=0 c4=0 c5=5 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898145000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898146000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898147000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898148000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898149000000 c0=15 c1=0 c2=3 c3=0 c4=0 c5=15 c6=3 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898150000000 c0=0 c1=0 c2=33 c3=0 c4=0 c5=0 c6=33 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898151000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898152000000 c0=5 c1=0 c2=21 c3=0 c4=0 c5=5 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898153000000 c0=5 c1=0 c2=1 c3=0 c4=0 c5=5 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898154000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898155000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898156000000 c0=5 c1=0 c2=21 c3=0 c4=0 c5=5 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898157000000 c0=10 c1=0 c2=1 c3=0 c4=0 c5=10 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898158000000 c0=0 c1=0 c2=1 c3=0 c4=0 c5=0 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898159000000 c0=0 c1=0 c2=26 c3=0 c4=0 c5=0 c6=26 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898160000000 c0=6 c1=0 c2=21 c3=0 c4=0 c5=6 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898161000000 c0=3 c1=0 c2=24 c3=0 c4=0 c5=3 c6=24 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898162000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898163000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898164000000 c0=5 c1=0 c2=21 c3=0 c4=0 c5=5 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898165000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898166000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898167000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898168000000 c0=15 c1=0 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898169000000 c0=0 c1=0 c2=1 c3=0 c4=0 c5=0 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898170000000 c0=0 c1=0 c2=28 c3=0 c4=0 c5=0 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898171000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15581 bin=898172000000 c0=4 c1=0 c2=21 c3=0 c4=0 c5=4 c6=21 c7=0
+LAB_MEDIA_FILL_TIMING thread=15581 ok=281 cached=0 timeout=404 end=0 error=0 ok_us=182481 cached_us=0 timeout_us=23308 end_us=0 error_us=0
+LAB_MEDIA_CONSUMER received=275 inactive=0 late=2 target_calls=272 no_target=1 copy_bytes=0 copy_us=0 target_us=5289288 first_target_us=898117914922
+
+LAB_VIDEO_VIEW calls=445 null=1 looper_fail=109 bitmap_fail=0 overlay=0 invalidate=0 draw=335 total_us=9011118 update_us=686 looper_us=4337954 bitmap_us=118 overlay_us=93 invalidate_us=0 draw_us=3106922 deferred=0
+
+LAB_OBSERVATION stage=view id=428526960968 anchor=898118000000 created=898118734604 ended=898175111398 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898119000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898120000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898144000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898145000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898146000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898147000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898148000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=4 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898149000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898152000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898153000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898154000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898155000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898156000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898157000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898158000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898160000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898161000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898162000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898163000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898164000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898165000000 c0=0 c1=10 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898166000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898168000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898169000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898172000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898173000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526960968 bin=898174000000 c0=1 c1=8 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=817 cached=0 gap_timeout=338 seek_timeout=0 read_timeout=0 other_errors=0 success=479 gap_frames=16324 max_gap=110
+LAB_MEDIA_PRODUCER thread=15617 lock_timeouts=18 late=140 attempts=817 no_buffer=0 fills=817 fill_timeouts=338 fill_errors=0 end_buffers=0 suppressed=338 sent=479 send_errors=0 wait_us=8429522 fill_us=299343 max_fill_us=14686 last_send_error=0
+
+LAB_OBSERVATION stage=producer id=15617 anchor=898118000000 created=898118795426 ended=898175772632 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898118000000 c0=7 c1=0 c2=0 c3=0 c4=0 c5=7 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898119000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898144000000 c0=4 c1=0 c2=0 c3=0 c4=0 c5=4 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898145000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898146000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898147000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898148000000 c0=5 c1=0 c2=20 c3=0 c4=0 c5=5 c6=20 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898149000000 c0=18 c1=0 c2=1 c3=0 c4=0 c5=18 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898150000000 c0=0 c1=0 c2=34 c3=0 c4=0 c5=0 c6=34 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898151000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898152000000 c0=5 c1=0 c2=21 c3=0 c4=0 c5=5 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898153000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898154000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898155000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898156000000 c0=18 c1=0 c2=6 c3=0 c4=0 c5=18 c6=6 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898157000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898158000000 c0=15 c1=0 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898159000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898160000000 c0=5 c1=0 c2=21 c3=0 c4=0 c5=5 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898161000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898162000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898163000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898164000000 c0=16 c1=0 c2=5 c3=0 c4=0 c5=16 c6=5 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898165000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898166000000 c0=0 c1=0 c2=26 c3=0 c4=0 c5=0 c6=26 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898167000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898168000000 c0=5 c1=0 c2=21 c3=0 c4=0 c5=5 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898169000000 c0=4 c1=0 c2=11 c3=0 c4=0 c5=4 c6=11 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898170000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898171000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898172000000 c0=5 c1=0 c2=21 c3=0 c4=0 c5=5 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898173000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898174000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15617 bin=898175000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+LAB_MEDIA_FILL_TIMING thread=15617 ok=479 cached=0 timeout=338 end=0 error=0 ok_us=256718 cached_us=0 timeout_us=42625 end_us=0 error_us=0
+LAB_MEDIA_CONSUMER received=473 inactive=0 late=7 target_calls=444 no_target=22 copy_bytes=0 copy_us=0 target_us=9012144 first_target_us=898119100812
+
+LAB_VIDEO_VIEW calls=384 null=1 looper_fail=100 bitmap_fail=0 overlay=0 invalidate=0 draw=283 total_us=7843876 update_us=133 looper_us=3846320 bitmap_us=111 overlay_us=100 invalidate_us=0 draw_us=2635312 deferred=0
+
+LAB_OBSERVATION stage=view id=428526931272 anchor=898119000000 created=898119974059 ended=898176894870 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898120000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898121000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898144000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898145000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898146000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898148000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898149000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898150000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898151000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898152000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=0 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898153000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898156000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898157000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898158000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898159000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898160000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898161000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898165000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898166000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898167000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898168000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898169000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898172000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898173000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898174000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898175000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=0 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428526931272 bin=898176000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=0 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=865 cached=0 gap_timeout=457 seek_timeout=0 read_timeout=0 other_errors=0 success=408 gap_frames=24206 max_gap=111
+LAB_MEDIA_PRODUCER thread=15661 lock_timeouts=27 late=145 attempts=865 no_buffer=0 fills=865 fill_timeouts=457 fill_errors=0 end_buffers=0 suppressed=457 sent=408 send_errors=0 wait_us=7177026 fill_us=330259 max_fill_us=86889 last_send_error=0
+
+LAB_OBSERVATION stage=producer id=15661 anchor=898120000000 created=898120024997 ended=898177356453 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898120000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898121000000 c0=9 c1=0 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898144000000 c0=4 c1=0 c2=0 c3=0 c4=0 c5=4 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898145000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898146000000 c0=0 c1=0 c2=22 c3=0 c4=0 c5=0 c6=22 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898147000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898148000000 c0=4 c1=0 c2=22 c3=0 c4=0 c5=4 c6=22 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898149000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898150000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898151000000 c0=6 c1=0 c2=20 c3=0 c4=0 c5=6 c6=20 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898152000000 c0=4 c1=0 c2=22 c3=0 c4=0 c5=4 c6=22 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898153000000 c0=9 c1=0 c2=19 c3=0 c4=0 c5=9 c6=19 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898154000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898155000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898156000000 c0=4 c1=0 c2=22 c3=0 c4=0 c5=4 c6=22 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898157000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898158000000 c0=17 c1=0 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898159000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898160000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898161000000 c0=4 c1=0 c2=11 c3=0 c4=0 c5=4 c6=11 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898162000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898163000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898164000000 c0=3 c1=0 c2=22 c3=0 c4=0 c5=3 c6=22 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898165000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898166000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898167000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898168000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898169000000 c0=3 c1=0 c2=13 c3=0 c4=0 c5=3 c6=13 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898170000000 c0=0 c1=0 c2=29 c3=0 c4=0 c5=0 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898171000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898172000000 c0=4 c1=0 c2=22 c3=0 c4=0 c5=4 c6=22 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898173000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898174000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898175000000 c0=0 c1=0 c2=29 c3=0 c4=0 c5=0 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898176000000 c0=5 c1=0 c2=22 c3=0 c4=0 c5=5 c6=22 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15661 bin=898177000000 c0=10 c1=0 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+LAB_MEDIA_FILL_TIMING thread=15661 ok=408 cached=0 timeout=457 end=0 error=0 ok_us=304961 cached_us=0 timeout_us=25298 end_us=0 error_us=0
+LAB_MEDIA_CONSUMER received=402 inactive=0 late=7 target_calls=383 no_target=12 copy_bytes=0 copy_us=0 target_us=7844321 first_target_us=898120333744
+
+LAB_VIDEO_VIEW calls=385 null=1 looper_fail=109 bitmap_fail=0 overlay=0 invalidate=0 draw=275 total_us=7501945 update_us=106 looper_us=3815864 bitmap_us=86 overlay_us=85 invalidate_us=0 draw_us=2478838 deferred=0
+
+LAB_OBSERVATION stage=view id=428532595016 anchor=898121000000 created=898121296348 ended=898178256790 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898121000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898122000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898145000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898149000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898150000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898151000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898152000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898153000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898157000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898161000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898165000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898166000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898167000000 c0=0 c1=11 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898168000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898169000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898173000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898174000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898175000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898177000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532595016 bin=898178000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=0 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=924 cached=0 gap_timeout=534 seek_timeout=0 read_timeout=0 other_errors=0 success=390 gap_frames=28738 max_gap=113
+LAB_MEDIA_PRODUCER thread=15713 lock_timeouts=24 late=133 attempts=924 no_buffer=0 fills=924 fill_timeouts=534 fill_errors=0 end_buffers=0 suppressed=534 sent=390 send_errors=0 wait_us=6873857 fill_us=223658 max_fill_us=5704 last_send_error=0
+
+LAB_OBSERVATION stage=producer id=15713 anchor=898121000000 created=898121350798 ended=898178819685 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898121000000 c0=17 c1=0 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898122000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898144000000 c0=3 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898145000000 c0=14 c1=0 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898146000000 c0=0 c1=0 c2=33 c3=0 c4=0 c5=0 c6=33 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898147000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898148000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898149000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898150000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898151000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898152000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898153000000 c0=12 c1=0 c2=15 c3=0 c4=0 c5=12 c6=15 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898154000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898155000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898156000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898157000000 c0=8 c1=0 c2=18 c3=0 c4=0 c5=8 c6=18 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898158000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898159000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898160000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898161000000 c0=14 c1=0 c2=6 c3=0 c4=0 c5=14 c6=6 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898162000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898163000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898164000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898165000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898166000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898167000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898168000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898169000000 c0=2 c1=0 c2=13 c3=0 c4=0 c5=2 c6=13 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898170000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898171000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898172000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898173000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898174000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898175000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898176000000 c0=3 c1=0 c2=25 c3=0 c4=0 c5=3 c6=25 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898177000000 c0=14 c1=0 c2=14 c3=0 c4=0 c5=14 c6=14 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15713 bin=898178000000 c0=0 c1=0 c2=24 c3=0 c4=0 c5=0 c6=24 c7=0
+LAB_MEDIA_FILL_TIMING thread=15713 ok=390 cached=0 timeout=534 end=0 error=0 ok_us=184856 cached_us=0 timeout_us=38802 end_us=0 error_us=0
+LAB_MEDIA_CONSUMER received=387 inactive=0 late=3 target_calls=384 no_target=0 copy_bytes=0 copy_us=0 target_us=7503558 first_target_us=898121659896
+
+LAB_VIDEO_VIEW calls=431 null=1 looper_fail=101 bitmap_fail=0 overlay=0 invalidate=0 draw=329 total_us=8748806 update_us=204 looper_us=4113051 bitmap_us=96 overlay_us=126 invalidate_us=0 draw_us=3079464 deferred=0
+
+LAB_OBSERVATION stage=view id=428532442440 anchor=898122000000 created=898122634235 ended=898180041512 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898123000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898124000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=5 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898145000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898146000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898147000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898148000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898149000000 c0=0 c1=10 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898150000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898151000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898153000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898157000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=8 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898161000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898162000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898163000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898164000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898165000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898169000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898173000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898174000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=7 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898177000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898178000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428532442440 bin=898179000000 c0=1 c1=9 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=961 cached=0 gap_timeout=498 seek_timeout=0 read_timeout=0 other_errors=0 success=463 gap_frames=26162 max_gap=111
+LAB_MEDIA_PRODUCER thread=15773 lock_timeouts=26 late=146 attempts=961 no_buffer=0 fills=961 fill_timeouts=498 fill_errors=0 end_buffers=0 suppressed=498 sent=463 send_errors=0 wait_us=8132109 fill_us=296589 max_fill_us=25665 last_send_error=0
+
+LAB_OBSERVATION stage=producer id=15773 anchor=898122000000 created=898122695577 ended=898180571426 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898122000000 c0=8 c1=0 c2=0 c3=0 c4=0 c5=8 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898123000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898124000000 c0=2 c1=0 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898144000000 c0=3 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898145000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898146000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898147000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898148000000 c0=3 c1=0 c2=20 c3=0 c4=0 c5=3 c6=20 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898149000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898150000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898151000000 c0=4 c1=0 c2=23 c3=0 c4=0 c5=4 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898152000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898153000000 c0=10 c1=0 c2=11 c3=0 c4=0 c5=10 c6=11 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898154000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898155000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898156000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898157000000 c0=11 c1=0 c2=8 c3=0 c4=0 c5=11 c6=8 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898158000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898159000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898160000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898161000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898162000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898163000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898164000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898165000000 c0=9 c1=0 c2=2 c3=0 c4=0 c5=9 c6=2 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898166000000 c0=0 c1=0 c2=26 c3=0 c4=0 c5=0 c6=26 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898167000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898168000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898169000000 c0=4 c1=0 c2=13 c3=0 c4=0 c5=4 c6=13 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898170000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898171000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898172000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898173000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898174000000 c0=9 c1=0 c2=17 c3=0 c4=0 c5=9 c6=17 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898175000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898176000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898177000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898178000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898179000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15773 bin=898180000000 c0=17 c1=0 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+LAB_MEDIA_FILL_TIMING thread=15773 ok=463 cached=0 timeout=498 end=0 error=0 ok_us=258111 cached_us=0 timeout_us=38478 end_us=0 error_us=0
+LAB_MEDIA_CONSUMER received=456 inactive=0 late=6 target_calls=430 no_target=20 copy_bytes=0 copy_us=0 target_us=8749433 first_target_us=898123035394
+
+LAB_VIDEO_VIEW calls=450 null=1 looper_fail=98 bitmap_fail=0 overlay=0 invalidate=0 draw=351 total_us=9084725 update_us=179 looper_us=4184501 bitmap_us=140 overlay_us=510 invalidate_us=0 draw_us=3239836 deferred=0
+
+LAB_OBSERVATION stage=view id=428540924232 anchor=898124000000 created=898124030849 ended=898182481416 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898124000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898125000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898145000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898149000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898153000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898157000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898158000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898159000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898161000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898165000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898166000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898167000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898168000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898169000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898173000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898174000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898175000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898177000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898178000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898179000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898180000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898181000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540924232 bin=898182000000 c0=1 c1=3 c2=0 c3=0 c4=0 c5=8 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=947 cached=0 gap_timeout=467 seek_timeout=0 read_timeout=0 other_errors=0 success=480 gap_frames=28732 max_gap=116
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=15841 lock_timeouts=40 late=232 attempts=948 no_buffer=0 fills=948 fill_timeouts=467 fill_errors=1 end_buffers=0 suppressed=467 sent=481 send_errors=0 wait_us=8579835 fill_us=408324 max_fill_us=55516 last_send_error=0
+
+LAB_OBSERVATION stage=producer id=15841 anchor=898124000000 created=898124141753 ended=898182963574 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898124000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898125000000 c0=16 c1=0 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898144000000 c0=3 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898145000000 c0=14 c1=0 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898146000000 c0=0 c1=0 c2=2 c3=0 c4=0 c5=0 c6=2 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898147000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898148000000 c0=3 c1=0 c2=25 c3=0 c4=0 c5=3 c6=25 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898149000000 c0=4 c1=0 c2=21 c3=0 c4=0 c5=4 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898150000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898151000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898152000000 c0=3 c1=0 c2=24 c3=0 c4=0 c5=3 c6=24 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898153000000 c0=10 c1=0 c2=13 c3=0 c4=0 c5=10 c6=13 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898154000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898155000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898156000000 c0=3 c1=0 c2=24 c3=0 c4=0 c5=3 c6=24 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898157000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898158000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898159000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898160000000 c0=3 c1=0 c2=24 c3=0 c4=0 c5=3 c6=24 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898161000000 c0=3 c1=0 c2=1 c3=0 c4=0 c5=3 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898162000000 c0=0 c1=0 c2=20 c3=0 c4=0 c5=0 c6=20 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898163000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898164000000 c0=3 c1=0 c2=24 c3=0 c4=0 c5=3 c6=24 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898165000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898166000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898167000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898168000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898169000000 c0=1 c1=0 c2=1 c3=0 c4=0 c5=1 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898170000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898171000000 c0=0 c1=0 c2=28 c3=0 c4=0 c5=0 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898172000000 c0=3 c1=0 c2=24 c3=0 c4=0 c5=3 c6=24 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898173000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898174000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898175000000 c0=18 c1=0 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898176000000 c0=3 c1=0 c2=25 c3=0 c4=0 c5=3 c6=25 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898177000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898178000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898179000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898180000000 c0=31 c1=0 c2=0 c3=0 c4=0 c5=31 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898181000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15841 bin=898182000000 c0=29 c1=0 c2=0 c3=0 c4=1 c5=30 c6=0 c7=0
+LAB_MEDIA_FILL_TIMING thread=15841 ok=480 cached=0 timeout=467 end=0 error=1 ok_us=371448 cached_us=0 timeout_us=36722 end_us=0 error_us=154
+LAB_MEDIA_CONSUMER received=475 inactive=0 late=7 target_calls=449 no_target=19 copy_bytes=0 copy_us=0 target_us=9085271 first_target_us=898124449288
+
+LAB_VIDEO_VIEW calls=445 null=1 looper_fail=112 bitmap_fail=0 overlay=0 invalidate=0 draw=332 total_us=8204293 update_us=130 looper_us=4070203 bitmap_us=101 overlay_us=90 invalidate_us=0 draw_us=2747455 deferred=0
+
+LAB_OBSERVATION stage=view id=428540784968 anchor=898125000000 created=898125489298 ended=898184406962 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898125000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=5 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898126000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898127000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898145000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898146000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898147000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898148000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898149000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898153000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898157000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898158000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898161000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898165000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898169000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898173000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898174000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898175000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=8 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898177000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898178000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898179000000 c0=0 c1=11 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898180000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898181000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898182000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898183000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428540784968 bin=898184000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=0 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=1023 cached=0 gap_timeout=566 seek_timeout=0 read_timeout=0 other_errors=0 success=457 gap_frames=33668 max_gap=116
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=15917 lock_timeouts=33 late=216 attempts=1023 no_buffer=0 fills=1023 fill_timeouts=566 fill_errors=0 end_buffers=0 suppressed=566 sent=457 send_errors=0 wait_us=8856475 fill_us=392597 max_fill_us=90270 last_send_error=0
+
+LAB_OBSERVATION stage=producer id=15917 anchor=898125000000 created=898125532692 ended=898184683131 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898125000000 c0=11 c1=0 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898126000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898127000000 c0=3 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898144000000 c0=3 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898145000000 c0=16 c1=0 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898146000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898147000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898148000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898149000000 c0=1 c1=0 c2=1 c3=0 c4=0 c5=1 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898150000000 c0=0 c1=0 c2=22 c3=0 c4=0 c5=0 c6=22 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898151000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898152000000 c0=3 c1=0 c2=25 c3=0 c4=0 c5=3 c6=25 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898153000000 c0=5 c1=0 c2=1 c3=0 c4=0 c5=5 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898154000000 c0=0 c1=0 c2=32 c3=0 c4=0 c5=0 c6=32 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898155000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898156000000 c0=3 c1=0 c2=25 c3=0 c4=0 c5=3 c6=25 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898157000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898158000000 c0=16 c1=0 c2=1 c3=0 c4=0 c5=16 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898159000000 c0=0 c1=0 c2=32 c3=0 c4=0 c5=0 c6=32 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898160000000 c0=3 c1=0 c2=25 c3=0 c4=0 c5=3 c6=25 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898161000000 c0=2 c1=0 c2=19 c3=0 c4=0 c5=2 c6=19 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898162000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898163000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898164000000 c0=3 c1=0 c2=25 c3=0 c4=0 c5=3 c6=25 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898165000000 c0=7 c1=0 c2=6 c3=0 c4=0 c5=7 c6=6 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898166000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898167000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898168000000 c0=3 c1=0 c2=25 c3=0 c4=0 c5=3 c6=25 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898169000000 c0=3 c1=0 c2=20 c3=0 c4=0 c5=3 c6=20 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898170000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898171000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898172000000 c0=3 c1=0 c2=25 c3=0 c4=0 c5=3 c6=25 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898173000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898174000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898175000000 c0=13 c1=0 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898176000000 c0=3 c1=0 c2=23 c3=0 c4=0 c5=3 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898177000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898178000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898179000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898180000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898181000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898182000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898183000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=15917 bin=898184000000 c0=0 c1=0 c2=18 c3=0 c4=0 c5=0 c6=18 c7=0
+LAB_MEDIA_FILL_TIMING thread=15917 ok=457 cached=0 timeout=566 end=0 error=0 ok_us=351958 cached_us=0 timeout_us=40639 end_us=0 error_us=0
+LAB_MEDIA_CONSUMER received=454 inactive=0 late=10 target_calls=444 no_target=0 copy_bytes=0 copy_us=0 target_us=8205154 first_target_us=898125841005
+
+LAB_VIDEO_VIEW calls=649 null=1 looper_fail=151 bitmap_fail=0 overlay=0 invalidate=0 draw=497 total_us=13210727 update_us=378 looper_us=6410549 bitmap_us=181 overlay_us=155 invalidate_us=0 draw_us=4622259 deferred=0
+
+LAB_OBSERVATION stage=view id=428549419336 anchor=898127000000 created=898127064272 ended=898185087930 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898127000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898128000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898145000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898146000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898147000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898148000000 c0=0 c1=10 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898149000000 c0=0 c1=10 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898150000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898151000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898152000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898153000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898157000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898158000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898161000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898165000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898166000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898167000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898168000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898169000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898173000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898174000000 c0=0 c1=12 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898175000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898177000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898178000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898179000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898180000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898181000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898182000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898183000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549419336 bin=898185000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=0 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=1062 cached=0 gap_timeout=398 seek_timeout=0 read_timeout=0 other_errors=0 success=664 gap_frames=21571 max_gap=115
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=16001 lock_timeouts=26 late=183 attempts=1063 no_buffer=0 fills=1063 fill_timeouts=398 fill_errors=1 end_buffers=0 suppressed=398 sent=664 send_errors=1 wait_us=12211822 fill_us=417424 max_fill_us=17909 last_send_error=-2147467146
+
+LAB_OBSERVATION stage=producer id=16001 anchor=898127000000 created=898127121375 ended=898185105596 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898127000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898128000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898144000000 c0=3 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898145000000 c0=17 c1=0 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898146000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898147000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898148000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898149000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898150000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898151000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898152000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898153000000 c0=9 c1=0 c2=17 c3=0 c4=0 c5=9 c6=17 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898154000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898155000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898156000000 c0=3 c1=0 c2=26 c3=0 c4=0 c5=3 c6=26 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898157000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898158000000 c0=11 c1=0 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898159000000 c0=0 c1=0 c2=28 c3=0 c4=0 c5=0 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898160000000 c0=3 c1=0 c2=26 c3=0 c4=0 c5=3 c6=26 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898161000000 c0=9 c1=0 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898162000000 c0=0 c1=0 c2=27 c3=0 c4=0 c5=0 c6=27 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898163000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898164000000 c0=3 c1=0 c2=26 c3=0 c4=0 c5=3 c6=26 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898165000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898166000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898167000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898168000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898169000000 c0=3 c1=0 c2=19 c3=0 c4=0 c5=3 c6=19 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898170000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898171000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898172000000 c0=3 c1=0 c2=26 c3=0 c4=0 c5=3 c6=26 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898173000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898174000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898175000000 c0=17 c1=0 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898176000000 c0=3 c1=0 c2=28 c3=0 c4=0 c5=3 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898177000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898178000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898179000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898180000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898181000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898182000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898183000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898184000000 c0=3 c1=0 c2=25 c3=0 c4=0 c5=3 c6=25 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16001 bin=898185000000 c0=0 c1=0 c2=0 c3=0 c4=1 c5=0 c6=0 c7=1
+LAB_MEDIA_FILL_TIMING thread=16001 ok=664 cached=0 timeout=398 end=0 error=1 ok_us=397463 cached_us=0 timeout_us=19960 end_us=0 error_us=1
+LAB_MEDIA_CONSUMER received=658 inactive=0 late=10 target_calls=648 no_target=0 copy_bytes=0 copy_us=0 target_us=13211526 first_target_us=898127427814
+
+LAB_VIDEO_VIEW calls=592 null=1 looper_fail=135 bitmap_fail=0 overlay=0 invalidate=0 draw=456 total_us=11903926 update_us=195 looper_us=5663823 bitmap_us=158 overlay_us=121 invalidate_us=0 draw_us=4144706 deferred=0
+
+LAB_OBSERVATION stage=view id=428549420360 anchor=898128000000 created=898128604831 ended=898185209013 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898128000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898129000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898130000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898145000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898149000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=8 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898153000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898154000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898155000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898156000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898157000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898158000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898159000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898161000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898165000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898166000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898167000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898168000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898169000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=0 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898173000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898174000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898175000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898177000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898178000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898179000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898180000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898181000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898182000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898183000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428549420360 bin=898185000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=1076 cached=0 gap_timeout=465 seek_timeout=0 read_timeout=0 other_errors=0 success=611 gap_frames=24024 max_gap=115
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=16093 lock_timeouts=31 late=175 attempts=1077 no_buffer=0 fills=1077 fill_timeouts=465 fill_errors=1 end_buffers=0 suppressed=465 sent=611 send_errors=1 wait_us=11230347 fill_us=383773 max_fill_us=22550 last_send_error=-2147467146
+
+LAB_OBSERVATION stage=producer id=16093 anchor=898128000000 created=898128642731 ended=898185230679 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898128000000 c0=8 c1=0 c2=0 c3=0 c4=0 c5=8 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898129000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898130000000 c0=7 c1=0 c2=0 c3=0 c4=0 c5=7 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898144000000 c0=2 c1=0 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898145000000 c0=13 c1=0 c2=9 c3=0 c4=0 c5=13 c6=9 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898146000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898147000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898148000000 c0=3 c1=0 c2=27 c3=0 c4=0 c5=3 c6=27 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898149000000 c0=10 c1=0 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898150000000 c0=0 c1=0 c2=29 c3=0 c4=0 c5=0 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898151000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898152000000 c0=2 c1=0 c2=27 c3=0 c4=0 c5=2 c6=27 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898153000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898154000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898155000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898156000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898157000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898158000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898159000000 c0=17 c1=0 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898160000000 c0=3 c1=0 c2=29 c3=0 c4=0 c5=3 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898161000000 c0=13 c1=0 c2=2 c3=0 c4=0 c5=13 c6=2 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898162000000 c0=0 c1=0 c2=32 c3=0 c4=0 c5=0 c6=32 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898163000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898164000000 c0=3 c1=0 c2=27 c3=0 c4=0 c5=3 c6=27 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898165000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898166000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898167000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898168000000 c0=15 c1=0 c2=4 c3=0 c4=0 c5=15 c6=4 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898169000000 c0=2 c1=0 c2=13 c3=0 c4=0 c5=2 c6=13 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898170000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898171000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898172000000 c0=3 c1=0 c2=27 c3=0 c4=0 c5=3 c6=27 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898173000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898174000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898175000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898176000000 c0=3 c1=0 c2=30 c3=0 c4=0 c5=3 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898177000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898178000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898179000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898180000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898181000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898182000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898183000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898184000000 c0=3 c1=0 c2=28 c3=0 c4=0 c5=3 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16093 bin=898185000000 c0=4 c1=0 c2=0 c3=0 c4=1 c5=4 c6=0 c7=1
+LAB_MEDIA_FILL_TIMING thread=16093 ok=611 cached=0 timeout=465 end=0 error=1 ok_us=347221 cached_us=0 timeout_us=36552 end_us=0 error_us=0
+LAB_MEDIA_CONSUMER received=605 inactive=0 late=13 target_calls=591 no_target=1 copy_bytes=0 copy_us=0 target_us=11904595 first_target_us=898128951514
+
+LAB_VIDEO_VIEW calls=611 null=1 looper_fail=142 bitmap_fail=0 overlay=0 invalidate=0 draw=468 total_us=11873515 update_us=302 looper_us=5710130 bitmap_us=176 overlay_us=140 invalidate_us=0 draw_us=4088771 deferred=0
+
+LAB_OBSERVATION stage=view id=428552874312 anchor=898130000000 created=898130218221 ended=898185338883 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898130000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898131000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898145000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898146000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898147000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898148000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898149000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898153000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898154000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898155000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898156000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898157000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898158000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898161000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898162000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898163000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898164000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898165000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898169000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=0 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898173000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898174000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898175000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898177000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898178000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898179000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898180000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898181000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898182000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898183000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428552874312 bin=898185000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=1075 cached=0 gap_timeout=448 seek_timeout=0 read_timeout=0 other_errors=0 success=627 gap_frames=23193 max_gap=115
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=16193 lock_timeouts=29 late=180 attempts=1076 no_buffer=0 fills=1076 fill_timeouts=448 fill_errors=1 end_buffers=0 suppressed=448 sent=627 send_errors=1 wait_us=11827713 fill_us=417812 max_fill_us=73490 last_send_error=-2147467146
+
+LAB_OBSERVATION stage=producer id=16193 anchor=898130000000 created=898130271941 ended=898185358639 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898130000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898131000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898144000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898145000000 c0=18 c1=0 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898146000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898147000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898148000000 c0=2 c1=0 c2=25 c3=0 c4=0 c5=2 c6=25 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898149000000 c0=8 c1=0 c2=8 c3=0 c4=0 c5=8 c6=8 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898150000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898151000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898152000000 c0=2 c1=0 c2=28 c3=0 c4=0 c5=2 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898153000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898154000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898155000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898156000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898157000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898158000000 c0=11 c1=0 c2=2 c3=0 c4=0 c5=11 c6=2 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898159000000 c0=0 c1=0 c2=33 c3=0 c4=0 c5=0 c6=33 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898160000000 c0=2 c1=0 c2=28 c3=0 c4=0 c5=2 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898161000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898162000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898163000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898164000000 c0=15 c1=0 c2=12 c3=0 c4=0 c5=15 c6=12 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898165000000 c0=4 c1=0 c2=19 c3=0 c4=0 c5=4 c6=19 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898166000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898167000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898168000000 c0=2 c1=0 c2=28 c3=0 c4=0 c5=2 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898169000000 c0=2 c1=0 c2=7 c3=0 c4=0 c5=2 c6=7 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898170000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898171000000 c0=0 c1=0 c2=23 c3=0 c4=0 c5=0 c6=23 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898172000000 c0=2 c1=0 c2=28 c3=0 c4=0 c5=2 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898173000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898174000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898175000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898176000000 c0=2 c1=0 c2=27 c3=0 c4=0 c5=2 c6=27 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898177000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898178000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898179000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898180000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898181000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898182000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898183000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898184000000 c0=2 c1=0 c2=29 c3=0 c4=0 c5=2 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16193 bin=898185000000 c0=8 c1=0 c2=0 c3=0 c4=1 c5=8 c6=0 c7=1
+LAB_MEDIA_FILL_TIMING thread=16193 ok=627 cached=0 timeout=448 end=0 error=1 ok_us=397911 cached_us=0 timeout_us=19901 end_us=0 error_us=0
+LAB_MEDIA_CONSUMER received=621 inactive=0 late=10 target_calls=610 no_target=1 copy_bytes=0 copy_us=0 target_us=11874894 first_target_us=898130577566
+
+LAB_VIDEO_VIEW calls=646 null=1 looper_fail=146 bitmap_fail=0 overlay=0 invalidate=0 draw=499 total_us=12605471 update_us=183 looper_us=5885010 bitmap_us=208 overlay_us=825 invalidate_us=0 draw_us=4532211 deferred=0
+
+LAB_OBSERVATION stage=view id=428560016712 anchor=898131000000 created=898131862365 ended=898185459817 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898132000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898133000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898145000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898146000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=4 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898149000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898150000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898151000000 c0=0 c1=10 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898152000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898153000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898154000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898155000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898156000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898157000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898158000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=8 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898161000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898165000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898166000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898167000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=6 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898169000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=0 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898173000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898174000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898175000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898177000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898178000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898179000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898180000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898181000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898182000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898183000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428560016712 bin=898185000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=1097 cached=0 gap_timeout=432 seek_timeout=0 read_timeout=0 other_errors=0 success=665 gap_frames=20816 max_gap=115
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=16301 lock_timeouts=24 late=162 attempts=1098 no_buffer=0 fills=1098 fill_timeouts=432 fill_errors=1 end_buffers=0 suppressed=432 sent=665 send_errors=1 wait_us=12918340 fill_us=368253 max_fill_us=7190 last_send_error=-2147467146
+
+LAB_OBSERVATION stage=producer id=16301 anchor=898131000000 created=898131907576 ended=898185478385 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898131000000 c0=3 c1=0 c2=0 c3=0 c4=0 c5=3 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898132000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898133000000 c0=17 c1=0 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898144000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898145000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898146000000 c0=5 c1=0 c2=21 c3=0 c4=0 c5=5 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898147000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898148000000 c0=2 c1=0 c2=28 c3=0 c4=0 c5=2 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898149000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898150000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898151000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898152000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898153000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898154000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898155000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898156000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898157000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898158000000 c0=16 c1=0 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898159000000 c0=0 c1=0 c2=32 c3=0 c4=0 c5=0 c6=32 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898160000000 c0=2 c1=0 c2=28 c3=0 c4=0 c5=2 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898161000000 c0=10 c1=0 c2=7 c3=0 c4=0 c5=10 c6=7 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898162000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898163000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898164000000 c0=2 c1=0 c2=28 c3=0 c4=0 c5=2 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898165000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898166000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898167000000 c0=4 c1=0 c2=19 c3=0 c4=0 c5=4 c6=19 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898168000000 c0=2 c1=0 c2=28 c3=0 c4=0 c5=2 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898169000000 c0=2 c1=0 c2=8 c3=0 c4=0 c5=2 c6=8 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898170000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898171000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898172000000 c0=2 c1=0 c2=28 c3=0 c4=0 c5=2 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898173000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898174000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898175000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898176000000 c0=2 c1=0 c2=26 c3=0 c4=0 c5=2 c6=26 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898177000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898178000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898179000000 c0=31 c1=0 c2=0 c3=0 c4=0 c5=31 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898180000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898181000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898182000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898183000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898184000000 c0=2 c1=0 c2=28 c3=0 c4=0 c5=2 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16301 bin=898185000000 c0=11 c1=0 c2=0 c3=0 c4=1 c5=11 c6=0 c7=1
+LAB_MEDIA_FILL_TIMING thread=16301 ok=665 cached=0 timeout=432 end=0 error=1 ok_us=342651 cached_us=0 timeout_us=25601 end_us=0 error_us=1
+LAB_MEDIA_CONSUMER received=659 inactive=0 late=14 target_calls=645 no_target=0 copy_bytes=0 copy_us=0 target_us=12606240 first_target_us=898132213990
+
+LAB_VIDEO_VIEW calls=435 null=1 looper_fail=102 bitmap_fail=0 overlay=0 invalidate=0 draw=332 total_us=8079386 update_us=125 looper_us=3920471 bitmap_us=116 overlay_us=106 invalidate_us=0 draw_us=2705887 deferred=0
+
+LAB_OBSERVATION stage=view id=428559848776 anchor=898133000000 created=898133533347 ended=898185579773 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898133000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=2 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898134000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898135000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898145000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898149000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898153000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=4 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898157000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=4 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898161000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898165000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898166000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898167000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898168000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898173000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898174000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898175000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898177000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898178000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898179000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898180000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898181000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898182000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898183000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428559848776 bin=898185000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=1082 cached=0 gap_timeout=635 seek_timeout=0 read_timeout=0 other_errors=0 success=447 gap_frames=37023 max_gap=117
+VideoConsumer::Disconnected() - Failed to reclaim our buffers: Operation would block
+LAB_MEDIA_PRODUCER thread=16417 lock_timeouts=23 late=181 attempts=1083 no_buffer=0 fills=1083 fill_timeouts=635 fill_errors=1 end_buffers=0 suppressed=635 sent=448 send_errors=0 wait_us=8722634 fill_us=301520 max_fill_us=28238 last_send_error=0
+
+LAB_OBSERVATION stage=producer id=16417 anchor=898133000000 created=898133645689 ended=898185595864 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898133000000 c0=8 c1=0 c2=0 c3=0 c4=0 c5=8 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898134000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898135000000 c0=11 c1=0 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898145000000 c0=11 c1=0 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898146000000 c0=0 c1=0 c2=12 c3=0 c4=0 c5=0 c6=12 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898147000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898148000000 c0=1 c1=0 c2=29 c3=0 c4=0 c5=1 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898149000000 c0=10 c1=0 c2=7 c3=0 c4=0 c5=10 c6=7 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898150000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898151000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898152000000 c0=1 c1=0 c2=29 c3=0 c4=0 c5=1 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898153000000 c0=3 c1=0 c2=21 c3=0 c4=0 c5=3 c6=21 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898154000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898155000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898156000000 c0=1 c1=0 c2=29 c3=0 c4=0 c5=1 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898157000000 c0=5 c1=0 c2=14 c3=0 c4=0 c5=5 c6=14 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898158000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898159000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898160000000 c0=1 c1=0 c2=29 c3=0 c4=0 c5=1 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898161000000 c0=13 c1=0 c2=3 c3=0 c4=0 c5=13 c6=3 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898162000000 c0=0 c1=0 c2=32 c3=0 c4=0 c5=0 c6=32 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898163000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898164000000 c0=1 c1=0 c2=29 c3=0 c4=0 c5=1 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898165000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898166000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898167000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898168000000 c0=18 c1=0 c2=4 c3=0 c4=0 c5=18 c6=4 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898169000000 c0=2 c1=0 c2=15 c3=0 c4=0 c5=2 c6=15 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898170000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898171000000 c0=0 c1=0 c2=24 c3=0 c4=0 c5=0 c6=24 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898172000000 c0=1 c1=0 c2=29 c3=0 c4=0 c5=1 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898173000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898174000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898175000000 c0=16 c1=0 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898176000000 c0=1 c1=0 c2=30 c3=0 c4=0 c5=1 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898177000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898178000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898179000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898180000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898181000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898182000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898183000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898184000000 c0=1 c1=0 c2=28 c3=0 c4=0 c5=1 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16417 bin=898185000000 c0=14 c1=0 c2=0 c3=0 c4=1 c5=15 c6=0 c7=0
+LAB_MEDIA_FILL_TIMING thread=16417 ok=447 cached=0 timeout=635 end=0 error=1 ok_us=260271 cached_us=0 timeout_us=41248 end_us=0 error_us=1
+LAB_MEDIA_CONSUMER received=442 inactive=0 late=7 target_calls=434 no_target=1 copy_bytes=0 copy_us=0 target_us=8079779 first_target_us=898133955260
+
+LAB_VIDEO_VIEW calls=663 null=1 looper_fail=146 bitmap_fail=0 overlay=0 invalidate=0 draw=516 total_us=12700165 update_us=182 looper_us=5865855 bitmap_us=188 overlay_us=280 invalidate_us=0 draw_us=4486204 deferred=0
+
+LAB_OBSERVATION stage=view id=428566667592 anchor=898135000000 created=898135330781 ended=898185697081 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898135000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=7 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898136000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898137000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898145000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898146000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898147000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898148000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898149000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=8 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898153000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898154000000 c0=0 c1=11 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898155000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898156000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898157000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898158000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898161000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898162000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898163000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898164000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898165000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=7 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898169000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=0 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898173000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898174000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898175000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898177000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898178000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898179000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898180000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898181000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898182000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898183000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566667592 bin=898185000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=1106 cached=0 gap_timeout=428 seek_timeout=0 read_timeout=0 other_errors=0 success=678 gap_frames=23547 max_gap=115
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=16541 lock_timeouts=22 late=161 attempts=1107 no_buffer=0 fills=1107 fill_timeouts=428 fill_errors=1 end_buffers=0 suppressed=428 sent=678 send_errors=1 wait_us=12863607 fill_us=423450 max_fill_us=24790 last_send_error=-2147467146
+
+LAB_OBSERVATION stage=producer id=16541 anchor=898135000000 created=898135469848 ended=898185714965 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898135000000 c0=13 c1=0 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898136000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898137000000 c0=7 c1=0 c2=0 c3=0 c4=0 c5=7 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898145000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898146000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898147000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898148000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898149000000 c0=11 c1=0 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898150000000 c0=0 c1=0 c2=28 c3=0 c4=0 c5=0 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898151000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898152000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898153000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898154000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898155000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898156000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898157000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898158000000 c0=15 c1=0 c2=6 c3=0 c4=0 c5=15 c6=6 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898159000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898160000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898161000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898162000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898163000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898164000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898165000000 c0=7 c1=0 c2=12 c3=0 c4=0 c5=7 c6=12 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898166000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898167000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898168000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898169000000 c0=4 c1=0 c2=16 c3=0 c4=0 c5=4 c6=16 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898170000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898171000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898172000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898173000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898174000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898175000000 c0=19 c1=0 c2=1 c3=0 c4=0 c5=19 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898176000000 c0=0 c1=0 c2=33 c3=0 c4=0 c5=0 c6=33 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898177000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898178000000 c0=23 c1=0 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898179000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898180000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898181000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898182000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898183000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898184000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16541 bin=898185000000 c0=18 c1=0 c2=0 c3=0 c4=1 c5=18 c6=0 c7=1
+LAB_MEDIA_FILL_TIMING thread=16541 ok=678 cached=0 timeout=428 end=0 error=1 ok_us=357559 cached_us=0 timeout_us=65891 end_us=0 error_us=0
+LAB_MEDIA_CONSUMER received=672 inactive=0 late=10 target_calls=662 no_target=0 copy_bytes=0 copy_us=0 target_us=12701638 first_target_us=898135776590
+
+LAB_VIDEO_VIEW calls=507 null=1 looper_fail=126 bitmap_fail=0 overlay=0 invalidate=0 draw=380 total_us=9494887 update_us=151 looper_us=4755712 bitmap_us=132 overlay_us=159 invalidate_us=0 draw_us=3271094 deferred=0
+
+LAB_OBSERVATION stage=view id=428566633800 anchor=898137000000 created=898137199637 ended=898185814653 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898137000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898138000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898139000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898145000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=8 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898149000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898150000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898151000000 c0=0 c1=12 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898152000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898153000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=7 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898157000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898158000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898161000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898165000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898169000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898173000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898174000000 c0=0 c1=10 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898175000000 c0=0 c1=4 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898177000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898178000000 c0=0 c1=10 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898179000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898180000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898181000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898182000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=23 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898183000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428566633800 bin=898185000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=1134 cached=0 gap_timeout=610 seek_timeout=0 read_timeout=0 other_errors=0 success=524 gap_frames=32802 max_gap=115
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=16673 lock_timeouts=22 late=147 attempts=1135 no_buffer=0 fills=1135 fill_timeouts=610 fill_errors=1 end_buffers=0 suppressed=610 sent=524 send_errors=1 wait_us=10440356 fill_us=411267 max_fill_us=92550 last_send_error=-2147467146
+
+LAB_OBSERVATION stage=producer id=16673 anchor=898137000000 created=898137254000 ended=898185833795 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898137000000 c0=20 c1=0 c2=0 c3=0 c4=0 c5=20 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898138000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898139000000 c0=12 c1=0 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898145000000 c0=11 c1=0 c2=10 c3=0 c4=0 c5=11 c6=10 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898146000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898147000000 c0=0 c1=0 c2=29 c3=0 c4=0 c5=0 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898148000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898149000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898150000000 c0=27 c1=0 c2=0 c3=0 c4=0 c5=27 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898151000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898152000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898153000000 c0=9 c1=0 c2=17 c3=0 c4=0 c5=9 c6=17 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898154000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898155000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898156000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898157000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898158000000 c0=14 c1=0 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898159000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898160000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898161000000 c0=13 c1=0 c2=1 c3=0 c4=0 c5=13 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898162000000 c0=0 c1=0 c2=33 c3=0 c4=0 c5=0 c6=33 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898163000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898164000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898165000000 c0=18 c1=0 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898166000000 c0=0 c1=0 c2=15 c3=0 c4=0 c5=0 c6=15 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898167000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898168000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898169000000 c0=4 c1=0 c2=19 c3=0 c4=0 c5=4 c6=19 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898170000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898171000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898172000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898173000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898174000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898175000000 c0=18 c1=0 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898176000000 c0=0 c1=0 c2=33 c3=0 c4=0 c5=0 c6=33 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898177000000 c0=21 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898178000000 c0=26 c1=0 c2=0 c3=0 c4=0 c5=26 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898179000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898180000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898181000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898182000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898183000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898184000000 c0=0 c1=0 c2=31 c3=0 c4=0 c5=0 c6=31 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16673 bin=898185000000 c0=21 c1=0 c2=0 c3=0 c4=1 c5=21 c6=0 c7=1
+LAB_MEDIA_FILL_TIMING thread=16673 ok=524 cached=0 timeout=610 end=0 error=1 ok_us=370857 cached_us=0 timeout_us=40409 end_us=0 error_us=1
+LAB_MEDIA_CONSUMER received=518 inactive=0 late=12 target_calls=506 no_target=0 copy_bytes=0 copy_us=0 target_us=9496033 first_target_us=898137563347
+
+LAB_VIDEO_VIEW calls=553 null=1 looper_fail=127 bitmap_fail=0 overlay=0 invalidate=0 draw=425 total_us=10531287 update_us=202 looper_us=5146619 bitmap_us=160 overlay_us=130 invalidate_us=0 draw_us=3593757 deferred=0
+
+LAB_OBSERVATION stage=view id=428570112328 anchor=898139000000 created=898139356399 ended=898185946273 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898139000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=7 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898140000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898141000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898145000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898149000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=10 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898150000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898151000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898152000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898153000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898157000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898158000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=1 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898161000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898162000000 c0=0 c1=8 c2=0 c3=0 c4=0 c5=16 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898163000000 c0=0 c1=12 c2=0 c3=0 c4=0 c5=18 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898164000000 c0=0 c1=10 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898165000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898166000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=17 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898169000000 c0=0 c1=3 c2=0 c3=0 c4=0 c5=8 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898170000000 c0=0 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898171000000 c0=0 c1=1 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898173000000 c0=0 c1=6 c2=0 c3=0 c4=0 c5=12 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898174000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898175000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=14 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898177000000 c0=0 c1=2 c2=0 c3=0 c4=0 c5=4 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898181000000 c0=0 c1=5 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898182000000 c0=0 c1=9 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898183000000 c0=0 c1=7 c2=0 c3=0 c4=0 c5=15 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=view id=428570112328 bin=898185000000 c0=1 c1=0 c2=0 c3=0 c4=0 c5=21 c6=0 c7=0
+
+LAB_VIDEO_PROXY calls=1120 cached=0 gap_timeout=548 seek_timeout=0 read_timeout=0 other_errors=0 success=572 gap_frames=27870 max_gap=113
+VideoProducer::_FrameGeneratorThread: Error sending buffer
+LAB_MEDIA_PRODUCER thread=16813 lock_timeouts=30 late=156 attempts=1121 no_buffer=0 fills=1121 fill_timeouts=548 fill_errors=1 end_buffers=0 suppressed=548 sent=572 send_errors=1 wait_us=11386579 fill_us=348237 max_fill_us=12146 last_send_error=-2147467146
+
+LAB_OBSERVATION stage=producer id=16813 anchor=898139000000 created=898139479880 ended=898185968715 overflow=0 valid=1
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898139000000 c0=13 c1=0 c2=0 c3=0 c4=0 c5=13 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898140000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898141000000 c0=9 c1=0 c2=0 c3=0 c4=0 c5=9 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898145000000 c0=11 c1=0 c2=0 c3=0 c4=0 c5=11 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898146000000 c0=0 c1=0 c2=28 c3=0 c4=0 c5=0 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898147000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898148000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898149000000 c0=18 c1=0 c2=1 c3=0 c4=0 c5=18 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898150000000 c0=29 c1=0 c2=0 c3=0 c4=0 c5=29 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898151000000 c0=28 c1=0 c2=0 c3=0 c4=0 c5=28 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898152000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898153000000 c0=12 c1=0 c2=14 c3=0 c4=0 c5=12 c6=14 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898154000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898155000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898156000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898157000000 c0=17 c1=0 c2=1 c3=0 c4=0 c5=17 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898158000000 c0=2 c1=0 c2=26 c3=0 c4=0 c5=2 c6=26 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898159000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898160000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898161000000 c0=19 c1=0 c2=1 c3=0 c4=0 c5=19 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898162000000 c0=24 c1=0 c2=0 c3=0 c4=0 c5=24 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898163000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898164000000 c0=25 c1=0 c2=0 c3=0 c4=0 c5=25 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898165000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898166000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898167000000 c0=0 c1=0 c2=32 c3=0 c4=0 c5=0 c6=32 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898168000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898169000000 c0=17 c1=0 c2=1 c3=0 c4=0 c5=17 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898170000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898171000000 c0=14 c1=0 c2=8 c3=0 c4=0 c5=14 c6=8 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898172000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898173000000 c0=21 c1=0 c2=1 c3=0 c4=0 c5=21 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898174000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898175000000 c0=19 c1=0 c2=0 c3=0 c4=0 c5=19 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898176000000 c0=0 c1=0 c2=28 c3=0 c4=0 c5=0 c6=28 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898177000000 c0=6 c1=0 c2=16 c3=0 c4=0 c5=6 c6=16 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898178000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898179000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898180000000 c0=0 c1=0 c2=30 c3=0 c4=0 c5=0 c6=30 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898181000000 c0=23 c1=0 c2=1 c3=0 c4=0 c5=23 c6=1 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898182000000 c0=30 c1=0 c2=0 c3=0 c4=0 c5=30 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898183000000 c0=22 c1=0 c2=0 c3=0 c4=0 c5=22 c6=0 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898184000000 c0=0 c1=0 c2=29 c3=0 c4=0 c5=0 c6=29 c7=0
+
+LAB_OBSERVATION_BIN stage=producer id=16813 bin=898185000000 c0=25 c1=0 c2=1 c3=0 c4=1 c5=25 c6=1 c7=1
+LAB_MEDIA_FILL_TIMING thread=16813 ok=572 cached=0 timeout=548 end=0 error=1 ok_us=307954 cached_us=0 timeout_us=40282 end_us=0 error_us=1
+LAB_MEDIA_CONSUMER received=566 inactive=0 late=13 target_calls=552 no_target=1 copy_bytes=0 copy_us=0 target_us=10531958 first_target_us=898139787610

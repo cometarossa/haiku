@@ -1,0 +1,3075 @@
+{
+  "report": {
+    "complete": true,
+    "rows": [
+      {
+        "tag": "00-n16-off",
+        "n": 16,
+        "state": "off",
+        "observation_us": 20040887,
+        "quit_rpc_us": 17649045,
+        "teardown_us": 17651712,
+        "lifetime_to_exit_us": 68993544,
+        "lifetime_to_quit_request_us": 51341832,
+        "dispatch_us": 401509,
+        "probe": {
+          "expected": 144,
+          "attempted": 27,
+          "errors": 11,
+          "not_attempted": 117,
+          "playing_replies": 5,
+          "all_positions_advance": false,
+          "initialization_us": 13498,
+          "elapsed_us": 15000232,
+          "deadline_overrun_us": 232,
+          "complete": false,
+          "playback_valid": false,
+          "by_operation": {
+            "Title": {
+              "count": 15,
+              "median_us": 93306,
+              "p95_us": 1443972,
+              "max_us": 1443972,
+              "total_us": 5920137
+            },
+            "IsPlaying": {
+              "count": 6,
+              "median_us": 844761.0,
+              "p95_us": 1491231,
+              "max_us": 1491231,
+              "total_us": 4802826
+            },
+            "Position": {
+              "count": 6,
+              "median_us": 751345.5,
+              "p95_us": 1241695,
+              "max_us": 1241695,
+              "total_us": 4276681
+            }
+          }
+        },
+        "view": {
+          "calls": 7452,
+          "null": 16,
+          "looper_fail": 1451,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 5985,
+          "total_us": 137998890,
+          "update_us": 3419,
+          "looper_us": 62906170,
+          "bitmap_us": 4206,
+          "overlay_us": 2748,
+          "invalidate_us": 0,
+          "draw_us": 49928370,
+          "deferred": 0,
+          "records": 16,
+          "unattributed_us": 25153977
+        },
+        "deferred": [],
+        "player_exit": 0,
+        "valid": false,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 15120,
+            "cached": 0,
+            "gap_timeout": 7427,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 7693,
+            "gap_frames": 417281,
+            "max_gap": 119,
+            "records": 16,
+            "timeouts": 7427
+          },
+          "timing": {},
+          "media": {
+            "producer": {
+              "records": 16,
+              "lock_timeouts": 370,
+              "late": 2409,
+              "attempts": 15128,
+              "no_buffer": 0,
+              "fills": 15128,
+              "fill_timeouts": 7427,
+              "fill_errors": 8,
+              "end_buffers": 0,
+              "suppressed": 7427,
+              "sent": 7695,
+              "send_errors": 6,
+              "wait_us": 152530190,
+              "fill_us": 5111480,
+              "max_fill_us": 54423
+            },
+            "consumer": {
+              "records": 16,
+              "received": 7611,
+              "inactive": 0,
+              "late": 65,
+              "target_calls": 7436,
+              "no_target": 110,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 138009898
+            }
+          }
+        },
+        "diagnostic_valid": true,
+        "fill_timing": [
+          {
+            "thread": 9976,
+            "ok": 403,
+            "cached": 0,
+            "timeout": 285,
+            "end": 0,
+            "error": 0,
+            "ok_us": 232380,
+            "cached_us": 0,
+            "timeout_us": 32830,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 9994,
+            "ok": 363,
+            "cached": 0,
+            "timeout": 434,
+            "end": 0,
+            "error": 0,
+            "ok_us": 182657,
+            "cached_us": 0,
+            "timeout_us": 23062,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 10030,
+            "ok": 243,
+            "cached": 0,
+            "timeout": 528,
+            "end": 0,
+            "error": 0,
+            "ok_us": 158845,
+            "cached_us": 0,
+            "timeout_us": 33127,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 10074,
+            "ok": 206,
+            "cached": 0,
+            "timeout": 641,
+            "end": 0,
+            "error": 0,
+            "ok_us": 107026,
+            "cached_us": 0,
+            "timeout_us": 73466,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 10126,
+            "ok": 278,
+            "cached": 0,
+            "timeout": 553,
+            "end": 0,
+            "error": 1,
+            "ok_us": 203840,
+            "cached_us": 0,
+            "timeout_us": 65459,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 10186,
+            "ok": 445,
+            "cached": 0,
+            "timeout": 466,
+            "end": 0,
+            "error": 0,
+            "ok_us": 313567,
+            "cached_us": 0,
+            "timeout_us": 30139,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 10254,
+            "ok": 324,
+            "cached": 0,
+            "timeout": 559,
+            "end": 0,
+            "error": 1,
+            "ok_us": 226304,
+            "cached_us": 0,
+            "timeout_us": 96684,
+            "end_us": 0,
+            "error_us": 2
+          },
+          {
+            "thread": 10330,
+            "ok": 502,
+            "cached": 0,
+            "timeout": 413,
+            "end": 0,
+            "error": 0,
+            "ok_us": 247559,
+            "cached_us": 0,
+            "timeout_us": 21984,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 10414,
+            "ok": 509,
+            "cached": 0,
+            "timeout": 499,
+            "end": 0,
+            "error": 1,
+            "ok_us": 311501,
+            "cached_us": 0,
+            "timeout_us": 39421,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 10506,
+            "ok": 694,
+            "cached": 0,
+            "timeout": 328,
+            "end": 0,
+            "error": 0,
+            "ok_us": 332323,
+            "cached_us": 0,
+            "timeout_us": 21346,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 10606,
+            "ok": 555,
+            "cached": 0,
+            "timeout": 528,
+            "end": 0,
+            "error": 0,
+            "ok_us": 306955,
+            "cached_us": 0,
+            "timeout_us": 66821,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 10714,
+            "ok": 728,
+            "cached": 0,
+            "timeout": 351,
+            "end": 0,
+            "error": 1,
+            "ok_us": 392386,
+            "cached_us": 0,
+            "timeout_us": 43263,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 10830,
+            "ok": 703,
+            "cached": 0,
+            "timeout": 340,
+            "end": 0,
+            "error": 1,
+            "ok_us": 398912,
+            "cached_us": 0,
+            "timeout_us": 19465,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 10954,
+            "ok": 503,
+            "cached": 0,
+            "timeout": 570,
+            "end": 0,
+            "error": 1,
+            "ok_us": 241998,
+            "cached_us": 0,
+            "timeout_us": 80578,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 11086,
+            "ok": 669,
+            "cached": 0,
+            "timeout": 415,
+            "end": 0,
+            "error": 1,
+            "ok_us": 388219,
+            "cached_us": 0,
+            "timeout_us": 44490,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 11226,
+            "ok": 568,
+            "cached": 0,
+            "timeout": 517,
+            "end": 0,
+            "error": 1,
+            "ok_us": 339028,
+            "cached_us": 0,
+            "timeout_us": 35835,
+            "end_us": 0,
+            "error_us": 2
+          }
+        ],
+        "observation": {
+          "start_us": 897951000000,
+          "stop_us": 897970000000,
+          "seconds": 19.0,
+          "stages": {
+            "producer": {
+              "lifetime": {
+                "ok": 7693,
+                "cached": 0,
+                "timeout": 7427,
+                "end": 0,
+                "error": 8,
+                "sent": 7695,
+                "suppressed": 7427,
+                "send_error": 6
+              },
+              "observed": {
+                "ok": 2869,
+                "cached": 0,
+                "timeout": 4842,
+                "end": 0,
+                "error": 0,
+                "sent": 2869,
+                "suppressed": 4842,
+                "send_error": 0
+              }
+            },
+            "view": {
+              "lifetime": {
+                "null": 16,
+                "looper_fail": 1451,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 5985,
+                "deferred": 0,
+                "unused": 0
+              },
+              "observed": {
+                "null": 0,
+                "looper_fail": 740,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 2145,
+                "deferred": 0,
+                "unused": 0
+              }
+            },
+            "deferred": {
+              "lifetime": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              },
+              "observed": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              }
+            }
+          },
+          "draw_completions": 2145,
+          "limitation": "Completion events only; partial boundary bins excluded. Not actual presented FPS."
+        }
+      },
+      {
+        "tag": "01-n16-on",
+        "n": 16,
+        "state": "on",
+        "observation_us": 20064687,
+        "quit_rpc_us": 12468292,
+        "teardown_us": 12471242,
+        "lifetime_to_exit_us": 63313711,
+        "lifetime_to_quit_request_us": 50842469,
+        "dispatch_us": 400460,
+        "probe": {
+          "expected": 144,
+          "attempted": 56,
+          "errors": 8,
+          "not_attempted": 88,
+          "playing_replies": 16,
+          "all_positions_advance": false,
+          "initialization_us": 16405,
+          "elapsed_us": 15000818,
+          "deadline_overrun_us": 818,
+          "complete": false,
+          "playback_valid": false,
+          "by_operation": {
+            "Title": {
+              "count": 24,
+              "median_us": 161295.0,
+              "p95_us": 496946,
+              "max_us": 513356,
+              "total_us": 4876655
+            },
+            "IsPlaying": {
+              "count": 16,
+              "median_us": 322474.0,
+              "p95_us": 617985,
+              "max_us": 617985,
+              "total_us": 4817944
+            },
+            "Position": {
+              "count": 16,
+              "median_us": 285518.5,
+              "p95_us": 571592,
+              "max_us": 571592,
+              "total_us": 4803282
+            }
+          }
+        },
+        "view": {
+          "calls": 11456,
+          "null": 16,
+          "looper_fail": 0,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 0,
+          "total_us": 1758319,
+          "update_us": 1702026,
+          "looper_us": 0,
+          "bitmap_us": 0,
+          "overlay_us": 0,
+          "invalidate_us": 0,
+          "draw_us": 0,
+          "deferred": 11440,
+          "records": 16,
+          "unattributed_us": 56293
+        },
+        "deferred": [
+          {
+            "queued": 108,
+            "coalesced": 358,
+            "failed": 0,
+            "handled": 108,
+            "cancelled": 0,
+            "draw": 108,
+            "skipped": 0
+          },
+          {
+            "queued": 88,
+            "coalesced": 382,
+            "failed": 0,
+            "handled": 87,
+            "cancelled": 0,
+            "draw": 87,
+            "skipped": 0
+          },
+          {
+            "queued": 96,
+            "coalesced": 482,
+            "failed": 0,
+            "handled": 95,
+            "cancelled": 0,
+            "draw": 95,
+            "skipped": 0
+          },
+          {
+            "queued": 107,
+            "coalesced": 587,
+            "failed": 0,
+            "handled": 106,
+            "cancelled": 0,
+            "draw": 106,
+            "skipped": 0
+          },
+          {
+            "queued": 123,
+            "coalesced": 383,
+            "failed": 0,
+            "handled": 122,
+            "cancelled": 0,
+            "draw": 122,
+            "skipped": 0
+          },
+          {
+            "queued": 212,
+            "coalesced": 554,
+            "failed": 0,
+            "handled": 211,
+            "cancelled": 0,
+            "draw": 211,
+            "skipped": 0
+          },
+          {
+            "queued": 142,
+            "coalesced": 521,
+            "failed": 0,
+            "handled": 141,
+            "cancelled": 0,
+            "draw": 141,
+            "skipped": 0
+          },
+          {
+            "queued": 104,
+            "coalesced": 562,
+            "failed": 0,
+            "handled": 103,
+            "cancelled": 0,
+            "draw": 103,
+            "skipped": 0
+          },
+          {
+            "queued": 161,
+            "coalesced": 662,
+            "failed": 0,
+            "handled": 160,
+            "cancelled": 0,
+            "draw": 160,
+            "skipped": 0
+          },
+          {
+            "queued": 171,
+            "coalesced": 551,
+            "failed": 0,
+            "handled": 171,
+            "cancelled": 0,
+            "draw": 171,
+            "skipped": 0
+          },
+          {
+            "queued": 227,
+            "coalesced": 604,
+            "failed": 0,
+            "handled": 227,
+            "cancelled": 0,
+            "draw": 227,
+            "skipped": 0
+          },
+          {
+            "queued": 193,
+            "coalesced": 717,
+            "failed": 0,
+            "handled": 193,
+            "cancelled": 0,
+            "draw": 193,
+            "skipped": 0
+          },
+          {
+            "queued": 192,
+            "coalesced": 623,
+            "failed": 0,
+            "handled": 192,
+            "cancelled": 0,
+            "draw": 192,
+            "skipped": 0
+          },
+          {
+            "queued": 195,
+            "coalesced": 734,
+            "failed": 0,
+            "handled": 195,
+            "cancelled": 0,
+            "draw": 195,
+            "skipped": 0
+          },
+          {
+            "queued": 199,
+            "coalesced": 593,
+            "failed": 0,
+            "handled": 199,
+            "cancelled": 0,
+            "draw": 199,
+            "skipped": 0
+          },
+          {
+            "queued": 200,
+            "coalesced": 609,
+            "failed": 0,
+            "handled": 200,
+            "cancelled": 0,
+            "draw": 200,
+            "skipped": 0
+          }
+        ],
+        "player_exit": 0,
+        "valid": false,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 14421,
+            "cached": 0,
+            "gap_timeout": 2709,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 11712,
+            "gap_frames": 127637,
+            "max_gap": 119,
+            "records": 16,
+            "timeouts": 2709
+          },
+          "timing": {
+            "queue_us": 347209487,
+            "handler_us": 14177544,
+            "bitmap_us": 910,
+            "draw_us": 14130135,
+            "handled": 2510,
+            "mean_queue_us": 138330.47290836653,
+            "mean_handler_us": 5648.42390438247
+          },
+          "media": {
+            "producer": {
+              "records": 16,
+              "lock_timeouts": 265,
+              "late": 1147,
+              "attempts": 14433,
+              "no_buffer": 0,
+              "fills": 14433,
+              "fill_timeouts": 2709,
+              "fill_errors": 12,
+              "end_buffers": 0,
+              "suppressed": 2709,
+              "sent": 11716,
+              "send_errors": 8,
+              "wait_us": 206836049,
+              "fill_us": 6329165,
+              "max_fill_us": 63431
+            },
+            "consumer": {
+              "records": 16,
+              "received": 11620,
+              "inactive": 0,
+              "late": 26,
+              "target_calls": 11440,
+              "no_target": 154,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 1771437
+            }
+          }
+        },
+        "diagnostic_valid": true,
+        "fill_timing": [
+          {
+            "thread": 11837,
+            "ok": 491,
+            "cached": 0,
+            "timeout": 220,
+            "end": 0,
+            "error": 0,
+            "ok_us": 298942,
+            "cached_us": 0,
+            "timeout_us": 15770,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 11855,
+            "ok": 502,
+            "cached": 0,
+            "timeout": 202,
+            "end": 0,
+            "error": 0,
+            "ok_us": 280275,
+            "cached_us": 0,
+            "timeout_us": 14239,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 11891,
+            "ok": 602,
+            "cached": 0,
+            "timeout": 152,
+            "end": 0,
+            "error": 1,
+            "ok_us": 342869,
+            "cached_us": 0,
+            "timeout_us": 22147,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 11935,
+            "ok": 717,
+            "cached": 0,
+            "timeout": 139,
+            "end": 0,
+            "error": 1,
+            "ok_us": 343295,
+            "cached_us": 0,
+            "timeout_us": 17366,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 11987,
+            "ok": 528,
+            "cached": 0,
+            "timeout": 335,
+            "end": 0,
+            "error": 1,
+            "ok_us": 316443,
+            "cached_us": 0,
+            "timeout_us": 24086,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 12047,
+            "ok": 788,
+            "cached": 0,
+            "timeout": 95,
+            "end": 0,
+            "error": 0,
+            "ok_us": 404518,
+            "cached_us": 0,
+            "timeout_us": 11816,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 12115,
+            "ok": 684,
+            "cached": 0,
+            "timeout": 249,
+            "end": 0,
+            "error": 0,
+            "ok_us": 334568,
+            "cached_us": 0,
+            "timeout_us": 37391,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 12191,
+            "ok": 691,
+            "cached": 0,
+            "timeout": 171,
+            "end": 0,
+            "error": 1,
+            "ok_us": 352005,
+            "cached_us": 0,
+            "timeout_us": 14814,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 12275,
+            "ok": 845,
+            "cached": 0,
+            "timeout": 121,
+            "end": 0,
+            "error": 1,
+            "ok_us": 416533,
+            "cached_us": 0,
+            "timeout_us": 12283,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 12367,
+            "ok": 730,
+            "cached": 0,
+            "timeout": 245,
+            "end": 0,
+            "error": 1,
+            "ok_us": 373766,
+            "cached_us": 0,
+            "timeout_us": 12312,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 12467,
+            "ok": 842,
+            "cached": 0,
+            "timeout": 130,
+            "end": 0,
+            "error": 1,
+            "ok_us": 388968,
+            "cached_us": 0,
+            "timeout_us": 9634,
+            "end_us": 0,
+            "error_us": 4
+          },
+          {
+            "thread": 12575,
+            "ok": 920,
+            "cached": 0,
+            "timeout": 86,
+            "end": 0,
+            "error": 1,
+            "ok_us": 457157,
+            "cached_us": 0,
+            "timeout_us": 3875,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 12691,
+            "ok": 822,
+            "cached": 0,
+            "timeout": 157,
+            "end": 0,
+            "error": 1,
+            "ok_us": 451542,
+            "cached_us": 0,
+            "timeout_us": 14399,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 12815,
+            "ok": 936,
+            "cached": 0,
+            "timeout": 52,
+            "end": 0,
+            "error": 1,
+            "ok_us": 465457,
+            "cached_us": 0,
+            "timeout_us": 2979,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 12947,
+            "ok": 799,
+            "cached": 0,
+            "timeout": 186,
+            "end": 0,
+            "error": 1,
+            "ok_us": 451650,
+            "cached_us": 0,
+            "timeout_us": 14986,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 13087,
+            "ok": 815,
+            "cached": 0,
+            "timeout": 169,
+            "end": 0,
+            "error": 1,
+            "ok_us": 410926,
+            "cached_us": 0,
+            "timeout_us": 12142,
+            "end_us": 0,
+            "error_us": 1
+          }
+        ],
+        "observation": {
+          "start_us": 898020000000,
+          "stop_us": 898039000000,
+          "seconds": 19.0,
+          "stages": {
+            "producer": {
+              "lifetime": {
+                "ok": 11712,
+                "cached": 0,
+                "timeout": 2709,
+                "end": 0,
+                "error": 12,
+                "sent": 11716,
+                "suppressed": 2709,
+                "send_error": 8
+              },
+              "observed": {
+                "ok": 6180,
+                "cached": 0,
+                "timeout": 2083,
+                "end": 0,
+                "error": 0,
+                "sent": 6180,
+                "suppressed": 2083,
+                "send_error": 0
+              }
+            },
+            "view": {
+              "lifetime": {
+                "null": 16,
+                "looper_fail": 0,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 0,
+                "deferred": 11440,
+                "unused": 0
+              },
+              "observed": {
+                "null": 0,
+                "looper_fail": 0,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 0,
+                "deferred": 6171,
+                "unused": 0
+              }
+            },
+            "deferred": {
+              "lifetime": {
+                "draw": 2510,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              },
+              "observed": {
+                "draw": 771,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              }
+            }
+          },
+          "draw_completions": 771,
+          "limitation": "Completion events only; partial boundary bins excluded. Not actual presented FPS."
+        }
+      },
+      {
+        "tag": "02-n16-on",
+        "n": 16,
+        "state": "on",
+        "observation_us": 20132912,
+        "quit_rpc_us": 10085898,
+        "teardown_us": 10091782,
+        "lifetime_to_exit_us": 60488812,
+        "lifetime_to_quit_request_us": 50397030,
+        "dispatch_us": 414507,
+        "probe": {
+          "expected": 144,
+          "attempted": 66,
+          "errors": 9,
+          "not_attempted": 78,
+          "playing_replies": 19,
+          "all_positions_advance": false,
+          "initialization_us": 11920,
+          "elapsed_us": 15001071,
+          "deadline_overrun_us": 1071,
+          "complete": false,
+          "playback_valid": false,
+          "by_operation": {
+            "Title": {
+              "count": 28,
+              "median_us": 81443.5,
+              "p95_us": 637307,
+              "max_us": 662289,
+              "total_us": 4859550
+            },
+            "IsPlaying": {
+              "count": 19,
+              "median_us": 234903,
+              "p95_us": 615413,
+              "max_us": 615413,
+              "total_us": 4632688
+            },
+            "Position": {
+              "count": 19,
+              "median_us": 262511,
+              "p95_us": 677237,
+              "max_us": 677237,
+              "total_us": 5003871
+            }
+          }
+        },
+        "view": {
+          "calls": 11219,
+          "null": 16,
+          "looper_fail": 0,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 0,
+          "total_us": 1970519,
+          "update_us": 1903852,
+          "looper_us": 0,
+          "bitmap_us": 0,
+          "overlay_us": 0,
+          "invalidate_us": 0,
+          "draw_us": 0,
+          "deferred": 11203,
+          "records": 16,
+          "unattributed_us": 66667
+        },
+        "deferred": [
+          {
+            "queued": 103,
+            "coalesced": 367,
+            "failed": 0,
+            "handled": 103,
+            "cancelled": 0,
+            "draw": 103,
+            "skipped": 0
+          },
+          {
+            "queued": 89,
+            "coalesced": 437,
+            "failed": 0,
+            "handled": 88,
+            "cancelled": 0,
+            "draw": 88,
+            "skipped": 0
+          },
+          {
+            "queued": 103,
+            "coalesced": 561,
+            "failed": 0,
+            "handled": 102,
+            "cancelled": 0,
+            "draw": 102,
+            "skipped": 0
+          },
+          {
+            "queued": 135,
+            "coalesced": 470,
+            "failed": 0,
+            "handled": 134,
+            "cancelled": 0,
+            "draw": 134,
+            "skipped": 0
+          },
+          {
+            "queued": 129,
+            "coalesced": 681,
+            "failed": 0,
+            "handled": 128,
+            "cancelled": 0,
+            "draw": 128,
+            "skipped": 0
+          },
+          {
+            "queued": 118,
+            "coalesced": 520,
+            "failed": 0,
+            "handled": 117,
+            "cancelled": 0,
+            "draw": 117,
+            "skipped": 0
+          },
+          {
+            "queued": 138,
+            "coalesced": 536,
+            "failed": 0,
+            "handled": 137,
+            "cancelled": 0,
+            "draw": 137,
+            "skipped": 0
+          },
+          {
+            "queued": 145,
+            "coalesced": 538,
+            "failed": 0,
+            "handled": 144,
+            "cancelled": 0,
+            "draw": 144,
+            "skipped": 0
+          },
+          {
+            "queued": 145,
+            "coalesced": 373,
+            "failed": 0,
+            "handled": 144,
+            "cancelled": 0,
+            "draw": 144,
+            "skipped": 0
+          },
+          {
+            "queued": 252,
+            "coalesced": 651,
+            "failed": 0,
+            "handled": 252,
+            "cancelled": 0,
+            "draw": 252,
+            "skipped": 0
+          },
+          {
+            "queued": 194,
+            "coalesced": 641,
+            "failed": 0,
+            "handled": 194,
+            "cancelled": 0,
+            "draw": 194,
+            "skipped": 0
+          },
+          {
+            "queued": 181,
+            "coalesced": 622,
+            "failed": 0,
+            "handled": 181,
+            "cancelled": 0,
+            "draw": 181,
+            "skipped": 0
+          },
+          {
+            "queued": 191,
+            "coalesced": 657,
+            "failed": 0,
+            "handled": 191,
+            "cancelled": 0,
+            "draw": 191,
+            "skipped": 0
+          },
+          {
+            "queued": 204,
+            "coalesced": 544,
+            "failed": 0,
+            "handled": 204,
+            "cancelled": 0,
+            "draw": 204,
+            "skipped": 0
+          },
+          {
+            "queued": 292,
+            "coalesced": 289,
+            "failed": 0,
+            "handled": 292,
+            "cancelled": 0,
+            "draw": 292,
+            "skipped": 0
+          },
+          {
+            "queued": 236,
+            "coalesced": 661,
+            "failed": 0,
+            "handled": 236,
+            "cancelled": 0,
+            "draw": 236,
+            "skipped": 0
+          }
+        ],
+        "player_exit": 0,
+        "valid": false,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 13877,
+            "cached": 0,
+            "gap_timeout": 2452,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 11425,
+            "gap_frames": 134494,
+            "max_gap": 113,
+            "records": 16,
+            "timeouts": 2452
+          },
+          "timing": {
+            "queue_us": 326752318,
+            "handler_us": 14489201,
+            "bitmap_us": 745,
+            "draw_us": 14455276,
+            "handled": 2647,
+            "mean_queue_us": 123442.50774461655,
+            "mean_handler_us": 5473.819795995467
+          },
+          "media": {
+            "producer": {
+              "records": 16,
+              "lock_timeouts": 161,
+              "late": 727,
+              "attempts": 13887,
+              "no_buffer": 0,
+              "fills": 13887,
+              "fill_timeouts": 2452,
+              "fill_errors": 10,
+              "end_buffers": 0,
+              "suppressed": 2452,
+              "sent": 11429,
+              "send_errors": 6,
+              "wait_us": 208475075,
+              "fill_us": 6602151,
+              "max_fill_us": 163946
+            },
+            "consumer": {
+              "records": 16,
+              "received": 11335,
+              "inactive": 0,
+              "late": 4,
+              "target_calls": 11203,
+              "no_target": 128,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 1983981
+            }
+          }
+        },
+        "diagnostic_valid": true,
+        "fill_timing": [
+          {
+            "thread": 13699,
+            "ok": 473,
+            "cached": 0,
+            "timeout": 223,
+            "end": 0,
+            "error": 0,
+            "ok_us": 273039,
+            "cached_us": 0,
+            "timeout_us": 10219,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 13717,
+            "ok": 550,
+            "cached": 0,
+            "timeout": 176,
+            "end": 0,
+            "error": 0,
+            "ok_us": 363796,
+            "cached_us": 0,
+            "timeout_us": 13201,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 13753,
+            "ok": 687,
+            "cached": 0,
+            "timeout": 93,
+            "end": 0,
+            "error": 0,
+            "ok_us": 320780,
+            "cached_us": 0,
+            "timeout_us": 10659,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 13797,
+            "ok": 629,
+            "cached": 0,
+            "timeout": 154,
+            "end": 0,
+            "error": 0,
+            "ok_us": 355230,
+            "cached_us": 0,
+            "timeout_us": 10827,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 13849,
+            "ok": 833,
+            "cached": 0,
+            "timeout": 0,
+            "end": 0,
+            "error": 0,
+            "ok_us": 395266,
+            "cached_us": 0,
+            "timeout_us": 0,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 13909,
+            "ok": 659,
+            "cached": 0,
+            "timeout": 171,
+            "end": 0,
+            "error": 0,
+            "ok_us": 352712,
+            "cached_us": 0,
+            "timeout_us": 6767,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 13977,
+            "ok": 693,
+            "cached": 0,
+            "timeout": 188,
+            "end": 0,
+            "error": 1,
+            "ok_us": 319712,
+            "cached_us": 0,
+            "timeout_us": 18667,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 14053,
+            "ok": 702,
+            "cached": 0,
+            "timeout": 191,
+            "end": 0,
+            "error": 1,
+            "ok_us": 528836,
+            "cached_us": 0,
+            "timeout_us": 14012,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 14137,
+            "ok": 536,
+            "cached": 0,
+            "timeout": 340,
+            "end": 0,
+            "error": 1,
+            "ok_us": 408211,
+            "cached_us": 0,
+            "timeout_us": 23434,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 14229,
+            "ok": 911,
+            "cached": 0,
+            "timeout": 24,
+            "end": 0,
+            "error": 1,
+            "ok_us": 509809,
+            "cached_us": 0,
+            "timeout_us": 1325,
+            "end_us": 0,
+            "error_us": 3
+          },
+          {
+            "thread": 14329,
+            "ok": 841,
+            "cached": 0,
+            "timeout": 94,
+            "end": 0,
+            "error": 1,
+            "ok_us": 426383,
+            "cached_us": 0,
+            "timeout_us": 13623,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 14437,
+            "ok": 810,
+            "cached": 0,
+            "timeout": 114,
+            "end": 0,
+            "error": 1,
+            "ok_us": 357702,
+            "cached_us": 0,
+            "timeout_us": 8794,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 14553,
+            "ok": 855,
+            "cached": 0,
+            "timeout": 96,
+            "end": 0,
+            "error": 1,
+            "ok_us": 402534,
+            "cached_us": 0,
+            "timeout_us": 18495,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 14677,
+            "ok": 755,
+            "cached": 0,
+            "timeout": 186,
+            "end": 0,
+            "error": 1,
+            "ok_us": 552406,
+            "cached_us": 0,
+            "timeout_us": 11768,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 14809,
+            "ok": 588,
+            "cached": 0,
+            "timeout": 327,
+            "end": 0,
+            "error": 1,
+            "ok_us": 372484,
+            "cached_us": 0,
+            "timeout_us": 28279,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 14949,
+            "ok": 903,
+            "cached": 0,
+            "timeout": 75,
+            "end": 0,
+            "error": 1,
+            "ok_us": 449167,
+            "cached_us": 0,
+            "timeout_us": 23901,
+            "end_us": 0,
+            "error_us": 104
+          }
+        ],
+        "observation": {
+          "start_us": 898084000000,
+          "stop_us": 898103000000,
+          "seconds": 19.0,
+          "stages": {
+            "producer": {
+              "lifetime": {
+                "ok": 11425,
+                "cached": 0,
+                "timeout": 2452,
+                "end": 0,
+                "error": 10,
+                "sent": 11429,
+                "suppressed": 2452,
+                "send_error": 6
+              },
+              "observed": {
+                "ok": 6762,
+                "cached": 0,
+                "timeout": 1884,
+                "end": 0,
+                "error": 0,
+                "sent": 6762,
+                "suppressed": 1884,
+                "send_error": 0
+              }
+            },
+            "view": {
+              "lifetime": {
+                "null": 16,
+                "looper_fail": 0,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 0,
+                "deferred": 11203,
+                "unused": 0
+              },
+              "observed": {
+                "null": 0,
+                "looper_fail": 0,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 0,
+                "deferred": 6732,
+                "unused": 0
+              }
+            },
+            "deferred": {
+              "lifetime": {
+                "draw": 2647,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              },
+              "observed": {
+                "draw": 728,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              }
+            }
+          },
+          "draw_completions": 728,
+          "limitation": "Completion events only; partial boundary bins excluded. Not actual presented FPS."
+        }
+      },
+      {
+        "tag": "03-n16-off",
+        "n": 16,
+        "state": "off",
+        "observation_us": 20075670,
+        "quit_rpc_us": 19800266,
+        "teardown_us": 20877275,
+        "lifetime_to_exit_us": 71751657,
+        "lifetime_to_quit_request_us": 50874382,
+        "dispatch_us": 388885,
+        "probe": {
+          "expected": 144,
+          "attempted": 31,
+          "errors": 9,
+          "not_attempted": 113,
+          "playing_replies": 7,
+          "all_positions_advance": false,
+          "initialization_us": 15478,
+          "elapsed_us": 15000861,
+          "deadline_overrun_us": 861,
+          "complete": false,
+          "playback_valid": false,
+          "by_operation": {
+            "Title": {
+              "count": 15,
+              "median_us": 96020,
+              "p95_us": 1286450,
+              "max_us": 1286450,
+              "total_us": 4893699
+            },
+            "IsPlaying": {
+              "count": 8,
+              "median_us": 499085.0,
+              "p95_us": 1274689,
+              "max_us": 1274689,
+              "total_us": 4613095
+            },
+            "Position": {
+              "count": 8,
+              "median_us": 632193.5,
+              "p95_us": 1693105,
+              "max_us": 1693105,
+              "total_us": 5493402
+            }
+          }
+        },
+        "view": {
+          "calls": 7728,
+          "null": 16,
+          "looper_fail": 1807,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 5905,
+          "total_us": 151005744,
+          "update_us": 3331,
+          "looper_us": 72327038,
+          "bitmap_us": 2133,
+          "overlay_us": 3043,
+          "invalidate_us": 0,
+          "draw_us": 52534549,
+          "deferred": 0,
+          "records": 16,
+          "unattributed_us": 26135650
+        },
+        "deferred": [],
+        "player_exit": 0,
+        "valid": false,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 15614,
+            "cached": 0,
+            "gap_timeout": 7604,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 8010,
+            "gap_frames": 415521,
+            "max_gap": 117,
+            "records": 16,
+            "timeouts": 7604
+          },
+          "timing": {},
+          "media": {
+            "producer": {
+              "records": 16,
+              "lock_timeouts": 425,
+              "late": 2725,
+              "attempts": 15623,
+              "no_buffer": 0,
+              "fills": 15623,
+              "fill_timeouts": 7604,
+              "fill_errors": 9,
+              "end_buffers": 0,
+              "suppressed": 7604,
+              "sent": 8012,
+              "send_errors": 7,
+              "wait_us": 150086517,
+              "fill_us": 5514320,
+              "max_fill_us": 92550
+            },
+            "consumer": {
+              "records": 16,
+              "received": 7924,
+              "inactive": 0,
+              "late": 134,
+              "target_calls": 7712,
+              "no_target": 78,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 151019121
+            }
+          }
+        },
+        "diagnostic_valid": true,
+        "fill_timing": [
+          {
+            "thread": 15563,
+            "ok": 264,
+            "cached": 0,
+            "timeout": 376,
+            "end": 0,
+            "error": 0,
+            "ok_us": 191077,
+            "cached_us": 0,
+            "timeout_us": 94948,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 15581,
+            "ok": 281,
+            "cached": 0,
+            "timeout": 404,
+            "end": 0,
+            "error": 0,
+            "ok_us": 182481,
+            "cached_us": 0,
+            "timeout_us": 23308,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 15617,
+            "ok": 479,
+            "cached": 0,
+            "timeout": 338,
+            "end": 0,
+            "error": 0,
+            "ok_us": 256718,
+            "cached_us": 0,
+            "timeout_us": 42625,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 15661,
+            "ok": 408,
+            "cached": 0,
+            "timeout": 457,
+            "end": 0,
+            "error": 0,
+            "ok_us": 304961,
+            "cached_us": 0,
+            "timeout_us": 25298,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 15713,
+            "ok": 390,
+            "cached": 0,
+            "timeout": 534,
+            "end": 0,
+            "error": 0,
+            "ok_us": 184856,
+            "cached_us": 0,
+            "timeout_us": 38802,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 15773,
+            "ok": 463,
+            "cached": 0,
+            "timeout": 498,
+            "end": 0,
+            "error": 0,
+            "ok_us": 258111,
+            "cached_us": 0,
+            "timeout_us": 38478,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 15841,
+            "ok": 480,
+            "cached": 0,
+            "timeout": 467,
+            "end": 0,
+            "error": 1,
+            "ok_us": 371448,
+            "cached_us": 0,
+            "timeout_us": 36722,
+            "end_us": 0,
+            "error_us": 154
+          },
+          {
+            "thread": 15917,
+            "ok": 457,
+            "cached": 0,
+            "timeout": 566,
+            "end": 0,
+            "error": 0,
+            "ok_us": 351958,
+            "cached_us": 0,
+            "timeout_us": 40639,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 16001,
+            "ok": 664,
+            "cached": 0,
+            "timeout": 398,
+            "end": 0,
+            "error": 1,
+            "ok_us": 397463,
+            "cached_us": 0,
+            "timeout_us": 19960,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 16093,
+            "ok": 611,
+            "cached": 0,
+            "timeout": 465,
+            "end": 0,
+            "error": 1,
+            "ok_us": 347221,
+            "cached_us": 0,
+            "timeout_us": 36552,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 16193,
+            "ok": 627,
+            "cached": 0,
+            "timeout": 448,
+            "end": 0,
+            "error": 1,
+            "ok_us": 397911,
+            "cached_us": 0,
+            "timeout_us": 19901,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 16301,
+            "ok": 665,
+            "cached": 0,
+            "timeout": 432,
+            "end": 0,
+            "error": 1,
+            "ok_us": 342651,
+            "cached_us": 0,
+            "timeout_us": 25601,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 16417,
+            "ok": 447,
+            "cached": 0,
+            "timeout": 635,
+            "end": 0,
+            "error": 1,
+            "ok_us": 260271,
+            "cached_us": 0,
+            "timeout_us": 41248,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 16541,
+            "ok": 678,
+            "cached": 0,
+            "timeout": 428,
+            "end": 0,
+            "error": 1,
+            "ok_us": 357559,
+            "cached_us": 0,
+            "timeout_us": 65891,
+            "end_us": 0,
+            "error_us": 0
+          },
+          {
+            "thread": 16673,
+            "ok": 524,
+            "cached": 0,
+            "timeout": 610,
+            "end": 0,
+            "error": 1,
+            "ok_us": 370857,
+            "cached_us": 0,
+            "timeout_us": 40409,
+            "end_us": 0,
+            "error_us": 1
+          },
+          {
+            "thread": 16813,
+            "ok": 572,
+            "cached": 0,
+            "timeout": 548,
+            "end": 0,
+            "error": 1,
+            "ok_us": 307954,
+            "cached_us": 0,
+            "timeout_us": 40282,
+            "end_us": 0,
+            "error_us": 1
+          }
+        ],
+        "observation": {
+          "start_us": 898146000000,
+          "stop_us": 898165000000,
+          "seconds": 19.0,
+          "stages": {
+            "producer": {
+              "lifetime": {
+                "ok": 8010,
+                "cached": 0,
+                "timeout": 7604,
+                "end": 0,
+                "error": 9,
+                "sent": 8012,
+                "suppressed": 7604,
+                "send_error": 7
+              },
+              "observed": {
+                "ok": 3135,
+                "cached": 0,
+                "timeout": 4644,
+                "end": 0,
+                "error": 0,
+                "sent": 3135,
+                "suppressed": 4644,
+                "send_error": 0
+              }
+            },
+            "view": {
+              "lifetime": {
+                "null": 16,
+                "looper_fail": 1807,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 5905,
+                "deferred": 0,
+                "unused": 0
+              },
+              "observed": {
+                "null": 0,
+                "looper_fail": 834,
+                "bitmap_fail": 0,
+                "overlay": 0,
+                "invalidate": 0,
+                "draw": 2236,
+                "deferred": 0,
+                "unused": 0
+              }
+            },
+            "deferred": {
+              "lifetime": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              },
+              "observed": {
+                "draw": 0,
+                "skipped": 0,
+                "unused2": 0,
+                "unused3": 0,
+                "unused4": 0,
+                "unused5": 0,
+                "unused6": 0,
+                "unused7": 0
+              }
+            }
+          },
+          "draw_completions": 2236,
+          "limitation": "Completion events only; partial boundary bins excluded. Not actual presented FPS."
+        }
+      }
+    ],
+    "all_diagnostic_valid": true,
+    "all_playback_valid": false
+  },
+  "paired": {
+    "groups": {
+      "off": {
+        "successful_queries": 38,
+        "expected_queries": 288,
+        "failed_queries": 20,
+        "not_attempted_queries": 230,
+        "fills": 30751,
+        "fill_timeouts": 15031,
+        "gap_timeouts": 15031,
+        "draw_submissions": 11890,
+        "looper_fail": 3258,
+        "late_consumer_buffers": 199,
+        "lifetime_to_quit_request_us": 102216214,
+        "fill_timeout_fraction": 0.4887971122890313,
+        "lifetime_to_exit_us": 140745201,
+        "draw_requests_per_lifetime_second": 84.4789016998171,
+        "teardown_us": [
+          17651712,
+          20877275
+        ],
+        "position_p95_us": [
+          1241695,
+          1693105
+        ],
+        "valid_playback_trials": 0
+      },
+      "on": {
+        "successful_queries": 105,
+        "expected_queries": 288,
+        "failed_queries": 17,
+        "not_attempted_queries": 166,
+        "fills": 28320,
+        "fill_timeouts": 5161,
+        "gap_timeouts": 5161,
+        "draw_submissions": 5157,
+        "looper_fail": 0,
+        "late_consumer_buffers": 30,
+        "lifetime_to_quit_request_us": 101239499,
+        "fill_timeout_fraction": 0.18223870056497174,
+        "lifetime_to_exit_us": 123802523,
+        "draw_requests_per_lifetime_second": 41.65504769236407,
+        "teardown_us": [
+          12471242,
+          10091782
+        ],
+        "position_p95_us": [
+          571592,
+          677237
+        ],
+        "valid_playback_trials": 0
+      }
+    },
+    "pairs": [
+      {
+        "off_tag": "00-n16-off",
+        "on_tag": "01-n16-on",
+        "off": {
+          "playback_valid": false,
+          "successful_queries": 16,
+          "expected_queries": 144,
+          "failed_queries": 11,
+          "not_attempted_queries": 117,
+          "position_p95_us": 1241695,
+          "fills": 15128,
+          "fill_timeouts": 7427,
+          "gap_timeouts": 7427,
+          "draw_submissions": 5985,
+          "looper_fail": 1451,
+          "late_consumer_buffers": 65,
+          "lifetime_to_quit_request_us": 51341832,
+          "lifetime_to_exit_us": 68993544,
+          "teardown_us": 17651712,
+          "observation_us": 20040887
+        },
+        "on": {
+          "playback_valid": false,
+          "successful_queries": 48,
+          "expected_queries": 144,
+          "failed_queries": 8,
+          "not_attempted_queries": 88,
+          "position_p95_us": 571592,
+          "fills": 14433,
+          "fill_timeouts": 2709,
+          "gap_timeouts": 2709,
+          "draw_submissions": 2510,
+          "looper_fail": 0,
+          "late_consumer_buffers": 26,
+          "lifetime_to_quit_request_us": 50842469,
+          "lifetime_to_exit_us": 63313711,
+          "teardown_us": 12471242,
+          "observation_us": 20064687
+        },
+        "both_playback_valid": false
+      },
+      {
+        "off_tag": "03-n16-off",
+        "on_tag": "02-n16-on",
+        "off": {
+          "playback_valid": false,
+          "successful_queries": 22,
+          "expected_queries": 144,
+          "failed_queries": 9,
+          "not_attempted_queries": 113,
+          "position_p95_us": 1693105,
+          "fills": 15623,
+          "fill_timeouts": 7604,
+          "gap_timeouts": 7604,
+          "draw_submissions": 5905,
+          "looper_fail": 1807,
+          "late_consumer_buffers": 134,
+          "lifetime_to_quit_request_us": 50874382,
+          "lifetime_to_exit_us": 71751657,
+          "teardown_us": 20877275,
+          "observation_us": 20075670
+        },
+        "on": {
+          "playback_valid": false,
+          "successful_queries": 57,
+          "expected_queries": 144,
+          "failed_queries": 9,
+          "not_attempted_queries": 78,
+          "position_p95_us": 677237,
+          "fills": 13887,
+          "fill_timeouts": 2452,
+          "gap_timeouts": 2452,
+          "draw_submissions": 2647,
+          "looper_fail": 0,
+          "late_consumer_buffers": 4,
+          "lifetime_to_quit_request_us": 50397030,
+          "lifetime_to_exit_us": 60488812,
+          "teardown_us": 10091782,
+          "observation_us": 20132912
+        },
+        "both_playback_valid": false
+      }
+    ],
+    "all_playback_valid": false,
+    "limitations": "Lifetime counters include setup and teardown; Rates withheld without actual exit clocks; even measured lifetime rates are not observation-window throughput or presentation FPS. Position latency includes failed attempts; missing samples remain null. Two pairs, non-isolated host."
+  },
+  "distribution": {
+    "complete": true,
+    "all_diagnostic_valid": true,
+    "rows": [
+      {
+        "tag": "00-n16-off",
+        "playback_valid": false,
+        "draw": {
+          "instances": 16,
+          "seconds": 19,
+          "instance_totals_sorted": [
+            51,
+            71,
+            85,
+            86,
+            97,
+            103,
+            108,
+            125,
+            134,
+            162,
+            168,
+            170,
+            171,
+            180,
+            213,
+            221
+          ],
+          "min_instance": 51,
+          "median_instance": 129.5,
+          "max_instance": 221,
+          "zero_instance_seconds": 146,
+          "total_instance_seconds": 304,
+          "per_second": [
+            119,
+            83,
+            90,
+            132,
+            88,
+            101,
+            101,
+            152,
+            61,
+            64,
+            70,
+            178,
+            185,
+            142,
+            117,
+            147,
+            87,
+            117,
+            111
+          ],
+          "min_second": 61,
+          "max_second": 185,
+          "total": 2145
+        },
+        "decoded": {
+          "instances": 16,
+          "seconds": 19,
+          "instance_totals_sorted": [
+            74,
+            96,
+            123,
+            125,
+            128,
+            145,
+            145,
+            163,
+            190,
+            216,
+            217,
+            222,
+            225,
+            239,
+            265,
+            296
+          ],
+          "min_instance": 74,
+          "median_instance": 176.5,
+          "max_instance": 296,
+          "zero_instance_seconds": 141,
+          "total_instance_seconds": 304,
+          "per_second": [
+            136,
+            112,
+            118,
+            187,
+            120,
+            138,
+            136,
+            212,
+            78,
+            86,
+            88,
+            243,
+            245,
+            188,
+            155,
+            219,
+            112,
+            146,
+            150
+          ],
+          "min_second": 78,
+          "max_second": 245,
+          "total": 2869
+        }
+      },
+      {
+        "tag": "01-n16-on",
+        "playback_valid": false,
+        "draw": {
+          "instances": 16,
+          "seconds": 19,
+          "instance_totals_sorted": [
+            40,
+            43,
+            45,
+            47,
+            47,
+            48,
+            48,
+            48,
+            48,
+            49,
+            49,
+            50,
+            51,
+            51,
+            53,
+            54
+          ],
+          "min_instance": 40,
+          "median_instance": 48.0,
+          "max_instance": 54,
+          "zero_instance_seconds": 40,
+          "total_instance_seconds": 304,
+          "per_second": [
+            113,
+            32,
+            22,
+            20,
+            46,
+            28,
+            34,
+            52,
+            46,
+            45,
+            25,
+            44,
+            68,
+            50,
+            15,
+            18,
+            50,
+            35,
+            28
+          ],
+          "min_second": 15,
+          "max_second": 113,
+          "total": 771
+        },
+        "decoded": {
+          "instances": 16,
+          "seconds": 19,
+          "instance_totals_sorted": [
+            277,
+            281,
+            332,
+            342,
+            360,
+            360,
+            375,
+            377,
+            389,
+            393,
+            395,
+            406,
+            442,
+            465,
+            470,
+            516
+          ],
+          "min_instance": 277,
+          "median_instance": 383.0,
+          "max_instance": 516,
+          "zero_instance_seconds": 42,
+          "total_instance_seconds": 304,
+          "per_second": [
+            397,
+            330,
+            100,
+            183,
+            363,
+            297,
+            300,
+            352,
+            387,
+            356,
+            298,
+            359,
+            451,
+            343,
+            160,
+            274,
+            470,
+            411,
+            349
+          ],
+          "min_second": 100,
+          "max_second": 470,
+          "total": 6180
+        }
+      },
+      {
+        "tag": "02-n16-on",
+        "playback_valid": false,
+        "draw": {
+          "instances": 16,
+          "seconds": 19,
+          "instance_totals_sorted": [
+            31,
+            33,
+            35,
+            36,
+            36,
+            39,
+            39,
+            41,
+            41,
+            42,
+            44,
+            48,
+            59,
+            67,
+            68,
+            69
+          ],
+          "min_instance": 31,
+          "median_instance": 41.0,
+          "max_instance": 69,
+          "zero_instance_seconds": 55,
+          "total_instance_seconds": 304,
+          "per_second": [
+            55,
+            34,
+            20,
+            80,
+            56,
+            54,
+            46,
+            52,
+            44,
+            45,
+            25,
+            28,
+            27,
+            32,
+            28,
+            28,
+            21,
+            25,
+            28
+          ],
+          "min_second": 20,
+          "max_second": 80,
+          "total": 728
+        },
+        "decoded": {
+          "instances": 16,
+          "seconds": 19,
+          "instance_totals_sorted": [
+            268,
+            298,
+            354,
+            363,
+            368,
+            384,
+            417,
+            453,
+            454,
+            454,
+            462,
+            467,
+            468,
+            483,
+            522,
+            547
+          ],
+          "min_instance": 268,
+          "median_instance": 453.5,
+          "max_instance": 547,
+          "zero_instance_seconds": 54,
+          "total_instance_seconds": 304,
+          "per_second": [
+            117,
+            119,
+            134,
+            405,
+            403,
+            384,
+            378,
+            450,
+            416,
+            413,
+            332,
+            433,
+            441,
+            446,
+            440,
+            392,
+            343,
+            357,
+            359
+          ],
+          "min_second": 117,
+          "max_second": 450,
+          "total": 6762
+        }
+      },
+      {
+        "tag": "03-n16-off",
+        "playback_valid": false,
+        "draw": {
+          "instances": 16,
+          "seconds": 19,
+          "instance_totals_sorted": [
+            28,
+            68,
+            88,
+            94,
+            107,
+            108,
+            113,
+            113,
+            137,
+            160,
+            167,
+            179,
+            191,
+            214,
+            229,
+            240
+          ],
+          "min_instance": 28,
+          "median_instance": 125.0,
+          "max_instance": 240,
+          "zero_instance_seconds": 138,
+          "total_instance_seconds": 304,
+          "per_second": [
+            142,
+            144,
+            98,
+            166,
+            150,
+            109,
+            129,
+            162,
+            105,
+            113,
+            88,
+            199,
+            108,
+            45,
+            25,
+            154,
+            105,
+            114,
+            80
+          ],
+          "min_second": 25,
+          "max_second": 199,
+          "total": 2236
+        },
+        "decoded": {
+          "instances": 16,
+          "seconds": 19,
+          "instance_totals_sorted": [
+            36,
+            93,
+            130,
+            133,
+            145,
+            151,
+            157,
+            169,
+            202,
+            234,
+            239,
+            242,
+            267,
+            296,
+            313,
+            328
+          ],
+          "min_instance": 36,
+          "median_instance": 185.5,
+          "max_instance": 328,
+          "zero_instance_seconds": 104,
+          "total_instance_seconds": 304,
+          "per_second": [
+            195,
+            207,
+            157,
+            238,
+            199,
+            148,
+            184,
+            201,
+            149,
+            150,
+            152,
+            268,
+            159,
+            56,
+            68,
+            189,
+            130,
+            148,
+            137
+          ],
+          "min_second": 56,
+          "max_second": 268,
+          "total": 3135
+        }
+      }
+    ],
+    "limitations": "Zero completion bins do not prove zero visible frames. Instance identities are not linked across pipeline stages or trials. No per-track causal attribution."
+  },
+  "host_samples": 64
+}
