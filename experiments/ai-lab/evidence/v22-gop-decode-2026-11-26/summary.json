@@ -1,0 +1,79 @@
+{
+  "valid": true,
+  "rows": [
+    {
+      "tag": "00-gop-120",
+      "gop": 120,
+      "frames": 3600,
+      "summary": "3600,320,180,B_RGB32,7907165e9ccf71d3",
+      "elapsed_us": 2503318,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 1,
+          "effective": 1,
+          "active_type": 0
+        }
+      ]
+    },
+    {
+      "tag": "01-gop-15",
+      "gop": 15,
+      "frames": 3600,
+      "summary": "3600,320,180,B_RGB32,c5979dd4ff55053f",
+      "elapsed_us": 2660588,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 1,
+          "effective": 1,
+          "active_type": 0
+        }
+      ]
+    },
+    {
+      "tag": "02-gop-15",
+      "gop": 15,
+      "frames": 3600,
+      "summary": "3600,320,180,B_RGB32,c5979dd4ff55053f",
+      "elapsed_us": 2787567,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 1,
+          "effective": 1,
+          "active_type": 0
+        }
+      ]
+    },
+    {
+      "tag": "03-gop-120",
+      "gop": 120,
+      "frames": 3600,
+      "summary": "3600,320,180,B_RGB32,7907165e9ccf71d3",
+      "elapsed_us": 2636984,
+      "threads": [
+        {
+          "codec": "h264",
+          "width": 320,
+          "height": 180,
+          "original": 4,
+          "requested": 1,
+          "effective": 1,
+          "active_type": 0
+        }
+      ]
+    }
+  ],
+  "within_fixture_identical": true,
+  "cross_fixture_pixel_equality_required": false
+}
