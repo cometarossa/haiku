@@ -59,8 +59,25 @@ def v20_diagnostic_script(script, streams):
     return script
 
 
-def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None):
-    if sum((queues,deferred_smoke,deferred_load,v20_streams is not None))>1 or (sixteen and not deferred_load):
+def v21_lifecycle_script(script):
+    changes=[
+        (b'v19-deferred-smoke',b'v21-thread-smoke',2),
+        (b'deferred="$settings/haiku-lab-video-deferred"',b'deferred="$settings/haiku-lab-h264-single-thread"\nthreadstats="$settings/haiku-lab-video-thread-stats"',1),
+        (b'"$view" "$deferred"',b'"$view" "$deferred" "$threadstats" "$settings/haiku-lab-video-deferred" "$settings/haiku-lab-video-deferred-timing" "$settings/haiku-lab-video-proxy-stats"',1),
+        (b'test ! -e "$m" && test ! -L "$m"',b'if test -e "$m" || test -L "$m"; then echo "Unexpected marker $m" >&2; exit 7; fi',1),
+        (b's=0;p=0;v=0;d=0',b's=0;p=0;v=0;d=0;own_threadstats=0',1),
+        (b'cleanup() {',b'cleanup() {\n if test "$own_threadstats" = 1; then rm -f "$threadstats"; own_threadstats=0; fi',1),
+        (b'(set -C; : > "$view"); v=1',b'(set -C; : > "$view"); v=1\n(set -C; : > "$threadstats"); own_threadstats=1',1),
+    ]
+    for old,new,count in changes:
+        if script.count(old)!=count:
+            raise ValueError("Unexpected lifecycle source anchor: "+repr(old))
+        script=script.replace(old,new)
+    return script
+
+
+def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None):
+    if sum((queues,deferred_smoke,deferred_load,v20_streams is not None,v21_smoke))>1 or (sixteen and not deferred_load):
         raise ValueError("Select one campaign")
     revision = "067ee57e" if deferred_smoke or deferred_load else REV
     specs = ((1,"off"),(1,"on")) if deferred_smoke else tuple((n,"on") for n in ((8,) if queues else SPECS))
@@ -86,6 +103,12 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
                 raise ValueError("V20 four-stream gate not met")
         revision="11904750"
         specs=tuple((v20_streams,state) for state in ("off","on","on","off"))
+    if v21_smoke:
+        from v21_decode_report import validate_repeat
+        if v21_decode_evidence is None or not validate_repeat(v21_decode_evidence)["identical"]:
+            raise ValueError("V21 balanced decode correctness gate required")
+        revision="2f9d27bf"
+        specs=((1,"off"),(1,"on"))
     initial = sample_host(revision)
     pids = {g["pid"] for g in initial["guests"]}
     downloads = {}
@@ -109,6 +132,8 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
         script=deferred_load_script(script,sixteen)
     if v20_streams is not None:
         script=v20_diagnostic_script(script,v20_streams)
+    if v21_smoke:
+        script=v21_lifecycle_script((MEDIA/"v19-deferred-smoke-guest.sh").read_bytes())
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
@@ -194,6 +219,9 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
             r.update(n=n,state=state,probe_exit=int((root/(tag+".probe-exit")).read_text()),
                      player_exit=int((root/(tag+".exit")).read_text()))
             rows.append(r)
+        if v21_smoke:
+            from v19_deferred_report import validate
+            rows=validate(root,revision,thread_policy=True)
         (root/"summary.json").write_text(json.dumps(rows,indent=2)+"\n")
         print(json.dumps(rows,indent=2))
     finally:
@@ -211,5 +239,7 @@ if __name__=="__main__":
     p.add_argument("--smoke-evidence",type=Path)
     p.add_argument("--v20-streams",type=int,choices=(4,8,16))
     p.add_argument("--v20-evidence",type=Path)
+    p.add_argument("--v21-smoke",action="store_true")
+    p.add_argument("--v21-decode-evidence",type=Path)
     a=p.parse_args()
-    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence)
+    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence)

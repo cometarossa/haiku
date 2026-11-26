@@ -62,8 +62,8 @@ def lifecycle(text, pause):
     return dict(stop_us=stop,seek_us=seek,pause_us=p,pause_later_us=q)
 
 
-def validate(root):
-    if (root/"done.txt").read_text().strip()!="0" or "ai_067ee57e" not in (root/"revision.txt").read_text():
+def validate(root,revision="067ee57e",thread_policy=False):
+    if (root/"done.txt").read_text().strip()!="0" or "ai_"+revision not in (root/"revision.txt").read_text():
         raise ValueError("completion or revision")
     if FIXTURE_SHA+"  stream-a.mp4" not in (root/"input-sha256.txt").read_text().splitlines():
         raise ValueError("unexpected seek fixture")
@@ -85,7 +85,7 @@ def validate(root):
         states=lifecycle(read("lifecycle"),read("pause"))
         stats=summarize(parse(read("stderr")),1)
         rows=deferred_records(read("stderr"))
-        if state=="off":
+        if state=="off" or thread_policy:
             if rows or stats.get("deferred",0):
                 raise ValueError("unexpected activation OFF")
         else:
@@ -93,7 +93,11 @@ def validate(root):
                 raise ValueError("deferred path not exercised")
             if stats["deferred"] != rows[0]["queued"]+rows[0]["coalesced"]:
                 raise ValueError("publication conservation")
-        results.append(dict(state=state,probe=probe,states=states,view=stats,deferred=rows))
+        result=dict(state=state,probe=probe,states=states,view=stats,deferred=rows)
+        if thread_policy:
+            from v21_decode_report import threads
+            result["threads"]=threads(read("stderr"),state)
+        results.append(result)
     return results
 
 
