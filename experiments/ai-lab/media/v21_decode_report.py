@@ -61,6 +61,34 @@ def validate(root):
     return dict(identical=True,results=result)
 
 
+def validate_repeat(root):
+    import statistics
+    if (root/"done.txt").read_text().strip()!="0" or "ai_"+REV not in (root/"revision.txt").read_text():
+        raise ValueError("wrong revision or incomplete")
+    if FIXTURE_SHA+"  stream-a.mp4" not in (root/"input-sha256.txt").read_text().splitlines():
+        raise ValueError("wrong fixture")
+    rows=[]
+    baseline=None
+    previous=0
+    for i,state in enumerate(("off","on","on","off")*2):
+        tag=f"{i:02d}-{state}"
+        def read(ext):
+            return (root/(tag+"."+ext)).read_text()
+        if read("exit").strip()!="0":raise ValueError("decode failed")
+        data=frames(read("stdout"))
+        if baseline is None:baseline=data
+        if data!=baseline:raise ValueError("pixel or timestamp regression")
+        start,stop=int(read("start")),int(read("stop"))
+        if not 0<=previous<start<stop:raise ValueError("clock")
+        previous=stop
+        rows.append(dict(tag=tag,state=state,frames=len(data[0]),summary=data[1],
+                         elapsed_us=stop-start,threads=threads(read("stderr"),state)))
+    med={s:statistics.median(r["elapsed_us"] for r in rows if r["state"]==s) for s in ("off","on")}
+    ratios=[rows[a]["elapsed_us"]/rows[b]["elapsed_us"] for a,b in ((0,1),(3,2),(4,5),(7,6))]
+    return dict(identical=True,rows=rows,median_us=med,paired_ratios=ratios,
+                median_paired_ratio=statistics.median(ratios))
+
+
 if __name__=="__main__":
     import sys
     print(json.dumps(validate(Path(sys.argv[1])),indent=2))
