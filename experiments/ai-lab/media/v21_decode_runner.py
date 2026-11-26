@@ -13,9 +13,9 @@ from v21_decode_report import REV, FIXTURE_SHA, validate
 
 
 def repeat_script(script):
-    script=script.replace(b'v21-decode-smoke',b'v21-decode-repeat')
+    script=script.replace(b'v21-decode-smoke',b'v21-decode-repeat-retry')
     script=script.replace(b'for state in off on; do',b'run=0\nfor state in off on on off off on on off; do\n tag=$(printf "%02d-%s" "$run" "$state")')
-    script=script.replace(b'"$state.',b'"$tag.')
+    script=script.replace(b'"$state.',b'"$tag.').replace(b'$base/$state.',b'$base/$tag.')
     script=script.replace(b' test "$rc" = 0\ndone',b' test "$rc" = 0\n if test "$own_single" = 1; then rm -f "$single"; own_single=0; fi\n run=$((run+1))\ndone')
     return script
 

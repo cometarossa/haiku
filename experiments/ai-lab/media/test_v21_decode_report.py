@@ -10,6 +10,14 @@ def log(n):
     return f"LAB_VIDEO_THREADS codec=h264 width=320 height=180 original=4 requested={n} effective={n} active_type=0\n"
 
 class V21DecodeTest(unittest.TestCase):
+    def test_repeat_upload_names(self):
+        from v21_decode_runner import repeat_script
+        import subprocess
+        script=repeat_script(Path(__file__).with_name("v21-decode-smoke-guest.sh").read_bytes())
+        subprocess.run(["sh","-n"],input=script,check=True)
+        self.assertIn(b'curl -fsS -T "$tag.$ext" "$base/$tag.$ext"',script)
+        self.assertNotIn(b'$base/$state.',script)
+        self.assertIn(b'for state in off on on off off on on off;',script)
     def test_frames(self):
         self.assertEqual(len(frames(fixture())[0]),600)
         for bad in (fixture().replace("FRAME 1 ","FRAME 2 ",1),
