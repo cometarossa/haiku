@@ -13,18 +13,22 @@ ROW = re.compile(
 END = re.compile(r"LAB_APPWIN_END team=(\d+) port=(\d+) normal=([01])")
 
 
-def parse(text, expected_windows, expected_fills):
+def parse(text, expected_windows, expected_fills, media=False):
+    phases=PHASES | {"redraw","batch"} if media else PHASES
+    prefix="LAB_MEDIA_APPWIN" if media else "LAB_APPWIN"
+    row_pattern=re.compile(ROW.pattern.replace("LAB_APPWIN",prefix))
+    end_pattern=re.compile(END.pattern.replace("LAB_APPWIN",prefix))
     windows = {}
     for line in text.splitlines():
-        if not line.startswith("LAB_APPWIN"):
+        if not line.startswith(prefix):
             continue
-        row = ROW.fullmatch(line)
-        end = END.fullmatch(line)
+        row = row_pattern.fullmatch(line)
+        end = end_pattern.fullmatch(line)
         if row:
             team, port, phase, *values = row.groups()
             key = (int(team), int(port))
             result = windows.setdefault(key, {})
-            if phase not in PHASES or phase in result or "normal" in result:
+            if phase not in phases or phase in result or "normal" in result:
                 raise ValueError("unexpected or duplicate phase: " + line)
             n, total, maximum, slow = map(int, values)
             if (slow > n or maximum > total or total > n * maximum
@@ -35,22 +39,22 @@ def parse(text, expected_windows, expected_fills):
         elif end:
             team, port, normal = map(int, end.groups())
             result = windows.get((team, port), {})
-            if set(result) != PHASES or normal != 1:
+            if set(result) != phases or normal != 1:
                 raise ValueError("incomplete or abnormal window: " + line)
             result["normal"] = normal
         else:
             raise ValueError("malformed profile row: " + line)
-    if len(windows) != expected_windows:
+    if expected_windows is not None and len(windows) != expected_windows:
         raise ValueError(f"expected {expected_windows} windows, got {len(windows)}")
     for result in windows.values():
-        if set(result) != PHASES | {"normal"}:
+        if set(result) != phases | {"normal"}:
             raise ValueError("missing completion record")
         for k in ("n", "us", "ge50"):
             if sum(result[p][k] for p in ("sync", "fill", "bitmap")) > result["dispatch"][k]:
                 raise ValueError("dispatch subsets exceed total")
         if max(result[p]["max"] for p in ("sync", "fill", "bitmap")) > result["dispatch"]["max"]:
             raise ValueError("dispatch subset maximum exceeds total")
-    if sum(w["fill"]["n"] for w in windows.values()) != expected_fills:
+    if expected_fills is not None and sum(w["fill"]["n"] for w in windows.values()) != expected_fills:
         raise ValueError("unexpected FillRect count")
     return [dict(team=team, port=port, **result)
             for (team, port), result in sorted(windows.items())]

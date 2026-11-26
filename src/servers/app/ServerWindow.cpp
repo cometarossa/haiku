@@ -135,7 +135,7 @@ static profile sRedrawProcessingTime;
 
 
 // AI-assisted independent research fork: opt-in, per-looper diagnostics.
-// Only the fixed-work benchmark's offscreen windows are eligible.
+// Fixed-work offscreen windows and opt-in MediaPlayer windows only.
 // No shared counter, logging or extra clock reads in the disabled path.
 namespace {
 
@@ -157,12 +157,13 @@ struct LabWindowTiming {
 			slow++;
 	}
 
-	void Print(team_id team, port_id port, const char* phase) const
+	void Print(team_id team, port_id port, const char* phase,
+		const char* prefix = "LAB_APPWIN") const
 	{
-		debug_printf("LAB_APPWIN team=%" B_PRId32 " port=%" B_PRId32
+		debug_printf("%s team=%" B_PRId32 " port=%" B_PRId32
 			" phase=%s n=%" B_PRIu64 " us=%" B_PRIu64
 			" max=%" B_PRIu64 " ge50=%" B_PRIu64 "\n",
-			team, port, phase, count, total, maximum, slow);
+			prefix, team, port, phase, count, total, maximum, slow);
 	}
 };
 
@@ -4257,13 +4258,18 @@ ServerWindow::_MessageLooper()
 {
 	const char* signature = App() != NULL ? App()->Signature() : "";
 	const char* prefix = "application/x-vnd.cometarossa-fixed-";
-	const bool labProfile = fWindow->IsOffscreenWindow()
+	const bool labMediaProfile = !fWindow->IsOffscreenWindow()
+		&& strcmp(signature, "application/x-vnd.Haiku-MediaPlayer") == 0
+		&& access("/boot/home/config/settings/haiku-lab-media-appserver-profile",
+			F_OK) == 0;
+	const bool labProfile = labMediaProfile || (fWindow->IsOffscreenWindow()
 		&& (strcmp(signature, "application/x-vnd.cometarossa-draw-fixed-lab") == 0
 			|| strncmp(signature, prefix, strlen(prefix)) == 0)
 		&& access("/boot/home/config/settings/haiku-lab-appserver-profile", F_OK)
-			== 0;
+			== 0);
 	LabWindowTiming labWindow = {}, labRead = {}, labWrite = {};
 	LabWindowTiming labDispatch = {}, labSync = {}, labFill = {}, labBitmap = {};
+	LabWindowTiming labRedraw = {}, labBatch = {};
 	bool labNormalDelete = false;
 
 	// Send a reply to our window - it is expecting fMessagePort
@@ -4376,7 +4382,10 @@ ServerWindow::_MessageLooper()
 #ifdef PROFILE_MESSAGE_LOOP
 				bigtime_t redrawStart = system_time();
 #endif
+				const bigtime_t labRedrawStart = labMediaProfile ? system_time() : 0;
 				fWindow->RedrawDirtyRegion();
+				if (labMediaProfile)
+					labRedraw.Add(system_time() - labRedrawStart);
 #ifdef PROFILE_MESSAGE_LOOP
 				diff = system_time() - redrawStart;
 				atomic_add(&sRedrawProcessingTime.count, 1);
@@ -4447,21 +4456,28 @@ ServerWindow::_MessageLooper()
 			}
 		}
 
+		if (labMediaProfile)
+			labBatch.Add(system_time() - processingStart);
 		Unlock();
 	}
 
 	// Report once, outside both window and desktop locks. The caller's
 	// final drawing Sync has already returned; this is lifetime data.
 	if (labProfile) {
-		labWindow.Print(fClientTeam, fMessagePort, "window");
-		labRead.Print(fClientTeam, fMessagePort, "desktop_read");
-		labWrite.Print(fClientTeam, fMessagePort, "desktop_write");
-		labDispatch.Print(fClientTeam, fMessagePort, "dispatch");
-		labSync.Print(fClientTeam, fMessagePort, "sync");
-		labFill.Print(fClientTeam, fMessagePort, "fill");
-		labBitmap.Print(fClientTeam, fMessagePort, "bitmap");
-		debug_printf("LAB_APPWIN_END team=%" B_PRId32 " port=%" B_PRId32
-			" normal=%d\n", fClientTeam, fMessagePort, (int)labNormalDelete);
+		const char* label = labMediaProfile ? "LAB_MEDIA_APPWIN" : "LAB_APPWIN";
+		labWindow.Print(fClientTeam, fMessagePort, "window", label);
+		labRead.Print(fClientTeam, fMessagePort, "desktop_read", label);
+		labWrite.Print(fClientTeam, fMessagePort, "desktop_write", label);
+		labDispatch.Print(fClientTeam, fMessagePort, "dispatch", label);
+		labSync.Print(fClientTeam, fMessagePort, "sync", label);
+		labFill.Print(fClientTeam, fMessagePort, "fill", label);
+		labBitmap.Print(fClientTeam, fMessagePort, "bitmap", label);
+		if (labMediaProfile) {
+			labRedraw.Print(fClientTeam, fMessagePort, "redraw", label);
+			labBatch.Print(fClientTeam, fMessagePort, "batch", label);
+		}
+		debug_printf("%s_END team=%" B_PRId32 " port=%" B_PRId32
+			" normal=%d\n", label, fClientTeam, fMessagePort, (int)labNormalDelete);
 	}
 
 	// We were asked to quit the message loop - either on request or because of
