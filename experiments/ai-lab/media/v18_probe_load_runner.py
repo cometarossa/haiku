@@ -93,9 +93,30 @@ def v21_load_script(script, streams):
     return script
 
 
-def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None):
+def v21_combined_script(script, streams):
+    # Hold single-thread decoding fixed; toggle deferred rendering only.
+    script=v21_load_script(script,streams)
+    changes=[
+        (f'v21-thread-{streams}-ram'.encode(),f'v21-combined-{streams}-ram'.encode(),2),
+        (b'catchup=/boot/home/config/settings/haiku-lab-h264-single-thread',b'catchup=/boot/home/config/settings/haiku-lab-video-deferred',1),
+        (b'deferred=/boot/home/config/settings/haiku-lab-video-deferred',b'single=/boot/home/config/settings/haiku-lab-h264-single-thread',1),
+        (b'"$threadstats" "$deferred"',b'"$threadstats" "$single"',2),
+        (b'own_threadstats=0\ncleanup()',b'own_threadstats=0;own_single=0\ncleanup()',1),
+        (b'cleanup() {',b'cleanup() {\n if test "$own_single" = 1; then rm -f "$single"; own_single=0; fi',1),
+        (b'(set -C; : > "$threadstats"); own_threadstats=1',b'(set -C; : > "$threadstats"); own_threadstats=1\n(set -C; : > "$single"); own_single=1\n(set -C; : > "$timing"); own_timing=1',1),
+    ]
+    for old,new,count in changes:
+        if script.count(old)!=count:
+            raise ValueError("Unexpected combined source anchor: "+repr(old))
+        script=script.replace(old,new)
+    return script
+
+
+def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None):
     if sum((queues,deferred_smoke,deferred_load,v20_streams is not None,v21_smoke,v21_streams is not None))>1 or (sixteen and not deferred_load):
         raise ValueError("Select one campaign")
+    if combined and v21_streams is None:
+        raise ValueError("Combined treatment requires V21 streams")
     revision = "067ee57e" if deferred_smoke or deferred_load else REV
     specs = ((1,"off"),(1,"on")) if deferred_smoke else tuple((n,"on") for n in ((8,) if queues else SPECS))
     if deferred_load:
@@ -143,6 +164,13 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
             gate=report(v21_evidence,4)
             if not gate["complete"] or not gate["all_diagnostic_valid"] or not gate["all_playback_valid"]:
                 raise ValueError("V21 four-stream gate not met")
+        if combined and v21_streams>4:
+            from v21_load_report import report
+            if combined_evidence is None:
+                raise ValueError("Combined four-stream gate required")
+            gate=report(combined_evidence,4,combined=True)
+            if not gate["all_diagnostic_valid"] or not gate["all_playback_valid"]:
+                raise ValueError("Combined four-stream gate not met")
         revision="2f9d27bf"
         specs=tuple((v21_streams,state) for state in ("off","on","on","off"))
     initial = sample_host(revision)
@@ -171,7 +199,7 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
     if v21_smoke:
         script=v21_lifecycle_script((MEDIA/"v19-deferred-smoke-guest.sh").read_bytes())
     if v21_streams is not None:
-        script=v21_load_script(script,v21_streams)
+        script=v21_combined_script(script,v21_streams) if combined else v21_load_script(script,v21_streams)
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
@@ -281,5 +309,7 @@ if __name__=="__main__":
     p.add_argument("--v21-decode-evidence",type=Path)
     p.add_argument("--v21-streams",type=int,choices=(4,8,16))
     p.add_argument("--v21-evidence",type=Path)
+    p.add_argument("--combined",action="store_true")
+    p.add_argument("--combined-evidence",type=Path)
     a=p.parse_args()
-    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence)
+    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence,a.combined,a.combined_evidence)

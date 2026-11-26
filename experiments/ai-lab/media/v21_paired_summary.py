@@ -15,7 +15,7 @@ def metrics(row):
                 not_attempted_queries=q["expected"]-q["attempted"],
                 position_p95_us=q["by_operation"].get("Position",{}).get("p95_us"),
                 fills=p["fills"], fill_timeouts=p["fill_timeouts"],
-                gap_timeouts=d["proxy"]["gap_timeout"], draw_submissions=row["view"]["draw"],
+                gap_timeouts=d["proxy"]["gap_timeout"], draw_submissions=row["view"]["draw"]+sum(v["draw"] for v in row.get("deferred",[])),
                 looper_fail=row["view"]["looper_fail"], late_consumer_buffers=c["late"],
                 lifetime_us=row["lifetime_to_quit_request_us"], observation_us=row["observation_us"])
 
@@ -49,5 +49,6 @@ if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("root",type=Path)
     p.add_argument("streams",type=int,choices=(4,8,16))
+    p.add_argument("--combined",action="store_true")
     a=p.parse_args()
-    print(json.dumps(aggregate(report(a.root,a.streams)),indent=2))
+    print(json.dumps(aggregate(report(a.root,a.streams,a.combined)),indent=2))

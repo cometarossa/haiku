@@ -7,7 +7,7 @@ from v20_diagnostic_report import diagnostics
 from v21_decode_report import threads,REV
 
 
-def report(root,n):
+def report(root,n,combined=False):
     if n not in (4,8,16):
         raise ValueError("unsupported stream count")
     if "ai_"+REV not in (root/"revision.txt").read_text():
@@ -18,13 +18,14 @@ def report(root,n):
         if not (root/(tag+".exit")).exists():
             continue
         try:
-            row=report_trial(root,i,n,state,view_state="off")
+            view_state=state if combined else "off"
+            row=report_trial(root,i,n,state,view_state=view_state)
             log=(root/(tag+".stderr")).read_text()
-            records=threads(log,state)
+            records=threads(log,"on" if combined else state)
             if len(records)!=n:
                 raise ValueError("decoder negotiation count")
             row["threads"]=records
-            row["diagnostics"]=diagnostics(log,n,"off")
+            row["diagnostics"]=diagnostics(log,n,view_state)
             row["diagnostic_valid"]=row["player_exit"]==0
         except (ValueError,OSError,IndexError,KeyError) as e:
             row=dict(tag=tag,n=n,state=state,valid=False,diagnostic_valid=False,error=str(e))
@@ -39,5 +40,6 @@ if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("root",type=Path)
     p.add_argument("streams",type=int,choices=(4,8,16))
+    p.add_argument("--combined",action="store_true")
     a=p.parse_args()
-    print(json.dumps(report(a.root,a.streams),indent=2))
+    print(json.dumps(report(a.root,a.streams,a.combined),indent=2))
