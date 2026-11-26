@@ -1,0 +1,10 @@
+Haiku shredder R1~beta6+development hrev60465+ai_11904750 Nov 25 20 x86_64 x86_64 Haiku
+-rw-r--r-- 1 user root 0 Nov 25 23:42 /boot/home/config/settings/haiku-lab-video-proxy-stats
+total 4338
+drwxr-xr-x 0 user root       0 Nov 25 23:45 .
+drwxr-xr-x 1 user root    2048 Nov 25 23:59 ..
+-rwxr-xr-x 1 user root  194024 Nov 25 23:45 media-window-probe
+-rw-r--r-- 1 user root      88 Nov 25 23:45 revision.txt
+-rw-r--r-- 1 user root     164 Nov 25 23:45 SHA256SUMS
+-rw-r--r-- 1 user root 4242109 Nov 25 23:45 stream-a.mp4
+CLEANUP_OK
