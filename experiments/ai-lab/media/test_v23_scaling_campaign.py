@@ -39,3 +39,13 @@ class ScalingScriptTest(unittest.TestCase):
             self.assertEqual(settings.read_bytes(),original)
             self.assertEqual((backup/"final-generated").read_bytes(),b"temporary")
             self.assertFalse((backup/"original").exists())
+
+    def test_capacity_variants(self):
+        raw=Path(__file__).with_name("v18-probe-load-guest.sh").read_bytes()
+        for n in (8,16):
+            src=observation_script(record_teardown_clocks(v21_combined_script(raw,n)),"on",n)
+            s=scaling_script(src,"a"*64,n)
+            subprocess.run(["sh","-n"],input=s,check=True)
+            self.assertIn(f"v23-scaling-backup-{n}".encode(),s)
+            self.assertIn(f"v23-scaling-{n}-ram".encode(),s)
+            self.assertNotIn(b': > "$catchup"',s)

@@ -2,11 +2,12 @@
 from v23_scaling_smoke_runner import SHA,validate as validate_smoke
 from v22_observation_smoke_report import analyze
 
-def scaling_script(script,original_sha):
+def scaling_script(script,original_sha,n=4):
+    if n not in (4,8,16):raise ValueError("invalid scaling streams")
     if len(original_sha)!=64 or any(c not in "0123456789abcdef" for c in original_sha):
         raise ValueError("invalid original settings hash")
     changes=[
-        (b'v22-observation-on-4-ram',b'v23-scaling-4-ram',2),
+        (f'v22-observation-on-{n}-ram'.encode(),f'v23-scaling-{n}-ram'.encode(),2),
         (b'for f in stream-a.mp4 media-window-probe SHA256SUMS;',b'for f in stream-a.mp4 media-window-probe scaling-settings SHA256SUMS;',1),
         (b'chmod +x media-window-probe',b'chmod +x media-window-probe scaling-settings',1),
         (b'own_filltiming=0\ncleanup()',b'own_filltiming=0;own_scaling=0;pid=\ncleanup()',1),
@@ -27,7 +28,7 @@ def scaling_script(script,original_sha):
   test "$(sha256sum "$settings" | awk '{print $1}')" = "$expected_settings"
  fi''',1),
         (b'run=0\nfor spec',b'''settings=/boot/home/config/settings/MediaPlayer
-backup=/boot/home/v23-scaling-backup-4
+backup=/boot/home/v23-scaling-backup-'''+str(n).encode()+b'''
 expected_settings='''+original_sha.encode()+b'''
 test -f "$settings" && test ! -L "$settings"
 test "$(sha256sum "$settings" | awk '{print $1}')" = "$expected_settings"
@@ -60,9 +61,9 @@ for m''',1),
         script=script.replace(old,new)
     return script
 
-def report(root,smoke):
+def report(root,smoke,n=4):
     original=validate_smoke(smoke)
-    r=analyze(root,"on",4,scaling=True)
+    r=analyze(root,"on",n,scaling=True)
     if r["complete"]:
         restored=(root/"settings-restored.txt").read_text().split()[0]
         if restored!=original["sha256"]:raise ValueError("original settings not restored")

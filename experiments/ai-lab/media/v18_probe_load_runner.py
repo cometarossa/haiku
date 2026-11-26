@@ -161,7 +161,7 @@ def observation_script(script, mode, streams=4):
     return script
 
 
-def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None, gop=False, gop_decode_evidence=None, gop_evidence=None, observation=None, observation_evidence=None, scaling_evidence=None):
+def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None, gop=False, gop_decode_evidence=None, gop_evidence=None, observation=None, observation_evidence=None, scaling_evidence=None, scaling_prior=None):
     if sum((queues,deferred_smoke,deferred_load,v20_streams is not None,v21_smoke,v21_streams is not None))>1 or (sixteen and not deferred_load):
         raise ValueError("Select one campaign")
     if observation is not None and (not combined or v21_streams not in (4,8,16)):
@@ -247,13 +247,18 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
     if observation is not None:
         revision="4ae8e7ea"
     if scaling_evidence is not None:
-        from v23_scaling_campaign import SHA,validate_smoke
-        if observation!="on" or v21_streams!=4 or not combined or observation_evidence is None:
+        from v23_scaling_campaign import SHA,validate_smoke,report as scaling_report
+        if observation!="on" or v21_streams not in (4,8,16) or not combined or observation_evidence is None:
             raise ValueError("Scaling requires V22 four-stream observation and native evidence")
         from v22_observation_smoke_report import analyze as analyze_observation
-        gate=analyze_observation(observation_evidence,"on",4)
+        gate=analyze_observation(observation_evidence,"on",4 if v21_streams==4 else v21_streams//2)
         if not gate["all_diagnostic_valid"] or not gate["all_playback_valid"]:
             raise ValueError("V22 observation gate failed")
+        if v21_streams>4:
+            if scaling_prior is None:raise ValueError("preceding native scaling evidence required")
+            prior=scaling_report(scaling_prior,scaling_evidence,v21_streams//2)
+            if not (prior["complete"] and prior["all_diagnostic_valid"] and prior["all_playback_valid"]):
+                raise ValueError("preceding scaling gate failed")
         settings_sha=validate_smoke(scaling_evidence)["sha256"]
     initial = sample_host(revision)
     pids = {g["pid"] for g in initial["guests"]}
@@ -303,7 +308,7 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
         script=observation_script(script,observation,v21_streams)
     if scaling_evidence is not None:
         from v23_scaling_campaign import scaling_script
-        script=scaling_script(script,settings_sha)
+        script=scaling_script(script,settings_sha,v21_streams)
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
@@ -423,5 +428,6 @@ if __name__=="__main__":
     p.add_argument("--observation",choices=("off","on"))
     p.add_argument("--observation-evidence",type=Path)
     p.add_argument("--scaling-evidence",type=Path)
+    p.add_argument("--scaling-prior",type=Path)
     a=p.parse_args()
-    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence,a.combined,a.combined_evidence,a.gop,a.gop_decode_evidence,a.gop_evidence,a.observation,a.observation_evidence,a.scaling_evidence)
+    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence,a.combined,a.combined_evidence,a.gop,a.gop_decode_evidence,a.gop_evidence,a.observation,a.observation_evidence,a.scaling_evidence,a.scaling_prior)
