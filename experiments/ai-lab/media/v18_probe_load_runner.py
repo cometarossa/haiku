@@ -76,8 +76,25 @@ def v21_lifecycle_script(script):
     return script
 
 
-def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None):
-    if sum((queues,deferred_smoke,deferred_load,v20_streams is not None,v21_smoke))>1 or (sixteen and not deferred_load):
+def v21_load_script(script, streams):
+    script=v20_diagnostic_script(script,streams)
+    changes=[
+        (f'v20-diagnostic-{streams}-ram'.encode(), f'v21-thread-{streams}-ram'.encode(), 2),
+        (b'catchup=/boot/home/config/settings/haiku-lab-video-deferred\n', b'catchup=/boot/home/config/settings/haiku-lab-h264-single-thread\nthreadstats=/boot/home/config/settings/haiku-lab-video-thread-stats\ndeferred=/boot/home/config/settings/haiku-lab-video-deferred\n',1),
+        (b'"$catchup" "$view" "$timing" "$proxy"',b'"$catchup" "$view" "$timing" "$proxy" "$threadstats" "$deferred"',2),
+        (b'own_timing=0;own_proxy=0',b'own_timing=0;own_proxy=0;own_threadstats=0',1),
+        (b'cleanup() {',b'cleanup() {\n if test "$own_threadstats" = 1; then rm -f "$threadstats"; own_threadstats=0; fi',1),
+        (b'(set -C; : > "$timing"); own_timing=1',b'(set -C; : > "$threadstats"); own_threadstats=1',1),
+    ]
+    for old,new,count in changes:
+        if script.count(old)!=count:
+            raise ValueError("Unexpected V21 source anchor: "+repr(old))
+        script=script.replace(old,new)
+    return script
+
+
+def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None):
+    if sum((queues,deferred_smoke,deferred_load,v20_streams is not None,v21_smoke,v21_streams is not None))>1 or (sixteen and not deferred_load):
         raise ValueError("Select one campaign")
     revision = "067ee57e" if deferred_smoke or deferred_load else REV
     specs = ((1,"off"),(1,"on")) if deferred_smoke else tuple((n,"on") for n in ((8,) if queues else SPECS))
@@ -109,6 +126,25 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
             raise ValueError("V21 balanced decode correctness gate required")
         revision="2f9d27bf"
         specs=((1,"off"),(1,"on"))
+    if v21_streams is not None:
+        from v19_deferred_report import validate
+        from v21_decode_report import validate_repeat
+        if v21_decode_evidence is None or not validate_repeat(v21_decode_evidence)["identical"]:
+            raise ValueError("V21 balanced decode correctness gate required")
+        if smoke_evidence is None:
+            raise ValueError("V21 lifecycle gate required")
+        validate(smoke_evidence,"2f9d27bf",thread_policy=True)
+        if v21_streams not in (4,8,16):
+            raise ValueError("Unsupported V21 load")
+        if v21_streams > 4:
+            from v21_load_report import report
+            if v21_evidence is None:
+                raise ValueError("V21 four-stream gate required")
+            gate=report(v21_evidence,4)
+            if not gate["complete"] or not gate["all_diagnostic_valid"] or not gate["all_playback_valid"]:
+                raise ValueError("V21 four-stream gate not met")
+        revision="2f9d27bf"
+        specs=tuple((v21_streams,state) for state in ("off","on","on","off"))
     initial = sample_host(revision)
     pids = {g["pid"] for g in initial["guests"]}
     downloads = {}
@@ -134,6 +170,8 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
         script=v20_diagnostic_script(script,v20_streams)
     if v21_smoke:
         script=v21_lifecycle_script((MEDIA/"v19-deferred-smoke-guest.sh").read_bytes())
+    if v21_streams is not None:
+        script=v21_load_script(script,v21_streams)
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
@@ -185,7 +223,7 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
         subprocess.run(cmd+["sh load18.sh"],check=True,timeout=30)
         sys.path.insert(0,str(LAB))
         h = importlib.import_module("guest-hmp")
-        deadline = time.monotonic()+(1200 if deferred_load or v20_streams is not None else 600)
+        deadline = time.monotonic()+(1200 if deferred_load or v20_streams is not None or v21_streams is not None else 600)
         index=0
         while time.monotonic()<deadline:
             sample=sample_host(revision)
@@ -241,5 +279,7 @@ if __name__=="__main__":
     p.add_argument("--v20-evidence",type=Path)
     p.add_argument("--v21-smoke",action="store_true")
     p.add_argument("--v21-decode-evidence",type=Path)
+    p.add_argument("--v21-streams",type=int,choices=(4,8,16))
+    p.add_argument("--v21-evidence",type=Path)
     a=p.parse_args()
-    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence)
+    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence)

@@ -1,0 +1,43 @@
+"""V21 decoder-thread treatment: keep deferred rendering off in both arms."""
+import argparse
+import json
+from pathlib import Path
+from v19_deferred_load_report import report_trial
+from v20_diagnostic_report import diagnostics
+from v21_decode_report import threads,REV
+
+
+def report(root,n):
+    if n not in (4,8,16):
+        raise ValueError("unsupported stream count")
+    if "ai_"+REV not in (root/"revision.txt").read_text():
+        raise ValueError("wrong image")
+    rows=[]
+    for i,state in enumerate(("off","on","on","off")):
+        tag=f"{i:02d}-n{n}-{state}"
+        if not (root/(tag+".exit")).exists():
+            continue
+        try:
+            row=report_trial(root,i,n,state,view_state="off")
+            log=(root/(tag+".stderr")).read_text()
+            records=threads(log,state)
+            if len(records)!=n:
+                raise ValueError("decoder negotiation count")
+            row["threads"]=records
+            row["diagnostics"]=diagnostics(log,n,"off")
+            row["diagnostic_valid"]=row["player_exit"]==0
+        except (ValueError,OSError,IndexError,KeyError) as e:
+            row=dict(tag=tag,n=n,state=state,valid=False,diagnostic_valid=False,error=str(e))
+        rows.append(row)
+    complete=(root/"done.txt").exists() and (root/"done.txt").read_text().strip()=="0" and len(rows)==4
+    return dict(complete=complete,rows=rows,
+                all_diagnostic_valid=complete and all(r["diagnostic_valid"] for r in rows),
+                all_playback_valid=complete and all(r["valid"] for r in rows))
+
+
+if __name__=="__main__":
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument("root",type=Path)
+    p.add_argument("streams",type=int,choices=(4,8,16))
+    a=p.parse_args()
+    print(json.dumps(report(a.root,a.streams),indent=2))

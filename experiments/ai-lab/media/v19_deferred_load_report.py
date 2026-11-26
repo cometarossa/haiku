@@ -26,7 +26,7 @@ def view_treatment(log,n,state):
     return view,deferred
 
 
-def report_trial(root,i,n,state):
+def report_trial(root,i,n,state,view_state=None):
     tag=f"{i:02d}-n{n}-{state}"
     def read(ext):
         return (root/(tag+"."+ext)).read_text()
@@ -42,7 +42,7 @@ def report_trial(root,i,n,state):
     end=int(clock[-1].split()[1])
     if not play<=begin<=end<=stop or deadline-begin!=15000000:
         raise ValueError("probe outside observation")
-    view,deferred=view_treatment(read("stderr"),n,state)
+    view,deferred=view_treatment(read("stderr"),n,state if view_state is None else view_state)
     observed=stop-play
     probe_rc,player_rc=int(read("probe-exit")),int(read("exit"))
     if probe_rc not in (0,4) or (probe_rc==0)!=probe["complete"] or read("probe-stderr"):
