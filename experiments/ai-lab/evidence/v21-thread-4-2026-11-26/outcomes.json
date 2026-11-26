@@ -1,0 +1,724 @@
+{
+  "report": {
+    "complete": true,
+    "rows": [
+      {
+        "tag": "00-n4-off",
+        "n": 4,
+        "state": "off",
+        "observation_us": 20134628,
+        "lifetime_to_quit_request_us": 28947504,
+        "dispatch_us": 97457,
+        "probe": {
+          "expected": 36,
+          "attempted": 36,
+          "errors": 0,
+          "not_attempted": 0,
+          "playing_replies": 12,
+          "all_positions_advance": true,
+          "initialization_us": 11210,
+          "elapsed_us": 1028713,
+          "deadline_overrun_us": 0,
+          "complete": true,
+          "playback_valid": true,
+          "by_operation": {
+            "Title": {
+              "count": 12,
+              "median_us": 607.0,
+              "p95_us": 4276,
+              "max_us": 4276,
+              "total_us": 10595
+            },
+            "IsPlaying": {
+              "count": 12,
+              "median_us": 579.5,
+              "p95_us": 1282,
+              "max_us": 1282,
+              "total_us": 7039
+            },
+            "Position": {
+              "count": 12,
+              "median_us": 427.5,
+              "p95_us": 2862,
+              "max_us": 2862,
+              "total_us": 7808
+            }
+          }
+        },
+        "view": {
+          "calls": 2653,
+          "null": 4,
+          "looper_fail": 18,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 2631,
+          "total_us": 3947137,
+          "update_us": 1996,
+          "looper_us": 3672888,
+          "bitmap_us": 1293,
+          "overlay_us": 1531,
+          "invalidate_us": 0,
+          "draw_us": 170980,
+          "deferred": 0,
+          "records": 4,
+          "unattributed_us": 98449
+        },
+        "deferred": [],
+        "player_exit": 0,
+        "valid": true,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 4,
+            "effective": 4,
+            "active_type": 1
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 4,
+            "effective": 4,
+            "active_type": 1
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 4,
+            "effective": 4,
+            "active_type": 1
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 4,
+            "effective": 4,
+            "active_type": 1
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 2711,
+            "cached": 0,
+            "gap_timeout": 0,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 2711,
+            "gap_frames": 0,
+            "max_gap": 0,
+            "records": 4,
+            "timeouts": 0
+          },
+          "timing": {},
+          "media": {
+            "producer": {
+              "records": 4,
+              "lock_timeouts": 5,
+              "late": 23,
+              "attempts": 2715,
+              "no_buffer": 0,
+              "fills": 2715,
+              "fill_timeouts": 0,
+              "fill_errors": 4,
+              "end_buffers": 0,
+              "suppressed": 0,
+              "sent": 2712,
+              "send_errors": 3,
+              "wait_us": 86809908,
+              "fill_us": 1313812,
+              "max_fill_us": 129689
+            },
+            "consumer": {
+              "records": 4,
+              "received": 2687,
+              "inactive": 0,
+              "late": 34,
+              "target_calls": 2649,
+              "no_target": 4,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 3949534
+            }
+          }
+        },
+        "diagnostic_valid": true
+      },
+      {
+        "tag": "01-n4-on",
+        "n": 4,
+        "state": "on",
+        "observation_us": 20023996,
+        "lifetime_to_quit_request_us": 29012928,
+        "dispatch_us": 104036,
+        "probe": {
+          "expected": 36,
+          "attempted": 36,
+          "errors": 0,
+          "not_attempted": 0,
+          "playing_replies": 12,
+          "all_positions_advance": true,
+          "initialization_us": 15120,
+          "elapsed_us": 1031320,
+          "deadline_overrun_us": 0,
+          "complete": true,
+          "playback_valid": true,
+          "by_operation": {
+            "Title": {
+              "count": 12,
+              "median_us": 551.5,
+              "p95_us": 7045,
+              "max_us": 7045,
+              "total_us": 15526
+            },
+            "IsPlaying": {
+              "count": 12,
+              "median_us": 350.0,
+              "p95_us": 616,
+              "max_us": 616,
+              "total_us": 3898
+            },
+            "Position": {
+              "count": 12,
+              "median_us": 503.5,
+              "p95_us": 3238,
+              "max_us": 3238,
+              "total_us": 10611
+            }
+          }
+        },
+        "view": {
+          "calls": 2646,
+          "null": 4,
+          "looper_fail": 48,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 2594,
+          "total_us": 5440151,
+          "update_us": 1990,
+          "looper_us": 5135728,
+          "bitmap_us": 1076,
+          "overlay_us": 1210,
+          "invalidate_us": 0,
+          "draw_us": 162585,
+          "deferred": 0,
+          "records": 4,
+          "unattributed_us": 137562
+        },
+        "deferred": [],
+        "player_exit": 0,
+        "valid": true,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 2714,
+            "cached": 0,
+            "gap_timeout": 0,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 2714,
+            "gap_frames": 0,
+            "max_gap": 0,
+            "records": 4,
+            "timeouts": 0
+          },
+          "timing": {},
+          "media": {
+            "producer": {
+              "records": 4,
+              "lock_timeouts": 6,
+              "late": 20,
+              "attempts": 2718,
+              "no_buffer": 0,
+              "fills": 2718,
+              "fill_timeouts": 0,
+              "fill_errors": 4,
+              "end_buffers": 0,
+              "suppressed": 0,
+              "sent": 2714,
+              "send_errors": 4,
+              "wait_us": 86637561,
+              "fill_us": 1624583,
+              "max_fill_us": 81689
+            },
+            "consumer": {
+              "records": 4,
+              "received": 2690,
+              "inactive": 0,
+              "late": 44,
+              "target_calls": 2642,
+              "no_target": 4,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 5442633
+            }
+          }
+        },
+        "diagnostic_valid": true
+      },
+      {
+        "tag": "02-n4-on",
+        "n": 4,
+        "state": "on",
+        "observation_us": 20065027,
+        "lifetime_to_quit_request_us": 28833870,
+        "dispatch_us": 99370,
+        "probe": {
+          "expected": 36,
+          "attempted": 36,
+          "errors": 0,
+          "not_attempted": 0,
+          "playing_replies": 12,
+          "all_positions_advance": true,
+          "initialization_us": 14750,
+          "elapsed_us": 1024804,
+          "deadline_overrun_us": 0,
+          "complete": true,
+          "playback_valid": true,
+          "by_operation": {
+            "Title": {
+              "count": 12,
+              "median_us": 512.5,
+              "p95_us": 4916,
+              "max_us": 4916,
+              "total_us": 10944
+            },
+            "IsPlaying": {
+              "count": 12,
+              "median_us": 367.5,
+              "p95_us": 1211,
+              "max_us": 1211,
+              "total_us": 5451
+            },
+            "Position": {
+              "count": 12,
+              "median_us": 504.5,
+              "p95_us": 715,
+              "max_us": 715,
+              "total_us": 5911
+            }
+          }
+        },
+        "view": {
+          "calls": 2671,
+          "null": 4,
+          "looper_fail": 14,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 2653,
+          "total_us": 3547328,
+          "update_us": 1499,
+          "looper_us": 3305920,
+          "bitmap_us": 1060,
+          "overlay_us": 1128,
+          "invalidate_us": 0,
+          "draw_us": 127288,
+          "deferred": 0,
+          "records": 4,
+          "unattributed_us": 110433
+        },
+        "deferred": [],
+        "player_exit": 0,
+        "valid": true,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 1,
+            "effective": 1,
+            "active_type": 0
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 2712,
+            "cached": 0,
+            "gap_timeout": 0,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 2712,
+            "gap_frames": 0,
+            "max_gap": 0,
+            "records": 4,
+            "timeouts": 0
+          },
+          "timing": {},
+          "media": {
+            "producer": {
+              "records": 4,
+              "lock_timeouts": 4,
+              "late": 13,
+              "attempts": 2716,
+              "no_buffer": 0,
+              "fills": 2716,
+              "fill_timeouts": 0,
+              "fill_errors": 4,
+              "end_buffers": 0,
+              "suppressed": 0,
+              "sent": 2712,
+              "send_errors": 4,
+              "wait_us": 87096845,
+              "fill_us": 1382009,
+              "max_fill_us": 69933
+            },
+            "consumer": {
+              "records": 4,
+              "received": 2688,
+              "inactive": 0,
+              "late": 18,
+              "target_calls": 2667,
+              "no_target": 3,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 3549940
+            }
+          }
+        },
+        "diagnostic_valid": true
+      },
+      {
+        "tag": "03-n4-off",
+        "n": 4,
+        "state": "off",
+        "observation_us": 20074446,
+        "lifetime_to_quit_request_us": 28917288,
+        "dispatch_us": 101171,
+        "probe": {
+          "expected": 36,
+          "attempted": 36,
+          "errors": 0,
+          "not_attempted": 0,
+          "playing_replies": 12,
+          "all_positions_advance": true,
+          "initialization_us": 12405,
+          "elapsed_us": 1025298,
+          "deadline_overrun_us": 0,
+          "complete": true,
+          "playback_valid": true,
+          "by_operation": {
+            "Title": {
+              "count": 12,
+              "median_us": 445.5,
+              "p95_us": 2402,
+              "max_us": 2402,
+              "total_us": 9980
+            },
+            "IsPlaying": {
+              "count": 12,
+              "median_us": 429.5,
+              "p95_us": 1410,
+              "max_us": 1410,
+              "total_us": 6502
+            },
+            "Position": {
+              "count": 12,
+              "median_us": 582.0,
+              "p95_us": 1600,
+              "max_us": 1600,
+              "total_us": 7232
+            }
+          }
+        },
+        "view": {
+          "calls": 2710,
+          "null": 4,
+          "looper_fail": 13,
+          "bitmap_fail": 0,
+          "overlay": 0,
+          "invalidate": 0,
+          "draw": 2693,
+          "total_us": 3481556,
+          "update_us": 3122,
+          "looper_us": 3209365,
+          "bitmap_us": 902,
+          "overlay_us": 1530,
+          "invalidate_us": 0,
+          "draw_us": 129122,
+          "deferred": 0,
+          "records": 4,
+          "unattributed_us": 137515
+        },
+        "deferred": [],
+        "player_exit": 0,
+        "valid": true,
+        "threads": [
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 4,
+            "effective": 4,
+            "active_type": 1
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 4,
+            "effective": 4,
+            "active_type": 1
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 4,
+            "effective": 4,
+            "active_type": 1
+          },
+          {
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "original": 4,
+            "requested": 4,
+            "effective": 4,
+            "active_type": 1
+          }
+        ],
+        "diagnostics": {
+          "proxy": {
+            "calls": 2744,
+            "cached": 0,
+            "gap_timeout": 0,
+            "seek_timeout": 0,
+            "read_timeout": 0,
+            "other_errors": 0,
+            "success": 2744,
+            "gap_frames": 0,
+            "max_gap": 0,
+            "records": 4,
+            "timeouts": 0
+          },
+          "timing": {},
+          "media": {
+            "producer": {
+              "records": 4,
+              "lock_timeouts": 4,
+              "late": 2,
+              "attempts": 2748,
+              "no_buffer": 0,
+              "fills": 2748,
+              "fill_timeouts": 0,
+              "fill_errors": 4,
+              "end_buffers": 0,
+              "suppressed": 0,
+              "sent": 2745,
+              "send_errors": 3,
+              "wait_us": 87914025,
+              "fill_us": 942473,
+              "max_fill_us": 28597
+            },
+            "consumer": {
+              "records": 4,
+              "received": 2721,
+              "inactive": 0,
+              "late": 7,
+              "target_calls": 2706,
+              "no_target": 8,
+              "copy_bytes": 0,
+              "copy_us": 0,
+              "target_us": 3485191
+            }
+          }
+        },
+        "diagnostic_valid": true
+      }
+    ],
+    "all_diagnostic_valid": true,
+    "all_playback_valid": true
+  },
+  "paired": {
+    "groups": {
+      "off": {
+        "successful_queries": 72,
+        "expected_queries": 72,
+        "fills": 5463,
+        "fill_timeouts": 0,
+        "gap_timeouts": 0,
+        "draw_submissions": 5324,
+        "looper_fail": 31,
+        "late_consumer_buffers": 41,
+        "lifetime_us": 57864792,
+        "fill_timeout_fraction": 0.0,
+        "draw_requests_per_lifetime_second": 92.00758900161604,
+        "position_p95_us": [
+          2862,
+          1600
+        ],
+        "valid_playback_trials": 2
+      },
+      "on": {
+        "successful_queries": 72,
+        "expected_queries": 72,
+        "fills": 5434,
+        "fill_timeouts": 0,
+        "gap_timeouts": 0,
+        "draw_submissions": 5247,
+        "looper_fail": 62,
+        "late_consumer_buffers": 62,
+        "lifetime_us": 57846798,
+        "fill_timeout_fraction": 0.0,
+        "draw_requests_per_lifetime_second": 90.7051069620137,
+        "position_p95_us": [
+          3238,
+          715
+        ],
+        "valid_playback_trials": 2
+      }
+    },
+    "pairs": [
+      {
+        "off_tag": "00-n4-off",
+        "on_tag": "01-n4-on",
+        "off": {
+          "playback_valid": true,
+          "successful_queries": 36,
+          "expected_queries": 36,
+          "position_p95_us": 2862,
+          "fills": 2715,
+          "fill_timeouts": 0,
+          "gap_timeouts": 0,
+          "draw_submissions": 2631,
+          "looper_fail": 18,
+          "late_consumer_buffers": 34,
+          "lifetime_us": 28947504,
+          "observation_us": 20134628
+        },
+        "on": {
+          "playback_valid": true,
+          "successful_queries": 36,
+          "expected_queries": 36,
+          "position_p95_us": 3238,
+          "fills": 2718,
+          "fill_timeouts": 0,
+          "gap_timeouts": 0,
+          "draw_submissions": 2594,
+          "looper_fail": 48,
+          "late_consumer_buffers": 44,
+          "lifetime_us": 29012928,
+          "observation_us": 20023996
+        },
+        "both_playback_valid": true
+      },
+      {
+        "off_tag": "03-n4-off",
+        "on_tag": "02-n4-on",
+        "off": {
+          "playback_valid": true,
+          "successful_queries": 36,
+          "expected_queries": 36,
+          "position_p95_us": 1600,
+          "fills": 2748,
+          "fill_timeouts": 0,
+          "gap_timeouts": 0,
+          "draw_submissions": 2693,
+          "looper_fail": 13,
+          "late_consumer_buffers": 7,
+          "lifetime_us": 28917288,
+          "observation_us": 20074446
+        },
+        "on": {
+          "playback_valid": true,
+          "successful_queries": 36,
+          "expected_queries": 36,
+          "position_p95_us": 715,
+          "fills": 2716,
+          "fill_timeouts": 0,
+          "gap_timeouts": 0,
+          "draw_submissions": 2653,
+          "looper_fail": 14,
+          "late_consumer_buffers": 18,
+          "lifetime_us": 28833870,
+          "observation_us": 20065027
+        },
+        "both_playback_valid": true
+      }
+    ],
+    "all_playback_valid": true,
+    "limitations": "Lifetime counters include setup and teardown; normalized draw requests use start-to-quit-request time, not presentation FPS. Two pairs, non-isolated host."
+  },
+  "host_samples": 30
+}
