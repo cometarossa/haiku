@@ -14,7 +14,7 @@ class PairedSummaryTest(unittest.TestCase):
         a=aggregate(r)
         self.assertEqual(a["groups"]["off"]["fill_timeout_fraction"],.05)
         self.assertEqual(a["groups"]["on"]["valid_playback_trials"],1)
-        self.assertEqual(a["groups"]["off"]["draw_requests_per_lifetime_second"],4)
+        self.assertIsNone(a["groups"]["off"]["draw_requests_per_lifetime_second"])
         self.assertFalse(a["pairs"][0]["both_playback_valid"])
         self.assertTrue(a["pairs"][1]["both_playback_valid"])
         r["complete"]=False
@@ -31,3 +31,12 @@ class PairedSummaryTest(unittest.TestCase):
         self.assertEqual(a["groups"]["off"]["failed_queries"],3)
         self.assertEqual(a["groups"]["off"]["not_attempted_queries"],33)
         self.assertFalse(a["pairs"][0]["both_playback_valid"])
+
+
+    def test_exit_clock_denominator(self):
+        rows=[row(s) for s in ("off","on","on","off")]
+        for r in rows:
+            r.update(lifetime_to_exit_us=50000000,teardown_us=25000000)
+        a=aggregate(dict(complete=True,all_diagnostic_valid=True,all_playback_valid=True,rows=rows))
+        self.assertEqual(a["groups"]["off"]["draw_requests_per_lifetime_second"],2)
+        self.assertEqual(a["groups"]["off"]["teardown_us"],[25000000,25000000])

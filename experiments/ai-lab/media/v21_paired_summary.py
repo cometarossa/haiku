@@ -17,7 +17,9 @@ def metrics(row):
                 fills=p["fills"], fill_timeouts=p["fill_timeouts"],
                 gap_timeouts=d["proxy"]["gap_timeout"], draw_submissions=row["view"]["draw"]+sum(v["draw"] for v in row.get("deferred",[])),
                 looper_fail=row["view"]["looper_fail"], late_consumer_buffers=c["late"],
-                lifetime_us=row["lifetime_to_quit_request_us"], observation_us=row["observation_us"])
+                lifetime_to_quit_request_us=row["lifetime_to_quit_request_us"],
+                lifetime_to_exit_us=row.get("lifetime_to_exit_us"), teardown_us=row.get("teardown_us"),
+                observation_us=row["observation_us"])
 
 
 def aggregate(result):
@@ -35,14 +37,20 @@ def aggregate(result):
     for state in ("off","on"):
         m=[metrics(r) for r in rows if r["state"]==state]
         totals={k:sum(v[k] for v in m) for k in ("successful_queries","expected_queries","failed_queries","not_attempted_queries","fills",
-            "fill_timeouts","gap_timeouts","draw_submissions","looper_fail","late_consumer_buffers","lifetime_us")}
+            "fill_timeouts","gap_timeouts","draw_submissions","looper_fail","late_consumer_buffers","lifetime_to_quit_request_us")}
         totals["fill_timeout_fraction"]=totals["fill_timeouts"]/totals["fills"] if totals["fills"] else None
-        totals["draw_requests_per_lifetime_second"]=totals["draw_submissions"]*1e6/totals["lifetime_us"]
+        # Old trials do not contain exit clocks. Never divide lifetime
+        # counters by time only up to the quit request.
+        known=all(v["lifetime_to_exit_us"] is not None for v in m)
+        totals["lifetime_to_exit_us"]=sum(v["lifetime_to_exit_us"] for v in m) if known else None
+        totals["draw_requests_per_lifetime_second"]=(
+            totals["draw_submissions"]*1e6/totals["lifetime_to_exit_us"] if known else None)
+        totals["teardown_us"]=[v["teardown_us"] for v in m]
         totals["position_p95_us"]=[v["position_p95_us"] for v in m]
         totals["valid_playback_trials"]=sum(v["playback_valid"] for v in m)
         groups[state]=totals
     return dict(groups=groups,pairs=pairs,all_playback_valid=result["all_playback_valid"],
-                limitations="Lifetime counters include setup and teardown; normalized draw requests use start-to-quit-request time, not presentation FPS. Position latency includes failed attempts; missing samples remain null. Two pairs, non-isolated host.")
+                limitations="Lifetime counters include setup and teardown; Rates withheld without actual exit clocks; even measured lifetime rates are not observation-window throughput or presentation FPS. Position latency includes failed attempts; missing samples remain null. Two pairs, non-isolated host.")
 
 
 if __name__=="__main__":

@@ -129,6 +129,19 @@ def v22_gop_script(script, streams):
     return script
 
 
+def record_teardown_clocks(script):
+    """Separate observation, quit RPC, and actual process exit."""
+    changes=[
+        (b' system_time > "$tag.quit-time"\n hey "$app" quit || true',b' system_time > "$tag.quit-time"\n curl -fsS -T "$tag.quit-time" "$base/$tag.quit-time"\n hey "$app" quit || true\n system_time > "$tag.quit-return"',1),
+        (b'for ext in start quit-time windows positions stdout stderr exit;',b'system_time > "$tag.exit-time"\n for ext in start quit-return exit-time windows positions stdout stderr exit;',1),
+    ]
+    for old,new,count in changes:
+        if script.count(old)!=count:
+            raise ValueError("Unexpected teardown anchor: "+repr(old))
+        script=script.replace(old,new)
+    return script
+
+
 def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None, gop=False, gop_decode_evidence=None, gop_evidence=None):
     if sum((queues,deferred_smoke,deferred_load,v20_streams is not None,v21_smoke,v21_streams is not None))>1 or (sixteen and not deferred_load):
         raise ValueError("Select one campaign")
@@ -241,12 +254,14 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
         script=v21_combined_script(script,v21_streams) if combined else v21_load_script(script,v21_streams)
     if gop:
         script=v22_gop_script((MEDIA/"v18-probe-load-guest.sh").read_bytes(),v21_streams)
+    if v21_streams is not None:
+        script=record_teardown_clocks(script)
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
         f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(specs)
         for ext in ("dispatch","play","stop","map","probe","probe-stderr","probe-exit",
-                    "start","quit-time","windows","positions","stdout","stderr","exit","lifecycle","pause")}
+                    "start","quit-time","quit-return","exit-time","windows","positions","stdout","stderr","exit","lifecycle","pause")}
     if queues:
         allowed |= {"teams.txt","00-n8-on.teams","00-n8-on.ports"} | {
             f"00-n8-on.port-{i:02d}" for i in range(1,11)}

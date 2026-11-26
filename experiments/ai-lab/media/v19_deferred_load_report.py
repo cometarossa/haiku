@@ -47,7 +47,15 @@ def report_trial(root,i,n,state,view_state=None):
     probe_rc,player_rc=int(read("probe-exit")),int(read("exit"))
     if probe_rc not in (0,4) or (probe_rc==0)!=probe["complete"] or read("probe-stderr"):
         raise ValueError("inconsistent probe process result")
+    quit_return=exit_time=None
+    if (root/(tag+".quit-return")).exists() or (root/(tag+".exit-time")).exists():
+        quit_return,exit_time=int(read("quit-return")),int(read("exit-time"))
+        if not quit<=quit_return<=exit_time:
+            raise ValueError("invalid teardown clocks")
     return dict(tag=tag,n=n,state=state,observation_us=observed,
+        quit_rpc_us=quit_return-quit if quit_return is not None else None,
+        teardown_us=exit_time-quit if exit_time is not None and player_rc==0 else None,
+        lifetime_to_exit_us=exit_time-start if exit_time is not None and player_rc==0 else None,
         lifetime_to_quit_request_us=quit-start,dispatch_us=play-dispatch,
         probe=probe,view=view,deferred=deferred,player_exit=player_rc,
         valid=probe["playback_valid"] and player_rc==0 and 20000000<=observed<=22000000)
