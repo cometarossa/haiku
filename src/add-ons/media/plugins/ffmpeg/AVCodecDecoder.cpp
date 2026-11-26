@@ -19,6 +19,7 @@
 
 #include <assert.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <Bitmap.h>
 #include <Debug.h>
@@ -26,6 +27,7 @@
 #include <String.h>
 
 #include "Utilities.h"
+#include "LabVideoThreadPolicy.h"
 
 
 #undef TRACE
@@ -490,9 +492,28 @@ AVCodecDecoder::_NegotiateVideoOutputFormat(media_format* inOutFormat)
 		// to _DecodeNextVideoFrame() will update the essential video format
 		// properties accordingly regardless of the settings here.
 
+	const bool labSingleThread = access(
+		"/boot/home/config/settings/haiku-lab-h264-single-thread",
+		F_OK) == 0;
+	const bool labThreadStats = access(
+		"/boot/home/config/settings/haiku-lab-video-thread-stats",
+		F_OK) == 0;
+	const int labOriginalThreads = fCodecContext->thread_count;
+	fCodecContext->thread_count = LabVideoThreadCount(labOriginalThreads,
+		labSingleThread, fCodec->id == AV_CODEC_ID_H264,
+		fCodecContext->width, fCodecContext->height);
+	const int labRequestedThreads = fCodecContext->thread_count;
+
 	if (avcodec_open2(fCodecContext, fCodec, NULL) < 0) {
 		TRACE("avcodec_open() failed to init codec!\n");
 		return B_ERROR;
+	}
+	if (labThreadStats) {
+		fprintf(stderr, "\nLAB_VIDEO_THREADS codec=%s width=%d height=%d"
+			" original=%d requested=%d effective=%d active_type=%d\n",
+			fCodec->name, fCodecContext->width, fCodecContext->height,
+			labOriginalThreads, labRequestedThreads,
+			fCodecContext->thread_count, fCodecContext->active_thread_type);
 	}
 	fCodecInitDone = true;
 
