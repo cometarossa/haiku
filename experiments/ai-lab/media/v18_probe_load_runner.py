@@ -161,7 +161,7 @@ def observation_script(script, mode, streams=4):
     return script
 
 
-def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None, gop=False, gop_decode_evidence=None, gop_evidence=None, observation=None, observation_evidence=None):
+def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=False, smoke_evidence=None, v20_streams=None, v20_evidence=None, v21_smoke=False, v21_decode_evidence=None, v21_streams=None, v21_evidence=None, combined=False, combined_evidence=None, gop=False, gop_decode_evidence=None, gop_evidence=None, observation=None, observation_evidence=None, scaling_evidence=None):
     if sum((queues,deferred_smoke,deferred_load,v20_streams is not None,v21_smoke,v21_streams is not None))>1 or (sixteen and not deferred_load):
         raise ValueError("Select one campaign")
     if observation is not None and (not combined or v21_streams not in (4,8,16)):
@@ -246,6 +246,15 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
                 raise ValueError("GOP four-stream gate not met")
     if observation is not None:
         revision="4ae8e7ea"
+    if scaling_evidence is not None:
+        from v23_scaling_campaign import SHA,validate_smoke
+        if observation!="on" or v21_streams!=4 or not combined or observation_evidence is None:
+            raise ValueError("Scaling requires V22 four-stream observation and native evidence")
+        from v22_observation_smoke_report import analyze as analyze_observation
+        gate=analyze_observation(observation_evidence,"on",4)
+        if not gate["all_diagnostic_valid"] or not gate["all_playback_valid"]:
+            raise ValueError("V22 observation gate failed")
+        settings_sha=validate_smoke(scaling_evidence)["sha256"]
     initial = sample_host(revision)
     pids = {g["pid"] for g in initial["guests"]}
     downloads = {}
@@ -267,6 +276,10 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
             if hashlib.sha256(data).hexdigest()!=expected:
                 raise ValueError("GOP fixture checksum")
             downloads[name]=data
+    if scaling_evidence is not None:
+        data=(HOME/"guest-files/scaling-helper-83f428d4/scaling-settings").read_bytes()
+        if hashlib.sha256(data).hexdigest()!=SHA:raise ValueError("scaling helper checksum")
+        downloads["scaling-settings"]=data
     downloads["SHA256SUMS"] = "".join(
         f"{hashlib.sha256(b).hexdigest()}  {n}\n" for n,b in downloads.items()).encode()
     script = (MEDIA/"v18-probe-load-guest.sh").read_bytes()
@@ -288,12 +301,17 @@ def run(root, queues=False, deferred_smoke=False, deferred_load=False, sixteen=F
         script=record_teardown_clocks(script)
     if observation is not None:
         script=observation_script(script,observation,v21_streams)
+    if scaling_evidence is not None:
+        from v23_scaling_campaign import scaling_script
+        script=scaling_script(script,settings_sha)
     subprocess.run(["sh","-n"],input=script,check=True)
     downloads["run.sh"] = script
     allowed = {"revision.txt","done.txt"} | {
         f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(specs)
         for ext in ("dispatch","play","stop","map","probe","probe-stderr","probe-exit",
                     "start","quit-time","quit-return","exit-time","windows","positions","stdout","stderr","exit","lifecycle","pause")}
+    if scaling_evidence is not None:
+        allowed|={"settings-restored.txt"}|{f"{i:02d}-n{n}-{state}.{ext}" for i,(n,state) in enumerate(specs) for ext in ("scaling-before","scaling-after")}
     if queues:
         allowed |= {"teams.txt","00-n8-on.teams","00-n8-on.ports"} | {
             f"00-n8-on.port-{i:02d}" for i in range(1,11)}
@@ -404,5 +422,6 @@ if __name__=="__main__":
     p.add_argument("--gop-evidence",type=Path)
     p.add_argument("--observation",choices=("off","on"))
     p.add_argument("--observation-evidence",type=Path)
+    p.add_argument("--scaling-evidence",type=Path)
     a=p.parse_args()
-    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence,a.combined,a.combined_evidence,a.gop,a.gop_decode_evidence,a.gop_evidence,a.observation,a.observation_evidence)
+    run(a.root,a.queues,a.deferred_smoke,a.deferred_load,a.sixteen,a.smoke_evidence,a.v20_streams,a.v20_evidence,a.v21_smoke,a.v21_decode_evidence,a.v21_streams,a.v21_evidence,a.combined,a.combined_evidence,a.gop,a.gop_decode_evidence,a.gop_evidence,a.observation,a.observation_evidence,a.scaling_evidence)

@@ -6,9 +6,9 @@ from v21_load_report import report
 from observation_report import parse,summarize
 from fill_timing_report import validate
 
-def analyze(root,mode,n=4):
+def analyze(root,mode,n=4,scaling=False):
     if mode not in ("off","on"):raise ValueError("mode")
-    r=report(root,n,combined=True,revision="4ae8e7ea")
+    r=report(root,n,combined=not scaling,revision="4ae8e7ea",scaling=scaling)
     for row in r["rows"]:
         if not row["diagnostic_valid"]:continue
         tag=row["tag"]
@@ -20,7 +20,7 @@ def analyze(root,mode,n=4):
             else:
                 play=int((root/(tag+".play")).read_text())
                 stop=int((root/(tag+".stop")).read_text())
-                row["observation"]=summarize(log,play,stop,n,deferred=row["state"]=="on")
+                row["observation"]=summarize(log,play,stop,n,deferred=not scaling and row["state"]=="on")
                 if not row["observation"]["draw_completions"]:
                     raise ValueError("no observation draw completions")
             if row["teardown_us"] is None:raise ValueError("missing exit clocks")

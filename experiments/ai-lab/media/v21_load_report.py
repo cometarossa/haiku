@@ -7,8 +7,8 @@ from v20_diagnostic_report import diagnostics
 from v21_decode_report import threads,REV
 
 
-def report(root,n,combined=False,gop=False,revision=REV):
-    if combined and gop:
+def report(root,n,combined=False,gop=False,revision=REV,scaling=False):
+    if sum((combined,gop,scaling))>1:
         raise ValueError("choose one treatment")
     if gop:
         from v22_gop_decode_report import HASHES
@@ -28,7 +28,7 @@ def report(root,n,combined=False,gop=False,revision=REV):
             view_state=state if combined else "off"
             row=report_trial(root,i,n,state,view_state=view_state)
             log=(root/(tag+".stderr")).read_text()
-            records=threads(log,"on" if combined or gop else state)
+            records=threads(log,"on" if combined or gop or scaling else state)
             if len(records)!=n:
                 raise ValueError("decoder negotiation count")
             if gop:
