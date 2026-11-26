@@ -44,6 +44,9 @@ namespace {
 struct LabProducerStats {
     const bool enabled;
     const thread_id thread;
+    const bool timingEnabled;
+    uint64 fillOutcomeCount[5];
+    bigtime_t fillOutcomeUs[5];
     uint64 lockTimeouts, late, attempts, noBuffer, fills, fillTimeouts;
     uint64 fillErrors, endBuffers, suppressed, sent, sendErrors;
     bigtime_t waitUs, fillUs, maxFillUs;
@@ -51,10 +54,26 @@ struct LabProducerStats {
 
     LabProducerStats()
         : enabled(access("/boot/home/config/settings/haiku-lab-media-stats",
-            F_OK) == 0), thread(find_thread(NULL)), lockTimeouts(0), late(0),
+            F_OK) == 0), thread(find_thread(NULL)),
+          timingEnabled(enabled && access(
+            "/boot/home/config/settings/haiku-lab-video-fill-timing",
+            F_OK) == 0), fillOutcomeCount{}, fillOutcomeUs{},
+          lockTimeouts(0), late(0),
           attempts(0), noBuffer(0), fills(0), fillTimeouts(0), fillErrors(0),
           endBuffers(0), suppressed(0), sent(0), sendErrors(0), waitUs(0),
           fillUs(0), maxFillUs(0), lastSendError(B_OK) {}
+
+    // Classify the original result before VideoProducer rewrites timeouts
+    // into suppressed successful sends. Elapsed time includes scheduling.
+    void RecordFillOutcome(status_t result, bool cached, bigtime_t elapsed)
+    {
+        if (!timingEnabled) return;
+        const int outcome = result == B_OK ? (cached ? 1 : 0)
+            : result == B_TIMED_OUT ? 2
+            : result == B_LAST_BUFFER_ERROR ? 3 : 4;
+        ++fillOutcomeCount[outcome];
+        fillOutcomeUs[outcome] += elapsed;
+    }
 
     ~LabProducerStats()
     {
@@ -71,6 +90,18 @@ struct LabProducerStats {
             thread, lockTimeouts, late, attempts, noBuffer, fills,
             fillTimeouts, fillErrors, endBuffers, suppressed, sent,
             sendErrors, waitUs, fillUs, maxFillUs, lastSendError);
+        if (timingEnabled) {
+            fprintf(stderr, "LAB_MEDIA_FILL_TIMING thread=%" B_PRId32
+                " ok=%" B_PRIu64 " cached=%" B_PRIu64
+                " timeout=%" B_PRIu64 " end=%" B_PRIu64
+                " error=%" B_PRIu64 " ok_us=%" B_PRId64
+                " cached_us=%" B_PRId64 " timeout_us=%" B_PRId64
+                " end_us=%" B_PRId64 " error_us=%" B_PRId64 "\n",
+                thread, fillOutcomeCount[0], fillOutcomeCount[1],
+                fillOutcomeCount[2], fillOutcomeCount[3], fillOutcomeCount[4],
+                fillOutcomeUs[0], fillOutcomeUs[1], fillOutcomeUs[2],
+                fillOutcomeUs[3], fillOutcomeUs[4]);
+        }
     }
 };
 } // namespace
@@ -810,6 +841,7 @@ VideoProducer::_FrameGeneratorThread()
 						const bigtime_t elapsed = system_time() - fillStart;
 						++lab.fills;
 						lab.fillUs += elapsed;
+						lab.RecordFillOutcome(err, wasCached, elapsed);
 						if (elapsed > lab.maxFillUs) lab.maxFillUs = elapsed;
 						if (err == B_TIMED_OUT) ++lab.fillTimeouts;
 						else if (err == B_LAST_BUFFER_ERROR) ++lab.endBuffers;
