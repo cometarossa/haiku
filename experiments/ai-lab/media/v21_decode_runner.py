@@ -20,7 +20,9 @@ def repeat_script(script):
     return script
 
 
-def run(root,repeat=False):
+def run(root,repeat=False,gop=False):
+    if repeat and gop:
+        raise ValueError("choose one campaign")
     initial = sample_host(REV)
     pids = {g["pid"] for g in initial["guests"]}
     src = HOME/"guest-files"
@@ -38,6 +40,21 @@ def run(root,repeat=False):
     manifest = f"{digest}  frame-digest\n{FIXTURE_SHA}  stream-a.mp4\n".encode()
     downloads = {"run.sh":script,"frame-digest":binary,"stream-a.mp4":fixture,"SHA256SUMS":manifest}
     tags = [f"{i:02d}-{state}" for i,state in enumerate(("off","on","on","off")*2)] if repeat else ["off","on"]
+    if gop:
+        from v22_gop_decode_report import HASHES,TAGS
+        script=(MEDIA/"v22-gop-decode-guest.sh").read_bytes()
+        subprocess.run(["sh","-n"],input=script,check=True)
+        downloads={"run.sh":script,"frame-digest":binary}
+        manifest=f"{digest}  frame-digest\n".encode()
+        for g,expected in HASHES.items():
+            name=f"gop-{g}.mp4"
+            data=(src/"v22-gop"/name).read_bytes()
+            if hashlib.sha256(data).hexdigest()!=expected:
+                raise ValueError("GOP fixture checksum")
+            downloads[name]=data
+            manifest+=f"{expected}  {name}\n".encode()
+        downloads["SHA256SUMS"]=manifest
+        tags=TAGS
     allowed = {"revision.txt","done.txt"} | {
         f"{state}.{ext}" for state in tags
         for ext in ("start","stop","stdout","stderr","exit")}
@@ -102,7 +119,11 @@ def run(root,repeat=False):
         else:
             raise TimeoutError("decode smoke incomplete; inspect guest")
         from v21_decode_report import validate_repeat
-        result=validate_repeat(root) if repeat else validate(root)
+        if gop:
+            from v22_gop_decode_report import validate as validate_gop
+            result=validate_gop(root)
+        else:
+            result=validate_repeat(root) if repeat else validate(root)
         (root/"summary.json").write_text(json.dumps(result,indent=2)+"\n")
         print(json.dumps(result,indent=2))
     finally:
@@ -116,5 +137,6 @@ if __name__=="__main__":
     p=argparse.ArgumentParser()
     p.add_argument("root",type=Path)
     p.add_argument("--repeat",action="store_true")
+    p.add_argument("--gop",action="store_true")
     a=p.parse_args()
-    run(a.root,a.repeat)
+    run(a.root,a.repeat,a.gop)
